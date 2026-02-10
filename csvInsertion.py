@@ -1,4 +1,5 @@
 import sqlite3
+
 def extractInformation():
         file = open("information.txt","r")
         p=[]
@@ -9,7 +10,7 @@ def extractInformation():
                 p[i]=tuple(p[i].split(","))
         file.close()
         return p
-
+#take the csv data and insert it into the file, format data entry using this      
 def booleanInsertion(n):
         con = sqlite3.connect('booleanData.db')
         cur = con.cursor()
