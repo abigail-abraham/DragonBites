@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Group">
     <title>Dragon Bites</title>
-    <link href="website.css" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='website.css') }}" rel="stylesheet" type="text/css">
 </head>
   <body>
     <header><!--banner image is set behnd the header in css-->
@@ -23,8 +23,9 @@
       <div class="main-wrapper">
     <div class="content-area">
         <h2>Food listing</h2>
-        <p>Restaurant name</p><br>
-        <p>Ratings</p>
+        {% for restaurant in restaurants %}
+            <p>{{ restaurant[0] }}</p>
+        {% endfor %}
         <div class="map-box">
             </div>
     </div>
@@ -32,19 +33,66 @@
         <p>This is where the banner would be present</p>
     </section>
       <aside class="filter-sidebar">
-        <h3>FILTERS:</h3>
+        <h3><b>FILTERS:</b></h3>
         <hr>
-        <label><input type="checkbox">Dragon Dollars</label>
-        <label><input type="checkbox">Dining Dollars</label>
-        <label><input type ="checkbox">Card</label>
-        <label><input type ="checkbox">Cash</label>
-        <hr>
-        <p>Price</p>
-        <input type="text" placeholder="Min $">
-        <input type="text" placeholder="Max $">
+    <div id="filters-container">
+        <form id="filters-form" style="display:inline;">
+            <label><input type="checkbox" name="filter" value="dragonDollars" {% if 'dragonDollars' in active_filters %}checked{% endif %}> Dragon Dollars</label><br>
+            <label><input type="checkbox" name="filter" value="diningDollars" {% if 'diningDollars' in active_filters %}checked{% endif %}> Dining dollars</label><br>
+            <label><input type="checkbox" name="filter" value="card" {% if 'card' in active_filters %}checked{% endif %}> Card</label><br>
+            <label><input type="checkbox" name="filter" value="cash" {% if 'cash' in active_filters %}checked{% endif %}> Cash</label><br>
+        </form>
+    </div>
+    <hr>
+        <h3><b>Price</b></h3>
+        <input type="number" id="min-price" placeholder="Min $" min="0">
+        <input type="number" id="max-price" placeholder="Max $" min="0">
         <button class="apply-btn">Apply</button>
     </aside>
+
+
+
+
+
+<script>
+    document.querySelector('.apply-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get all checked filters
+        const checkboxes = document.querySelectorAll('#filters-form input[name="filter"]:checked');
+        const filters = Array.from(checkboxes).map(cb => cb.value);
+        
+        // Get price range
+        const minPrice = document.querySelector('#min-price').value;
+        const maxPrice = document.querySelector('#max-price').value;
+        
+        // Send AJAX request
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ filters: filters, minPrice: minPrice, maxPrice: maxPrice })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Update the restaurants list
+            const contentArea = document.querySelector('.content-area');
+            let html = '<h2>Food listing</h2>';
+            if (data.restaurants.length === 0) {
+                html += '<p>No restaurants match your filters.</p>';
+            } else {
+                data.restaurants.forEach(restaurant => {
+                    html += `<p>${restaurant[0]}</p>`;
+                });
+            }
+            contentArea.innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
+
 </div>
   </body>
 </html>
-   
