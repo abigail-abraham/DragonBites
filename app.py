@@ -3,6 +3,7 @@ import dataQuery
 import os
 
 app = Flask(__name__)
+
 # Use an environment-provided SECRET_KEY in production; fall back to a random key for local dev
 app.secret_key = os.environ.get('SECRET_KEY') or os.urandom(24)
 
@@ -34,6 +35,7 @@ def index():
         session.modified = True
         
         # Create query with all active filters
+        
         b = dataQuery.booleanQuery()
         
         if 'dragonDollars' in session['filters']:
