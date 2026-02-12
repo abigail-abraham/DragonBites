@@ -7,7 +7,8 @@ body {
 
 header {
   border: thin solid white;
-  background-image:url('/Users/riya/Downloads/0B3CD1F5-4051-4257-99F2-1601E399411C.png');
+  background-image:url("drexel.png");
+
   background-size: contain;
   height: 200px;                
   width: 100%;                   
@@ -38,12 +39,12 @@ nav ul {
   padding: 0;
   display: flex; /* Makes navigation bar horizontal */
   justify-content: center; /* Centers the links */
-  background-color:  bisque;
+  background-color: #192841;
   border-radius: 10px;
   overflow: hidden;
 }
 nav li {
-  border-right: 1px solid #555;
+  padding: 10px;
 }
 
 nav li:last-child {
@@ -120,3 +121,4 @@ nav li a:hover {
 .content-area {
     flex: 1;                 
 }
+
