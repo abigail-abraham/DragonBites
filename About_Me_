@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About</title>
+</head>
+<body>
+  <h2>Abigail Abraham</h2>
+  <p>Product Owner of the Website.</p>
+  <p>My major is Software Engineering.</p>
+  <p>My email is <a href="mailto:aa4985@drexel.edu">aa4985@drexel.edu</a>.</p>
+  <p>A fun fact of myself is that I am a singer and have my music on most of the music platforms.</p>
+</body>
+</html>
