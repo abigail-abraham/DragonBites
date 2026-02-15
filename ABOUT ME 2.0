@@ -2,6 +2,39 @@
 <html lang="en">
 <head>
   <title>About Me</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: #192841;
+      color: gold;
+      margin: 40px;
+      font-size: 20px;
+    }
+    h1 {
+      font-family: "Times New Roman", Times, serif;
+      color: gold;
+      font-size: 48px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    p {
+      font-family: "Times New Roman", Times, serif;
+      color: gold;
+      font-size: 22px;
+      line-height: 1.8;
+    }
+    strong {
+      font-family: "Times New Roman", Times, serif;
+      color: gold;
+      font-size: 24px;
+      text-decoration: underline;
+    }
+    a {
+      font-family: "Times New Roman", Times, serif;
+      color: blue;
+      font-size: 22px;
+    }
+  </style>
 </head>
 <body>  
   <h1>Abigail Abraham</h1> 
