@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About Me</title>
+</head>
+<body>  
+  <h1>Abigail Abraham</h1> 
+  <p><strong>Product Owner</strong> of this Website</p>  
+  <p><strong>Major:</strong> Software Engineering</p>  
+  <p><strong>Email:</strong> <a href="mailto:aa4985@drexel.edu">aa4985@drexel.edu</a></p>  
+  <p><strong>Description:</strong> I am a singer and have my music on most music platforms.</p>  
+  <p><strong>Fun fact of us developers:</strong> We all live in Bentley Hall</p>
+</body>
+</html>
