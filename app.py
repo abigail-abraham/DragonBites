@@ -75,7 +75,11 @@ def index():
     
     restaurants = b.executeQueries()
     
-    return render_template("website2.html", restaurants=restaurants, active_filters=session['filters'])
+    return render_template("website.html", restaurants=restaurants, active_filters=session['filters'])
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
