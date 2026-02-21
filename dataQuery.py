@@ -30,7 +30,7 @@ class booleanQuery:
     #Executes and returns what places fit the criterias
     def executeQueries(self):
         phrase="" #string phrase after the WHERE clause
-        con = sqlite3.connect('booleanData.db')
+        con = sqlite3.connect('instance/booleanData.db')
         cur = con.cursor()
 
         if len(self.clauses) == 0:
