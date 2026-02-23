@@ -1,0 +1,60 @@
+body {
+    font-family: Georgia, serif;
+    background-color: #192841;
+    color: #FFCF40;
+    margin: 0;
+}
+
+header {
+    border: thin solid white;
+    background-image: url("drexel.png");
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #192841;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+nav li {
+    padding: 10px;
+}
+
+nav li a {
+    color: #FFCF40;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav li a:hover {
+    background-color: #555;
+    color: #FF9933;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
