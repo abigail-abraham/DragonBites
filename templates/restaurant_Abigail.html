@@ -128,4 +128,94 @@
             <a href="#" id="modal-link" target="_blank">Visit Website</a>
         </div>
     </div>
+
+    <script>
+        function getImageName(restaurantName) {
+            const imageMap = {
+                'Landmark Americana': 'landmark.jpg',
+                'Wild Blue': 'wildblue.jpg',
+                'Chick-Fil-A': 'chickfila.jpg',
+                'Urban Eatery': 'urbaneatery.jpg',
+                'Chipotle': 'chipotle.jpg',
+                'Han Dynasty': 'handynasty.jpg',
+                'Sabrina\'s Cafe': 'sabrinas.png',
+                'Tataki Ramen': 'tataki.jpg'
+            };
+            return imageMap[restaurantName];
+        }
+
+        const restaurantData = {
+            'Landmark Americana': {
+                rating: '4.0 ★★★★☆',
+                description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports. Usually no wait, people typically spend 45 min to 2.5 hours here.',
+                website: 'https://www.landmarkamericana.com'
+            },
+            'Wild Blue': {
+                rating: '4.0 ★★★★☆',
+                description: 'Popular sushi vendor located within the Northside Dining Terrace (NDT). Offers fresh, made-to-order sushi, poke bowls, and specialized rolls. Accepts dining dollars, Dragon Dollars, and credit cards.',
+                website: 'https://drexel.mydininghub.com/en/location/wild-blue-sushi'
+            },
+            'Chick-Fil-A': {
+                rating: '3.7 ★★★☆☆',
+                description: 'Fast-food chain serving chicken sandwiches, nuggets, salads, and sides. Located in Northside Dining Terrace. Offers outdoor seating, vegetarian options, and Wi-Fi.',
+                website: 'https://www.chick-fil-a.com/locations/pa/drexel-university'
+            },
+            'Urban Eatery': {
+                rating: '2.4 ★★☆☆☆',
+                description: 'Cafeteria-style dining located at 3400 Lancaster Ave. A convenient on-campus option for a quick meal.',
+                website: 'https://drexel.mydininghub.com/en/location/urban-eatery'
+            },
+            'Chipotle': {
+                rating: '2.8 ★★★☆☆',
+                description: 'Casual Mexican restaurant offering design-your-own burritos, tacos, and bowls. Located in The Summit at University City. Offers vegetarian options.',
+                website: 'https://locations.chipotle.com/pa/philadelphia/3400-lancaster-ave'
+            },
+            'Han Dynasty': {
+                rating: '4.3 ★★★★☆',
+                description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails. Usually no wait, people typically spend 45 min to 1.5 hours here.',
+                website: 'https://www.handynasty.net/location/han-dynasty-university-city/'
+            },
+            'Sabrina\'s Cafe': {
+                rating: '4.5 ★★★★★',
+                description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients. Has a cozy, historic atmosphere.',
+                website: 'https://www.sabrinascafe.com/location/sabrinas-cafe-university-city/'
+            },
+            'Tataki Ramen': {
+                rating: '4.7 ★★★★★',
+                description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials. Has a lively, bright, and clean atmosphere.',
+                website: 'https://www.universitycity.org/diningdays/tataki/'
+            }
+        };
+
+        function openModal(restaurantName) {
+            const data = restaurantData[restaurantName] || {
+                rating: '★★★★☆',
+                description: 'Description coming soon.',
+                website: '#'
+            };
+            
+            document.getElementById('modal-name').textContent = restaurantName;
+            document.getElementById('modal-rating').textContent = data.rating;
+            document.getElementById('modal-description').textContent = data.description;
+            document.getElementById('modal-link').href = data.website;
+            
+            const imageName = getImageName(restaurantName);
+            const imagePath = 'images/' + imageName;
+            document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
+            
+            document.getElementById('restaurantModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('restaurantModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('restaurantModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
 </html>
