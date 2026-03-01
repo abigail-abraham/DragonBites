@@ -34,10 +34,20 @@ class booleanQuery:
         cur = con.cursor()
 
         if len(self.clauses) == 0:
-          cur.execute("SELECT restaurantName FROM booleanData")
+            cur.execute("SELECT restaurantName FROM booleanData")
             fits=cur.fetchall()
             con.close()
-            return fits
+            varData = sqlite3.connect('instance/quantifiableData.db')
+            sor = varData.cursor()
+            sor.execute("SELECT restaurantName, avgPrice, rating FROM quantifiable")
+            table = sor.fetchall()
+            varData.close()
+            data = []
+            for res in table:
+                for fit in fits:
+                    if res[0] == fit[0]:
+                        data.append([fit[0] + " " + str(res[1]) + " " + str(res[2])])
+            return data
         elif len(self.clauses) == 1:
             phrase= self.clauses[0]
         else:
@@ -59,7 +69,7 @@ class booleanQuery:
         return data
 
 #Sample testing code
-
+"""
 d = booleanQuery()
 print(d.executeQueries())
 d.usesDragonDollars()
@@ -67,6 +77,7 @@ d.takesCash()
 print(d.executeQueries())
 d.takesCashREMOVE()
 print(d.executeQueries())
+"""
 
 
 
