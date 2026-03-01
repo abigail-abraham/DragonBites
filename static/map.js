@@ -27,10 +27,18 @@ try {
     const marker = L.marker([loc[0], loc[1]], { icon: blueIcon }).addTo(map);
     marker.bindPopup(loc[2]);
 
-    marker.on('click', function (e) {
-        console.log("Marker clicked at", e.latlng);
-
-    });
+    const tatakiMarker = L.marker([39.957586599999054, -75.19207226199879], { icon: blueIcon }).addTo(map);
+    tatakiMarker.bindPopup("This is Tataki Sushi and Ramen.");
+    const hanMarker = L.marker([39.95672897997564, -75.19710636677178], { icon: blueIcon }).addTo(map);
+    hanMarker.bindPopup("This is Han Dynasty.");
+    const chikMarker = L.marker([39.95892892006141, -75.19066655281112], { icon: blueIcon }).addTo(map);
+    chikMarker.bindPopup("This is Chik-fil-A.");
+    const wildBlueMarker = L.marker([39.95892579555406, -75.19051829394947], { icon: blueIcon }).addTo(map);
+    wildBlueMarker.bindPopup("This is Wild Blue Sushi.");
+    const chipotleMarker = L.marker([39.957211125669666, -75.19139423385867], { icon: blueIcon }).addTo(map);
+    chipotleMarker.bindPopup("This is Chipotle.");
+    const sabrinaMarker = L.marker([39.959963231800494, -75.19071384179624], { icon: blueIcon }).addTo(map);
+    sabrinaMarker.bindPopup("This is Sabrina's.");
 
     map.locate({ setView: true, maxZoom: 16 });
 
