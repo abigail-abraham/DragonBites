@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
-    <link rel="stylesheet" href="restaurant-filters.css">
+    <link rel="stylesheet" href="restaurant.css">
 </head>
 <body>
     <header>
-        <aside class="head-above">
-        </aside>
+        <div class="header-logo">
+            <img src="images/DragonBites Logo.png" alt="Dragon Bites Logo">
+        </div>
     </header>
     
     <nav>
@@ -78,42 +79,53 @@
             <hr>
             
             <button class="restaurant-filter-apply">Apply Filters</button>
+            
+            <div class="filter-dragon-container">
+                <img src="images/FilterDragonImage.png" alt="Dragon Logo">
+            </div>
         </aside>
         
         <div class="content-area">
             <h2>Food listing</h2>
             
             <div class="restaurant-grid">
-                <div class="restaurant-card">
-                    <h3>Restaurant 1</h3>
+                <div class="restaurant-card" onclick="openModal('Landmark Americana')">
+                    <h3>Landmark Americana</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 2</h3>
+                <div class="restaurant-card" onclick="openModal('Wild Blue')">
+                    <h3>Wild Blue</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 3</h3>
+                <div class="restaurant-card" onclick="openModal('Chick-Fil-A')">
+                    <h3>Chick-Fil-A</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 4</h3>
+                <div class="restaurant-card" onclick="openModal('Urban Eatery')">
+                    <h3>Urban Eatery</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 5</h3>
+                <div class="restaurant-card" onclick="openModal('Chipotle')">
+                    <h3>Chipotle</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 6</h3>
+                <div class="restaurant-card" onclick="openModal('Han Dynasty')">
+                    <h3>Han Dynasty</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 7</h3>
+                <div class="restaurant-card" onclick="openModal('Sabrina\'s Cafe')">
+                    <h3>Sabrina's Cafe</h3>
                 </div>
-                <div class="restaurant-card">
-                    <h3>Restaurant 8</h3>
+                <div class="restaurant-card" onclick="openModal('Tataki Ramen')">
+                    <h3>Tataki Ramen</h3>
                 </div>
-            </div>
-            
-            <div class="map-box">
-                Map will be here
             </div>
         </div>
     </div>
-</body>
+
+    <div id="restaurantModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-image">
+            </div>
+            <h2 id="modal-name">Restaurant Name</h2>
+            <div id="modal-rating">★★★★☆</div>
+            <p id="modal-description">Description will go here</p>
+            <a href="#" id="modal-link" target="_blank">Visit Website</a>
+        </div>
+    </div>
 </html>
