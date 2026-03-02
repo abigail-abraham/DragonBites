@@ -1,66 +1,52 @@
-"Timestamp","Which restaurant are you rating?","Rate this restaurant!","Explain why you gave this rating. What makes it what you gave it?","Anything else"
-"2026/02/26 11:42:33 AM EST","Landmark Americana","4","I got the impossible burger, and they allowed me to order the impossible burger patty with the normal landmark Americana burger which was good. The portion sizes in relation to the cost was also good and they gave fries with the burger",""
-"2026/02/26 11:44:10 AM EST","Urban Eatery","3","Although they have a good amount of options, the flavor is usually lacking. I like how they have a wide variety of things like food, ice cream, drinks, coffee. They don’t have many options for fruits though, and barely have any. Most of the fruits that have are canned and are only offered at breakfast",""
-"2026/02/26 11:47:17 AM EST","Chipotle","5","It has good veg options ",""
-"2026/02/26 11:54:58 AM EST","Urban Eatery","2","Food poisoning.","Nah"
-"2026/02/26 11:55:47 AM EST","Chick-Fil-A","4","Real good compared to Urban ","Nah"
-"2026/02/26 11:56:02 AM EST","Wild Blue","3","Fire but needs more options ","Nah"
-"2026/02/26 11:56:17 AM EST","Chipotle","4","Actual food but sometimes bad ","Nah"
-"2026/02/26 11:56:22 AM EST","Chipotle","1","They never have anything available the last time I went, they were out of steak, both rices, and tortillas…how do you run out of tortillas?",""
-"2026/02/26 11:56:28 AM EST","Sabrina's Cafe","4","Good coffee ","Nah"
-"2026/02/26 11:57:45 AM EST","Tataki Ramen","4","Good Ramen great other foods ","Nah"
-"2026/02/26 11:58:05 AM EST","Chick-Fil-A","4","Can never go wrong it always hits the same",""
-"2026/02/26 12:06:23 PM EST","Urban Eatery","3","They do not have ample options for vegetarians on some days and the food appears to be reheated frozen food",""
-"2026/02/26 12:06:43 PM EST","Tataki Ramen","5","I love the lunch special deal. Their sushi is always fresh.",""
-"2026/02/26 12:10:51 PM EST","Chick-Fil-A","5","I gave this rating because their food and drinks tasted super delicious 😋, and their customer service is very helpful too.","Their milkshakes are so good. And I like how they take customers’ orders from their drive-thru. "
-"2026/02/26 12:10:59 PM EST","Sabrina's Cafe","5","It’s near my dorm, the food is always hot and well made, and it always tastes good",""
-"2026/02/26 12:11:23 PM EST","Urban Eatery","2","Urban Eatery is a place that transcends the concept of food. Not because it reinvents dining or elevates cuisine, but because it somehow turns eating into an experience you actively have to emotionally prepare for. Walking in feels less like entering a dining hall and more like participating in a social experiment about how long college students will wait in line before questioning their life choices.
-
-Based on what students consistently say, the biggest defining feature of Urban Eatery isn’t the menu — it’s unpredictability. One day the food is genuinely solid, almost impressive for campus dining, and the next day the same station serves something that looks identical but tastes completely different. The inconsistency becomes part of the culture. You don’t go to Urban Eatery knowing what you’ll eat; you go hoping you guessed correctly.
-
-The layout tries to sell the idea of variety, with multiple stations promising options, yet students often find themselves circling the room several times before settling on the safest choice. Lines form fast, especially during peak hours, turning dinner into a strategic operation. Veteran students learn survival tactics: arrive early, avoid certain stations at certain times, and never fully trust the pizza after 9 p.m.
-
-Quality is another recurring theme in student reviews. Many appreciate the effort toward healthier or customizable meals, but frustration comes from execution. Food can be under-seasoned, overcooked, or mysteriously lukewarm despite being freshly served. There’s a shared understanding among students that Urban Eatery has potential — which almost makes the disappointment stronger when meals fall short.
-
-Still, Urban Eatery functions as more than just a place to eat. It’s where group projects start, friendships form, and everyone collectively complains about dining hall food while continuing to show up every day. The noise, the crowded seating, and the constant movement give it an energy that feels undeniably college. Even students who criticize it the most admit they’ve spent countless hours there.
-
-In the end, Urban Eatery succeeds less as a culinary destination and more as a campus ritual. It feeds students, tests patience, sparks conversation, and somehow becomes a shared memory of Drexel life. You may not always leave satisfied, but you’ll definitely leave with a story.","Do i get a prize? "
-"2026/02/26 12:18:33 PM EST","Urban Eatery","3","There aren’t many food choices for vegetarians and it’s hard to find good food","No"
-"2026/02/26 12:21:32 PM EST","Urban Eatery","2","Poor quality food majority of the times; very likely to cause food poisoning and other digestive problems.",""
-"2026/02/26 12:25:49 PM EST","Urban Eatery","2","It's urban brah",""
-"2026/02/26 12:29:10 PM EST","Urban Eatery","3","It’s usually either pretty bad or pretty good, so that’s why I give it a mid rating of 3. I feel like most ppl would rate it a 1 or 2, but I tend to enjoy any food that goes into my mouth. It has its highs and lows but there is usually something there that I can stuff my face with.","As a former almost obese man I think my take is good 🤑"
-"2026/02/26 12:36:59 PM EST","Han Dynasty","5","I LOVE THEIR DAN DAN NOODLE! and everything else is also amazing, and also they are good at service.",""
-"2026/02/26 12:38:37 PM EST","Urban Eatery","2","Food is up to health standard but lacks actual flavor and is depressing. Worse than hans.",""
-"2026/02/26 12:39:26 PM EST","Tataki Ramen","4","I really like the vegetarian ramen at this place, I just wished they had more vegetarian options, also the mochi is nice.",""
-"2026/02/26 12:40:23 PM EST","Urban Eatery","3","its not as bad as people say it is, sometimes the food is pretty decent, its horrible on the weekend tho.",""
-"2026/02/26 1:21:21 PM EST","Urban Eatery","3","The breakfast and lunch are pretty good but the dinner is terrible ngl","No"
-"2026/02/26 2:00:15 PM EST","Chick-Fil-A","4","it’s chic fil a but i lowkey wish there were more options but it’s really fast which i appreciate",""
-"2026/02/26 2:01:11 PM EST","Sabrina's Cafe","5","it’s goated i personally love cafe diners and this brings the love back from my hometown. Somewhat pricey but it’s a diner so it makes sense. Food is absolutely worth the price there’s a lot of food and it’s quick. Amazing study spot upstairs too.",""
-"2026/02/26 2:01:54 PM EST","Urban Eatery","3","The big urban is too inconsistent. Some days it’s good some days it’s bad. I’ve gotten food poisoning/stomach issues at least 3 times. Very unfortunate and I feel like i eat the same shit everyday and it sucks.",""
-"2026/02/26 2:02:24 PM EST","Sabrina's Cafe","4","They have nice coffee and specialty drinks. Alittle expensive, but for the atmosphere, quality of food, and being in the city, I think it is worth it. ",""
-"2026/02/26 2:02:30 PM EST","Tataki Ramen","4","Great ramen place that’s super close by. Not a 5 cause they don’t accept dragon dollars despite being on campus.",""
-"2026/02/26 2:15:28 PM EST","Chick-Fil-A","5","i can eat it everyday and not get tired. also the people are nice ","no :)"
-"2026/02/26 2:19:03 PM EST","Chipotle","1","Removed the honey chicken ","High ash"
-"2026/02/26 2:19:25 PM EST","Tataki Ramen","1","Salty","It’s franky"
-"2026/02/26 2:26:42 PM EST","Tataki Ramen","4","An amazing environment and ambience to eat East Asian food (specifically sushi and ramen), both with family, or alone, with some ALMOST top-tier food. ",""
-"2026/02/26 2:30:16 PM EST","Sabrina's Cafe","4","Great menu and versatility in breakfast, brunch, and lunch, and amazing seasonal offerings. Needs a little more space in the restaurant itself but the food is also better-than-average. ",""
-"2026/02/26 4:17:38 PM EST","Han Dynasty","4","The food was really delicious and fairly affordable. Suitable for folks of all ages and even vegetarians. ",""
-"2026/02/26 4:57:10 PM EST","Tataki Ramen","4","Good food and consistent",""
-"2026/02/26 4:57:55 PM EST","Chick-Fil-A","3","Nuggets are salty and dry, but fries are addicting",""
-"2026/02/26 4:58:14 PM EST","Wild Blue","3","Sushi is ok, food is mid",""
-"2026/02/26 7:05:21 PM EST","Chipotle","2","The servers are rude at times the proportions are never the same and the food isn’t always very good","No"
-"2026/02/26 7:11:58 PM EST","Urban Eatery","2","not a lot of options for things people actually want to eat, food often tastes bland or is over / undercooked, weird hours between lunch and dinner (there really isn’t anything to eat between 2-4)",""
-"2026/02/26 9:23:55 PM EST","Urban Eatery","1","brother the food is stale it doesn’t cater to any dining restrictions has mice roaches etc zero variety for the price paid and all around sucks","fix the website"
-"2026/02/26 10:22:01 PM EST","Wild Blue","4","Good price, excepts dragon dollars. Ice is really crunchy which is awesome they’re also lowkey balls like circular it’s really cool. My friends uncle owns the place and she got hella free food one time so for that i think it’s a 5. Kinda pricet but lowkey it worth cause dragon dollars.
-thanks vivian for the free rolls i really appreciate your uncle and the chic fil a that was great too. ",""
-"2026/02/26 11:19:44 PM EST","Tataki Ramen","4","Very yummy udon, and nice service. ","Hi alisha"
-"2026/02/26 11:29:28 PM EST","Chick-Fil-A","3","I really like the workers but they almost never have grilled nuggets when I want them and as someone with a gluten allergy it sucks :-(",""
-"2026/02/27 8:44:05 AM EST","Urban Eatery","2","because lunch and dinner are bad sometimes and the food makes you sick ","nope "
-"2026/02/27 8:45:15 AM EST","Landmark Americana","3","I got the vegetable quesadilla and it was a bit too oily for me, and I could taste the oil which reminded me of urban ",""
-"2026/02/27 8:46:52 AM EST","Chipotle","5","It’s amazing!!! it’s just specific locations have bad service. drexel chipotle doesn’t give what you want all the time, you would have to double check, and sour cream is sometimes spoiled. 
-",""
-"2026/02/27 8:47:29 AM EST","Chick-Fil-A","5","i’ve never had a bad experience with them, and food is great. ",""
-"2026/02/27 8:48:40 AM EST","Han Dynasty","5","i love their food!!!! cold noodle chili oil, chicken wontons (spicy), dry pot chicken are all rlly good. 
-",""
-"2026/02/27 8:49:24 AM EST","Sabrina's Cafe","4","i got the french toast and mocha. everything was great, but it is a bit expensive. ",""
-"2026/02/27 10:00:40 AM EST","Landmark Americana","4","kinda overpriced a lil bit depending on item. Food pretty worth it but like for example the tacos are small",""
+Landmark Americana,4
+Urban Eatery,3
+Chipotle,5
+Urban Eatery,2
+Chick-Fil-A,4
+Wild Blue,3
+Chipotle,4
+Chipotle,1
+Sabrina's Cafe,4
+Tataki Ramen,4
+Chick-Fil-A,4
+Urban Eatery,3
+Tataki Ramen,5
+Chick-Fil-A,5
+Sabrina's Cafe,5
+Urban Eatery,2
+Urban Eatery,3
+Urban Eatery,2
+Urban Eatery,2
+Urban Eatery,3
+Han Dynasty,5
+Urban Eatery,2
+Tataki Ramen,4
+Urban Eatery,3
+Urban Eatery,3
+Chick-Fil-A,4
+Sabrina's Cafe,5
+Urban Eatery,3
+Sabrina's Cafe,4
+Tataki Ramen,4
+Chick-Fil-A,5
+Chipotle,1
+Tataki Ramen,1
+Tataki Ramen,4
+Sabrina's Cafe,4
+Han Dynasty,4
+Tataki Ramen,4
+Chick-Fil-A,3
+Wild Blue,3
+Chipotle,2
+Urban Eatery,2
+Urban Eatery,1
+Wild Blue,4
+Tataki Ramen,4
+Chick-Fil-A,3
+Urban Eatery,2
+Landmark Americana,3
+Chipotle,5
+Chick-Fil-A,5
+Han Dynasty,5
+Sabrina's Cafe,4
+Landmark Americana,4
