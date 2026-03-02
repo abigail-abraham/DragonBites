@@ -17,6 +17,7 @@ header {
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 1;
 }
 
 .header-logo {
@@ -34,6 +35,12 @@ header {
     margin: 0 auto;
 }
 
+nav {
+    position: relative;
+    z-index: 9999;
+    background-color: #192841;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -43,16 +50,23 @@ nav ul {
     background-color: #192841;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+    z-index: 9999;
 }
 
 nav li {
     padding: 10px;
+    position: relative;
+    z-index: 9999;
 }
 
 nav li a {
     color: #FFCF40;
     text-decoration: none;
     padding: 10px;
+    position: relative;
+    z-index: 9999;
+    display: inline-block;
 }
 
 nav li a:hover {
@@ -66,6 +80,8 @@ nav li a:hover {
     justify-content: space-between;
     gap: 20px;
     padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .restaurant-filter-sidebar {
@@ -81,6 +97,7 @@ nav li a:hover {
     display: flex;
     flex-direction: column;
     height: fit-content;
+    z-index: 2;
 }
 
 .restaurant-filter-sidebar hr {
@@ -165,7 +182,7 @@ nav li a:hover {
     color: #192841;
     font-weight: bold;
     font-size: 14px;
-}
+}    
 
 .restaurant-filter-apply {
     border: 2px solid #000;
@@ -240,7 +257,7 @@ nav li a:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
@@ -257,6 +274,7 @@ nav li a:hover {
     max-width: 90%;
     position: relative;
     box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    z-index: 10001;
 }
 
 .close-btn {
