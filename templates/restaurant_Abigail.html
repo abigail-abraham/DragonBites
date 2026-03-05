@@ -4,21 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
-    <link rel="stylesheet" href="restaurant.css">
+    <link rel="stylesheet" href="static/restaurant_Abigail.css">
 </head>
 <body>
     <header>
         <div class="header-logo">
-            <img src="images/DragonBites Logo.png" alt="Dragon Bites Logo">
+            <img src="../static/dragonlogo.png" alt="Dragon Bites Logo">
         </div>
     </header>
     
     <nav>
         <ul>
             <li><a href="#">Free events</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="#">Meal Mapper</a></li>
-            <li><a href="#">Restaurants</a></li>
+            <li><a href="/listing">Restaurants</a></li>
         </ul>
     </nav>
     
@@ -81,7 +81,7 @@
             <button class="restaurant-filter-apply">Apply Filters</button>
             
             <div class="filter-dragon-container">
-                <img src="images/FilterDragonImage.png" alt="Dragon Logo">
+                <img src="../static/dragonpinyellow.png" alt="Dragon Logo">
             </div>
         </aside>
         
@@ -132,14 +132,14 @@
     <script>
         function getImageName(restaurantName) {
             const imageMap = {
-                'Landmark Americana': 'landmark.jpg',
-                'Wild Blue': 'wildblue.jpg',
-                'Chick-Fil-A': 'chickfila.jpg',
-                'Urban Eatery': 'urbaneatery.jpg',
-                'Chipotle': 'chipotle.jpg',
-                'Han Dynasty': 'handynasty.jpg',
-                'Sabrina\'s Cafe': 'sabrinas.png',
-                'Tataki Ramen': 'tataki.jpg'
+                'Landmark Americana': '../static/LandMark.jpeg',
+                'Wild Blue': '../static/Wild_Blue.jpeg',
+                'Chick-Fil-A': '../static/Chick-Fil-A.jpeg',
+                'Urban Eatery': '../static/Urban_Eatery.jpeg',
+                'Chipotle': '../static/Chipotle.jpeg',
+                'Han Dynasty': '../static/Han_Dynasty.jpeg',
+                'Sabrina\'s Cafe': '../static/Sabrina_s_Cafe.avif',
+                'Tataki Ramen': '../static/Tataki_Ramen.jpeg'
             };
             return imageMap[restaurantName];
         }
@@ -199,8 +199,7 @@
             document.getElementById('modal-description').textContent = data.description;
             document.getElementById('modal-link').href = data.website;
             
-            const imageName = getImageName(restaurantName);
-            const imagePath = 'images/' + imageName;
+            const imagePath = getImageName(restaurantName);
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
             
             document.getElementById('restaurantModal').style.display = 'block';
