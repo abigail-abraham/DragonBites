@@ -4,21 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
-    <link rel="stylesheet" href="static/restaurant_Abigail.css">
+    <link rel="stylesheet" href="restaurant.css">
 </head>
 <body>
     <header>
         <div class="header-logo">
-            <img src="../static/dragonlogo.png" alt="Dragon Bites Logo">
+            <img src="images/DragonBites Logo.png" alt="Dragon Bites Logo">
         </div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#">Free events</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
             <li><a href="#">Meal Mapper</a></li>
-            <li><a href="/listing">Restaurants</a></li>
+            <li><a href="#">Restaurants</a></li>
+            <li><a href="#">Free Events</a></li>
         </ul>
     </nav>
     
@@ -81,7 +82,7 @@
             <button class="restaurant-filter-apply">Apply Filters</button>
             
             <div class="filter-dragon-container">
-                <img src="../static/dragonpinyellow.png" alt="Dragon Logo">
+                <img src="images/FilterDragonImage.png" alt="Dragon Logo">
             </div>
         </aside>
         
@@ -132,31 +133,31 @@
     <script>
         function getImageName(restaurantName) {
             const imageMap = {
-                'Landmark Americana': '../static/LandMark.jpeg',
-                'Wild Blue': '../static/Wild_Blue.jpeg',
-                'Chick-Fil-A': '../static/Chick-Fil-A.jpeg',
-                'Urban Eatery': '../static/Urban_Eatery.jpeg',
-                'Chipotle': '../static/Chipotle.jpeg',
-                'Han Dynasty': '../static/Han_Dynasty.jpeg',
-                'Sabrina\'s Cafe': '../static/Sabrina_s_Cafe.avif',
-                'Tataki Ramen': '../static/Tataki_Ramen.jpeg'
+                'Landmark Americana': 'landmark.jpg',
+                'Wild Blue': 'wildblue.jpg',
+                'Chick-Fil-A': 'chickfila.jpg',
+                'Urban Eatery': 'urbaneatery.jpg',
+                'Chipotle': 'chipotle.jpg',
+                'Han Dynasty': 'handynasty.jpg',
+                'Sabrina\'s Cafe': 'sabrinas.png',
+                'Tataki Ramen': 'tataki.jpg'
             };
             return imageMap[restaurantName];
         }
 
         const restaurantData = {
             'Landmark Americana': {
-                rating: '4.0 ★★★★☆',
+                rating: '3.7 ★★★☆☆',
                 description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports. Usually no wait, people typically spend 45 min to 2.5 hours here.',
                 website: 'https://www.landmarkamericana.com'
             },
             'Wild Blue': {
-                rating: '4.0 ★★★★☆',
+                rating: '3.5 ★★★☆☆',
                 description: 'Popular sushi vendor located within the Northside Dining Terrace (NDT). Offers fresh, made-to-order sushi, poke bowls, and specialized rolls. Accepts dining dollars, Dragon Dollars, and credit cards.',
                 website: 'https://drexel.mydininghub.com/en/location/wild-blue-sushi'
             },
             'Chick-Fil-A': {
-                rating: '3.7 ★★★☆☆',
+                rating: '4.9 ★★★★★',
                 description: 'Fast-food chain serving chicken sandwiches, nuggets, salads, and sides. Located in Northside Dining Terrace. Offers outdoor seating, vegetarian options, and Wi-Fi.',
                 website: 'https://www.chick-fil-a.com/locations/pa/drexel-university'
             },
@@ -166,22 +167,22 @@
                 website: 'https://drexel.mydininghub.com/en/location/urban-eatery'
             },
             'Chipotle': {
-                rating: '2.8 ★★★☆☆',
+                rating: '3.0 ★★★☆☆',
                 description: 'Casual Mexican restaurant offering design-your-own burritos, tacos, and bowls. Located in The Summit at University City. Offers vegetarian options.',
                 website: 'https://locations.chipotle.com/pa/philadelphia/3400-lancaster-ave'
             },
             'Han Dynasty': {
-                rating: '4.3 ★★★★☆',
+                rating: '4.7 ★★★★★',
                 description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails. Usually no wait, people typically spend 45 min to 1.5 hours here.',
                 website: 'https://www.handynasty.net/location/han-dynasty-university-city/'
             },
             'Sabrina\'s Cafe': {
-                rating: '4.5 ★★★★★',
+                rating: '4.3 ★★★★☆',
                 description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients. Has a cozy, historic atmosphere.',
                 website: 'https://www.sabrinascafe.com/location/sabrinas-cafe-university-city/'
             },
             'Tataki Ramen': {
-                rating: '4.7 ★★★★★',
+                rating: '4.6 ★★★★★',
                 description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials. Has a lively, bright, and clean atmosphere.',
                 website: 'https://www.universitycity.org/diningdays/tataki/'
             }
@@ -199,7 +200,8 @@
             document.getElementById('modal-description').textContent = data.description;
             document.getElementById('modal-link').href = data.website;
             
-            const imagePath = getImageName(restaurantName);
+            const imageName = getImageName(restaurantName);
+            const imagePath = 'images/' + imageName;
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
             
             document.getElementById('restaurantModal').style.display = 'block';
