@@ -81,5 +81,6 @@ def index():
 def about():
     return render_template("about.html")
 
+#Runs the website
 if __name__ == "__main__":
     app.run(debug=True)
