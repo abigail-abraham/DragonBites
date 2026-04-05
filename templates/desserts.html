@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Dragon Bites - Desserts</title>
+    <link rel="stylesheet" href="dessert.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="images/DragonBites Logo.png" alt="Dragon Bites Logo">
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Meal Mapper</a></li>
+            <li><a href="#">Restaurants</a></li>
+            <li><a href="#">Desserts</a></li>
+            <li><a href="#">Free Events</a></li>
+        </ul>
+    </nav>
+    
+    <h3 align="center">Sweet treats and desserts near Drexel campus</h3>
+    
+    <div class="main-wrapper">
+        <aside class="dessert-filter-sidebar">
+            <div class="dessert-filter-header">
+                <h3 class="dessert-filter-title">FILTERS</h3>
+                <button class="dessert-filter-clear">Clear All</button>
+            </div>
+            <hr>
+            
+            <div class="dessert-filter-section">
+                <h4>Payment Methods</h4>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Dragon Dollars
+                </label>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Dining Dollars
+                </label>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Card
+                </label>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Cash
+                </label>
+            </div>
+            <hr>
+            
+            <div class="dessert-filter-section">
+                <h4>Dietary Options</h4>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Vegetarian
+                </label>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Halal
+                </label>
+            </div>
+            <hr>
+            
+            <div class="dessert-filter-section">
+                <h4>Food Events</h4>
+                <label class="dessert-filter-label">
+                    <input type="checkbox"> Free Food Events
+                </label>
+            </div>
+            <hr>
+            
+            <div class="dessert-filter-section">
+                <h4>Price Range</h4>
+                <div class="price-inputs">
+                    <input type="number" placeholder="Min $" min="0">
+                    <span>-</span>
+                    <input type="number" placeholder="Max $" min="0">
+                </div>
+            </div>
+            <hr>
+            
+            <button class="dessert-filter-apply">Apply Filters</button>
+            
+            <div class="filter-dragon-container">
+                <img src="images/FilterDragonImage.png" alt="Dragon Logo">
+            </div>
+        </aside>
+        
+        <div class="content-area">
+            <h2>Dessert listing</h2>
+            
+            <div class="dessert-grid">
+                <div class="dessert-card" onclick="openModal('Dessert Place 1')">
+                    <h3>Dessert Place 1</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Dessert Place 2')">
+                    <h3>Dessert Place 2</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Dessert Place 3')">
+                    <h3>Dessert Place 3</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Dessert Place 4')">
+                    <h3>Dessert Place 4</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Dessert Place 5')">
+                    <h3>Dessert Place 5</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Dessert Place 6')">
+                    <h3>Dessert Place 6</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dessertModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-image"></div>
+            <h2 id="modal-name">Dessert Name</h2>
+            <div id="modal-rating">★★★★☆</div>
+            <p id="modal-description">Description will go here</p>
+            <a href="#" id="modal-link" target="_blank">Visit Website</a>
+        </div>
+    </div>
+
+    <script>
+        function getImageName(dessertName) {
+            const imageMap = {
+                'Dessert Place 1': 'dessert1.jpg',
+                'Dessert Place 2': 'dessert2.jpg',
+                'Dessert Place 3': 'dessert3.jpg',
+                'Dessert Place 4': 'dessert4.jpg',
+                'Dessert Place 5': 'dessert5.jpg',
+                'Dessert Place 6': 'dessert6.jpg'
+            };
+            return imageMap[dessertName] || 'dessert-placeholder.jpg';
+        }
+
+        const dessertData = {
+            'Dessert Place 1': {
+                rating: '4.0 ★★★★☆',
+                description: 'Description for Dessert Place 1 will go here.',
+                website: '#'
+            },
+            'Dessert Place 2': {
+                rating: '4.2 ★★★★☆',
+                description: 'Description for Dessert Place 2 will go here.',
+                website: '#'
+            },
+            'Dessert Place 3': {
+                rating: '4.5 ★★★★★',
+                description: 'Description for Dessert Place 3 will go here.',
+                website: '#'
+            },
+            'Dessert Place 4': {
+                rating: '3.8 ★★★★☆',
+                description: 'Description for Dessert Place 4 will go here.',
+                website: '#'
+            },
+            'Dessert Place 5': {
+                rating: '4.1 ★★★★☆',
+                description: 'Description for Dessert Place 5 will go here.',
+                website: '#'
+            },
+            'Dessert Place 6': {
+                rating: '4.3 ★★★★☆',
+                description: 'Description for Dessert Place 6 will go here.',
+                website: '#'
+            }
+        };
+
+        function openModal(dessertName) {
+            const data = dessertData[dessertName] || {
+                rating: '★★★★☆',
+                description: 'Description coming soon.',
+                website: '#'
+            };
+            
+            document.getElementById('modal-name').textContent = dessertName;
+            document.getElementById('modal-rating').textContent = data.rating;
+            document.getElementById('modal-description').textContent = data.description;
+            document.getElementById('modal-link').href = data.website;
+            
+            const imageName = getImageName(dessertName);
+            const imagePath = 'images/' + imageName;
+            document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + dessertName + '" style="width:100%; height:100%; object-fit:cover;">';
+            
+            document.getElementById('dessertModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('dessertModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('dessertModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
