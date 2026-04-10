@@ -85,6 +85,11 @@ def about():
 def listing():
     return render_template("restaurant_Abigail.html")
 
-#Runs the website
+@app.route("/desserts")
+def desserts():
+    return render_template("desserts.html")
+
+
+# Runs the website
 if __name__ == "__main__":
     app.run(debug=True)
