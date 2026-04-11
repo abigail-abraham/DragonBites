@@ -240,7 +240,7 @@ nav li a:hover {
     color: #FFCF40;
     transition: all 0.3s;
     cursor: pointer;
-    min-height: 120px;
+    min-height: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -248,6 +248,37 @@ nav li a:hover {
     text-align: center;
     border-radius: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.restaurant-card::before {
+    content: "🍽️";
+    font-size: 40px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.restaurant-card:hover::before {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.restaurant-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.restaurant-card:hover::after {
+    opacity: 1;
 }
 
 .restaurant-card:hover {
@@ -357,6 +388,7 @@ nav li a:hover {
     background-color: #FFCF40;
     color: #192841;
 }
+
 .cursor {
     width: 70px;
     height: 70px;
@@ -370,17 +402,24 @@ nav li a:hover {
     background-color: transparent;
     transition: transform 0.2s ease;
 }
-  @keyframes fire-animation {
-  0%   { background-image: url('/static/fire3.png'); }
-  33%  { background-image: url('/static/fire2.png'); }
-  66%  { background-image: url('/static/fire1.png'); }
-  100% { background-image: url('/static/fire1.png'); }
+
+@keyframes fire-animation {
+    0%   { background-image: url('/static/fire3.png'); }
+    33%  { background-image: url('/static/fire2.png'); }
+    66%  { background-image: url('/static/fire1.png'); }
+    100% { background-image: url('/static/fire1.png'); }
 }
-.cursor.is-clicked { /* what happens when clicked  */
-  transform: rotate(360deg) scale(1.2); /* rotate and scale up */
-    animation: fire-animation 5s infinite; /* play the fire animation */
+
+.cursor.is-clicked {
+    transform: rotate(360deg) scale(1.2);
+    animation: fire-animation 5s infinite;
 }
+
 body::after {
-   position: absolute; width: 0; height: 0; overflow: hidden; z-index: -1;
-   content: url('/static/fire1.png') url('/static/fire2.png') url('/static/fire3.png');
+    position: absolute; 
+    width: 0; 
+    height: 0; 
+    overflow: hidden; 
+    z-index: -1;
+    content: url('/static/fire1.png') url('/static/fire2.png') url('/static/fire3.png');
 }
