@@ -9,11 +9,9 @@
     <link href="{{ url_for('static', filename='website.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <script src ="{{ url_for('static', filename='cursor.js') }}"></script>
 </head>
 
 <body>
-    <div class = "cursor"></div>
     <header><!--banner image is set behnd the header in css-->
         <aside class="head-above">
     </header>
@@ -105,6 +103,9 @@
         <script src="{{ url_for('static', filename='map.js') }}"></script>
 
     </div>
+    <div class="cursor"></div>
+
+    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
 </body>
 
 </html>

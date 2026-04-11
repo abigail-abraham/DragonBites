@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
-    <link rel="stylesheet" href="static/restaurant_Abigail.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='restaurant_Abigail.css') }}">
 </head>
 <body>
     <header>
@@ -217,6 +217,9 @@
                 modal.style.display = 'none';
             }
         }
-    </script>
+</script>
+<div class="cursor"></div>
+
+    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
 </body>
 </html>

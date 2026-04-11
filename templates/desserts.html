@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Desserts</title>
-    <link rel="stylesheet" href="static/desserts.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='desserts.css') }}">
 </head>
 <body>
     <header>
@@ -200,5 +200,8 @@
             }
         }
     </script>
+<div class="cursor"></div>
+
+    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
 </body>
 </html>

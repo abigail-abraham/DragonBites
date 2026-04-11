@@ -1,4 +1,4 @@
-// cursor.js
+
 document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.querySelector(".cursor");
 
@@ -10,10 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Cursor script loaded successfully!");
 
     document.addEventListener("mousemove", (e) => {
-        const width = 20; 
-        const height = 20;
+        const width = 70; 
+        const height = 70;
         
         cursor.style.left = `${e.clientX - width / 2}px`;
         cursor.style.top = `${e.clientY - height / 2}px`;
+    });
+
+   document.addEventListener('mousedown', () => {
+        cursor.classList.add('is-clicked');
+    });
+
+    document.addEventListener('mouseup', () => {
+        cursor.classList.remove('is-clicked');
     });
 });
