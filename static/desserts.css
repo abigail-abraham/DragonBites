@@ -370,7 +370,7 @@ nav li a:hover {
 .cursor {
     width: 70px;
     height: 70px;
-    background-image: url('/static/1.png');
+    background-image: urlurl('/static/main1.png'); 
     position: fixed;
     pointer-events: none;
     z-index: 10001; 

@@ -271,7 +271,7 @@ strong {
 .cursor {
     width: 70px;
     height: 70px;
-    background-image: url('/static/1.png');
+    background-image: url('/static/main1.png'); 
     position: fixed;
     pointer-events: none;
     z-index: 9999; 
