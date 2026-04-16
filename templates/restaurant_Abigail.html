@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="header-logo">
-            <img src="static/dragonlogo.png" alt="Dragon Bites Logo">
+            <img src="{{ url_for('static', filename='dragonlogo.png') }}" alt="Dragon Bites Logo">
         </div>
     </header>
     
@@ -83,7 +83,7 @@
             <button class="restaurant-filter-apply">Apply Filters</button>
             
             <div class="filter-dragon-container">
-                <img src="images/FilterDragonImage.png" alt="Dragon Logo">
+                <img src="{{ url_for('static', filename='FilterDragonImage.png') }}" alt="Dragon Logo">
             </div>
         </aside>
         
@@ -133,14 +133,14 @@
     <script>
         function getImageName(restaurantName) {
             const imageMap = {
-                'Landmark Americana': 'landmark.jpg',
-                'Wild Blue': 'wildblue.jpg',
-                'Chick-Fil-A': 'chickfila.jpg',
-                'Urban Eatery': 'urbaneatery.jpg',
-                'Chipotle': 'chipotle.jpg',
-                'Han Dynasty': 'handynasty.jpg',
-                'Sabrina\'s Cafe': 'sabrinas.png',
-                'Tataki Ramen': 'tataki.jpg'
+                'Landmark Americana': 'LandMark.jpeg',
+                'Wild Blue': 'Wild_Blue.jpeg',
+                'Chick-Fil-A': 'Chick-Fil-A.jpeg',
+                'Urban Eatery': 'Urban_Eatery.jpg',
+                'Chipotle': 'Chipotle.jpeg',
+                'Han Dynasty': 'Han_Dynasty.jpeg',
+                'Sabrina\'s Cafe': 'Sabrina_s_Cafe.avif',
+                'Tataki Ramen': 'Tataki_Ramen.jpg'
             };
             return imageMap[restaurantName];
         }
@@ -201,7 +201,7 @@
             document.getElementById('modal-link').href = data.website;
             
             const imageName = getImageName(restaurantName);
-            const imagePath = 'images/' + imageName;
+            const imagePath = "{{ url_for('static', filename='') }}" + imageName;
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
             
             document.getElementById('restaurantModal').style.display = 'block';
