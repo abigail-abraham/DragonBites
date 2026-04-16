@@ -203,6 +203,47 @@ try {
         showOSRMRoute([userLocation.lat, userLocation.lng], [39.959963231800494, -75.19071384179624]);
     });
 
+    const mangomangomarker = L.marker([39.959262, -75.194584], { icon: yellowIcon }).addTo(map);
+    mangomangomarker.bindPopup("This is Mango Mango.");
+    mangomangomarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.959262, -75.194584]);
+    });
+
+    const carvelMarker = L.marker([39.957404, -75.191870], { icon: yellowIcon }).addTo(map);
+    carvelMarker.bindPopup("This is Carvel.");
+    carvelMarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.957404, -75.191870]);
+    });
+    const kiwiyogurtMarker = L.marker([39.954571, -75.195189], { icon: yellowIcon }).addTo(map);
+    kiwiyogurtMarker.bindPopup("This is Kiwi Yogurt.");
+    kiwiyogurtMarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.954571, -75.195189]);
+    });
+    const surrealMarker = L.marker([39.9529, -75.1800], { icon: yellowIcon }).addTo(map);
+    surrealMarker.bindPopup("This is Surreal Creamery. ");
+    surrealMarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.9529, -75.1800]);
+    });
+
+    const cocoMarker = L.marker([39.959559, -75.195166], { icon: yellowIcon }).addTo(map);
+    cocoMarker.bindPopup("This is Coco's Creamery.");
+    cocoMarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.959559, -75.195166]);
+    }
+    );
+    const maisonMarker = L.marker([39.953219, -75.183309], { icon: yellowIcon }).addTo(map);
+    maisonMarker.bindPopup("This is Maison Sweet.");
+    maisonMarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.953219, -75.183309]);
+    }
+    );
+    const insomniaMarker = L.marker([39.957366, -75.191708], { icon: yellowIcon }).addTo(map);
+    insomniaMarker.bindPopup("This is Insomnia Cookies.");
+    insomniaMarker.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.957366, -75.191708]);
+    });
+
+
     map.locate({ setView: true, maxZoom: 16 });
 
     map.on('locationfound', function (e) {
