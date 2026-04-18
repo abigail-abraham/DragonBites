@@ -402,7 +402,7 @@ nav li a:hover {
     background-image: url('/static/Updated1.png');
     position: fixed;
     pointer-events: none;
-    z-index: 9999; 
+    z-index: 10002;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
