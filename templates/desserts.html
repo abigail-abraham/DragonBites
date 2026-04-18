@@ -89,7 +89,7 @@
             <button class="dessert-filter-apply">Apply Filters</button>
             
             <div class="filter-dragon-container">
-                <img src="images/FilterDragonImage.png" alt="Dragon Logo">
+                <img src="static/FilterDragonImage.png" alt="Dragon Logo">
             </div>
         </aside>
         
@@ -97,23 +97,26 @@
             <h2>Dessert listing</h2>
             
             <div class="dessert-grid">
-                <div class="dessert-card" onclick="openModal('Dessert Place 1')">
-                    <h3>🍪 Dessert Place 1</h3>
+                <div class="dessert-card" onclick="openModal('Mango Mango')">
+                    <h3>🥭 Mango Mango</h3>
                 </div>
-                <div class="dessert-card" onclick="openModal('Dessert Place 2')">
-                    <h3>🍦 Dessert Place 2</h3>
+                <div class="dessert-card" onclick="openModal('Carvel')">
+                    <h3>🍦 Carvel</h3>
                 </div>
-                <div class="dessert-card" onclick="openModal('Dessert Place 3')">
-                    <h3>🍩 Dessert Place 3</h3>
+                <div class="dessert-card" onclick="openModal('Kiwi Yogurt')">
+                    <h3>🥝 Kiwi Yogurt</h3>
                 </div>
-                <div class="dessert-card" onclick="openModal('Dessert Place 4')">
-                    <h3>🍰 Dessert Place 4</h3>
+                <div class="dessert-card" onclick="openModal('Surreal Creamery')">
+                    <h3>🍨 Surreal Creamery</h3>
                 </div>
-                <div class="dessert-card" onclick="openModal('Dessert Place 5')">
-                    <h3>🧁 Dessert Place 5</h3>
+                <div class="dessert-card" onclick="openModal('Coco\'s Creamery')">
+                    <h3>🍪 Coco's Creamery</h3>
                 </div>
-                <div class="dessert-card" onclick="openModal('Dessert Place 6')">
-                    <h3>🍫 Dessert Place 6</h3>
+                <div class="dessert-card" onclick="openModal('Maison Sweet')">
+                    <h3>🍰 Maison Sweet</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Insomnia Cookies')">
+                    <h3>🍪 Insomnia Cookies</h3>
                 </div>
             </div>
         </div>
@@ -133,46 +136,52 @@
     <script>
         function getImageName(dessertName) {
             const imageMap = {
-                'Dessert Place 1': 'dessert1.jpg',
-                'Dessert Place 2': 'dessert2.jpg',
-                'Dessert Place 3': 'dessert3.jpg',
-                'Dessert Place 4': 'dessert4.jpg',
-                'Dessert Place 5': 'dessert5.jpg',
-                'Dessert Place 6': 'dessert6.jpg'
+                'Mango Mango': 'MangoMango.png',
+                'Carvel': 'Carvel.png',
+                'Kiwi Yogurt': 'Kiwi Yogurt.png',
+                'Surreal Creamery': 'Surreal Creamery.png',
+                'Coco\'s Creamery': 'Coco\'s Creamery.png',
+                'Maison Sweet': 'Maison Sweet.png',
+                'Insomnia Cookies': 'Insomnia Cookies.png'
             };
             return imageMap[dessertName] || 'dessert-placeholder.jpg';
         }
 
         const dessertData = {
-            'Dessert Place 1': {
-                rating: '4.0 ★★★★☆',
-                description: 'Description for Dessert Place 1 will go here.',
-                website: '#'
+            'Mango Mango': {
+                rating: '4.9 ★★★★★',
+                description: 'Mango Mango is a dessert spot specializing in mango-centric desserts. Fresh mango is churned into smooth ice creams, blended into tangy smoothies, layered into delicate crepe cakes, and paired with soft and chewy sago pearls. The shop was opened by a Drexel alumnus who wanted to share a piece of his culture with the community. It is the perfect side quest between classes or a well-earned late-night study break.',
+                website: 'https://www.mangomangodessert.com'
             },
-            'Dessert Place 2': {
-                rating: '4.2 ★★★★☆',
-                description: 'Description for Dessert Place 2 will go here.',
-                website: '#'
+            'Carvel': {
+                rating: '4.5 ★★★★☆',
+                description: 'Carvel is famous for soft-serve ice cream, cakes with crunchies, and novelty ice cream sandwiches. There are multiple Carvel locations near Philadelphia, including a spot at 1625 Chestnut Street and another at 54 S. 69th Street, a short distance from the University City area.',
+                website: 'https://locations.carvel.com/pa/philadelphia/3400-lancaster-ave'
             },
-            'Dessert Place 3': {
-                rating: '4.5 ★★★★★',
-                description: 'Description for Dessert Place 3 will go here.',
-                website: '#'
-            },
-            'Dessert Place 4': {
-                rating: '3.8 ★★★★☆',
-                description: 'Description for Dessert Place 4 will go here.',
-                website: '#'
-            },
-            'Dessert Place 5': {
+            'Kiwi Yogurt': {
                 rating: '4.1 ★★★★☆',
-                description: 'Description for Dessert Place 5 will go here.',
-                website: '#'
+                description: 'Kiwi Yogurt is a self-serve frozen yogurt and ice cream shop offering vegan options. Located at 3606 Chestnut St, this spot is known for its wide selection of flavors and toppings. The chocolate, tart, and raspberry yogurts are especially popular.',
+                website: 'https://kiwifrozenyogurt.com/location/university-city/'
             },
-            'Dessert Place 6': {
-                rating: '4.3 ★★★★☆',
-                description: 'Description for Dessert Place 6 will go here.',
-                website: '#'
+            'Surreal Creamery': {
+                rating: '4.0 ★★★★☆',
+                description: 'Surreal Creamery is a trendy spot at 3818 Chestnut St that specializes in towering soft-serve creations and innovative Floteas, a fusion of bubble tea and ice cream. Signature offerings include Earl Grey soft serve and customizable mason jar sundaes packed with over-the-top toppings.',
+                website: 'https://www.surrealcreamery.com'
+            },
+            'Coco\'s Creamery': {
+                rating: '3.0 ★★★☆☆',
+                description: 'Coco\'s Creamery is a casual venue for soft-serve ice cream, sundaes, shakes, water ices, and cookies. Located at 3632 Powelton Ave, this shop is known for generous portions, creamy ice cream, and quick service.',
+                website: 'https://cocoscookiesandcreamery.com'
+            },
+            'Maison Sweet': {
+                rating: '3.5 ★★★☆☆',
+                description: 'Maison Sweet is a cozy, trendy Asian patisserie featuring cakes, pastries, tea, and coffee beverages. Located at 2930 Chestnut St, this cafe offers a wide range of sweet treats in a comfortable atmosphere.',
+                website: 'https://maisonsweet.us'
+            },
+            'Insomnia Cookies': {
+                rating: '4.0 ★★★★☆',
+                description: 'Insomnia Cookies is famous for warm, delicious cookies delivered late night. Located at 3400 Lancaster Ave, they also offer ice cream and cookie sandwiches. Popular flavors include Snickerdoodle, Chocolate Chunk, and seasonal offerings like red velvet and lemon white chocolate chip.',
+                website: 'https://insomniacookies.com'
             }
         };
 
@@ -189,7 +198,7 @@
             document.getElementById('modal-link').href = data.website;
             
             const imageName = getImageName(dessertName);
-            const imagePath = 'images/' + imageName;
+            const imagePath = 'static/' + encodeURIComponent(imageName);
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + dessertName + '" style="width:100%; height:100%; object-fit:cover;">';
             
             document.getElementById('dessertModal').style.display = 'block';
