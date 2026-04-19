@@ -4,15 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
+    <!-- made by Abigail Abraham for Dragon Bites restaurant page -->
     <link rel="stylesheet" href="{{ url_for('static', filename='restaurant_Abigail.css') }}">
 </head>
 <body>
+    <!-- header with the main dragon logo -->
     <header>
         <div class="header-logo">
             <img src="{{ url_for('static', filename='dragonlogo.png') }}" alt="Dragon Bites Logo">
         </div>
     </header>
     
+    <!-- nav bar - added Desserts link -->
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -27,6 +30,7 @@
     <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
     
     <div class="main-wrapper">
+        <!-- filter sidebar - lets users narrow down restaurants -->
         <aside class="restaurant-filter-sidebar">
             <div class="restaurant-filter-header">
                 <h3 class="restaurant-filter-title">FILTERS</h3>
@@ -72,6 +76,7 @@
             
             <div class="restaurant-filter-section">
                 <h4>Price Range</h4>
+                <!-- fixed width so they don't break the sidebar layout -->
                 <div class="price-inputs">
                     <input type="number" placeholder="Min $" min="0">
                     <span>-</span>
@@ -82,6 +87,7 @@
             
             <button class="restaurant-filter-apply">Apply Filters</button>
             
+            <!-- little dragon logo at the bottom of the filter box -->
             <div class="filter-dragon-container">
                 <img src="{{ url_for('static', filename='FilterDragonImage.png') }}" alt="Dragon Logo">
             </div>
@@ -90,6 +96,7 @@
         <div class="content-area">
             <h2>Food listing</h2>
             
+            <!-- 8 restaurant cards with fun emojis -->
             <div class="restaurant-grid">
                 <div class="restaurant-card" onclick="openModal('Landmark Americana')">
                     <h3>🍔 Landmark Americana</h3>
@@ -119,6 +126,7 @@
         </div>
     </div>
 
+    <!-- pop-up modal that appears when you click a restaurant -->
     <div id="restaurantModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -131,6 +139,8 @@
     </div>
 
     <script>
+        // matches restaurant names to their image files
+        // learned: need to match filenames exactly or images won't load
         function getImageName(restaurantName) {
             const imageMap = {
                 'Landmark Americana': 'LandMark.jpeg',
@@ -145,6 +155,7 @@
             return imageMap[restaurantName];
         }
 
+        // all the restaurant info - ratings, descriptions, websites
         const restaurantData = {
             'Landmark Americana': {
                 rating: '3.7 ★★★☆☆',
@@ -188,6 +199,7 @@
             }
         };
 
+        // this runs when you click on a restaurant card
         function openModal(restaurantName) {
             const data = restaurantData[restaurantName] || {
                 rating: '★★★★☆',
@@ -204,6 +216,7 @@
             const imagePath = "{{ url_for('static', filename='') }}" + imageName;
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
             
+            // make the modal visible
             document.getElementById('restaurantModal').style.display = 'block';
         }
 
@@ -211,6 +224,7 @@
             document.getElementById('restaurantModal').style.display = 'none';
         }
 
+        // if you click outside the modal, it closes
         window.onclick = function(event) {
             const modal = document.getElementById('restaurantModal');
             if (event.target == modal) {
