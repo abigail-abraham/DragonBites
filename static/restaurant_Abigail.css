@@ -1,11 +1,14 @@
+/* restaurant_Abigail.css - Abigail Abraham */
+
 body {
     font-family: Georgia, serif;
     background-color: #192841;
     color: #FFCF40;
     margin: 0;
-    cursor: none;
+    cursor: none; /* hides default cursor so dragon cursor shows */
 }
 
+/* header banner with Drexel background image and gold border */
 header {
     border: 3px solid #FFCF40;
     background-image: url("drexel.png");
@@ -37,6 +40,7 @@ header {
     margin: 0 auto;
 }
 
+/* navigation bar - Drexel blue background, gold text */
 nav {
     position: relative;
     z-index: 9999;
@@ -73,9 +77,10 @@ nav li a {
 
 nav li a:hover {
     background-color: #555;
-    color: #FF9933;
+    color: #FF9933; /* orange on hover */
 }
 
+/* main layout - filter sidebar on left, restaurant cards on right */
 .main-wrapper {
     display: flex;
     flex-direction: row;
@@ -86,6 +91,7 @@ nav li a:hover {
     z-index: 1;
 }
 
+/* filter sidebar - warm cream gradient with rounded corners */
 .restaurant-filter-sidebar {
     width: 280px;
     border: 2px solid #192841;
@@ -167,6 +173,7 @@ nav li a:hover {
     cursor: pointer;
 }
 
+/* price inputs - fixed width so they don't overflow the sidebar */
 .price-inputs {
     display: flex;
     align-items: center;
@@ -208,6 +215,7 @@ nav li a:hover {
     border-color: #555;
 }
 
+/* dragon logo at bottom of filter sidebar */
 .filter-dragon-container {
     margin-top: 10px;
     text-align: center;
@@ -226,6 +234,7 @@ nav li a:hover {
     flex-direction: column;
 }
 
+/* restaurant cards grid - 2 columns */
 .restaurant-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -233,6 +242,7 @@ nav li a:hover {
     margin: 20px 0;
 }
 
+/* restaurant card styling - dark blue gradient, gold text */
 .restaurant-card {
     border: 2px solid #FFCF40;
     padding: 30px 15px;
@@ -252,6 +262,7 @@ nav li a:hover {
     overflow: hidden;
 }
 
+/* fork and knife emoji before each card - learned pseudo-elements */
 .restaurant-card::before {
     content: "🍽️";
     font-size: 40px;
@@ -265,6 +276,7 @@ nav li a:hover {
     opacity: 1;
 }
 
+/* shine effect on hover - learned radial-gradient */
 .restaurant-card::after {
     content: "";
     position: absolute;
@@ -296,6 +308,7 @@ nav li a:hover {
     letter-spacing: 0.5px;
 }
 
+/* modal pop-up - hidden by default, shows when card clicked */
 .modal {
     display: none;
     position: fixed;
@@ -305,7 +318,7 @@ nav li a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
-    cursor: none;
+    cursor: none; /* keeps dragon cursor visible on modal */
 }
 
 .modal-content {
@@ -322,6 +335,7 @@ nav li a:hover {
     cursor: none;
 }
 
+/* close button - hand cursor so users know it's clickable */
 .close-btn {
     position: absolute;
     right: 15px;
@@ -377,6 +391,7 @@ nav li a:hover {
     cursor: none;
 }
 
+/* website link - hand cursor to show it's clickable */
 #modal-link {
     display: inline-block;
     background-color: #192841;
@@ -396,6 +411,7 @@ nav li a:hover {
     color: #192841;
 }
 
+/* custom dragon cursor - learned to use pointer-events: none so it doesn't block clicks */
 .cursor {
     width: 70px;
     height: 70px;
@@ -410,6 +426,7 @@ nav li a:hover {
     transition: transform 0.2s ease;
 }
 
+/* fire animation when cursor is clicked - learned keyframes */
 @keyframes fire-animation {
     0%   { background-image: url('/static/Updated4.png'); }
     33%  { background-image: url('/static/Updated3.png'); }
@@ -422,6 +439,7 @@ nav li a:hover {
     animation: fire-animation 5s infinite;
 }
 
+/* preloads fire animation images so they don't flicker */
 body::after {
     position: absolute; 
     width: 0; 
