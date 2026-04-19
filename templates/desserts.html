@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Desserts</title>
+    <!-- made by Abigail - dessert page for Dragon Bites -->
     <link rel="stylesheet" href="{{ url_for('static', filename='desserts.css') }}">
 </head>
 <body>
+    <!-- header with two logos: dessert logo on left, main dragon logo centered -->
     <header>
         <div class="header-container">
             <div class="dessert-logo-left">
@@ -19,6 +21,7 @@
         </div>
     </header>
     
+    <!-- nav bar - same order across all pages of the website -->
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -33,6 +36,7 @@
     <h3 align="center">Sweet treats and desserts near Drexel campus</h3>
     
     <div class="main-wrapper">
+        <!-- filter sidebar - helps users find what they want -->
         <aside class="dessert-filter-sidebar">
             <div class="dessert-filter-header">
                 <h3 class="dessert-filter-title">FILTERS</h3>
@@ -78,6 +82,7 @@
             
             <div class="dessert-filter-section">
                 <h4>Price Range</h4>
+                <!-- made them fixed width so they don't break the sidebar -->
                 <div class="price-inputs">
                     <input type="number" placeholder="Min $" min="0">
                     <span>-</span>
@@ -88,6 +93,7 @@
             
             <button class="dessert-filter-apply">Apply Filters</button>
             
+            <!-- little dragon at the bottom of the filter box -->
             <div class="filter-dragon-container">
                 <img src="static/FilterDragonImage.png" alt="Dragon Logo">
             </div>
@@ -96,6 +102,7 @@
         <div class="content-area">
             <h2>Dessert listing</h2>
             
+            <!-- 7 dessert spots with cute emojis + data from Alisha -->
             <div class="dessert-grid">
                 <div class="dessert-card" onclick="openModal('Mango Mango')">
                     <h3>🥭 Mango Mango</h3>
@@ -122,6 +129,7 @@
         </div>
     </div>
 
+    <!-- pop-up modal that appears when you click a dessert card -->
     <div id="dessertModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -134,6 +142,8 @@
     </div>
 
     <script>
+        // matches dessert names to their image files
+        // learned: had to use encodeURIComponent because some filenames have spaces
         function getImageName(dessertName) {
             const imageMap = {
                 'Mango Mango': 'MangoMango.png',
@@ -147,6 +157,7 @@
             return imageMap[dessertName] || 'dessert-placeholder.jpg';
         }
 
+        // all the dessert info - ratings, descriptions, websites
         const dessertData = {
             'Mango Mango': {
                 rating: '4.9 ★★★★★',
@@ -185,6 +196,7 @@
             }
         };
 
+        // this runs when you click on a dessert card
         function openModal(dessertName) {
             const data = dessertData[dessertName] || {
                 rating: '★★★★☆',
@@ -198,9 +210,11 @@
             document.getElementById('modal-link').href = data.website;
             
             const imageName = getImageName(dessertName);
+            // encodeURIComponent handles spaces in filenames (like "Kiwi Yogurt.png")
             const imagePath = 'static/' + encodeURIComponent(imageName);
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + dessertName + '" style="width:100%; height:100%; object-fit:cover;">';
             
+            // show the modal
             document.getElementById('dessertModal').style.display = 'block';
         }
 
@@ -208,6 +222,7 @@
             document.getElementById('dessertModal').style.display = 'none';
         }
 
+        // if you click outside the modal, it closes
         window.onclick = function(event) {
             const modal = document.getElementById('dessertModal');
             if (event.target == modal) {
