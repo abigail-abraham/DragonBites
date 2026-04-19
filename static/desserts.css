@@ -1,11 +1,14 @@
+/* desserts.css - Abigail Abraham */
+
 body {
     font-family: Georgia, serif;
     background: linear-gradient(145deg, #FFCF40 0%, #FFB347 100%);
     color: #192841;
     margin: 0;
-    cursor: none;
+    cursor: none; /* hides default cursor so dragon cursor shows */
 }
 
+/* header banner with Drexel background image */
 header {
     border: 3px solid #192841;
     border-top: none;
@@ -23,6 +26,7 @@ header {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* container for logos - keeps main logo centered */
 .header-container {
     display: flex;
     align-items: center;
@@ -32,6 +36,7 @@ header {
     position: relative;
 }
 
+/* dessert logo on left corner - learned to use absolute positioning */
 .dessert-logo-left {
     position: absolute;
     left: -250px;
@@ -45,6 +50,7 @@ header {
     height: auto;
 }
 
+/* main dragon logo centered */
 .header-logo {
     text-align: center;
 }
@@ -60,6 +66,7 @@ header {
     display: none;
 }
 
+/* navigation bar - matches Drexel blue theme */
 nav {
     position: relative;
     z-index: 9999;
@@ -101,6 +108,7 @@ nav li a:hover {
     color: #FF9933;
 }
 
+/* main layout - filter sidebar on left, content on right */
 .main-wrapper {
     display: flex;
     flex-direction: row;
@@ -111,6 +119,7 @@ nav li a:hover {
     z-index: 1;
 }
 
+/* filter sidebar - warm cream gradient */
 .dessert-filter-sidebar {
     width: 280px;
     border: 2px solid #192841;
@@ -128,6 +137,7 @@ nav li a:hover {
     border-radius: 16px;
 }
 
+/* learned: sticky keeps filter bar visible when scrolling */
 .dessert-filter-sidebar hr {
     border-top: 1px solid #192841;
     margin: 10px 0;
@@ -192,6 +202,7 @@ nav li a:hover {
     cursor: pointer;
 }
 
+/* price inputs - fixed width so they don't overflow the sidebar */
 .price-inputs {
     display: flex;
     align-items: center;
@@ -233,6 +244,7 @@ nav li a:hover {
     border-color: #555;
 }
 
+/* dragon logo at bottom of filter sidebar */
 .filter-dragon-container {
     margin-top: 10px;
     text-align: center;
@@ -256,6 +268,7 @@ nav li a:hover {
     letter-spacing: 2px;
 }
 
+/* dessert cards grid - 2 columns */
 .dessert-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -263,6 +276,7 @@ nav li a:hover {
     margin: 20px 0;
 }
 
+/* dessert card styling - golden gradient, unique rounded corners */
 .dessert-card {
     border: 2px solid #FFCF40;
     padding: 35px 15px;
@@ -282,6 +296,7 @@ nav li a:hover {
     overflow: hidden;
 }
 
+/* cake emoji before each card - learned about pseudo-elements */
 .dessert-card::before {
     content: "🍰";
     font-size: 40px;
@@ -295,6 +310,7 @@ nav li a:hover {
     opacity: 1;
 }
 
+/* shine effect that appears on hover - learned radial-gradient */
 .dessert-card::after {
     content: "";
     position: absolute;
@@ -325,6 +341,7 @@ nav li a:hover {
     font-weight: bold;
 }
 
+/* modal pop-up - hidden by default, shows when card clicked */
 .modal {
     display: none;
     position: fixed;
@@ -334,7 +351,7 @@ nav li a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
-    cursor: none;
+    cursor: none; /* keeps dragon cursor visible on modal */
 }
 
 .modal-content {
@@ -351,6 +368,7 @@ nav li a:hover {
     cursor: none;
 }
 
+/* close button - hand cursor so users know it's clickable */
 .close-btn {
     position: absolute;
     right: 15px;
@@ -406,6 +424,7 @@ nav li a:hover {
     cursor: none;
 }
 
+/* website link - hand cursor to show it's clickable */
 #modal-link {
     display: inline-block;
     background-color: #192841;
@@ -425,6 +444,7 @@ nav li a:hover {
     color: #192841;
 }
 
+/* custom dragon cursor - learned to use pointer-events: none so it doesn't block clicks */
 .cursor {
     width: 70px;
     height: 70px;
@@ -439,6 +459,7 @@ nav li a:hover {
     transition: transform 0.2s ease;
 }
 
+/* fire animation when cursor is clicked - learned keyframes */
 @keyframes fire-animation {
     0%   { background-image: url('/static/Updated4.png'); }
     33%  { background-image: url('/static/Updated3.png'); }
@@ -451,6 +472,7 @@ nav li a:hover {
     animation: fire-animation 5s infinite;
 }
 
+/* preloads fire animation images so they don't flicker */
 body::after {
     position: absolute; 
     width: 0; 
