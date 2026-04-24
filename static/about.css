@@ -1,0 +1,341 @@
+/* about.css - by Abigail Abraham for About Me page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
+    color: #FFCF40;
+    margin: 0;
+    cursor: none;
+    min-height: 100vh;
+}
+
+/* header banner */
+header {
+    background-image: url("drexel.png");
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+.header-logo {
+    text-align: center;
+}
+
+.header-logo img {
+    max-width: 60%;        
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* navigation bar - matches restaurant page */
+nav {
+    position: relative;
+    z-index: 9999;
+    background-color: #FFCF40;
+    margin-top: -5px;
+    border-top: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #FFCF40;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 9999;
+}
+
+nav li {
+    padding: 10px;
+    position: relative;
+    z-index: 9999;
+}
+
+nav li a {
+    color: #192841;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+    z-index: 9999;
+    display: inline-block;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+nav li a:hover {
+    background-color: #555;
+    color: #FF9933;
+    border-radius: 0;
+}
+
+/* hero section */
+.about-hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.hero-dragon {
+    width: 100px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.about-hero h1 {
+    font-size: 64px;
+    margin: 20px 0 10px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFCF40, #FF9933, #FFCF40);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.about-hero p {
+    font-size: 18px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.hero-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFCF40, transparent);
+    margin: 20px auto 0;
+}
+
+/* team container */
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* team member card - horizontal layout */
+.team-member {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 207, 64, 0.2);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    position: relative;
+}
+
+.team-member:hover {
+    transform: translateX(10px);
+    border-color: #FFCF40;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.member-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 207, 64, 0.05), transparent);
+    pointer-events: none;
+}
+
+/* member image */
+.member-image {
+    flex: 0 0 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.member-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 207, 64, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.team-member:hover .member-overlay {
+    opacity: 1;
+}
+
+/* member content */
+.member-content {
+    flex: 1;
+    padding: 28px 30px;
+}
+
+.member-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.member-title {
+    display: inline-block;
+    background: rgba(255, 207, 64, 0.15);
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 207, 64, 0.3);
+}
+
+/* member details */
+.member-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.detail-item a {
+    color: #66B3FF;
+    text-decoration: none;
+}
+
+.detail-item a:hover {
+    color: #FF9933;
+}
+
+/* fun fact */
+.member-fact {
+    background: linear-gradient(135deg, rgba(255, 207, 64, 0.1), rgba(255, 153, 51, 0.05));
+    padding: 12px 18px;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #FFCF40;
+    border-left: 3px solid #FFCF40;
+}
+
+.member-fact span {
+    margin-right: 8px;
+}
+
+/* cursor */
+.cursor {
+    width: 70px;
+    height: 70px;
+    background-image: url('/static/Updated1.png');
+    position: fixed;
+    pointer-events: none;
+    z-index: 10002;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    transition: transform 0.2s ease;
+}
+
+@keyframes fire-animation {
+    0%   { background-image: url('/static/Updated4.png'); }
+    33%  { background-image: url('/static/Updated3.png'); }
+    66%  { background-image: url('/static/Updated2.png'); }
+    100% { background-image: url('/static/Updated2.png'); }
+}
+
+.cursor.is-clicked {
+    transform: rotate(360deg) scale(1.2);
+    animation: fire-animation 5s infinite;
+}
+
+body::after {
+    position: absolute; 
+    width: 0; 
+    height: 0; 
+    overflow: hidden; 
+    z-index: -1;
+    content: url('/static/Updated2.png') url('/static/Updated3.png') url('/static/Updated4.png');
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .team-member {
+        flex-direction: column;
+    }
+    
+    .member-image {
+        flex: 0 0 250px;
+    }
+    
+    .about-hero h1 {
+        font-size: 40px;
+    }
+    
+    .member-content h3 {
+        font-size: 24px;
+    }
+    
+    .member-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
