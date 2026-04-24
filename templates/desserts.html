@@ -29,7 +29,6 @@
             <li><a href="/meal-mapper">Meal Mapper</a></li>
             <li><a href="/listing">Restaurants</a></li>
             <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/free-events">Free Events</a></li>
         </ul>
     </nav>
     
@@ -102,7 +101,7 @@
         <div class="content-area">
             <h2>Dessert listing</h2>
             
-            <!-- 7 dessert spots with cute emojis + data from Alisha -->
+            <!-- 8 dessert spots with cute emojis + data from Alisha -->
             <div class="dessert-grid">
                 <div class="dessert-card" onclick="openModal('Mango Mango')">
                     <h3>🥭 Mango Mango</h3>
@@ -124,6 +123,9 @@
                 </div>
                 <div class="dessert-card" onclick="openModal('Insomnia Cookies')">
                     <h3>🍪 Insomnia Cookies</h3>
+                </div>
+                <div class="dessert-card" onclick="openModal('Paris Baguette')">
+                    <h3>🥐 Paris Baguette</h3>
                 </div>
             </div>
         </div>
@@ -152,7 +154,8 @@
                 'Surreal Creamery': 'Surreal Creamery.png',
                 'Coco\'s Creamery': 'Coco\'s Creamery.png',
                 'Maison Sweet': 'Maison Sweet.png',
-                'Insomnia Cookies': 'Insomnia Cookies.png'
+                'Insomnia Cookies': 'Insomnia Cookies.png',
+                'Paris Baguette': 'ParisBaguette.png'
             };
             return imageMap[dessertName] || 'dessert-placeholder.jpg';
         }
@@ -193,6 +196,11 @@
                 rating: '4.0 ★★★★☆',
                 description: 'Insomnia Cookies is famous for warm, delicious cookies delivered late night. Located at 3400 Lancaster Ave, they also offer ice cream and cookie sandwiches. Popular flavors include Snickerdoodle, Chocolate Chunk, and seasonal offerings like red velvet and lemon white chocolate chip.',
                 website: 'https://insomniacookies.com'
+            },
+            'Paris Baguette': {
+                rating: '4.3 ★★★★☆',
+                description: 'Paris Baguette is a bakery café serving delicious pastries, fresh-baked breads, stunning cakes, expertly brewed coffees and teas, and grab-n-go salads and sandwiches. Located at 3816 Chestnut St, this spot offers outdoor seating, free WiFi, and plenty of indoor seating. Popular items include the Croissant Donut, Strawberry Cream Cheese Croissant, and Mochi Donuts. It is a great spot for students to study with a cup of coffee or meet up with friends.',
+                website: 'https://parisbaguette.com/locations/pa/philadelphia/3816-chestnut-street/'
             }
         };
 
