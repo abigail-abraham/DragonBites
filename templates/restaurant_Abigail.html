@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
-    <!-- made by Abigail Abraham for Dragon Bites restaurant page -->
+    <!-- made by Abigail Abraham -->
     <link rel="stylesheet" href="{{ url_for('static', filename='restaurant_Abigail.css') }}">
 </head>
 <body>
     <!-- header with the main dragon logo -->
     <header>
-        <div class="header-logo">
-            <img src="{{ url_for('static', filename='dragonlogo.png') }}" alt="Dragon Bites Logo">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='dragonlogo.png') }}" alt="Dragon Bites Logo">
+            </div>
         </div>
     </header>
     
-    <!-- nav bar - added Desserts link -->
+    <!-- navigation bar - Home, About, Meal Mapper, Restaurants, Desserts -->
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -23,14 +25,13 @@
             <li><a href="/meal-mapper">Meal Mapper</a></li>
             <li><a href="/listing">Restaurants</a></li>
             <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/free-events">Free Events</a></li>
         </ul>
     </nav>
     
     <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
     
     <div class="main-wrapper">
-        <!-- filter sidebar - lets users narrow down restaurants -->
+        <!-- filter sidebar - lets users filter by payment, diet, price -->
         <aside class="restaurant-filter-sidebar">
             <div class="restaurant-filter-header">
                 <h3 class="restaurant-filter-title">FILTERS</h3>
@@ -38,6 +39,7 @@
             </div>
             <hr>
             
+            <!-- payment methods checkboxes -->
             <div class="restaurant-filter-section">
                 <h4>Payment Methods</h4>
                 <label class="restaurant-filter-label">
@@ -55,6 +57,7 @@
             </div>
             <hr>
             
+            <!-- dietary options checkboxes -->
             <div class="restaurant-filter-section">
                 <h4>Dietary Options</h4>
                 <label class="restaurant-filter-label">
@@ -66,6 +69,7 @@
             </div>
             <hr>
             
+            <!-- food events checkbox -->
             <div class="restaurant-filter-section">
                 <h4>Food Events</h4>
                 <label class="restaurant-filter-label">
@@ -74,9 +78,9 @@
             </div>
             <hr>
             
+            <!-- price range inputs - fixed width so they don't break the sidebar -->
             <div class="restaurant-filter-section">
                 <h4>Price Range</h4>
-                <!-- fixed width so they don't break the sidebar layout -->
                 <div class="price-inputs">
                     <input type="number" placeholder="Min $" min="0">
                     <span>-</span>
@@ -87,7 +91,7 @@
             
             <button class="restaurant-filter-apply">Apply Filters</button>
             
-            <!-- little dragon logo at the bottom of the filter box -->
+            <!-- little dragon logo at the bottom of the filter sidebar -->
             <div class="filter-dragon-container">
                 <img src="{{ url_for('static', filename='FilterDragonImage.png') }}" alt="Dragon Logo">
             </div>
@@ -96,7 +100,7 @@
         <div class="content-area">
             <h2>Food listing</h2>
             
-            <!-- 8 restaurant cards with fun emojis -->
+            <!-- 12 restaurant cards with emojis - data from Alisha's research -->
             <div class="restaurant-grid">
                 <div class="restaurant-card" onclick="openModal('Landmark Americana')">
                     <h3>🍔 Landmark Americana</h3>
@@ -122,11 +126,23 @@
                 <div class="restaurant-card" onclick="openModal('Tataki Ramen')">
                     <h3>🍜 Tataki Ramen</h3>
                 </div>
+                <div class="restaurant-card" onclick="openModal('CM Chicken Philadelphia')">
+                    <h3>🍗 CM Chicken</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Shake Shack')">
+                    <h3>🍔 Shake Shack</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Schmear Bagel Parlor')">
+                    <h3>🥯 Schmear Bagel</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Amma\'s Kitchen')">
+                    <h3>🍛 Amma's Kitchen</h3>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- pop-up modal that appears when you click a restaurant -->
+    <!-- pop-up modal that appears when you click a restaurant card -->
     <div id="restaurantModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -139,8 +155,8 @@
     </div>
 
     <script>
-        // matches restaurant names to their image files
-        // learned: need to match filenames exactly or images won't load
+        // maps restaurant names to their image filenames
+        // learned: filenames must match exactly or images won't load
         function getImageName(restaurantName) {
             const imageMap = {
                 'Landmark Americana': 'LandMark.jpeg',
@@ -150,12 +166,16 @@
                 'Chipotle': 'Chipotle.jpeg',
                 'Han Dynasty': 'Han_Dynasty.jpeg',
                 'Sabrina\'s Cafe': 'Sabrina_s_Cafe.avif',
-                'Tataki Ramen': 'Tataki_Ramen.jpg'
+                'Tataki Ramen': 'Tataki_Ramen.jpg',
+                'CM Chicken Philadelphia': 'CMChicken.png',
+                'Shake Shack': 'ShakeShack.png',
+                'Schmear Bagel Parlor': 'SchmearIt.png',
+                'Amma\'s Kitchen': 'AmmasKitchen.png'
             };
             return imageMap[restaurantName];
         }
 
-        // all the restaurant info - ratings, descriptions, websites
+        // all the restaurant data - ratings, descriptions, and website links
         const restaurantData = {
             'Landmark Americana': {
                 rating: '3.7 ★★★☆☆',
@@ -196,30 +216,54 @@
                 rating: '4.6 ★★★★★',
                 description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials. Has a lively, bright, and clean atmosphere.',
                 website: 'https://www.universitycity.org/diningdays/tataki/'
+            },
+            'CM Chicken Philadelphia': {
+                rating: '4.7 ★★★★★',
+                description: 'CM Chicken is a crispy chicken spot serving wings, burgers, and tenders with Asian-inspired spices. Located at 3180 Chestnut St, this Korean fried chicken joint is known for its super crispy and juicy chicken with flavorful sauces like garlic soy, spicy garlic, and snow onion. Popular items include the Tikku Garlic Soy, Snow Onion Chicken, and Original Garlic Spicy. The portions are large and worth the price.',
+                website: 'https://www.cm-chicken.com/index.html'
+            },
+            'Shake Shack': {
+                rating: '4.2 ★★★★☆',
+                description: 'Shake Shack is a hip counter-serve chain for gourmet takes on fast-food classics like burgers, frozen custard, and shakes. Located at 3200 Chestnut St, this spot offers outdoor seating and a second floor with additional seating. Popular items include the Shack Burger, Shack Stack, and hand-spun milkshakes. The food is made-to-order with high-quality ingredients.',
+                website: 'https://shakeshack.com/location/university-city-pa'
+            },
+            'Schmear Bagel Parlor': {
+                rating: '4.5 ★★★★☆',
+                description: 'Schmear Bagel Parlor is a bagel shop located at 3601 Market St with an extensive list of cream cheese add-ins mixed to order, plus breakfast egg dishes. Popular items include the Loxsmith bagel with lox, cream cheese, and veggies, and the Philly Roll which is sushi-inspired with lox and wasabi-soy sauce. The bagels are fresh, chewy, and reasonably priced.',
+                website: 'https://schmearit.com'
+            },
+            'Amma\'s Kitchen': {
+                rating: '4.4 ★★★★☆',
+                description: 'Amma\'s South Indian Cuisine is a relaxed restaurant serving authentic South Indian eats including vegetarian options and a kids\' menu. Located at 103 S 39th St, this spot is known for its dosas (crispy rice crepes filled with spiced potatoes), idli, uttapam, and flavorful curries. The masala dosa is huge and served with three dips and sambar soup. The ambiance is clean, cultural, and cozy.',
+                website: 'https://ammasrestaurants.com/university-city'
             }
         };
 
         // this runs when you click on a restaurant card
         function openModal(restaurantName) {
+            // get the restaurant data or use default values
             const data = restaurantData[restaurantName] || {
                 rating: '★★★★☆',
                 description: 'Description coming soon.',
                 website: '#'
             };
             
+            // update the modal with the restaurant's info
             document.getElementById('modal-name').textContent = restaurantName;
             document.getElementById('modal-rating').textContent = data.rating;
             document.getElementById('modal-description').textContent = data.description;
             document.getElementById('modal-link').href = data.website;
             
+            // get the image and show it
             const imageName = getImageName(restaurantName);
             const imagePath = "{{ url_for('static', filename='') }}" + imageName;
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
             
-            // make the modal visible
+            // make the modal appear
             document.getElementById('restaurantModal').style.display = 'block';
         }
 
+        // closes the pop-up modal
         function closeModal() {
             document.getElementById('restaurantModal').style.display = 'none';
         }
@@ -233,6 +277,7 @@
         }
     </script>
     
+    <!-- custom dragon cursor element -->
     <div class="cursor"></div>
     <script src="{{ url_for('static', filename='cursor.js') }}"></script>
 </body>
