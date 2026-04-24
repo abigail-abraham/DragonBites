@@ -8,29 +8,32 @@ body {
     cursor: none; /* hides default cursor so dragon cursor shows */
 }
 
-/* header banner with Drexel background image and gold border */
+/* header banner with Drexel background image - NO YELLOW BORDER */
 header {
-    border: 3px solid #FFCF40;
     background-image: url("drexel.png");
     background-size: cover;
-    height: 250px;
+    height: 200px;
     width: 100%;
     background-position: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
-    box-shadow: 0 0 15px rgba(255, 207, 64, 0.3);
 }
 
-.header-logo {
-    width: 100%;
-    height: 100%;
+.header-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+/* main dragon logo centered */
+.header-logo {
+    text-align: center;
 }
 
 .header-logo img {
@@ -40,11 +43,13 @@ header {
     margin: 0 auto;
 }
 
-/* navigation bar - Drexel blue background, gold text */
+/* navigation bar - matches dessert page style with restaurant colors */
 nav {
     position: relative;
     z-index: 9999;
-    background-color: #192841;
+    background-color: #FFCF40;
+    margin-top: -5px;
+    border-top: none;
 }
 
 nav ul {
@@ -53,7 +58,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #192841;
+    background-color: #FFCF40;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -67,17 +72,20 @@ nav li {
 }
 
 nav li a {
-    color: #FFCF40;
+    color: #192841;
     text-decoration: none;
     padding: 10px;
     position: relative;
     z-index: 9999;
     display: inline-block;
+    font-weight: normal;
+    font-size: 16px;
 }
 
 nav li a:hover {
     background-color: #555;
-    color: #FF9933; /* orange on hover */
+    color: #FF9933;
+    border-radius: 0;
 }
 
 /* main layout - filter sidebar on left, restaurant cards on right */
@@ -262,7 +270,7 @@ nav li a:hover {
     overflow: hidden;
 }
 
-/* fork and knife emoji before each card - learned pseudo-elements */
+/* fork and knife emoji before each card */
 .restaurant-card::before {
     content: "🍽️";
     font-size: 40px;
@@ -276,7 +284,7 @@ nav li a:hover {
     opacity: 1;
 }
 
-/* shine effect on hover - learned radial-gradient */
+/* shine effect on hover */
 .restaurant-card::after {
     content: "";
     position: absolute;
@@ -308,7 +316,7 @@ nav li a:hover {
     letter-spacing: 0.5px;
 }
 
-/* modal pop-up - hidden by default, shows when card clicked */
+/* modal pop-up */
 .modal {
     display: none;
     position: fixed;
@@ -318,7 +326,7 @@ nav li a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
-    cursor: none; /* keeps dragon cursor visible on modal */
+    cursor: none;
 }
 
 .modal-content {
@@ -335,7 +343,6 @@ nav li a:hover {
     cursor: none;
 }
 
-/* close button - hand cursor so users know it's clickable */
 .close-btn {
     position: absolute;
     right: 15px;
@@ -391,7 +398,6 @@ nav li a:hover {
     cursor: none;
 }
 
-/* website link - hand cursor to show it's clickable */
 #modal-link {
     display: inline-block;
     background-color: #192841;
@@ -411,7 +417,7 @@ nav li a:hover {
     color: #192841;
 }
 
-/* custom dragon cursor - learned to use pointer-events: none so it doesn't block clicks */
+/* custom dragon cursor */
 .cursor {
     width: 70px;
     height: 70px;
@@ -426,7 +432,6 @@ nav li a:hover {
     transition: transform 0.2s ease;
 }
 
-/* fire animation when cursor is clicked - learned keyframes */
 @keyframes fire-animation {
     0%   { background-image: url('/static/Updated4.png'); }
     33%  { background-image: url('/static/Updated3.png'); }
@@ -439,7 +444,6 @@ nav li a:hover {
     animation: fire-animation 5s infinite;
 }
 
-/* preloads fire animation images so they don't flicker */
 body::after {
     position: absolute; 
     width: 0; 
