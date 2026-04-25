@@ -2,10 +2,10 @@
 
 body {
     font-family: Georgia, serif;
-    background: linear-gradient(145deg, #FFCF40 0%, #FFB347 100%);
+    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
     color: #192841;
     margin: 0;
-    cursor: none; /* hides default cursor so dragon cursor shows */
+    cursor: none; /* hides default cursor so our dragon cursor shows up */
 }
 
 /* header banner with Drexel background image */
@@ -36,7 +36,8 @@ header {
     position: relative;
 }
 
-/* dessert logo on left corner - learned to use absolute positioning */
+/* dessert logo on left corner - learned to use absolute positioning for this */
+/* took a lot of trial and error to get the position right */
 .dessert-logo-left {
     position: absolute;
     left: -250px;
@@ -66,11 +67,12 @@ header {
     display: none;
 }
 
-/* navigation bar - matches Drexel blue theme */
+/* navigation bar - matches the restaurant page style */
+/* uses the same gradient as restaurant page for consistency */
 nav {
     position: relative;
     z-index: 9999;
-    background-color: #192841;
+    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
     margin-top: -5px;
     border-top: none;
 }
@@ -81,7 +83,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #192841;
+    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -108,7 +110,7 @@ nav li a:hover {
     color: #FF9933;
 }
 
-/* main layout - filter sidebar on left, content on right */
+/* main layout - filter sidebar on left, dessert cards on right */
 .main-wrapper {
     display: flex;
     flex-direction: row;
@@ -119,7 +121,7 @@ nav li a:hover {
     z-index: 1;
 }
 
-/* filter sidebar - warm cream gradient */
+/* filter sidebar - warm cream gradient, rounded corners */
 .dessert-filter-sidebar {
     width: 280px;
     border: 2px solid #192841;
@@ -137,7 +139,6 @@ nav li a:hover {
     border-radius: 16px;
 }
 
-/* learned: sticky keeps filter bar visible when scrolling */
 .dessert-filter-sidebar hr {
     border-top: 1px solid #192841;
     margin: 10px 0;
@@ -202,7 +203,8 @@ nav li a:hover {
     cursor: pointer;
 }
 
-/* price inputs - fixed width so they don't overflow the sidebar */
+/* price inputs - fixed width so they don't break the sidebar layout */
+/* learned: flex:1 made them overflow, so switched to fixed width */
 .price-inputs {
     display: flex;
     align-items: center;
@@ -268,7 +270,7 @@ nav li a:hover {
     letter-spacing: 2px;
 }
 
-/* dessert cards grid - 2 columns */
+/* dessert cards grid */
 .dessert-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -277,6 +279,7 @@ nav li a:hover {
 }
 
 /* dessert card styling - golden gradient, unique rounded corners */
+/* made them pop with shadow and hover effects */
 .dessert-card {
     border: 2px solid #FFCF40;
     padding: 35px 15px;
@@ -296,7 +299,7 @@ nav li a:hover {
     overflow: hidden;
 }
 
-/* cake emoji before each card - learned about pseudo-elements */
+/* cake emoji before each card - learned about pseudo-elements for this */
 .dessert-card::before {
     content: "🍰";
     font-size: 40px;
@@ -310,7 +313,7 @@ nav li a:hover {
     opacity: 1;
 }
 
-/* shine effect that appears on hover - learned radial-gradient */
+/* shine effect on hover - learned radial-gradient for this one */
 .dessert-card::after {
     content: "";
     position: absolute;
@@ -341,7 +344,8 @@ nav li a:hover {
     font-weight: bold;
 }
 
-/* modal pop-up - hidden by default, shows when card clicked */
+/* modal pop-up - hidden by default, shows when card is clicked */
+/* made it scrollable so it works on all screen sizes */
 .modal {
     display: none;
     position: fixed;
@@ -351,24 +355,44 @@ nav li a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
-    cursor: none; /* keeps dragon cursor visible on modal */
+    cursor: none; /* keeps dragon cursor visible */
 }
 
 .modal-content {
     background: linear-gradient(145deg, #FFF8F0 0%, #FFEFD6 100%);
-    margin: 5% auto;
+    margin: 3% auto;
     padding: 25px;
     border: 3px solid #192841;
-    width: 450px;
+    width: 480px;
     max-width: 90%;
     position: relative;
     box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
     z-index: 10001;
     border-radius: 20px;
     cursor: none;
+    max-height: 85vh;
+    overflow-y: auto; /* allows scrolling if content is too tall */
 }
 
-/* close button - hand cursor so users know it's clickable */
+/* custom scrollbar for the modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #192841;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #FFCF40;
+}
+
 .close-btn {
     position: absolute;
     right: 15px;
@@ -424,7 +448,113 @@ nav li a:hover {
     cursor: none;
 }
 
-/* website link - hand cursor to show it's clickable */
+/* reviews section - added after researching and getting feedback from the surveys */
+.reviews-section {
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviews-section h4 {
+    color: #192841;
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* dummy button for now - will be connected to backend in next sprint */
+.write-review-btn {
+    background: #192841;
+    color: #FFCF40;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.write-review-btn:hover {
+    background: #FFCF40;
+    color: #192841;
+}
+
+.reviews-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* each review card - styled to match the dessert theme */
+.review-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 3px solid #FFCF40;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.reviewer-name {
+    color: #192841;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.review-stars {
+    color: #FFCF40;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.review-date {
+    color: #888;
+    font-size: 10px;
+}
+
+.review-comment {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.no-reviews {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* custom scrollbar for reviews list */
+.reviews-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reviews-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.reviews-list::-webkit-scrollbar-thumb {
+    background: #FFCF40;
+    border-radius: 3px;
+}
+
+/* Visit Website button - placed above reviews for easy access */
 #modal-link {
     display: inline-block;
     background-color: #192841;
@@ -433,10 +563,12 @@ nav li a:hover {
     text-decoration: none;
     border: 2px solid #192841;
     margin-top: 10px;
+    margin-bottom: 15px;
     font-weight: bold;
     font-size: 14px;
     border-radius: 10px;
     cursor: pointer;
+    text-align: center;
 }
 
 #modal-link:hover {
@@ -444,7 +576,7 @@ nav li a:hover {
     color: #192841;
 }
 
-/* custom dragon cursor - learned to use pointer-events: none so it doesn't block clicks */
+/* custom dragon cursor - learned: pointer-events: none so it doesn't block clicks */
 .cursor {
     width: 70px;
     height: 70px;
@@ -459,7 +591,7 @@ nav li a:hover {
     transition: transform 0.2s ease;
 }
 
-/* fire animation when cursor is clicked - learned keyframes */
+/* fire animation when cursor is clicked - learned keyframes for this */
 @keyframes fire-animation {
     0%   { background-image: url('/static/Updated4.png'); }
     33%  { background-image: url('/static/Updated3.png'); }
@@ -472,7 +604,7 @@ nav li a:hover {
     animation: fire-animation 5s infinite;
 }
 
-/* preloads fire animation images so they don't flicker */
+/* preloads fire animation images so they don't flicker when first clicked */
 body::after {
     position: absolute; 
     width: 0; 
