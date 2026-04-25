@@ -47,16 +47,16 @@
             <div class="dessert-filter-section">
                 <h4>Payment Methods</h4>
                 <label class="dessert-filter-label">
-                    <input type="checkbox"> Dragon Dollars
+                    <input type="checkbox" value="dragonDollars" class="filter-checkbox"> Dragon Dollars
                 </label>
                 <label class="dessert-filter-label">
-                    <input type="checkbox"> Dining Dollars
+                    <input type="checkbox" value="diningDollars" class="filter-checkbox"> Dining Dollars
                 </label>
                 <label class="dessert-filter-label">
-                    <input type="checkbox"> Card
+                    <input type="checkbox" value="card" class="filter-checkbox"> Card
                 </label>
                 <label class="dessert-filter-label">
-                    <input type="checkbox"> Cash
+                    <input type="checkbox" value="cash" class="filter-checkbox"> Cash
                 </label>
             </div>
             <hr>
@@ -86,14 +86,14 @@
             <div class="dessert-filter-section">
                 <h4>Price Range</h4>
                 <div class="price-inputs">
-                    <input type="number" placeholder="Min $" min="0">
+                    <input type="number" id="minPrice" placeholder="Min $" min="0">
                     <span>-</span>
-                    <input type="number" placeholder="Max $" min="0">
+                    <input type="number" id="maxPrice" placeholder="Max $" min="0">
                 </div>
             </div>
             <hr>
             
-            <button class="dessert-filter-apply">Apply Filters</button>
+            <button class="dessert-filter-apply" onclick="applyFilters()">Apply Filters</button>
             
             <!-- little dragon logo at the bottom of the filter bar -->
             <div class="filter-dragon-container">
@@ -337,6 +337,62 @@
         // closes the pop-up modal
         function closeModal() {
             document.getElementById('dessertModal').style.display = 'none';
+        }
+
+        // collects filter values and sends them to backend
+        function applyFilters() {
+            // Get selected payment methods
+            const checkboxes = document.querySelectorAll('.filter-checkbox:checked');
+            const filters = Array.from(checkboxes).map(cb => cb.value);
+            
+            // Get price range
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            
+            // Send filters to backend
+            fetch('/api/filter-desserts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    filters: filters,
+                    minPrice: minPrice ? parseFloat(minPrice) : null,
+                    maxPrice: maxPrice ? parseFloat(maxPrice) : null
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayFilteredDesserts(data.desserts);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // displays filtered dessert results in the grid
+        function displayFilteredDesserts(desserts) {
+            const grid = document.querySelector('.dessert-grid');
+            
+            if (desserts.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 20px;">No dessert locations match your filters.</p>';
+                return;
+            }
+            
+            // Parse dessert data and create cards
+            grid.innerHTML = desserts.map(dessert => {
+                // dessert format: "PlaceName Price Rating"
+                const parts = dessert[0].split(' ');
+                const name = parts.slice(0, -2).join(' ');
+                const price = parts[parts.length - 2];
+                const rating = parts[parts.length - 1];
+                
+                return `
+                    <div class="dessert-card" onclick="openModal('${name}')">
+                        <h3>${name}</h3>
+                        <p style="font-size: 0.9em; color: #666;">$${price}</p>
+                        <p style="font-size: 0.9em; color: #ffc107;">★ ${rating}</p>
+                    </div>
+                `;
+            }).join('');
         }
 
         // if you click outside the modal, it closes

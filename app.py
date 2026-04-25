@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template, session
 import dataQuery
+import dessertQuery
 import os
 
 app = Flask(__name__)
@@ -88,6 +89,44 @@ def listing():
 @app.route("/desserts")
 def desserts():
     return render_template("desserts.html")
+
+@app.route("/api/filter-desserts", methods=["POST"])
+def filter_desserts():
+    data = request.get_json()
+    
+    # Create dessert query object
+    dq = dessertQuery.dessertQuery()
+    
+    # Apply payment method filters
+    filters = data.get('filters', [])
+    if 'dragonDollars' in filters:
+        dq.usesDragonDollars()
+    if 'diningDollars' in filters:
+        dq.usesDiningDollars()
+    if 'card' in filters:
+        dq.takesCard()
+    if 'cash' in filters:
+        dq.takesCash()
+    
+    # Apply price range filters
+    min_price = data.get('minPrice')
+    max_price = data.get('maxPrice')
+    
+    if min_price is not None:
+        try:
+            dq.setMinPrice(float(min_price))
+        except (ValueError, TypeError):
+            pass
+    
+    if max_price is not None:
+        try:
+            dq.setMaxPrice(float(max_price))
+        except (ValueError, TypeError):
+            pass
+    
+    # Execute query and return results
+    results = dq.executeQueries()
+    return jsonify({'desserts': results})
 
 
 # Runs the website
