@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Dragon Bites - Restaurants</title>
-    <!-- made by Abigail Abraham -->
+    <!-- made by Abigail Abraham - restaurant page for Dragon Bites -->
     <link rel="stylesheet" href="{{ url_for('static', filename='restaurant_Abigail.css') }}">
 </head>
 <body>
-    <!-- header with the main dragon logo -->
+    <!-- header with the main dragon logo centered -->
     <header>
         <div class="header-container">
             <div class="header-logo">
@@ -31,7 +31,7 @@
     <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
     
     <div class="main-wrapper">
-        <!-- filter sidebar - lets users filter by payment, diet, price -->
+        <!-- filter sidebar - lets users narrow down by payment, diet, price -->
         <aside class="restaurant-filter-sidebar">
             <div class="restaurant-filter-header">
                 <h3 class="restaurant-filter-title">FILTERS</h3>
@@ -39,7 +39,7 @@
             </div>
             <hr>
             
-            <!-- payment methods checkboxes -->
+            <!-- payment methods - what Drexel students actually use -->
             <div class="restaurant-filter-section">
                 <h4>Payment Methods</h4>
                 <label class="restaurant-filter-label">
@@ -57,7 +57,7 @@
             </div>
             <hr>
             
-            <!-- dietary options checkboxes -->
+            <!-- dietary options - important for students with restrictions -->
             <div class="restaurant-filter-section">
                 <h4>Dietary Options</h4>
                 <label class="restaurant-filter-label">
@@ -69,7 +69,7 @@
             </div>
             <hr>
             
-            <!-- food events checkbox -->
+            <!-- food events - free food is a big deal for students -->
             <div class="restaurant-filter-section">
                 <h4>Food Events</h4>
                 <label class="restaurant-filter-label">
@@ -78,7 +78,8 @@
             </div>
             <hr>
             
-            <!-- price range inputs - fixed width so they don't break the sidebar -->
+            <!-- price range - fixed width so they don't break the sidebar layout -->
+            <!-- learned: flex:1 made them overflow, so switched to fixed width -->
             <div class="restaurant-filter-section">
                 <h4>Price Range</h4>
                 <div class="price-inputs">
@@ -91,7 +92,7 @@
             
             <button class="restaurant-filter-apply">Apply Filters</button>
             
-            <!-- little dragon logo at the bottom of the filter sidebar -->
+            <!-- little dragon logo at the bottom of the filter bar -->
             <div class="filter-dragon-container">
                 <img src="{{ url_for('static', filename='FilterDragonImage.png') }}" alt="Dragon Logo">
             </div>
@@ -100,7 +101,8 @@
         <div class="content-area">
             <h2>Food listing</h2>
             
-            <!-- 12 restaurant cards with emojis - data from Alisha's research -->
+            <!-- 12 restaurant cards with emojis - researched and added by Alisha -->
+            <!-- each emoji matches the vibe of the restaurant -->
             <div class="restaurant-grid">
                 <div class="restaurant-card" onclick="openModal('Landmark Americana')">
                     <h3>🍔 Landmark Americana</h3>
@@ -143,6 +145,7 @@
     </div>
 
     <!-- pop-up modal that appears when you click a restaurant card -->
+    <!-- learned: made it scrollable with max-height: 85vh so it doesn't overflow -->
     <div id="restaurantModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -150,12 +153,26 @@
             <h2 id="modal-name">Restaurant Name</h2>
             <div id="modal-rating">★★★★☆</div>
             <p id="modal-description">Description will go here</p>
+            
+            <!-- Visit Website button - opens in new tab -->
             <a href="#" id="modal-link" target="_blank">Visit Website</a>
+            
+            <!-- reviews section - added from research on online and feedback from the surveys -->
+            <div class="reviews-section">
+                <div class="reviews-header">
+                    <h4>Notable Reviews:</h4>
+                    <!-- dummy button for now - will connect to backend in future sprint -->
+                    <button class="write-review-btn" onclick="alert('Review feature coming soon! This will be added in the next sprint.')">+ Write a Review</button>
+                </div>
+                <div id="reviews-list" class="reviews-list">
+                    <!-- reviews load dynamically from Js -->
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // maps restaurant names to their image filenames
+        // maps restaurant names to their actual image filenames
         // learned: filenames must match exactly or images won't load
         function getImageName(restaurantName) {
             const imageMap = {
@@ -175,11 +192,11 @@
             return imageMap[restaurantName];
         }
 
-        // all the restaurant data - ratings, descriptions, and website links
+        // all restaurant data - gathered from research and feedback from surveys
         const restaurantData = {
             'Landmark Americana': {
                 rating: '3.7 ★★★☆☆',
-                description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports. Usually no wait, people typically spend 45 min to 2.5 hours here.',
+                description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports.',
                 website: 'https://www.landmarkamericana.com'
             },
             'Wild Blue': {
@@ -204,42 +221,138 @@
             },
             'Han Dynasty': {
                 rating: '4.7 ★★★★★',
-                description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails. Usually no wait, people typically spend 45 min to 1.5 hours here.',
+                description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails.',
                 website: 'https://www.handynasty.net/location/han-dynasty-university-city/'
             },
             'Sabrina\'s Cafe': {
                 rating: '4.3 ★★★★☆',
-                description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients. Has a cozy, historic atmosphere.',
+                description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients.',
                 website: 'https://www.sabrinascafe.com/location/sabrinas-cafe-university-city/'
             },
             'Tataki Ramen': {
                 rating: '4.6 ★★★★★',
-                description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials. Has a lively, bright, and clean atmosphere.',
+                description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials.',
                 website: 'https://www.universitycity.org/diningdays/tataki/'
             },
             'CM Chicken Philadelphia': {
                 rating: '4.7 ★★★★★',
-                description: 'CM Chicken is a crispy chicken spot serving wings, burgers, and tenders with Asian-inspired spices. Located at 3180 Chestnut St, this Korean fried chicken joint is known for its super crispy and juicy chicken with flavorful sauces like garlic soy, spicy garlic, and snow onion. Popular items include the Tikku Garlic Soy, Snow Onion Chicken, and Original Garlic Spicy. The portions are large and worth the price.',
+                description: 'Crispy Korean fried chicken spot serving wings, burgers, and tenders with Asian-inspired spices. Known for super crispy and juicy chicken with flavorful sauces.',
                 website: 'https://www.cm-chicken.com/index.html'
             },
             'Shake Shack': {
                 rating: '4.2 ★★★★☆',
-                description: 'Shake Shack is a hip counter-serve chain for gourmet takes on fast-food classics like burgers, frozen custard, and shakes. Located at 3200 Chestnut St, this spot offers outdoor seating and a second floor with additional seating. Popular items include the Shack Burger, Shack Stack, and hand-spun milkshakes. The food is made-to-order with high-quality ingredients.',
+                description: 'Hip counter-serve chain for gourmet takes on fast-food classics like burgers, frozen custard, and shakes. Offers outdoor seating.',
                 website: 'https://shakeshack.com/location/university-city-pa'
             },
             'Schmear Bagel Parlor': {
                 rating: '4.5 ★★★★☆',
-                description: 'Schmear Bagel Parlor is a bagel shop located at 3601 Market St with an extensive list of cream cheese add-ins mixed to order, plus breakfast egg dishes. Popular items include the Loxsmith bagel with lox, cream cheese, and veggies, and the Philly Roll which is sushi-inspired with lox and wasabi-soy sauce. The bagels are fresh, chewy, and reasonably priced.',
+                description: 'Bagel shop with extensive list of cream cheese add-ins mixed to order, plus breakfast egg dishes. Fresh, chewy bagels at reasonable prices.',
                 website: 'https://schmearit.com'
             },
             'Amma\'s Kitchen': {
                 rating: '4.4 ★★★★☆',
-                description: 'Amma\'s South Indian Cuisine is a relaxed restaurant serving authentic South Indian eats including vegetarian options and a kids\' menu. Located at 103 S 39th St, this spot is known for its dosas (crispy rice crepes filled with spiced potatoes), idli, uttapam, and flavorful curries. The masala dosa is huge and served with three dips and sambar soup. The ambiance is clean, cultural, and cozy.',
+                description: 'Authentic South Indian cuisine including dosas, idli, uttapam, and flavorful curries. The masala dosa is huge and served with three dips and sambar soup.',
                 website: 'https://ammasrestaurants.com/university-city'
             }
         };
 
+        // restaurant reviews - researched from online reviews and from feedback gotten from the surveys
+        // had to read through real customer feedback to find authentic comments
+        const restaurantReviews = {
+            'Landmark Americana': [
+                { name: 'PhillyNEFL', rating: 4, comment: 'Great location, atmosphere is always lively. Service on point.', date: 'Jan 2026' },
+                { name: 'Cassidy J. Tower', rating: 5, comment: 'Food is excellent, definitely recommend the wings.', date: 'Mar 2026' },
+                { name: 'Jasmine Samone', rating: 5, comment: 'Fruit Punch Paloma frozen drink was incredible!', date: 'Jul 2025' },
+                { name: 'Jazmin Bravo', rating: 5, comment: 'Garlic Parmesan wings were the best I ever tasted.', date: 'Apr 2025' },
+                { name: 'Natalie Marrero', rating: 4, comment: 'Good Food, lowkey and chill spot.', date: 'Oct 2025' }
+            ],
+            'Wild Blue': [
+                { name: 'Joseph Higgins', rating: 4, comment: 'Staff was incredibly kind and helpful.', date: 'May 2025' },
+                { name: 'Sh alshamsi', rating: 3, comment: 'Chicken place is fast and easy. Sushi wasn\'t that fresh.', date: 'Mar 2019' },
+                { name: 'Mikayah Williams', rating: 1, comment: 'Sushi wasn\'t fresh. Chicken was hard and cold.', date: 'Feb 2024' },
+                { name: 'Noah Richardson', rating: 4, comment: 'Pretty quick service with decent food.', date: 'Aug 2019' },
+                { name: 'Luis Angel Santiago Sr', rating: 5, comment: 'Great service and atmosphere.', date: 'Jan 2024' }
+            ],
+            'Chick-Fil-A': [
+                { name: 'Gwynlee Wms', rating: 5, comment: 'French fries were hot, fresh & crispy.', date: 'Jun 2019' },
+                { name: 'Jacqueline Williams', rating: 4, comment: 'Nuggets and fries were fresh.', date: 'Feb 2023' },
+                { name: 'Michelle Renee', rating: 5, comment: 'Food is always good.', date: 'Jan 2023' },
+                { name: 'Harshavardhan Agarwal', rating: 4, comment: 'Good place, has a market with basics.', date: 'Nov 2018' },
+                { name: 'Amanda Dozier', rating: 5, comment: 'Chic Fila is the bomb', date: 'Apr 2019' }
+            ],
+            'Urban Eatery': [
+                { name: 'Prabha Shankar', rating: 3, comment: '$14.99 all you can eat. Walkable and approachable.', date: 'Jul 2025' },
+                { name: 'United 130', rating: 1, comment: 'Food is inedible. Service is terrible.', date: 'Mar 2025' },
+                { name: 'Isabel Dukes', rating: 1, comment: 'Food is barely edible. Have seen rats.', date: 'Jul 2025' },
+                { name: 'Laila', rating: 1, comment: 'Workers have attitude and food might give you food poisoning.', date: 'Mar 2025' },
+                { name: 'Celeste Rybski', rating: 3, comment: 'Food is fairly consistent. Don\'t eat the scrambled eggs.', date: 'Mar 2025' }
+            ],
+            'Chipotle': [
+                { name: 'Rae S', rating: 1, comment: 'Worst Chipotle location. Employees were rude.', date: 'Feb 2026' },
+                { name: 'A', rating: 1, comment: 'Waited 40 minutes for cold food made incorrectly.', date: 'Apr 2025' },
+                { name: 'Bianca Bee', rating: 5, comment: 'Destiny was very nice & professional.', date: 'Mar 2026' },
+                { name: 'Bianca Perez', rating: 5, comment: 'People work very fast and are very kind.', date: 'Apr 2025' },
+                { name: 'Rosie D', rating: 5, comment: 'Best bowl I ever had. Made my worst day better.', date: 'May 2025' }
+            ],
+            'Han Dynasty': [
+                { name: 'Noel Abejo', rating: 5, comment: 'Great place for lunch. Spring rolls and dumplings were great.', date: 'Mar 2026' },
+                { name: 'Elaine Chen', rating: 3, comment: 'Disappointed. Won\'t come back for price or portion.', date: 'Dec 2025' },
+                { name: 'jova Gra', rating: 5, comment: 'Manager is amazing. Made up for missing sauce.', date: 'Mar 2026' },
+                { name: 'Preston Smith', rating: 4, comment: 'Solid spicy Szechuan food.', date: 'Apr 2025' },
+                { name: 'Yan', rating: 4, comment: 'Dry hot chicken is 11/10!', date: 'Nov 2025' }
+            ],
+            'Sabrina\'s Cafe': [
+                { name: 'Hans Gurban', rating: 5, comment: 'Absolutely delicious food and outstanding service.', date: 'Jan 2026' },
+                { name: 'Michael Clancy', rating: 5, comment: 'Stuffed French toast was incredible.', date: 'Feb 2026' },
+                { name: 'Mia', rating: 5, comment: 'Wonderful staff every time.', date: 'Feb 2026' },
+                { name: 'Cole Yacono', rating: 5, comment: 'Staff was so accommodating for our group of 12.', date: 'Nov 2025' },
+                { name: 'Sabrina\'s Cafe', rating: 5, comment: 'Thank you for the incredible review!', date: 'Jan 2026' }
+            ],
+            'Tataki Ramen': [
+                { name: 'Raphael Fischer', rating: 5, comment: 'My favorite restaurant in the whole world.', date: 'Mar 2026' },
+                { name: 'Stefani Dee', rating: 4, comment: 'Yummy ramen for a snowy day.', date: 'Feb 2026' },
+                { name: 'Z', rating: 5, comment: 'Fresh ingredients and amazing portions.', date: 'Jan 2026' },
+                { name: 'Kj S', rating: 4, comment: 'Karaage chicken was so delicious.', date: 'Oct 2025' },
+                { name: 'Zainab Ahmed', rating: 5, comment: 'Go-to sushi/ramen place in University City.', date: 'Nov 2025' }
+            ],
+            'CM Chicken Philadelphia': [
+                { name: 'Elif Boyacı', rating: 4, comment: 'Spicy wings were big and filling.', date: 'Dec 2025' },
+                { name: 'Sarah Khan', rating: 5, comment: 'Spicy garlic soy chicken is my favorite. Chicken is halal!', date: 'Sep 2025' },
+                { name: 'Liam S.', rating: 3, comment: 'Spicy was too hot for me. Staff were really nice.', date: 'Sep 2025' },
+                { name: 'Emily Chu', rating: 5, comment: 'Cashier let me charge my phone. Food came out hot and fresh.', date: 'Feb 2026' },
+                { name: 'John Haddad', rating: 3, comment: 'Good if you\'re in a rush.', date: 'Jun 2025' }
+            ],
+            'Shake Shack': [
+                { name: 'Brandon F.', rating: 4, comment: 'Plenty of seating upstairs.', date: 'Feb 2026' },
+                { name: 'Olga K.', rating: 4, comment: 'Nice view from the dining room window.', date: 'Oct 2025' },
+                { name: 'Casey P.', rating: 4, comment: 'Shake was decadent.', date: 'Nov 2024' },
+                { name: 'Amy P.', rating: 5, comment: 'Love their burgers.', date: 'Mar 2023' },
+                { name: 'Shaun T.', rating: 4, comment: 'Order kiosk makes ordering quick.', date: 'Nov 2023' }
+            ],
+            'Schmear Bagel Parlor': [
+                { name: 'Brandon F.', rating: 3, comment: 'Bagel was delicious but needed more ingredients.', date: 'Feb 2026' },
+                { name: 'Elaine T.', rating: 5, comment: 'Loxsmith was $7-8! Would cost $16 in NYC.', date: 'Sep 2025' },
+                { name: 'Sophie S.', rating: 3, comment: 'Bagel needed to be toasted.', date: 'Aug 2025' },
+                { name: 'Garrett L.', rating: 5, comment: 'Great bagel shop! Great prices.', date: 'Nov 2025' },
+                { name: 'Michelle F.', rating: 5, comment: 'Great service. Delicious bagels.', date: 'Nov 2023' }
+            ],
+            'Amma\'s Kitchen': [
+                { name: 'Sarah A.', rating: 5, comment: 'Amma\'s service is welcoming. Spices were delicious.', date: 'Mar 2026' },
+                { name: 'Francis S.', rating: 5, comment: 'Amazing South Indian food. Non-veg mix platter was perfect.', date: 'Mar 2026' },
+                { name: 'Lauren D.', rating: 5, comment: 'Food was delicious. Inside is gorgeous.', date: 'Dec 2025' },
+                { name: 'Dawn O.', rating: 4, comment: 'Great food and service. Prices have become high though.', date: 'Mar 2026' },
+                { name: 'Aaron G.', rating: 5, comment: 'Butter Masala was amazing.', date: 'Oct 2025' }
+            ]
+        };
+
+        // converts number rating (1-5) into star symbols
+        // learned: repeat() creates the stars, then fill the rest with empty stars
+        function displayStars(rating) {
+            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+        }
+
         // this runs when you click on a restaurant card
+        // loads the restaurant info, image, and reviews into the modal
         function openModal(restaurantName) {
             // get the restaurant data or use default values
             const data = restaurantData[restaurantName] || {
@@ -248,18 +361,37 @@
                 website: '#'
             };
             
-            // update the modal with the restaurant's info
+            // update modal with restaurant info
             document.getElementById('modal-name').textContent = restaurantName;
             document.getElementById('modal-rating').textContent = data.rating;
             document.getElementById('modal-description').textContent = data.description;
             document.getElementById('modal-link').href = data.website;
             
-            // get the image and show it
+            // load the image
             const imageName = getImageName(restaurantName);
             const imagePath = "{{ url_for('static', filename='') }}" + imageName;
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
             
-            // make the modal appear
+            // load the reviews for this restaurant
+            const reviews = restaurantReviews[restaurantName] || [];
+            const reviewsList = document.getElementById('reviews-list');
+            
+            if (reviews.length === 0) {
+                reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
+            } else {
+                reviewsList.innerHTML = reviews.map(review => `
+                    <div class="review-item">
+                        <div class="review-header">
+                            <strong class="reviewer-name">${review.name}</strong>
+                            <span class="review-stars">${displayStars(review.rating)}</span>
+                            <span class="review-date">${review.date}</span>
+                        </div>
+                        <p class="review-comment">${review.comment}</p>
+                    </div>
+                `).join('');
+            }
+            
+            // show the modal
             document.getElementById('restaurantModal').style.display = 'block';
         }
 
