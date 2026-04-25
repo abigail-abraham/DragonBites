@@ -1,4 +1,4 @@
-/* about.css - by Abigail Abraham for About Me page */
+/* about.css - Abigail Abraham */
 
 * {
     margin: 0;
@@ -49,11 +49,11 @@ header {
     margin: 0 auto;
 }
 
-/* navigation bar - matches restaurant page */
+/* navigation bar - using the dessert page gradient */
 nav {
     position: relative;
     z-index: 9999;
-    background-color: #FFCF40;
+    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
     margin-top: -5px;
     border-top: none;
 }
@@ -64,7 +64,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #FFCF40;
+    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
