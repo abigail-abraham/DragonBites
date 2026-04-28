@@ -2,7 +2,7 @@ import sqlite3
 # This file is used to automate the process of updating the ratings for each restaurant in the database based on the ratings in the text file.
 def avgRatings():
     #opens the text file and reads the lines
-    ratingsFile = open("DragonBites.txt", "r")
+    ratingsFile = open("DragonBites (Dessert Edition!).txt", "r")
     lnes = ratingsFile.readlines()
     ratingsFile.close()
     #initialize dictionaries for total sum and the count for each restaurant (in order to track each rating per restaurant)
@@ -40,13 +40,13 @@ def avgRatings():
 data=avgRatings()
 def updateDatabase(data):
     #connect to the database and update the rating for each restaurant based on the average ratings calculated from the text file
-    con = sqlite3.connect('instance/quantifiableData.db')
+    con = sqlite3.connect('instance/desserts.db')
     cur = con.cursor()
     for i in range(0, len(data), 2):
         restaurant = data[i]
         avg_rating = data[i+1]
         #update the rating for the restaurant in the database
-        cur.execute("UPDATE quantifiable SET rating = ? WHERE restaurantName = ?", (avg_rating, restaurant))
+        cur.execute("UPDATE dessertsQ SET Rating = ? WHERE DessertPlaceName = ?", (avg_rating, restaurant))
     con.commit()
     con.close()
 
