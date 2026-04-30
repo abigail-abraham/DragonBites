@@ -12,7 +12,7 @@
     <header>
         <div class="header-container">
             <div class="header-logo">
-                <img src="{{ url_for('static', filename='dragonlogo.png') }}" alt="Dragon Bites Logo">
+                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
             </div>
         </div>
     </header>
@@ -94,7 +94,7 @@
             
             <!-- little dragon logo at the bottom of the filter bar -->
             <div class="filter-dragon-container">
-                <img src="{{ url_for('static', filename='FilterDragonImage.png') }}" alt="Dragon Logo">
+                <img src="{{ url_for('static', filename='images/FilterDragonImage.png') }}" alt="Dragon Logo">
             </div>
         </aside>
         
@@ -176,18 +176,18 @@
         // learned: filenames must match exactly or images won't load
         function getImageName(restaurantName) {
             const imageMap = {
-                'Landmark Americana': 'LandMark.jpeg',
-                'Wild Blue': 'Wild_Blue.jpeg',
-                'Chick-Fil-A': 'Chick-Fil-A.jpeg',
-                'Urban Eatery': 'Urban_Eatery.jpg',
-                'Chipotle': 'Chipotle.jpeg',
-                'Han Dynasty': 'Han_Dynasty.jpeg',
-                'Sabrina\'s Cafe': 'Sabrina_s_Cafe.avif',
-                'Tataki Ramen': 'Tataki_Ramen.jpg',
-                'CM Chicken Philadelphia': 'CMChicken.png',
-                'Shake Shack': 'ShakeShack.png',
-                'Schmear Bagel Parlor': 'SchmearIt.png',
-                'Amma\'s Kitchen': 'AmmasKitchen.png'
+                'Landmark Americana': 'images/LandMark.jpeg',
+                'Wild Blue': 'images/Wild_Blue.jpeg',
+                'Chick-Fil-A': 'images/Chick-Fil-A.jpeg',
+                'Urban Eatery': 'images/Urban_Eatery.jpg',
+                'Chipotle': 'images/Chipotle.jpeg',
+                'Han Dynasty': 'images/Han_Dynasty.jpeg',
+                'Sabrina\'s Cafe': 'images/Sabrina_s_Cafe.avif',
+                'Tataki Ramen': 'images/Tataki_Ramen.jpg',
+                'CM Chicken Philadelphia': 'images/CMChicken.png',
+                'Shake Shack': 'images/ShakeShack.png',
+                'Schmear Bagel Parlor': 'images/SchmearIt.png',
+                'Amma\'s Kitchen': 'images/AmmasKitchen.png'
             };
             return imageMap[restaurantName];
         }

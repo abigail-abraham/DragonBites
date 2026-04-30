@@ -20,12 +20,12 @@ try {
     const loc = [39.9564, -75.1887, "<b>Hello!</b><br>This is Drexel University."];
 
     const blueIcon = L.icon({
-        iconUrl: 'static/dragonpinblue.png',
+        iconUrl: 'static/images/dragonpinblue.png',
         iconSize: [95, 95]
     });
 
     const yellowIcon = L.icon({
-        iconUrl: 'static/dragonpinyellow.png',
+        iconUrl: 'static/images/dragonpinyellow.png',
         iconSize: [95, 95]
     });
 

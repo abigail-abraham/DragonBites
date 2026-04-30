@@ -580,7 +580,7 @@ nav li a:hover {
 .cursor {
     width: 70px;
     height: 70px;
-    background-image: url('/static/Updated1.png'); 
+    background-image: url('/static/images/Updated1.png'); 
     position: fixed;
     pointer-events: none;
     z-index: 10001; 
@@ -593,10 +593,10 @@ nav li a:hover {
 
 /* fire animation when cursor is clicked - learned keyframes for this */
 @keyframes fire-animation {
-    0%   { background-image: url('/static/Updated4.png'); }
-    33%  { background-image: url('/static/Updated3.png'); }
-    66%  { background-image: url('/static/Updated2.png'); }
-    100% { background-image: url('/static/Updated2.png'); }
+    0%   { background-image: url('/static/images/Updated4.png'); }
+    33%  { background-image: url('/static/images/Updated3.png'); }
+    66%  { background-image: url('/static/images/Updated2.png'); }
+    100% { background-image: url('/static/images/Updated2.png'); }
 }
 
 .cursor.is-clicked {
@@ -611,5 +611,5 @@ body::after {
     height: 0; 
     overflow: hidden; 
     z-index: -1;
-    content: url('/static/Updated2.png') url('/static/Updated3.png') url('/static/Updated4.png');
+    content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }

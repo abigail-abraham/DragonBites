@@ -12,10 +12,10 @@
     <header>
         <div class="header-container">
             <div class="dessert-logo-left">
-                <img src="static/DragonDessertLogo.png" alt="Dessert Logo">
+                <img src="static/images/DragonDessertLogo.png" alt="Dessert Logo">
             </div>
             <div class="header-logo">
-                <img src="static/dragonlogo.png" alt="Dragon Bites Logo">
+                <img src="static/images/dragonlogo.png" alt="Dragon Bites Logo">
             </div>
             <div class="empty-space"></div>
         </div>
@@ -97,7 +97,7 @@
             
             <!-- little dragon logo at the bottom of the filter bar -->
             <div class="filter-dragon-container">
-                <img src="static/FilterDragonImage.png" alt="Dragon Logo">
+                <img src="static/images/FilterDragonImage.png" alt="Dragon Logo">
             </div>
         </aside>
         
@@ -167,16 +167,16 @@
         // learned: had to use encodeURIComponent because some filenames have spaces
         function getImageName(dessertName) {
             const imageMap = {
-                'Mango Mango': 'MangoMango.png',
-                'Carvel': 'Carvel.png',
-                'Kiwi Yogurt': 'Kiwi Yogurt.png',
-                'Surreal Creamery': 'Surreal Creamery.png',
-                'Coco\'s Creamery': 'Coco\'s Creamery.png',
-                'Maison Sweet': 'Maison Sweet.png',
-                'Insomnia Cookies': 'Insomnia Cookies.png',
-                'Paris Baguette': 'ParisBaguette.png'
+                'Mango Mango': 'images/MangoMango.png',
+                'Carvel': 'images/Carvel.png',
+                'Kiwi Yogurt': 'images/Kiwi Yogurt.png',
+                'Surreal Creamery': 'images/Surreal Creamery.png',
+                'Coco\'s Creamery': 'images/Coco\'s Creamery.png',
+                'Maison Sweet': 'images/Maison Sweet.png',
+                'Insomnia Cookies': 'images/Insomnia Cookies.png',
+                'Paris Baguette': 'images/ParisBaguette.png'
             };
-            return imageMap[dessertName] || 'dessert-placeholder.jpg';
+            return imageMap[dessertName] || 'images/dessert-placeholder.jpg';
         }
 
         // all dessert data - gathered from research and student surveys
