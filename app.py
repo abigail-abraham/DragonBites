@@ -128,6 +128,11 @@ def filter_desserts():
     results = dq.executeQueries()
     return jsonify({'desserts': results})
 
+@app.route("/mealmapper")
+def mealmapper():
+    return render_template("mealmapper.html")
+    
+
 
 # Runs the website
 if __name__ == "__main__":
