@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Dragon Bites - Food Trucks</title>
+    <!-- made by Abigail Abraham - food trucks page for Dragon Bites -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='food_trucks.css') }}">
+</head>
+<body>
+    <!-- header with the main dragon logo centered -->
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
+            </div>
+        </div>
+    </header>
+    
+    <!-- navigation bar - Home, About, Meal Mapper, Restaurants, Desserts, Food Trucks -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/meal-mapper">Meal Mapper</a></li>
+            <li><a href="/listing">Restaurants</a></li>
+            <li><a href="/desserts">Desserts</a></li>
+            <li><a href="/food-trucks">Food Trucks</a></li>
+        </ul>
+    </nav>
+    
+    <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
+    
+    <div class="main-wrapper">
+        <!-- filter sidebar - same as restaurant page -->
+        <aside class="foodtruck-filter-sidebar">
+            <div class="foodtruck-filter-header">
+                <h3 class="foodtruck-filter-title">FILTERS</h3>
+                <button class="foodtruck-filter-clear">Clear All</button>
+            </div>
+            <hr>
+            
+            <!-- payment methods - same as restaurant page -->
+            <div class="foodtruck-filter-section">
+                <h4>Payment Methods</h4>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Dragon Dollars
+                </label>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Dining Dollars
+                </label>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Card
+                </label>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Cash
+                </label>
+            </div>
+            <hr>
+            
+            <!-- dietary options - same as restaurant page -->
+            <div class="foodtruck-filter-section">
+                <h4>Dietary Options</h4>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Vegetarian
+                </label>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Halal
+                </label>
+            </div>
+            <hr>
+            
+            <!-- food events - same as restaurant page -->
+            <div class="foodtruck-filter-section">
+                <h4>Food Events</h4>
+                <label class="foodtruck-filter-label">
+                    <input type="checkbox"> Free Food Events
+                </label>
+            </div>
+            <hr>
+            
+            <!-- price range - same as restaurant page -->
+            <div class="foodtruck-filter-section">
+                <h4>Price Range</h4>
+                <div class="price-inputs">
+                    <input type="number" placeholder="Min $" min="0">
+                    <span>-</span>
+                    <input type="number" placeholder="Max $" min="0">
+                </div>
+            </div>
+            <hr>
+            
+            <button class="foodtruck-filter-apply">Apply Filters</button>
+            
+            <!-- little dragon logo at the bottom of the filter bar -->
+            <div class="filter-dragon-container">
+                <img src="{{ url_for('static', filename='images/FilterDragonImage.png') }}" alt="Dragon Logo">
+            </div>
+        </aside>
+        
+        <div class="content-area">
+            <h2>Food Trucks Near Campus</h2>
+            
+            <!-- 6 placeholder food truck cards - NO INFO yet -->
+            <!-- Research will be added in Week 7 -->
+            <div class="foodtruck-grid">
+                <div class="foodtruck-card" onclick="openModal('Food Truck #1')">
+                    <h3>🚚 Food Truck #1</h3>
+                </div>
+                <div class="foodtruck-card" onclick="openModal('Food Truck #2')">
+                    <h3>🚚 Food Truck #2</h3>
+                </div>
+                <div class="foodtruck-card" onclick="openModal('Food Truck #3')">
+                    <h3>🚚 Food Truck #3</h3>
+                </div>
+                <div class="foodtruck-card" onclick="openModal('Food Truck #4')">
+                    <h3>🚚 Food Truck #4</h3>
+                </div>
+                <div class="foodtruck-card" onclick="openModal('Food Truck #5')">
+                    <h3>🚚 Food Truck #5</h3>
+                </div>
+                <div class="foodtruck-card" onclick="openModal('Food Truck #6')">
+                    <h3>🚚 Food Truck #6</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- pop-up modal - same structure as restaurant page -->
+    <div id="foodtruckModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-image"></div>
+            <h2 id="modal-name">Food Truck Name</h2>
+            <div id="modal-rating">★★★★☆</div>
+            <p id="modal-description">Food truck information will be added in Week 7 after research is complete.</p>
+            
+            <!-- dummy website link for now -->
+            <a href="#" id="modal-link" target="_blank">Visit Website (Coming Soon)</a>
+            
+            <!-- reviews section - placeholder reviews -->
+            <div class="reviews-section">
+                <div class="reviews-header">
+                    <h4>Student Reviews:</h4>
+                    <button class="write-review-btn" onclick="alert('Review feature coming soon! This will be added in the next sprint.')">+ Write a Review</button>
+                </div>
+                <div id="reviews-list" class="reviews-list">
+                    <!-- placeholder reviews shown below -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // placeholder function for image - no real images yet
+        function getImageName(truckName) {
+            // no images until Week 7 research is done
+            return 'images/placeholder.png';
+        }
+
+        // placeholder data - all food trucks show the same placeholder info
+        const foodTruckData = {
+            'Food Truck #1': {
+                rating: '★★★★☆',
+                description: 'Food truck information will be added in Week 7 after research is complete.',
+                website: '#'
+            },
+            'Food Truck #2': {
+                rating: '★★★★☆',
+                description: 'Food truck information will be added in Week 7 after research is complete.',
+                website: '#'
+            },
+            'Food Truck #3': {
+                rating: '★★★★☆',
+                description: 'Food truck information will be added in Week 7 after research is complete.',
+                website: '#'
+            },
+            'Food Truck #4': {
+                rating: '★★★★☆',
+                description: 'Food truck information will be added in Week 7 after research is complete.',
+                website: '#'
+            },
+            'Food Truck #5': {
+                rating: '★★★★☆',
+                description: 'Food truck information will be added in Week 7 after research is complete.',
+                website: '#'
+            },
+            'Food Truck #6': {
+                rating: '★★★★☆',
+                description: 'Food truck information will be added in Week 7 after research is complete.',
+                website: '#'
+            }
+        };
+
+        // placeholder reviews - same for all food trucks
+        const foodTruckReviews = {
+            'Food Truck #1': [
+                { name: 'Student Reviewer', rating: 4, comment: 'Reviews will be added after research in Week 7.', date: 'Coming Soon' }
+            ],
+            'Food Truck #2': [
+                { name: 'Student Reviewer', rating: 4, comment: 'Reviews will be added after research in Week 7.', date: 'Coming Soon' }
+            ],
+            'Food Truck #3': [
+                { name: 'Student Reviewer', rating: 4, comment: 'Reviews will be added after research in Week 7.', date: 'Coming Soon' }
+            ],
+            'Food Truck #4': [
+                { name: 'Student Reviewer', rating: 4, comment: 'Reviews will be added after research in Week 7.', date: 'Coming Soon' }
+            ],
+            'Food Truck #5': [
+                { name: 'Student Reviewer', rating: 4, comment: 'Reviews will be added after research in Week 7.', date: 'Coming Soon' }
+            ],
+            'Food Truck #6': [
+                { name: 'Student Reviewer', rating: 4, comment: 'Reviews will be added after research in Week 7.', date: 'Coming Soon' }
+            ]
+        };
+
+        // converts number rating (1-5) into star symbols
+        function displayStars(rating) {
+            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+        }
+
+        // opens modal when you click a food truck card
+        function openModal(truckName) {
+            const data = foodTruckData[truckName];
+            
+            document.getElementById('modal-name').textContent = truckName;
+            document.getElementById('modal-rating').textContent = data.rating;
+            document.getElementById('modal-description').textContent = data.description;
+            document.getElementById('modal-link').href = data.website;
+            
+            // placeholder image for now
+            document.getElementById('modal-image').innerHTML = '<div style="background:#f0f0f0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#999;">Food Truck Image Coming Soon</div>';
+            
+            // load placeholder reviews
+            const reviews = foodTruckReviews[truckName] || [];
+            const reviewsList = document.getElementById('reviews-list');
+            
+            if (reviews.length === 0) {
+                reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
+            } else {
+                reviewsList.innerHTML = reviews.map(review => `
+                    <div class="review-item">
+                        <div class="review-header">
+                            <strong class="reviewer-name">${review.name}</strong>
+                            <span class="review-stars">${displayStars(review.rating)}</span>
+                            <span class="review-date">${review.date}</span>
+                        </div>
+                        <p class="review-comment">${review.comment}</p>
+                    </div>
+                `).join('');
+            }
+            
+            document.getElementById('foodtruckModal').style.display = 'block';
+        }
+
+        // closes the modal
+        function closeModal() {
+            document.getElementById('foodtruckModal').style.display = 'none';
+        }
+
+        // click outside modal closes it
+        window.onclick = function(event) {
+            const modal = document.getElementById('foodtruckModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+    
+    <!-- custom dragon cursor element -->
+    <div class="cursor"></div>
+    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+</body>
+</html>
