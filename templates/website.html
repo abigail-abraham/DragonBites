@@ -1,111 +1,167 @@
+<!-- made by Riya Bansal - homepage for Dragon Bites -->
+<!-- modified by Abigail Abraham - homepage for Dragon Bites -->
+ 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Group">
-    <title>Dragon Bites</title>
-    <link href="{{ url_for('static', filename='website.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <meta name="author" content="Abigail Abraham">
+    <title>DragonBites - Find Food Near Drexel</title>
+    <link href="{{ url_for('static', filename='images/dragonlogo.png') }}" rel="icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='website.css') }}">
 </head>
-
 <body>
-    <header><!--banner image is set behnd the header in css-->
-        <img src="static/images/dragonlogo.png" alt="Dragon Bites Logo">
-        <aside class="head-above">
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="DragonBites Logo">
+            </div>
+        </div>
     </header>
+
+    <!-- NAVIGATION -->
     <nav>
         <ul>
-            <li><a href ="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/mealmapper">Meal Mapper</a></li>
+            <li><a href="/meal-mapper">Meal Mapper</a></li>
             <li><a href="/listing">Restaurants</a></li>
-            <li><a href = "/desserts">Desserts</a></li>
+            <li><a href="/desserts">Desserts</a></li>
+            <li><a href="/food-trucks">Food Trucks</a></li>
         </ul>
     </nav>
-    <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
-    <div class="main-wrapper">
-        <div class="content-area">
-            <h2>Food listing</h2>
-            {% for restaurant in restaurants %}
-            <p>{{ restaurant[0] }}</p>
-            {% endfor %}
-            <div class="map-box">
+
+    <!-- TAGLINE -->
+    <div class="tagline">
+        <h3>Affordable, free and campus approved food spots for Drexel Students</h3>
+    </div>
+
+    <div class="home-container">
+
+        <!-- SECTION with 6 rotating DrexelCampus images -->
+        <div class="hero-section">
+            <h1>
+                <img src="{{ url_for('static', filename='images/DessertDragonImage.png') }}" alt="DragonBites">
+                Welcome to DragonBites
+            </h1>
+            <p>Your guide to the best food near Drexel University. Student researched, student approved.</p>
+            <div class="hero-buttons">
+                <a href="/listing" class="hero-button">Explore Restaurants</a>
+                <a href="/desserts" class="hero-button">Explore Desserts</a>
+                <a href="/food-trucks" class="hero-button">Explore Food Trucks</a>
             </div>
         </div>
-        <div id="banner">
-            <div id="map" style="width: 100%; height: 100%; min-height: 400px; z-index: 1;"></div>
+
+        <!-- FEATURE CARDS -->
+        <div class="section-title-wrapper">
+            <h2 class="section-title">Explore by Category</h2>
         </div>
-        <div class="main-wrapper">
-        <aside class="restaurant-filter-sidebar">
-            <div class="restaurant-filter-header">
-                <h3 class="restaurant-filter-title">FILTERS</h3>
-                <button class="restaurant-filter-clear">Clear All</button>
-            </div>
-            <hr>
-            <div class="restaurant-filter-section">
-                <h4>Payment Methods</h4>
-                <label><input type="checkbox" name="filter" value="dragonDollars" {% if 'dragonDollars' in
-                            active_filters %}checked{% endif %}> Dragon Dollars</label><br>
-                    <label><input type="checkbox" name="filter" value="diningDollars" {% if 'diningDollars' in
-                            active_filters %}checked{% endif %}> Dining dollars</label><br>
-                    <label><input type="checkbox" name="filter" value="card" {% if 'card' in active_filters %}checked{%
-                            endif %}> Card</label><br>
-                    <label><input type="checkbox" name="filter" value="cash" {% if 'cash' in active_filters %}checked{%
-                            endif %}> Cash</label><br>
-            </div>
-            <hr>
-            <div class="restaurant-filter-section">
-                <h4>Dietary Options</h4>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Vegetarian
-                </label>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Halal
-                </label>
-            </div>
-            <hr>
-            <div class="restaurant-filter-section">
-                <h4>Food Events</h4>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Free Food Events
-                </label>
-            </div>
-            <hr>
-            <div class="restaurant-filter-section">
-                <h4>Price Range</h4>
-                <div class="price-inputs">
-                    <input type="number" placeholder="Min $" min="0">
-                    <span>-</span>
-                    <input type="number" placeholder="Max $" min="0">
+
+        <div class="features-grid">
+            <!-- Meal Mapper Card -->
+            <a href="/meal-mapper" class="feature-card">
+                <div class="feature-icon meal-mapper-icon"></div>
+                <div class="feature-emoji">🗺️</div>
+                <h3>Meal Mapper</h3>
+                <div class="feature-subtitle">Find your way to food</div>
+                <div class="feature-description">
+                    Interactive map shows every restaurant, dessert spot, and food truck near Drexel. Search any location and see the path.
+                </div>
+                <div class="feature-footer">
+                    🔵 Dragon = Restaurants | 🟡 Dragon = Desserts | 🔴 Dragon= Food Trucks | 🟠 Dragon = Halal | 🟢 Dragon = Vegetarian
+                </div>
+            </a>
+
+            <!-- Restaurants Card -->
+            <a href="/listing" class="feature-card">
+                <div class="feature-icon restaurants-icon"></div>
+                <div class="feature-emoji">🍽️</div>
+                <h3>Restaurants</h3>
+                <div class="feature-subtitle">12 places near campus</div>
+                <div class="feature-description">
+                    Real student reviews, full descriptions, ratings, and website links. You can leave your own review. Filter by Dragon Dollars, Dining Dollars, Card, or Cash. Set your budget.
+                </div>
+                <div class="feature-footer">
+                    🟠 Halal filter | 🟢 Vegetarian filter
+                </div>
+            </a>
+
+            <!-- Desserts Card -->
+            <a href="/desserts" class="feature-card">
+                <div class="feature-icon desserts-icon"></div>
+                <div class="feature-emoji">🧁</div>
+                <h3>Desserts</h3>
+                <div class="feature-subtitle">8 sweet treat spots</div>
+                <div class="feature-description">
+                    Ice cream, cakes, pastries, and more. Read reviews, see ratings, and leave your own review. Filter by payment and price.
+                </div>
+                <div class="feature-footer">
+                    💰 Dragon Dollars, Dining Dollars, Card, Cash accepted
+                </div>
+            </a>
+
+            <!-- Food Trucks Card -->
+            <a href="/food-trucks" class="feature-card">
+                <div class="feature-icon foodtrucks-icon"></div>
+                <div class="feature-emoji">🚚</div>
+                <h3>Food Trucks</h3>
+                <div class="feature-subtitle">6 best trucks recommended by students</div>
+                <div class="feature-description">
+                    Real student reviews, full descriptions, ratings, and website links. Also, you can leave your own review.
+                </div>
+                <div class="feature-footer">
+                    💰 Dragon Dollars, Cash, Card | 🟠 Halal | 🟢 Vegetarian
+                </div>
+            </a>
+        </div>
+
+        <!-- MAP PREVIEW SECTION with Dragon Pin Icons next to the text -->
+        <div class="map-preview">
+            <h3>📍 Find Food on the Map</h3>
+            <p>Every restaurant, dessert spot, and food truck is pinned on the Meal Mapper. Dragon pins show you exactly what each location offers.</p>
+            <div class="map-legend">
+                <div class="legend-item">
+                    <div class="legend-icon blue-dragon"></div>
+                    <span class="legend-text">Restaurants</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon yellow-dragon"></div>
+                    <span class="legend-text">Desserts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon red-dragon"></div>
+                    <span class="legend-text">Food Trucks</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon orange-dragon"></div>
+                    <span class="legend-text">Halal Options</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon green-dragon"></div>
+                    <span class="legend-text">Vegetarian Options</span>
                 </div>
             </div>
-            <hr>
-            <button class="restaurant-filter-apply">Apply Filters</button>
-            <div class="filter-dragon-container">
-                <img src="../static/images/dragonpinyellow.png" alt="Dragon Logo">
-            </div>
-        </aside>
+            <a href="/meal-mapper" class="hero-button" style="margin-top: 25px; display: inline-block;">Go to Meal Mapper →</a>
+        </div>
 
-
-
-
-
-
-
-
-
-        <script src="{{ url_for('static', filename='filters.js') }}"></script>
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-        <script src="{{ url_for('static', filename='map.js') }}"></script>
+        <!-- ABOUT PREVIEW -->
+        <div class="about-preview">
+            <h3>
+                <img src="{{ url_for('static', filename='images/DessertDragonImage.png') }}" alt="Dragon">
+                Meet the Team Behind DragonBites
+            </h3>
+            <p>We're Drexel students who got tired of walking around hungry. So we researched, taste-tested, and built this guide to help you find good food fast.</p>
+            <button class="about-button" onclick="window.location.href='/about'">Meet the Team →</button>
+        </div>
 
     </div>
+
+    <!-- CURSOR SCRIPT -->
     <div class="cursor"></div>
-
     <script src="{{ url_for('static', filename='cursor.js') }}"></script>
-</body>
 
+</body>
 </html>

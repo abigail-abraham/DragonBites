@@ -3,23 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Dragon Bites</title>
+    <title>Dragon Bites - Meal Mapper</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='mealmapper.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 <body>
-    <header><!--banner image is set behnd the header in css-->
+    <header>
         <img src="static/images/dragonlogo.png" alt="Dragon Bites Logo">
         <aside class="head-above">
     </header>
     <nav>
         <ul>
-            <li><a href ="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/mealmapper">Meal Mapper</a></li>
+            <li><a href="/meal-mapper">Meal Mapper</a></li>
             <li><a href="/listing">Restaurants</a></li>
-            <li><a href = "/desserts">Desserts</a></li>
+            <li><a href="/desserts">Desserts</a></li>
+            <li><a href="/food-trucks">Food Trucks</a></li>
         </ul>
     </nav>
     <div id="banner">
