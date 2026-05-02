@@ -90,6 +90,10 @@ def listing():
 def desserts():
     return render_template("desserts.html")
 
+@app.route("/food-trucks")
+def food_trucks():
+    return render_template("food_trucks.html")
+
 @app.route("/api/filter-desserts", methods=["POST"])
 def filter_desserts():
     data = request.get_json()
@@ -128,11 +132,9 @@ def filter_desserts():
     results = dq.executeQueries()
     return jsonify({'desserts': results})
 
-@app.route("/mealmapper")
+@app.route("/meal-mapper")
 def mealmapper():
     return render_template("mealmapper.html")
-    
-
 
 # Runs the website
 if __name__ == "__main__":
