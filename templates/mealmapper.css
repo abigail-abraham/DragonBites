@@ -1,0 +1,62 @@
+#banner{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    min-height: 100px;
+    border: 2px solid #333; 
+    border-radius: 0;        
+    background-color: white;
+    padding: 40px;
+    margin: 20px auto;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1); 
+}
+header {
+  border: 2px solid #FFCF40;
+  border-radius: 10px;
+  background-image: url("drexel.png");
+  background-size: 75%;
+  height: 150px;                
+  width: 100%;                   
+  padding: 20px 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: center;   
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.head-above{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #192841;
+  border-radius: 10px;
+  overflow: hidden;
+}
+nav li {
+  padding: 10px;
+}
+nav li a {
+  color: #FFCF40;
+  text-decoration: none;
+  padding: 10px;
+}
+nav li a:hover {
+  background-color: #555;
+  color: #FF9933;
+}
+body{
+    cursor: none;
+}
