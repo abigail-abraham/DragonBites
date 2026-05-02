@@ -6,6 +6,8 @@ class booleanQuery:
     #initializes the class
     def __init__(self):
         self.clauses=[] #stores all of the filters within the class
+        self.minPrice=None #minimum price filter
+        self.maxPrice=None #maximum price filter
 
     #When run, it adds the filters to clauses
     def usesDragonDollars(self):
@@ -17,6 +19,16 @@ class booleanQuery:
     def takesCard(self):
         self.clauses.append("takesCard = 1")
     
+    #Price range filters
+    def setMinPrice(self, minPrice):
+        self.minPrice = minPrice
+    def setMaxPrice(self, maxPrice):
+        self.maxPrice = maxPrice
+    def removeMinPrice(self):
+        self.minPrice = None
+    def removeMaxPrice(self):
+        self.maxPrice = None
+
     #Removes filters from clauses
     def usesDragonDollarsREMOVE(self):
         self.clauses.remove("dragonDollars = 1")
@@ -46,7 +58,11 @@ class booleanQuery:
             for res in table:
                 for fit in fits:
                     if res[0] == fit[0]:
-                        data.append([fit[0] + " " + str(res[1]) + " " + str(res[2])])
+                        #Apply price range filter
+                        price = res[1]
+                        if (self.minPrice is None or price >= self.minPrice) and \
+                           (self.maxPrice is None or price <= self.maxPrice):
+                            data.append([fit[0] + " " + str(res[1]) + " " + str(res[2])])
             return data
         elif len(self.clauses) == 1:
             phrase= self.clauses[0]
@@ -65,7 +81,11 @@ class booleanQuery:
         for res in table:
             for fit in fits:
                 if res[0] == fit[0]:
-                    data.append([fit[0] + " " + str(res[1]) + " " + str(res[2])])
+                    #Apply price range filter
+                    price = res[1]
+                    if (self.minPrice is None or price >= self.minPrice) and \
+                       (self.maxPrice is None or price <= self.maxPrice):
+                        data.append([fit[0] + " " + str(res[1]) + " " + str(res[2])])
         return data
 
 #Sample testing code

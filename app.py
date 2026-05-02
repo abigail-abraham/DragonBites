@@ -85,6 +85,44 @@ def about():
 def listing():
     return render_template("restaurant_Abigail.html")
 
+@app.route("/api/filter-restaurants", methods=["POST"])
+def filter_restaurants():
+    data = request.get_json()
+    
+    # Create restaurant query object
+    rq = dataQuery.booleanQuery()
+    
+    # Apply payment method filters
+    filters = data.get('filters', [])
+    if 'dragonDollars' in filters:
+        rq.usesDragonDollars()
+    if 'diningDollars' in filters:
+        rq.usesDiningDollars()
+    if 'card' in filters:
+        rq.takesCard()
+    if 'cash' in filters:
+        rq.takesCash()
+    
+    # Apply price range filters
+    min_price = data.get('minPrice')
+    max_price = data.get('maxPrice')
+    
+    if min_price is not None:
+        try:
+            rq.setMinPrice(float(min_price))
+        except (ValueError, TypeError):
+            pass
+    
+    if max_price is not None:
+        try:
+            rq.setMaxPrice(float(max_price))
+        except (ValueError, TypeError):
+            pass
+    
+    # Execute query and return results
+    results = rq.executeQueries()
+    return jsonify({'restaurants': results})
+
 @app.route("/desserts")
 def desserts():
     return render_template("desserts.html")

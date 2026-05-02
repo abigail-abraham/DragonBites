@@ -172,6 +172,147 @@
     </div>
 
     <script>
+        // Filter data tracking
+        const filterState = {
+            filters: [],
+            minPrice: null,
+            maxPrice: null
+        };
+
+        // Initialize filter event listeners
+        function initializeFilters() {
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', handleFilterChange);
+            });
+            
+            // Get price input fields
+            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+            
+            minPriceInput.addEventListener('change', handleFilterChange);
+            maxPriceInput.addEventListener('change', handleFilterChange);
+            
+            // Apply filters button
+            document.querySelector('.restaurant-filter-apply').addEventListener('click', applyFilters);
+            
+            // Clear all button
+            document.querySelector('.restaurant-filter-clear').addEventListener('click', clearAllFilters);
+        }
+
+        // Handle individual filter changes
+        function handleFilterChange() {
+            // Update filter state based on current inputs
+            const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
+            const filterMap = {
+                'Dragon Dollars': 'dragonDollars',
+                'Dining Dollars': 'diningDollars',
+                'Card': 'card',
+                'Cash': 'cash'
+            };
+            
+            filterState.filters = [];
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const label = checkbox.parentElement.textContent.trim();
+                    for (let [key, value] of Object.entries(filterMap)) {
+                        if (label.includes(key)) {
+                            filterState.filters.push(value);
+                            break;
+                        }
+                    }
+                }
+            });
+            
+            // Update price inputs
+            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+            
+            filterState.minPrice = minPriceInput.value ? parseFloat(minPriceInput.value) : null;
+            filterState.maxPrice = maxPriceInput.value ? parseFloat(maxPriceInput.value) : null;
+        }
+
+        // Apply filters and update restaurant display
+        function applyFilters() {
+            handleFilterChange(); // Update filter state
+            
+            // Send filter request to backend
+            fetch('/api/filter-restaurants', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    filters: filterState.filters,
+                    minPrice: filterState.minPrice,
+                    maxPrice: filterState.maxPrice
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                updateRestaurantDisplay(data.restaurants);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Update restaurant cards display based on filtered results
+        function updateRestaurantDisplay(filteredResults) {
+            // Extract restaurant names from the filtered results
+            const visibleRestaurants = new Set();
+            
+            filteredResults.forEach(result => {
+                // Result format: ["Restaurant Name price rating"]
+                const parts = result[0].split(' ');
+                // Everything except the last two parts (price and rating) is the restaurant name
+                const restaurantName = parts.slice(0, -2).join(' ');
+                visibleRestaurants.add(restaurantName);
+            });
+            
+            // Hide/show restaurant cards
+            const cards = document.querySelectorAll('.restaurant-card');
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('h3').textContent;
+                // Extract restaurant name from card (remove emoji and trim)
+                const restaurantName = cardTitle.replace(/[^\w\s']/g, '').trim();
+                
+                if (visibleRestaurants.has(restaurantName)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            // Uncheck all checkboxes
+            const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Clear price inputs
+            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+            minPriceInput.value = '';
+            maxPriceInput.value = '';
+            
+            // Reset filter state
+            filterState.filters = [];
+            filterState.minPrice = null;
+            filterState.maxPrice = null;
+            
+            // Show all restaurant cards
+            const cards = document.querySelectorAll('.restaurant-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+
+        // Initialize filters when page loads
+        document.addEventListener('DOMContentLoaded', initializeFilters);
+
         // maps restaurant names to their actual image filenames
         // learned: filenames must match exactly or images won't load
         function getImageName(restaurantName) {
