@@ -149,12 +149,11 @@
             <!-- Visit Website button - opens in new tab -->
             <a href="#" id="modal-link" target="_blank">Visit Website</a>
             
-            <!-- reviews section - added from research on Google/Yelp -->
+            <!-- reviews section - added from research on surveys and internet -->
             <div class="reviews-section">
                 <div class="reviews-header">
                     <h4>Notable Reviews:</h4>
-                    <!-- dummy button for now - will connect to backend in future sprint -->
-                    <button class="write-review-btn" onclick="alert('Review feature coming soon! This will be added in the next sprint.')">+ Write a Review</button>
+                    <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'dessert')">+ Write a Review</button>
                 </div>
                 <div id="reviews-list" class="reviews-list">
                     <!-- reviews load dynamically from Js -->
@@ -312,14 +311,14 @@
             const imagePath = 'static/' + encodeURIComponent(imageName);
             document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + dessertName + '" style="width:100%; height:100%; object-fit:cover;">';
             
-            // load the reviews for this dessert
-            const reviews = dessertReviews[dessertName] || [];
+            // load the hardcoded reviews for this dessert
+            const hardcodedReviews = dessertReviews[dessertName] || [];
             const reviewsList = document.getElementById('reviews-list');
             
-            if (reviews.length === 0) {
+            if (hardcodedReviews.length === 0) {
                 reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
             } else {
-                reviewsList.innerHTML = reviews.map(review => `
+                reviewsList.innerHTML = hardcodedReviews.map(review => `
                     <div class="review-item">
                         <div class="review-header">
                             <strong class="reviewer-name">${review.name}</strong>
@@ -330,6 +329,9 @@
                     </div>
                 `).join('');
             }
+            
+            // Then load database reviews (they will be added after hardcoded ones)
+            loadReviews(dessertName, 'dessert');
             
             // show the modal
             document.getElementById('dessertModal').style.display = 'block';
@@ -408,5 +410,6 @@
     <!-- custom dragon cursor element -->
     <div class="cursor"></div>
     <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+    <script src="{{ url_for('static', filename='reviews.js') }}"></script>
 </body>
 </html>
