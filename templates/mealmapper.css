@@ -23,7 +23,7 @@ header {
     border: 2px solid #FFCF40;
     border-radius: 10px;
     background-color: #192841; 
-    background-image: url('dragonlogo.png');
+    background-image: url('images/dragonlogo.png');
     background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
@@ -80,4 +80,40 @@ body {
 }
 html{
     height: 100%;
+}
+.cursor {
+    width: 70px;
+    height: 70px;
+    background-image: url('/static/Updated1.png'); 
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    transition: transform 0.2s ease;
+}
+
+@keyframes fire-animation {
+  0%   { background-image: url('/static/Updated4.png'); }
+  33%  { background-image: url('/static/Updated3.png'); }
+  66%  { background-image: url('/static/Updated2.png'); }
+  100% { background-image: url('/static/Updated2.png'); }
+}
+
+.cursor.is-clicked {
+  transform: rotate(360deg) scale(1.2);
+  animation: fire-animation 5s infinite;
+}
+
+.cursor.is-clicked { /* what happens when clicked  */
+  transform: rotate(360deg) scale(1.2); /* rotate and scale up */
+  animation: fire-animation 5s infinite; /* play the fire animation */
+
+}
+
+body::after {
+   position: absolute; width: 0; height: 0; overflow: hidden; z-index: -1;
+   content: url('/static/Updated2.png') url('/static/Updated3.png') url('/static/Updated4.png');
 }
