@@ -5,7 +5,6 @@ import os
 
 app = Flask(__name__)
 
-# Use an environment-provided SECRET_KEY in production; fall back to a random key for local dev
 app.secret_key = os.environ.get('SECRET_KEY') or os.urandom(24)
 
 @app.route("/", methods=["GET", "POST"])
@@ -86,6 +85,44 @@ def about():
 def listing():
     return render_template("restaurant_Abigail.html")
 
+@app.route("/api/filter-restaurants", methods=["POST"])
+def filter_restaurants():
+    data = request.get_json()
+    
+    # Create restaurant query object
+    rq = dataQuery.booleanQuery()
+    
+    # Apply payment method filters
+    filters = data.get('filters', [])
+    if 'dragonDollars' in filters:
+        rq.usesDragonDollars()
+    if 'diningDollars' in filters:
+        rq.usesDiningDollars()
+    if 'card' in filters:
+        rq.takesCard()
+    if 'cash' in filters:
+        rq.takesCash()
+    
+    # Apply price range filters
+    min_price = data.get('minPrice')
+    max_price = data.get('maxPrice')
+    
+    if min_price is not None:
+        try:
+            rq.setMinPrice(float(min_price))
+        except (ValueError, TypeError):
+            pass
+    
+    if max_price is not None:
+        try:
+            rq.setMaxPrice(float(max_price))
+        except (ValueError, TypeError):
+            pass
+    
+    # Execute query and return results
+    results = rq.executeQueries()
+    return jsonify({'restaurants': results})
+
 @app.route("/desserts")
 def desserts():
     return render_template("desserts.html")
@@ -135,6 +172,87 @@ def filter_desserts():
 @app.route("/meal-mapper")
 def mealmapper():
     return render_template("mealmapper.html")
+
+# Write A Review Section - I added this so users can leave ratings and comments on Restaurants, Desserts, and Food Trucks Pages (they can delete their comment too).
+# The database is instance/reviews.db
+
+@app.route('/get_reviews', methods=['POST'])
+def get_reviews():
+    # Gets all reviews for a specific location (restaurant/dessert/food truck)
+    # Called by JavaScript when a modal opens
+    import sqlite3
+    data = request.get_json()
+    location_name = data.get('location_name')
+    location_type = data.get('location_type')
+    
+    conn = sqlite3.connect('instance/reviews.db')
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        SELECT id, author_name, rating, comment, date 
+        FROM reviews 
+        WHERE location_name = ? AND location_type = ?
+        ORDER BY date DESC
+    ''', (location_name, location_type))
+    
+    reviews = cursor.fetchall()
+    conn.close()
+    
+    reviews_list = []
+    for review in reviews:
+        reviews_list.append({
+            'id': review[0],
+            'author_name': review[1],
+            'rating': review[2],
+            'comment': review[3],
+            'date': review[4]
+        })
+    
+    return jsonify({'reviews': reviews_list})
+
+@app.route('/add_review', methods=['POST'])
+def add_review():
+    # Saves a new review to the database
+    # Gets name, rating, comment from the form
+    import sqlite3
+    data = request.get_json()
+    
+    location_name = data.get('location_name')
+    location_type = data.get('location_type')
+    rating = data.get('rating')
+    comment = data.get('comment')
+    author_name = data.get('author_name', 'Anonymous')
+    
+    if not author_name or author_name.strip() == '':
+        author_name = 'Anonymous'
+    
+    conn = sqlite3.connect('instance/reviews.db')
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        INSERT INTO reviews (location_name, location_type, rating, comment, author_name)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (location_name, location_type, rating, comment, author_name))
+    
+    conn.commit()
+    conn.close()
+    
+    return jsonify({'success': True, 'message': 'Review added successfully!'})
+
+@app.route('/delete_review', methods=['POST'])
+def delete_review():
+    # Deletes a review when user clicks the trash button
+    import sqlite3
+    data = request.get_json()
+    review_id = data.get('review_id')
+    
+    conn = sqlite3.connect('instance/reviews.db')
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM reviews WHERE id = ?', (review_id,))
+    conn.commit()
+    conn.close()
+    
+    return jsonify({'success': True, 'message': 'Review deleted successfully!'})
 
 # Runs the website
 if __name__ == "__main__":

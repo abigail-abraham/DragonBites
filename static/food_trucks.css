@@ -574,3 +574,316 @@ body::after {
     z-index: -1;
     content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }
+/* ===== REVIEW FORM MODAL STYLES ===== */
+.review-form-content {
+    max-width: 500px;
+    width: 90%;
+}
+
+.review-form-content h3 {
+    color: #192841;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #192841;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #192841;
+    border-radius: 8px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.star-rating {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.star-rating span {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating span:hover,
+.star-rating span.active {
+    color: #FFCF40;
+}
+
+.submit-review-btn {
+    background: #192841;
+    color: #FFCF40;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.submit-review-btn:hover {
+    background: #FFCF40;
+    color: #192841;
+}
+
+/* Delete review button */
+.delete-review-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: auto;
+    opacity: 0.7;
+    transition: all 0.2s;
+    padding: 0 5px;
+}
+
+.delete-review-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* ===== IMPROVED REVIEW SECTION STYLES ===== */
+
+/* Reviews header - better alignment */
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.reviews-section h4 {
+    color: #192841;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Write a Review button - centered and consistent style on par with the pop up modals */
+.write-review-btn {
+    background: linear-gradient(135deg, #192841 0%, #1E3A5F 100%);
+    color: #FFCF40;
+    border: 2px solid #FFCF40;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.write-review-btn:hover {
+    background: #FFCF40;
+    color: #192841;
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Review form modal - with better centering */
+.review-form-content {
+    max-width: 500px;
+    width: 90%;
+    margin: 5% auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.review-form-content h3 {
+    color: #192841;
+    font-size: 26px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Form groups spacing */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #192841;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    transition: border 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #FFCF40;
+    outline: none;
+}
+
+/* Star rating - centered & bigger */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.star-rating span {
+    font-size: 35px;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.star-rating span:hover,
+.star-rating span.active {
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+/* Submit Button~ */
+.submit-review-btn {
+    background: linear-gradient(135deg, #192841 0%, #1E3A5F 100%);
+    color: #FFCF40;
+    border: 2px solid #FFCF40;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-review-btn:hover {
+    background: #FFCF40;
+    color: #192841;
+    transform: scale(1.02);
+}
+
+/* Close Button Style */
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #192841;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    color: #FF9933;
+    transform: scale(1.1);
+}
+
+/* Reviews List Items~ */
+.review-item {
+    background: rgba(25, 40, 65, 0.08);
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border-left: 4px solid #FFCF40;
+    transition: all 0.2s;
+}
+
+.review-item:hover {
+    background: rgba(25, 40, 65, 0.12);
+    transform: translateX(5px);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.reviewer-name {
+    color: #192841;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.review-stars {
+    color: #FFD700;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.review-date {
+    color: #888;
+    font-size: 11px;
+}
+
+.review-comment {
+    color: #333;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 30px;
+}
+
+/* Delete Review Button */
+.delete-review-btn {
+    background: rgba(255, 100, 100, 0.1);
+    border: 1px solid #ff6b6b;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: auto;
+    opacity: 0.7;
+    transition: all 0.2s;
+    padding: 5px 10px;
+    color: #ff6b6b;
+}
+
+.delete-review-btn:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    background: rgba(255, 100, 100, 0.2);
+}
+
