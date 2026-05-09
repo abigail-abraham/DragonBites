@@ -5,7 +5,7 @@ body {
     background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
     color: #192841;
     margin: 0;
-    cursor: none; /* hides default cursor so our dragon cursor shows up */
+    cursor: none;
 }
 
 /* header banner with Drexel background image */
@@ -36,8 +36,7 @@ header {
     position: relative;
 }
 
-/* dessert logo on left corner - learned to use absolute positioning for this */
-/* took a lot of trial and error to get the position right */
+/* dessert logo on left corner */
 .dessert-logo-left {
     position: absolute;
     left: -250px;
@@ -67,8 +66,7 @@ header {
     display: none;
 }
 
-/* navigation bar - matches the restaurant page style */
-/* uses the same gradient as restaurant page for consistency */
+/* navigation bar */
 nav {
     position: relative;
     z-index: 9999;
@@ -110,7 +108,7 @@ nav li a:hover {
     color: #FF9933;
 }
 
-/* main layout - filter sidebar on left, dessert cards on right */
+/* main layout */
 .main-wrapper {
     display: flex;
     flex-direction: row;
@@ -121,7 +119,7 @@ nav li a:hover {
     z-index: 1;
 }
 
-/* filter sidebar - warm cream gradient, rounded corners */
+/* filter sidebar */
 .dessert-filter-sidebar {
     width: 280px;
     border: 2px solid #192841;
@@ -203,8 +201,6 @@ nav li a:hover {
     cursor: pointer;
 }
 
-/* price inputs - fixed width so they don't break the sidebar layout */
-/* learned: flex:1 made them overflow, so switched to fixed width */
 .price-inputs {
     display: flex;
     align-items: center;
@@ -246,7 +242,6 @@ nav li a:hover {
     border-color: #555;
 }
 
-/* dragon logo at bottom of filter sidebar */
 .filter-dragon-container {
     margin-top: 10px;
     text-align: center;
@@ -270,7 +265,6 @@ nav li a:hover {
     letter-spacing: 2px;
 }
 
-/* dessert cards grid */
 .dessert-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -278,8 +272,6 @@ nav li a:hover {
     margin: 20px 0;
 }
 
-/* dessert card styling - golden gradient, unique rounded corners */
-/* made them pop with shadow and hover effects */
 .dessert-card {
     border: 2px solid #FFCF40;
     padding: 35px 15px;
@@ -299,7 +291,6 @@ nav li a:hover {
     overflow: hidden;
 }
 
-/* cake emoji before each card - learned about pseudo-elements for this */
 .dessert-card::before {
     content: "🍰";
     font-size: 40px;
@@ -313,7 +304,6 @@ nav li a:hover {
     opacity: 1;
 }
 
-/* shine effect on hover - learned radial-gradient for this one */
 .dessert-card::after {
     content: "";
     position: absolute;
@@ -344,8 +334,7 @@ nav li a:hover {
     font-weight: bold;
 }
 
-/* modal pop-up - hidden by default, shows when card is clicked */
-/* made it scrollable so it works on all screen sizes */
+/* modal */
 .modal {
     display: none;
     position: fixed;
@@ -355,7 +344,7 @@ nav li a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
-    cursor: none; /* keeps dragon cursor visible */
+    cursor: none;
 }
 
 .modal-content {
@@ -371,10 +360,9 @@ nav li a:hover {
     border-radius: 20px;
     cursor: none;
     max-height: 85vh;
-    overflow-y: auto; /* allows scrolling if content is too tall */
+    overflow-y: auto;
 }
 
-/* custom scrollbar for the modal */
 .modal-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -448,7 +436,6 @@ nav li a:hover {
     cursor: none;
 }
 
-/* reviews section - added after researching and getting feedback from the surveys */
 .reviews-section {
     margin-top: 15px;
     padding-top: 10px;
@@ -468,7 +455,6 @@ nav li a:hover {
     font-weight: bold;
 }
 
-/* Not a dummy anymore (back end was added now actual comments can be submitted)  */
 .write-review-btn {
     background: #192841;
     color: #FFCF40;
@@ -491,7 +477,6 @@ nav li a:hover {
     overflow-y: auto;
 }
 
-/* each review card - styled to match the dessert theme */
 .review-item {
     background: rgba(255, 255, 255, 0.2);
     padding: 10px;
@@ -539,7 +524,6 @@ nav li a:hover {
     padding: 20px;
 }
 
-/* custom scrollbar for reviews list */
 .reviews-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -554,7 +538,6 @@ nav li a:hover {
     border-radius: 3px;
 }
 
-/* Visit Website button - placed above reviews for easy access */
 #modal-link {
     display: inline-block;
     background-color: #192841;
@@ -576,7 +559,6 @@ nav li a:hover {
     color: #192841;
 }
 
-/* custom dragon cursor - learned: pointer-events: none so it doesn't block clicks */
 .cursor {
     width: 70px;
     height: 70px;
@@ -591,7 +573,6 @@ nav li a:hover {
     transition: transform 0.2s ease;
 }
 
-/* fire animation when cursor is clicked - learned keyframes for this */
 @keyframes fire-animation {
     0%   { background-image: url('/static/images/Updated4.png'); }
     33%  { background-image: url('/static/images/Updated3.png'); }
@@ -604,7 +585,6 @@ nav li a:hover {
     animation: fire-animation 5s infinite;
 }
 
-/* preloads fire animation images so they don't flicker when first clicked */
 body::after {
     position: absolute; 
     width: 0; 
@@ -613,7 +593,7 @@ body::after {
     z-index: -1;
     content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }
-/*  Review Form Modal Styles - for write a review popup with backend integration */
+
 .review-form-content {
     max-width: 500px;
     width: 90%;
@@ -707,3 +687,226 @@ body::after {
     background: rgba(255, 100, 100, 0.2);
 }
 
+@media (max-width: 768px) {
+    header {
+        height: 100px;
+    }
+    
+    .header-logo img {
+        max-width: 50%;
+    }
+    
+    .dessert-logo-left {
+        display: none;
+    }
+    
+    nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+    
+    nav ul {
+        display: inline-flex;
+        gap: 5px;
+        padding: 8px 10px;
+    }
+    
+    nav li {
+        display: inline-block;
+        padding: 0;
+    }
+    
+    nav li a {
+        font-size: 11px;
+        padding: 6px 12px;
+        border-radius: 30px;
+    }
+    
+    h3[align="center"] {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+    
+    .main-wrapper {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+    }
+    
+    .dessert-filter-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        flex: none;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        padding: 12px 15px;
+        box-sizing: border-box;
+    }
+    
+    .dessert-filter-title {
+        font-size: 16px;
+    }
+    
+    .dessert-filter-section h4 {
+        font-size: 13px;
+    }
+    
+    .dessert-filter-label {
+        font-size: 12px;
+    }
+    
+    .price-inputs input {
+        width: 80px;
+        font-size: 12px;
+    }
+    
+    .dessert-filter-apply {
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    .filter-dragon-container img {
+        max-height: 45px;
+    }
+    
+    .content-area {
+        padding: 15px;
+    }
+    
+    .content-area h2 {
+        font-size: 22px;
+        margin-top: 0;
+    }
+    
+    .dessert-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .dessert-card {
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        min-height: auto;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        text-align: left;
+        border-radius: 20px;
+    }
+    
+    .dessert-card::before {
+        font-size: 32px;
+        margin-bottom: 0;
+    }
+    
+    .dessert-card h3 {
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 15% auto;
+        padding: 15px;
+    }
+    
+    #modal-image {
+        height: 130px;
+    }
+    
+    #modal-name {
+        font-size: 18px;
+    }
+    
+    .reviews-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .write-review-btn {
+        text-align: center;
+    }
+    
+    .review-form-content {
+        width: 95%;
+    }
+    
+    .star-rating span {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 80px;
+    }
+    
+    nav li a {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    h3[align="center"] {
+        font-size: 11px;
+    }
+    
+    .dessert-filter-sidebar {
+        padding: 10px 12px;
+    }
+    
+    .dessert-filter-title {
+        font-size: 14px;
+    }
+    
+    .dessert-filter-section h4 {
+        font-size: 12px;
+    }
+    
+    .dessert-filter-label {
+        font-size: 11px;
+    }
+    
+    .price-inputs input {
+        width: 65px;
+        font-size: 11px;
+    }
+    
+    .content-area h2 {
+        font-size: 18px;
+    }
+    
+    .dessert-card {
+        padding: 12px;
+    }
+    
+    .dessert-card::before {
+        font-size: 28px;
+    }
+    
+    .dessert-card h3 {
+        font-size: 14px;
+    }
+    
+    #modal-image {
+        height: 100px;
+    }
+    
+    .star-rating span {
+        font-size: 24px;
+    }
+    
+    .cursor {
+        width: 50px;
+        height: 50px;
+    }
+}
