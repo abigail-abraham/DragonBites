@@ -10,9 +10,13 @@
 </head>
 <body>
     <header>
-        <img src="static/images/dragonlogo.png" alt="Dragon Bites Logo">
-        <aside class="head-above">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
+            </div>
+        </div>
     </header>
+    
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -23,6 +27,7 @@
             <li><a href="/food-trucks">Food Trucks</a></li>
         </ul>
     </nav>
+    
     <div id="banner">
         <div id="map" style="width: 100%; height: 500px; z-index: 1;"></div>
     </div>
