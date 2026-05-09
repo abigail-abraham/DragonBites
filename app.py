@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template, session
 import dataQuery
 import dessertQuery
+import search
 import os
 
 app = Flask(__name__)
@@ -130,6 +131,18 @@ def desserts():
 @app.route("/food-trucks")
 def food_trucks():
     return render_template("food_trucks.html")
+
+@app.route("/api/search-restaurants", methods=["GET"])
+def search_restaurants():
+    """API endpoint for restaurant autocomplete search using trie"""
+    query = request.args.get('q', '').strip()
+    limit = request.args.get('limit', 10, type=int)
+    
+    if not query or len(query) < 1:
+        return jsonify({'results': []})
+    
+    results = search.search_engine.search_restaurants(query, limit)
+    return jsonify({'results': results})
 
 @app.route("/api/filter-desserts", methods=["POST"])
 def filter_desserts():

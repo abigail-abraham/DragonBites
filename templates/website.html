@@ -53,6 +53,12 @@
                 <a href="/desserts" class="hero-button">Explore Desserts</a>
                 <a href="/food-trucks" class="hero-button">Explore Food Trucks</a>
             </div>
+
+            <!-- SEARCH BAR WITH AUTOCOMPLETE -->
+            <div class="search-section">
+                <input type="text" id="restaurantSearch" class="search-input" placeholder="Search restaurants..." autocomplete="off">
+                <ul id="suggestions" class="suggestions-list"></ul>
+            </div>
         </div>
 
         <!-- FEATURE CARDS -->
@@ -162,6 +168,70 @@
     <!-- CURSOR SCRIPT -->
     <div class="cursor"></div>
     <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+
+    <!-- RESTAURANT SEARCH WITH TRIE AUTOCOMPLETE -->
+    <script>
+    const searchInput = document.getElementById('restaurantSearch');
+    const suggestionsList = document.getElementById('suggestions');
+
+    searchInput.addEventListener('input', async (e) => {
+        const query = e.target.value.trim();
+        
+        if (query.length < 1) {
+            suggestionsList.innerHTML = '';
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/search-restaurants?q=${encodeURIComponent(query)}&limit=5`);
+            const data = await response.json();
+            
+            suggestionsList.innerHTML = data.results
+                .map(name => `<li class="suggestion-item" onclick="selectRestaurant('${name.replace(/'/g, "\\'")}')">${highlightMatch(name, query)}</li>`)
+                .join('');
+        } catch (error) {
+            console.error('Search error:', error);
+            suggestionsList.innerHTML = '';
+        }
+    });
+
+    searchInput.addEventListener('blur', () => {
+        // Hide suggestions after a small delay to allow clicking
+        setTimeout(() => {
+            suggestionsList.innerHTML = '';
+        }, 200);
+    });
+
+    function highlightMatch(text, query) {
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<strong>$1</strong>');
+    }
+
+    function selectRestaurant(name) {
+        searchInput.value = name;
+        suggestionsList.innerHTML = '';
+        // Filter restaurants by name
+        filterRestaurantsByName(name);
+    }
+
+    function filterRestaurantsByName(name) {
+        // Clear current display and show only matching restaurant
+        fetch('/api/search-filter', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ restaurantName: name })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Filtered results:', data);
+            // Update the page with filtered results
+            location.href = '/listing?search=' + encodeURIComponent(name);
+        })
+        .catch(error => console.error('Filter error:', error));
+    }
+    </script>
 
 </body>
 </html>
