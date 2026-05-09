@@ -250,7 +250,7 @@ nav li a:hover {
     margin: 20px 0;
 }
 
-/* food truck card styling - same as restaurant cards */
+/* food truck card styling */
 .foodtruck-card {
     border: 2px solid #FFCF40;
     padding: 30px 15px;
@@ -270,7 +270,6 @@ nav li a:hover {
     overflow: hidden;
 }
 
-/* truck emoji before each card */
 .foodtruck-card::before {
     content: "🚚";
     font-size: 40px;
@@ -284,7 +283,6 @@ nav li a:hover {
     opacity: 1;
 }
 
-/* shine effect on hover */
 .foodtruck-card::after {
     content: "";
     position: absolute;
@@ -574,138 +572,8 @@ body::after {
     z-index: -1;
     content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }
+
 /* ===== REVIEW FORM MODAL STYLES ===== */
-.review-form-content {
-    max-width: 500px;
-    width: 90%;
-}
-
-.review-form-content h3 {
-    color: #192841;
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    color: #192841;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.form-group input[type="text"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #192841;
-    border-radius: 8px;
-    font-family: Georgia, serif;
-    font-size: 14px;
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.star-rating {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.star-rating span {
-    font-size: 30px;
-    color: #ccc;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.star-rating span:hover,
-.star-rating span.active {
-    color: #FFCF40;
-}
-
-.submit-review-btn {
-    background: #192841;
-    color: #FFCF40;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s;
-}
-
-.submit-review-btn:hover {
-    background: #FFCF40;
-    color: #192841;
-}
-
-/* Delete review button */
-.delete-review-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: auto;
-    opacity: 0.7;
-    transition: all 0.2s;
-    padding: 0 5px;
-}
-
-.delete-review-btn:hover {
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-/* ===== IMPROVED REVIEW SECTION STYLES ===== */
-
-/* Reviews header - better alignment */
-.reviews-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.reviews-section h4 {
-    color: #192841;
-    font-size: 18px;
-    margin: 0;
-    font-weight: bold;
-}
-
-/* Write a Review button - centered and consistent style on par with the pop up modals */
-.write-review-btn {
-    background: linear-gradient(135deg, #192841 0%, #1E3A5F 100%);
-    color: #FFCF40;
-    border: 2px solid #FFCF40;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.write-review-btn:hover {
-    background: #FFCF40;
-    color: #192841;
-    transform: scale(1.02);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Review form modal - with better centering */
 .review-form-content {
     max-width: 500px;
     width: 90%;
@@ -722,7 +590,6 @@ body::after {
     font-weight: bold;
 }
 
-/* Form groups spacing */
 .form-group {
     margin-bottom: 20px;
 }
@@ -753,7 +620,6 @@ body::after {
     outline: none;
 }
 
-/* Star rating - centered & bigger */
 .star-rating {
     display: flex;
     justify-content: center;
@@ -775,7 +641,6 @@ body::after {
     transform: scale(1.1);
 }
 
-/* Submit Button~ */
 .submit-review-btn {
     background: linear-gradient(135deg, #192841 0%, #1E3A5F 100%);
     color: #FFCF40;
@@ -796,7 +661,6 @@ body::after {
     transform: scale(1.02);
 }
 
-/* Close Button Style */
 .close-btn {
     position: absolute;
     right: 20px;
@@ -813,7 +677,6 @@ body::after {
     transform: scale(1.1);
 }
 
-/* Reviews List Items~ */
 .review-item {
     background: rgba(25, 40, 65, 0.08);
     padding: 15px;
@@ -867,7 +730,6 @@ body::after {
     padding: 30px;
 }
 
-/* Delete Review Button */
 .delete-review-btn {
     background: rgba(255, 100, 100, 0.1);
     border: 1px solid #ff6b6b;
@@ -887,3 +749,221 @@ body::after {
     background: rgba(255, 100, 100, 0.2);
 }
 
+@media (max-width: 768px) {
+    header {
+        height: 100px;
+    }
+    
+    .header-logo img {
+        max-width: 50%;
+    }
+    
+    nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+    
+    nav ul {
+        display: inline-flex;
+        gap: 5px;
+        padding: 8px 10px;
+    }
+    
+    nav li {
+        display: inline-block;
+        padding: 0;
+    }
+    
+    nav li a {
+        font-size: 11px;
+        padding: 6px 12px;
+        border-radius: 30px;
+    }
+    
+    h3[align="center"] {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+    
+    .main-wrapper {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+    }
+    
+    .foodtruck-filter-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        flex: none;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        padding: 12px 15px;
+        box-sizing: border-box;
+    }
+    
+    .foodtruck-filter-title {
+        font-size: 16px;
+    }
+    
+    .foodtruck-filter-section h4 {
+        font-size: 13px;
+    }
+    
+    .foodtruck-filter-label {
+        font-size: 12px;
+    }
+    
+    .price-inputs input {
+        width: 80px;
+        font-size: 12px;
+    }
+    
+    .foodtruck-filter-apply {
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    .filter-dragon-container img {
+        max-height: 45px;
+    }
+    
+    .content-area {
+        padding: 15px;
+    }
+    
+    .content-area h2 {
+        font-size: 22px;
+        margin-top: 0;
+    }
+    
+    .foodtruck-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .foodtruck-card {
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        min-height: auto;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        text-align: left;
+    }
+    
+    .foodtruck-card::before {
+        font-size: 32px;
+        margin-bottom: 0;
+    }
+    
+    .foodtruck-card h3 {
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 15% auto;
+        padding: 15px;
+    }
+    
+    #modal-image {
+        height: 130px;
+    }
+    
+    #modal-name {
+        font-size: 18px;
+    }
+    
+    .reviews-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .write-review-btn {
+        text-align: center;
+    }
+    
+    .review-form-content {
+        width: 95%;
+    }
+    
+    .star-rating span {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 80px;
+    }
+    
+    nav li a {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    h3[align="center"] {
+        font-size: 11px;
+    }
+    
+    .foodtruck-filter-sidebar {
+        padding: 10px 12px;
+    }
+    
+    .foodtruck-filter-title {
+        font-size: 14px;
+    }
+    
+    .foodtruck-filter-section h4 {
+        font-size: 12px;
+    }
+    
+    .foodtruck-filter-label {
+        font-size: 11px;
+    }
+    
+    .price-inputs input {
+        width: 65px;
+        font-size: 11px;
+    }
+    
+    .content-area h2 {
+        font-size: 18px;
+    }
+    
+    .foodtruck-card {
+        padding: 12px;
+    }
+    
+    .foodtruck-card::before {
+        font-size: 28px;
+    }
+    
+    .foodtruck-card h3 {
+        font-size: 14px;
+    }
+    
+    #modal-image {
+        height: 100px;
+    }
+    
+    .star-rating span {
+        font-size: 24px;
+    }
+    
+    .cursor {
+        width: 50px;
+        height: 50px;
+    }
+}
