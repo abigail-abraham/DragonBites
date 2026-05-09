@@ -682,311 +682,190 @@ body::after {
     transform: scale(1.05);
     background: rgba(255, 100, 100, 0.2);
 }
-
-/* Tablets (max-width: 900px) */
-@media (max-width: 900px) {
-    /* Header scales beautifully */
+@media (max-width: 768px) {
+    /* Header smaller on mobile only */
     header {
-        height: 130px;
-        background-size: cover;
-        background-position: center;
+        height: 100px;
     }
     
     .header-logo img {
-        max-width: 55%;
+        max-width: 50%;
     }
     
-    /* Smooth horizontal navigation */
+    /* Navigation - horizontal scroll on mobile only */
     nav {
         overflow-x: auto;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
     }
     
     nav::-webkit-scrollbar {
-        height: 3px;
-    }
-    
-    nav::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-    }
-    
-    nav::-webkit-scrollbar-thumb {
-        background: #FFCF40;
-        border-radius: 10px;
+        display: none;
     }
     
     nav ul {
         display: inline-flex;
-        gap: 8px;
-        padding: 0 15px;
+        gap: 5px;
+        padding: 8px 10px;
     }
     
     nav li {
-        padding: 8px 4px;
+        display: inline-block;
+        padding: 0;
     }
     
     nav li a {
-        font-size: 13px;
+        font-size: 11px;
         padding: 6px 12px;
-        white-space: nowrap;
-        border-radius: 30px;
-        transition: all 0.3s;
-    }
-    
-    nav li a:hover {
-        background-color: #FFCF40;
-        color: #192841;
         border-radius: 30px;
     }
     
-    /* Tagline */
+    /* Tagline on mobile */
     h3[align="center"] {
-        font-size: 14px;
-        margin: 12px;
-        padding: 0 20px;
-        line-height: 1.4;
+        font-size: 12px;
+        padding: 0 15px;
     }
     
-    /* Main layout */
+    /* MAIN LAYOUT - STACK VERTICALLY ON MOBILE ONLY */
     .main-wrapper {
         flex-direction: column;
-        padding: 15px;
-        gap: 20px;
+        padding: 0;
+        gap: 0;
     }
     
-    /* ===== BEAUTIFUL FILTER STRIP ===== */
+    /* FILTERS - FULL WIDTH AT TOP ON MOBILE ONLY */
     .restaurant-filter-sidebar {
         width: 100%;
+        position: relative;
+        top: 0;
         flex: none;
-        position: static;
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 15px;
-        padding: 15px;
-        background: linear-gradient(145deg, #FFF8F0 0%, #FFEFD6 100%);
-        border-radius: 24px;
-        border: 2px solid #FFCF40;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        scrollbar-width: thin;
-        -webkit-overflow-scrolling: touch;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        padding: 12px 15px;
+        box-sizing: border-box;
     }
     
-    .restaurant-filter-sidebar::-webkit-scrollbar {
-        height: 4px;
-    }
-    
-    .restaurant-filter-sidebar::-webkit-scrollbar-track {
-        background: #e0d5c0;
-        border-radius: 10px;
-    }
-    
-    .restaurant-filter-sidebar::-webkit-scrollbar-thumb {
-        background: #FFCF40;
-        border-radius: 10px;
-    }
-    
-    .restaurant-filter-sidebar hr {
-        display: none;
-    }
-    
-    .restaurant-filter-header {
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        margin-bottom: 0;
-        padding-right: 10px;
-        border-right: 2px solid #FFCF40;
-    }
-    
+    /* Make filters compact on mobile */
     .restaurant-filter-title {
         font-size: 16px;
-        color: #192841;
-        margin: 0;
-    }
-    
-    .restaurant-filter-clear {
-        background: #192841;
-        border: none;
-        padding: 5px 12px;
-        border-radius: 30px;
-        font-size: 11px;
-        color: #FFCF40;
-        font-weight: bold;
-    }
-    
-    /* Each filter section as a card */
-    .restaurant-filter-section {
-        flex-shrink: 0;
-        min-width: 140px;
-        background: rgba(255, 255, 255, 0.6);
-        padding: 10px 12px;
-        border-radius: 20px;
-        margin: 0;
-        backdrop-filter: blur(4px);
     }
     
     .restaurant-filter-section h4 {
         font-size: 13px;
-        margin-bottom: 8px;
-        border-bottom: 2px solid #FFCF40;
-        display: inline-block;
-        padding-bottom: 3px;
     }
     
     .restaurant-filter-label {
         font-size: 12px;
-        margin-bottom: 6px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .restaurant-filter-label input {
-        width: 14px;
-        height: 14px;
-        accent-color: #FFCF40;
-    }
-    
-    /* Price inputs inline */
-    .price-inputs {
-        display: flex;
-        flex-direction: row;
-        gap: 6px;
-        margin: 5px 0;
     }
     
     .price-inputs input {
-        width: 65px;
-        padding: 5px;
-        font-size: 11px;
-        border-radius: 12px;
-    }
-    
-    .price-inputs span {
-        display: inline;
+        width: 80px;
+        font-size: 12px;
     }
     
     .restaurant-filter-apply {
-        flex-shrink: 0;
-        background: linear-gradient(135deg, #FFCF40, #FF9933);
-        color: #192841;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 30px;
-        font-weight: bold;
         font-size: 12px;
-        margin: 0;
-        width: auto;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-    
-    .filter-dragon-container {
-        flex-shrink: 0;
-        margin: 0;
-        padding-left: 5px;
+        padding: 6px;
     }
     
     .filter-dragon-container img {
         max-height: 45px;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
     
-    /* Beautiful restaurant cards */
+    /* CONTENT AREA - CARDS BELOW FILTERS ON MOBILE */
+    .content-area {
+        padding: 15px;
+    }
+    
+    .content-area h2 {
+        font-size: 22px;
+        margin-top: 0;
+    }
+    
+    /* RESTAURANT CARDS - 1 COLUMN ON MOBILE ONLY */
     .restaurant-grid {
         grid-template-columns: 1fr;
         gap: 15px;
     }
     
     .restaurant-card {
-        padding: 18px 20px;
         display: flex;
         flex-direction: row;
+        padding: 15px;
+        min-height: auto;
         align-items: center;
-        gap: 18px;
+        justify-content: flex-start;
+        gap: 15px;
         text-align: left;
-        border-radius: 24px;
     }
     
     .restaurant-card::before {
-        font-size: 35px;
+        font-size: 32px;
         margin-bottom: 0;
     }
     
     .restaurant-card h3 {
         font-size: 16px;
         margin: 0;
-        font-weight: bold;
     }
     
-    /* Modal */
+    /* MODAL ON MOBILE */
     .modal-content {
-        width: 92%;
-        margin: 12% auto;
-        padding: 20px;
-        border-radius: 28px;
+        width: 95%;
+        margin: 15% auto;
+        padding: 15px;
     }
     
     #modal-image {
-        height: 140px;
-        border-radius: 16px;
+        height: 130px;
+    }
+    
+    #modal-name {
+        font-size: 18px;
     }
     
     .reviews-header {
         flex-direction: column;
-        gap: 12px;
+        align-items: stretch;
+        gap: 10px;
     }
     
     .write-review-btn {
-        width: 100%;
-        padding: 10px;
-        border-radius: 40px;
-        font-size: 13px;
+        text-align: center;
     }
     
     .review-form-content {
-        width: 92%;
-        border-radius: 28px;
+        width: 95%;
     }
     
     .star-rating span {
-        font-size: 32px;
+        font-size: 30px;
     }
 }
 
-/* Small phones (max-width: 600px) */
-@media (max-width: 600px) {
+/* SMALL PHONES ONLY */
+@media (max-width: 480px) {
     header {
-        height: 100px;
-    }
-    
-    .header-logo img {
-        max-width: 70%;
+        height: 80px;
     }
     
     nav li a {
-        font-size: 11px;
-        padding: 5px 10px;
+        font-size: 10px;
+        padding: 4px 8px;
     }
     
     h3[align="center"] {
-        font-size: 12px;
-        margin: 10px;
+        font-size: 11px;
     }
     
     .restaurant-filter-sidebar {
-        padding: 12px;
-        gap: 12px;
+        padding: 10px 12px;
     }
     
-    .restaurant-filter-section {
-        min-width: 125px;
-        padding: 8px 10px;
+    .restaurant-filter-title {
+        font-size: 14px;
     }
     
     .restaurant-filter-section h4 {
@@ -995,26 +874,19 @@ body::after {
     
     .restaurant-filter-label {
         font-size: 11px;
-        gap: 6px;
     }
     
     .price-inputs input {
-        width: 55px;
-        font-size: 10px;
-    }
-    
-    .restaurant-filter-apply {
-        padding: 6px 12px;
+        width: 65px;
         font-size: 11px;
     }
     
-    .filter-dragon-container img {
-        max-height: 35px;
+    .content-area h2 {
+        font-size: 18px;
     }
     
     .restaurant-card {
-        padding: 14px 16px;
-        gap: 14px;
+        padding: 12px;
     }
     
     .restaurant-card::before {
@@ -1025,21 +897,12 @@ body::after {
         font-size: 14px;
     }
     
-    .modal-content {
-        width: 95%;
-        padding: 15px;
-    }
-    
     #modal-image {
-        height: 110px;
-    }
-    
-    #modal-name {
-        font-size: 16px;
+        height: 100px;
     }
     
     .star-rating span {
-        font-size: 26px;
+        font-size: 24px;
     }
     
     .cursor {
