@@ -620,3 +620,195 @@ body::after {
     z-index: -1;
     content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }
+
+@media (max-width: 768px) {
+    /* Header smaller */
+    header {
+        height: 100px;
+    }
+    
+    .header-logo img {
+        max-width: 50%;
+    }
+    
+    /* Navigation - horizontal scroll */
+    nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+    
+    nav ul {
+        display: inline-flex;
+        gap: 5px;
+        padding: 8px 10px;
+    }
+    
+    nav li {
+        display: inline-block;
+        padding: 0;
+    }
+    
+    nav li a {
+        font-size: 11px;
+        padding: 6px 12px;
+        border-radius: 30px;
+    }
+    
+    /* Hero section smaller */
+    .hero-section {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+    
+    .hero-section h1 {
+        font-size: 28px;
+    }
+    
+    .hero-section h1 img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-section p {
+        font-size: 14px;
+    }
+    
+    .hero-button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    /* Feature cards - 2 columns on tablet, 1 on small */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .feature-card {
+        padding: 20px 15px;
+    }
+    
+    .feature-emoji {
+        font-size: 30px;
+    }
+    
+    .feature-card h3 {
+        font-size: 18px;
+    }
+    
+    .feature-description {
+        font-size: 11px;
+    }
+    
+    .feature-footer {
+        font-size: 9px;
+    }
+    
+    /* Map preview section */
+    .map-preview {
+        padding: 20px;
+        margin: 30px 15px;
+    }
+    
+    .map-preview h3 {
+        font-size: 22px;
+    }
+    
+    .map-legend {
+        gap: 12px;
+    }
+    
+    .legend-icon.blue-dragon, 
+    .legend-icon.yellow-dragon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .legend-icon.red-dragon,
+    .legend-icon.orange-dragon,
+    .legend-icon.green-dragon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .legend-text {
+        font-size: 10px;
+    }
+    
+    /* About preview */
+    .about-preview {
+        padding: 25px;
+        margin: 30px 15px;
+    }
+    
+    .about-preview h3 {
+        font-size: 22px;
+    }
+    
+    .about-preview p {
+        font-size: 13px;
+    }
+    
+    .about-button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    
+    /* Tagline */
+    .tagline h3 {
+        font-size: 12px;
+    }
+    
+    /* Search section */
+    .search-input {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .suggestion-item {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 80px;
+    }
+    
+    nav li a {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    .hero-section h1 {
+        font-size: 22px;
+    }
+    
+    .hero-section p {
+        font-size: 12px;
+    }
+    
+    .hero-button {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .cursor {
+        width: 50px;
+        height: 50px;
+    }
+}
