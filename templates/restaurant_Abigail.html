@@ -108,11 +108,11 @@
                 <div class="restaurant-card" onclick="openModal('Landmark Americana')">
                     <h3>🍔 Landmark Americana</h3>
                 </div>
-                <div class="restaurant-card" onclick="openModal('Wild Blue')">
-                    <h3>🍣 Wild Blue</h3>
+                <div class="restaurant-card" onclick="openModal('Wild Blue Sushi')">
+                    <h3>🍣 Wild Blue Sushi</h3>
                 </div>
-                <div class="restaurant-card" onclick="openModal('Chick-Fil-A')">
-                    <h3>🐔 Chick-Fil-A</h3>
+                <div class="restaurant-card" onclick="openModal('Chick-fil-A')">
+                    <h3>🐔 Chick-fil-A</h3>
                 </div>
                 <div class="restaurant-card" onclick="openModal('Urban Eatery')">
                     <h3>🥗 Urban Eatery</h3>
@@ -265,7 +265,7 @@
                 // Result format: ["Restaurant Name price rating"]
                 const parts = result[0].split(' ');
                 // Everything except the last two parts (price and rating) is the restaurant name
-                const restaurantName = parts.slice(0, -2).join(' ');
+                const restaurantName = parts.slice(0, -2).join(' ').toLowerCase();
                 visibleRestaurants.add(restaurantName);
             });
             
@@ -274,7 +274,8 @@
             cards.forEach(card => {
                 const cardTitle = card.querySelector('h3').textContent;
                 // Extract restaurant name from card (remove emoji and trim)
-                const restaurantName = cardTitle.replace(/[^\w\s']/g, '').trim();
+                // We keep hyphens (-) so names like 'Chick-fil-A' don't get squashed
+                const restaurantName = cardTitle.replace(/[^\w\s'-]/g, '').trim().toLowerCase();
                 
                 if (visibleRestaurants.has(restaurantName)) {
                     card.style.display = 'block';
@@ -318,8 +319,8 @@
         function getImageName(restaurantName) {
             const imageMap = {
                 'Landmark Americana': 'images/LandMark.jpeg',
-                'Wild Blue': 'images/Wild_Blue.jpeg',
-                'Chick-Fil-A': 'images/Chick-Fil-A.jpeg',
+                'Wild Blue Sushi': 'images/Wild_Blue.jpeg',
+                'Chick-fil-A': 'images/Chick-Fil-A.jpeg',
                 'Urban Eatery': 'images/Urban_Eatery.jpg',
                 'Chipotle': 'images/Chipotle.jpeg',
                 'Han Dynasty': 'images/Han_Dynasty.jpeg',
@@ -340,12 +341,12 @@
                 description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports.',
                 website: 'https://www.landmarkamericana.com'
             },
-            'Wild Blue': {
+            'Wild Blue Sushi': {
                 rating: '3.5 ★★★☆☆',
                 description: 'Popular sushi vendor located within the Northside Dining Terrace (NDT). Offers fresh, made-to-order sushi, poke bowls, and specialized rolls. Accepts dining dollars, Dragon Dollars, and credit cards.',
                 website: 'https://drexel.mydininghub.com/en/location/wild-blue-sushi'
             },
-            'Chick-Fil-A': {
+            'Chick-fil-A': {
                 rating: '4.9 ★★★★★',
                 description: 'Fast-food chain serving chicken sandwiches, nuggets, salads, and sides. Located in Northside Dining Terrace. Offers outdoor seating, vegetarian options, and Wi-Fi.',
                 website: 'https://www.chick-fil-a.com/locations/pa/drexel-university'
@@ -407,14 +408,14 @@
                 { name: 'Jazmin Bravo', rating: 5, comment: 'Garlic Parmesan wings were the best I ever tasted.', date: 'Apr 2025' },
                 { name: 'Natalie Marrero', rating: 4, comment: 'Good Food, lowkey and chill spot.', date: 'Oct 2025' }
             ],
-            'Wild Blue': [
+            'Wild Blue Sushi': [
                 { name: 'Joseph Higgins', rating: 4, comment: 'Staff was incredibly kind and helpful.', date: 'May 2025' },
                 { name: 'Sh alshamsi', rating: 3, comment: 'Chicken place is fast and easy. Sushi wasn\'t that fresh.', date: 'Mar 2019' },
                 { name: 'Mikayah Williams', rating: 1, comment: 'Sushi wasn\'t fresh. Chicken was hard and cold.', date: 'Feb 2024' },
                 { name: 'Noah Richardson', rating: 4, comment: 'Pretty quick service with decent food.', date: 'Aug 2019' },
                 { name: 'Luis Angel Santiago Sr', rating: 5, comment: 'Great service and atmosphere.', date: 'Jan 2024' }
             ],
-            'Chick-Fil-A': [
+            'Chick-fil-A': [
                 { name: 'Gwynlee Wms', rating: 5, comment: 'French fries were hot, fresh & crispy.', date: 'Jun 2019' },
                 { name: 'Jacqueline Williams', rating: 4, comment: 'Nuggets and fries were fresh.', date: 'Feb 2023' },
                 { name: 'Michelle Renee', rating: 5, comment: 'Food is always good.', date: 'Jan 2023' },
