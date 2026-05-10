@@ -1,106 +1,3 @@
-/* General styles */
-html, body {
-    min-height: 100vh; 
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
-    color: #192841;
-    overflow-x: hidden;
-    cursor: none;
-    font-family: Georgia, serif;
-}
-
-html {
-    height: 100%;
-}
-
-header {
-    border: 3px solid #192841;
-    border-top: none;
-    border-bottom: 5px solid #192841;
-    background-image: url("/static/images/drexel.png");
-    background-size: cover;
-    height: 200px;
-    width: 100%;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    max-width: 1200px;
-    position: relative;
-}
-
-.header-logo {
-    text-align: center;
-}
-
-.header-logo img {
-    max-width: 60%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-nav {
-    position: relative;
-    z-index: 9999;
-    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
-    margin-top: -5px;
-    border-top: none;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    z-index: 9999;
-}
-
-nav li {
-    padding: 10px;
-    position: relative;
-    z-index: 9999;
-}
-
-nav li a {
-    color: #FFCF40;
-    text-decoration: none;
-    padding: 10px;
-    position: relative;
-    z-index: 9999;
-    display: inline-block;
-    font-weight: normal;
-    font-size: 16px;
-}
-
-nav li a:hover {
-    background-color: #555;
-    color: #FF9933;
-    border-radius: 0;
-}
-
 #banner{
     display: flex;
     flex-direction: column;
@@ -108,20 +5,75 @@ nav li a:hover {
     justify-content: center;
     width: 85%;
     max-width: 1200px; 
-    border: 3px solid #FFCF40; 
+    border: 3px solid #333; 
+    
     background-color: rgba(255, 255, 255, 0.9);
     margin: 40px auto; 
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    border-radius: 20px;
 }
-
-#map {
-    width: 100%;
-    height: 500px;
-    z-index: 1;
+header {
+    border: 2px solid #FFCF40;
+    border-radius: 10px;
+    background-color: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%) no-repeat center center fixed;
+    background-image: url('/static/images/dragonlogo.png');
+    background-size: 68%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    height: 180px;                
+    width: 100%;                   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;   
+    padding: 10px 0;
 }
-
+.head-above{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #192841;
+  border-radius: 10px;
+  overflow: hidden;
+}
+nav li {
+  padding: 10px;
+}
+nav li a {
+  color: #FFCF40;
+  text-decoration: none;
+  padding: 10px;
+}
+nav li a:hover {
+  background-color: #555;
+  color: #FF9933;
+}
+html, body {
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%) no-repeat center center fixed;
+    background-size: cover; 
+    color: #192841;
+    overflow-x: hidden;
+    cursor: none;
+}
+html{
+    height: 100%;
+}
 .cursor {
     width: 70px;
     height: 70px;
@@ -136,6 +88,7 @@ nav li a:hover {
     transition: transform 0.2s ease;
 }
 
+/* fire animation when cursor is clicked - learned keyframes for this */
 @keyframes fire-animation {
     0%   { background-image: url('/static/images/Updated4.png'); }
     33%  { background-image: url('/static/images/Updated3.png'); }
@@ -148,6 +101,7 @@ nav li a:hover {
     animation: fire-animation 5s infinite;
 }
 
+/* preloads fire animation images so they don't flicker when first clicked */
 body::after {
     position: absolute; 
     width: 0; 
@@ -156,27 +110,84 @@ body::after {
     z-index: -1;
     content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }
+:root {
+  --accent-color: #d4af37; 
+  --text-dark: #192841;
+  --bg-light: bisque
+}
 
-/* Responsive */
-@media (max-width: 768px) {
-    #banner {
-        width: 95%;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-    }
-    
-    nav li {
-        padding: 5px;
-    }
-    
-    nav li a {
-        font-size: 12px;
-        padding: 5px;
-    }
-    
-    .header-logo img {
-        max-width: 80%;
-    }
+.map-guide {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  padding: 20px 15px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.guide-header h2 {
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.guide-header p {
+  color: #636e72;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.guide-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  border-bottom: 4px solid transparent;
+}
+
+.guide-card:hover {
+  transform: translateY(-5px);
+  border-bottom: 4px solid var(--accent-color);
+  border: 1px solid #d4af37
+}
+.guide-card img {
+  width: 50px; 
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.icon {
+  margin-bottom: 15px;
+  color: #FFC600;
+}
+
+.guide-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.guide-card p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #07294D;
+}
+.guide-container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.guide-footer {
+  margin-top: 30px;
+  font-weight: bold;
+  color: var(--accent-color);
 }
