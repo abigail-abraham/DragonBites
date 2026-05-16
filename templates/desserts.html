@@ -405,6 +405,32 @@
                 modal.style.display = 'none';
             }
         }
+
+        // Clear all filters
+        function clearAllFilters() {
+            // Uncheck all checkboxes
+            const checkboxes = document.querySelectorAll('.filter-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Clear price inputs
+            const minPriceInput = document.getElementById('minPrice');
+            const maxPriceInput = document.getElementById('maxPrice');
+            minPriceInput.value = '';
+            maxPriceInput.value = '';
+            
+            // Show all dessert cards
+            const cards = document.querySelectorAll('.dessert-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+
+        // Initialize clear button event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.dessert-filter-clear').addEventListener('click', clearAllFilters);
+        });
     </script>
     
     <!-- custom dragon cursor element -->

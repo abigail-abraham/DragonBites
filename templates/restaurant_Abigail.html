@@ -258,18 +258,20 @@
 
         // Update restaurant cards display based on filtered results
         function updateRestaurantDisplay(filteredResults) {
-            // Extract restaurant names from the filtered results
-            const visibleRestaurants = new Set();
+            // Create a map of restaurant names to their prices and ratings
+            const restaurantData = {};
             
             filteredResults.forEach(result => {
                 // Result format: ["Restaurant Name price rating"]
                 const parts = result[0].split(' ');
                 // Everything except the last two parts (price and rating) is the restaurant name
                 const restaurantName = parts.slice(0, -2).join(' ').toLowerCase();
-                visibleRestaurants.add(restaurantName);
+                const price = parts[parts.length - 2];
+                const rating = parts[parts.length - 1];
+                restaurantData[restaurantName] = { price, rating };
             });
             
-            // Hide/show restaurant cards
+            // Hide/show restaurant cards and update price/rating
             const cards = document.querySelectorAll('.restaurant-card');
             cards.forEach(card => {
                 const cardTitle = card.querySelector('h3').textContent;
@@ -277,10 +279,24 @@
                 // We keep hyphens (-) so names like 'Chick-fil-A' don't get squashed
                 const restaurantName = cardTitle.replace(/[^\w\s'-]/g, '').trim().toLowerCase();
                 
-                if (visibleRestaurants.has(restaurantName)) {
+                if (restaurantData.hasOwnProperty(restaurantName)) {
                     card.style.display = 'block';
+                    // Add or update price and rating display
+                    let priceRatingDiv = card.querySelector('.price-rating');
+                    if (!priceRatingDiv) {
+                        priceRatingDiv = document.createElement('div');
+                        priceRatingDiv.className = 'price-rating';
+                        card.appendChild(priceRatingDiv);
+                    }
+                    const data = restaurantData[restaurantName];
+                    priceRatingDiv.innerHTML = `<p style="font-size: 0.9em; color: #666;">$${data.price}</p><p style="font-size: 0.9em; color: #ffc107;">★ ${data.rating}</p>`;
                 } else {
                     card.style.display = 'none';
+                    // Remove price-rating div if exists
+                    const priceRatingDiv = card.querySelector('.price-rating');
+                    if (priceRatingDiv) {
+                        priceRatingDiv.remove();
+                    }
                 }
             });
         }

@@ -271,6 +271,32 @@
                 modal.style.display = 'none';
             }
         }
+
+        // Clear all filters
+        function clearAllFilters() {
+            // Uncheck all checkboxes
+            const checkboxes = document.querySelectorAll('.foodtruck-filter-label input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Clear price inputs
+            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+            minPriceInput.value = '';
+            maxPriceInput.value = '';
+            
+            // Show all food truck cards
+            const cards = document.querySelectorAll('.foodtruck-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+
+        // Initialize clear button event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.foodtruck-filter-clear').addEventListener('click', clearAllFilters);
+        });
     </script>
     
     <!-- custom dragon cursor element -->
