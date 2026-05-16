@@ -3,12 +3,11 @@
  
 <!DOCTYPE html>
 <html>
-<head>
+<head>    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/dragonlogo.png') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Abigail Abraham">
     <title>DragonBites - Find Food Near Drexel</title>
-    <link href="{{ url_for('static', filename='images/dragonlogo.png') }}" rel="icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='website.css') }}">
 </head>
 <body>
@@ -44,7 +43,7 @@
         <!-- SECTION with 6 rotating DrexelCampus images -->
         <div class="hero-section">
             <h1>
-                <img src="{{ url_for('static', filename='images/DessertDragonImage.png') }}" alt="DragonBites">
+                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="DragonBites">
                 Welcome to DragonBites
             </h1>
             <p>Your guide to the best food near Drexel University. Student researched, student approved.</p>
@@ -156,7 +155,7 @@
         <!-- ABOUT PREVIEW -->
         <div class="about-preview">
             <h3>
-                <img src="{{ url_for('static', filename='images/DessertDragonImage.png') }}" alt="Dragon">
+                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon">
                 Meet the Team Behind DragonBites
             </h3>
             <p>We're Drexel students who got tired of walking around hungry. So we researched, taste-tested, and built this guide to help you find good food fast.</p>
