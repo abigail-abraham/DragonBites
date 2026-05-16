@@ -484,6 +484,12 @@ nav li a:hover {
     border-left: 3px solid #FFCF40;
 }
 
+/* Hardcoded reviews - NO hover movement */
+.review-item:hover {
+    background: rgba(25, 40, 65, 0.05);
+    transform: none;
+}
+
 .review-header {
     display: flex;
     align-items: center;
@@ -677,7 +683,8 @@ body::after {
     transform: scale(1.1);
 }
 
-.review-item {
+/* Database review items - these can have hover effect */
+.review-item[data-review-id] {
     background: rgba(25, 40, 65, 0.08);
     padding: 15px;
     margin-bottom: 12px;
@@ -686,7 +693,7 @@ body::after {
     transition: all 0.2s;
 }
 
-.review-item:hover {
+.review-item[data-review-id]:hover {
     background: rgba(25, 40, 65, 0.12);
     transform: translateX(5px);
 }
@@ -749,6 +756,7 @@ body::after {
     background: rgba(255, 100, 100, 0.2);
 }
 
+/* Mobile responsive */
 @media (max-width: 768px) {
     header {
         height: 100px;
