@@ -18,6 +18,7 @@ body {
     color: #192841;
     overflow-x: hidden;
     cursor: none;
+    font-family: Georgia, serif;
 }
 
 :root {
@@ -41,27 +42,53 @@ body {
     overflow: hidden;
 }
 
+/* MATCH DESSERT PAGE HEADER STYLE */
 header {
-    border: 2px solid #FFCF40;
-    border-radius: 10px;
-    background-color: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%) no-repeat center center fixed;
-    background-image: url('/static/images/dragonlogo.png');
-    background-size: 68%;
-    background-repeat: no-repeat;
+    border: 3px solid #192841;
+    border-top: none;
+    border-bottom: 5px solid #192841;
+    background-image: url("drexel.png");
+    background-size: cover;
+    height: 200px;
+    width: 100%;
     background-position: center;
-    height: 180px;                
-    width: 100%;                   
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end; 
-    align-items: center;   
-    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.head-above {
-    display: block;
+/* container for logos */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+/* main dragon logo centered */
+.header-logo {
     text-align: center;
-    margin-top: 20px;
+}
+
+.header-logo img {
+    max-width: 60%;        
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* NAVIGATION BAR */
+nav {
+    position: relative;
+    z-index: 9999;
+    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
+    margin-top: -5px;
+    border-top: none;
 }
 
 nav ul {
@@ -70,19 +97,27 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #192841;
+    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+    z-index: 9999;
 }
 
 nav li {
     padding: 10px;
+    position: relative;
+    z-index: 9999;
 }
 
 nav li a {
     color: #FFCF40;
     text-decoration: none;
     padding: 10px;
+    position: relative;
+    z-index: 9999;
+    display: inline-block;
+    font-size: 16px;
 }
 
 nav li a:hover {
