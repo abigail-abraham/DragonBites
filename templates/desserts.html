@@ -376,7 +376,7 @@
             const grid = document.querySelector('.dessert-grid');
             
             if (desserts.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 20px;">No dessert locations match your filters.</p>';
+                grid.innerHTML = '<p class="no-results">No dessert locations match your filters.</p>';
                 return;
             }
             
@@ -389,13 +389,33 @@
                 const rating = parts[parts.length - 1];
                 
                 return `
-                    <div class="dessert-card" onclick="openModal('${name}')">
+                    <div class="dessert-card" onclick="openModal('${name.replace(/'/g, "\\'")}')">
                         <h3>${name}</h3>
-                        <p style="font-size: 0.9em; color: #666;">$${price}</p>
-                        <p style="font-size: 0.9em; color: #ffc107;">★ ${rating}</p>
+                        <p class="price">$${price}</p>
+                        <p class="rating">★ ${rating}</p>
                     </div>
                 `;
             }).join('');
+        }
+
+        // Load all desserts on page load
+        function loadAllDesserts() {
+            fetch('/api/filter-desserts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    filters: [],
+                    minPrice: null,
+                    maxPrice: null
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayFilteredDesserts(data.desserts);
+            })
+            .catch(error => console.error('Error loading desserts:', error));
         }
 
         // if you click outside the modal, it closes
@@ -420,15 +440,13 @@
             minPriceInput.value = '';
             maxPriceInput.value = '';
             
-            // Show all dessert cards
-            const cards = document.querySelectorAll('.dessert-card');
-            cards.forEach(card => {
-                card.style.display = 'block';
-            });
+            // Load and show all desserts
+            loadAllDesserts();
         }
 
         // Initialize clear button event listener
         document.addEventListener('DOMContentLoaded', function() {
+            loadAllDesserts();
             document.querySelector('.dessert-filter-clear').addEventListener('click', clearAllFilters);
         });
     </script>

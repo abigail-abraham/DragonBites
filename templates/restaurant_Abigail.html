@@ -181,6 +181,9 @@
 
         // Initialize filter event listeners
         function initializeFilters() {
+            // Load all restaurants on page load
+            loadAllRestaurants();
+            
             // Get all checkboxes
             const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
@@ -282,23 +285,52 @@
                 if (restaurantData.hasOwnProperty(restaurantName)) {
                     card.style.display = 'block';
                     // Add or update price and rating display
-                    let priceRatingDiv = card.querySelector('.price-rating');
-                    if (!priceRatingDiv) {
-                        priceRatingDiv = document.createElement('div');
-                        priceRatingDiv.className = 'price-rating';
-                        card.appendChild(priceRatingDiv);
+                    let priceElem = card.querySelector('.price');
+                    let ratingElem = card.querySelector('.rating');
+                    
+                    if (!priceElem) {
+                        priceElem = document.createElement('p');
+                        priceElem.className = 'price';
+                        card.appendChild(priceElem);
                     }
+                    if (!ratingElem) {
+                        ratingElem = document.createElement('p');
+                        ratingElem.className = 'rating';
+                        card.appendChild(ratingElem);
+                    }
+                    
                     const data = restaurantData[restaurantName];
-                    priceRatingDiv.innerHTML = `<p style="font-size: 0.9em; color: #666;">$${data.price}</p><p style="font-size: 0.9em; color: #ffc107;">★ ${data.rating}</p>`;
+                    priceElem.textContent = `$${data.price}`;
+                    ratingElem.textContent = `★ ${data.rating}`;
                 } else {
                     card.style.display = 'none';
-                    // Remove price-rating div if exists
-                    const priceRatingDiv = card.querySelector('.price-rating');
-                    if (priceRatingDiv) {
-                        priceRatingDiv.remove();
-                    }
+                    // Remove price and rating elements if exists
+                    const priceElem = card.querySelector('.price');
+                    const ratingElem = card.querySelector('.rating');
+                    if (priceElem) priceElem.remove();
+                    if (ratingElem) ratingElem.remove();
                 }
             });
+        }
+
+        // Load all restaurants on page load
+        function loadAllRestaurants() {
+            fetch('/api/filter-restaurants', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    filters: [],
+                    minPrice: null,
+                    maxPrice: null
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                updateRestaurantDisplay(data.restaurants);
+            })
+            .catch(error => console.error('Error loading restaurants:', error));
         }
 
         // Clear all filters
@@ -320,11 +352,8 @@
             filterState.minPrice = null;
             filterState.maxPrice = null;
             
-            // Show all restaurant cards
-            const cards = document.querySelectorAll('.restaurant-card');
-            cards.forEach(card => {
-                card.style.display = 'block';
-            });
+            // Load and show all restaurants
+            loadAllRestaurants();
         }
 
         // Initialize filters when page loads

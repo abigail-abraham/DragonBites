@@ -43,16 +43,13 @@
             <div class="foodtruck-filter-section">
                 <h4>Payment Methods</h4>
                 <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Dragon Dollars
+                    <input type="checkbox" data-value="cash"> Cash
                 </label>
                 <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Dining Dollars
+                    <input type="checkbox" data-value="card"> Card
                 </label>
                 <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Card
-                </label>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Cash
+                    <input type="checkbox" data-value="mobilePayment"> Mobile Payment
                 </label>
             </div>
             <hr>
@@ -60,18 +57,10 @@
             <div class="foodtruck-filter-section">
                 <h4>Dietary Options</h4>
                 <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Vegetarian 🟢
+                    <input type="checkbox" data-value="vegetarian"> Vegetarian 🟢
                 </label>
                 <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Halal 🟠
-                </label>
-            </div>
-            <hr>
-            
-            <div class="foodtruck-filter-section">
-                <h4>Food Events</h4>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox"> Free Food Events
+                    <input type="checkbox" data-value="halal"> Halal 🟠
                 </label>
             </div>
             <hr>
@@ -315,6 +304,7 @@
     
     <div class="cursor"></div>
     <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+    <script src="{{ url_for('static', filename='foodtruck-filters.js') }}"></script>
     <script src="{{ url_for('static', filename='reviews.js') }}"></script>
 </body>
 </html>

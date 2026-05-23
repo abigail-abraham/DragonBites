@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template, session
 import dataQuery
 import dessertQuery
+import foodTruckQuery
 import search
 import os
 
@@ -131,6 +132,49 @@ def desserts():
 @app.route("/food-trucks")
 def food_trucks():
     return render_template("food_trucks.html")
+
+@app.route("/api/filter-food-trucks", methods=["POST"])
+def filter_food_trucks():
+    """API endpoint for filtering food trucks"""
+    data = request.get_json()
+    
+    # Create food truck query object
+    ftq = foodTruckQuery.foodTruckQuery()
+    
+    # Apply payment method filters
+    filters = data.get('filters', [])
+    if 'cash' in filters:
+        ftq.accepts_cash()
+    if 'card' in filters:
+        ftq.accepts_card()
+    if 'mobilePayment' in filters:
+        ftq.accepts_mobile_payment()
+    
+    # Apply dietary filters
+    if 'vegetarian' in filters:
+        ftq.is_vegetarian()
+    if 'halal' in filters:
+        ftq.is_halal()
+    
+    # Apply price range filters
+    min_price = data.get('minPrice')
+    max_price = data.get('maxPrice')
+    
+    if min_price is not None:
+        try:
+            ftq.set_min_price(float(min_price))
+        except (ValueError, TypeError):
+            pass
+    
+    if max_price is not None:
+        try:
+            ftq.set_max_price(float(max_price))
+        except (ValueError, TypeError):
+            pass
+    
+    # Execute query and return results
+    results = ftq.execute_query()
+    return jsonify({'foodTrucks': results})
 
 @app.route("/api/search-restaurants", methods=["GET"])
 def search_restaurants():

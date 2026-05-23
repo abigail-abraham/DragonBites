@@ -314,6 +314,30 @@ nav li a:hover {
     letter-spacing: 0.5px;
 }
 
+.foodtruck-card .price {
+    color: #DAA520;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.foodtruck-card .rating {
+    color: #FFD700;
+    margin: 3px 0 0 0;
+    font-size: 14px;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #FFCF40;
+    font-size: 18px;
+    background: linear-gradient(145deg, #1E3A5F 0%, #0F2A45 100%);
+    border: 2px solid #FFCF40;
+    border-radius: 20px;
+}
+
 /* modal pop-up */
 .modal {
     display: none;
