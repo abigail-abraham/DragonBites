@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
     const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
     
-    // Load all food trucks on page load
-    loadAllFoodTrucks();
-    
     // Apply filters button
     if (applyBtn) {
         applyBtn.addEventListener('click', applyFilters);
@@ -71,7 +68,7 @@ function updateFoodTruckGrid(foodTrucks) {
         'KC\'s Fresh Fruit Smoothie': '🍓',
         'Nanu\'s Hot Chicken': '🍗',
         'Mega Food Truck': '🚚',
-        'Kami\'s Korean Food Truck': '🇰🇷',
+        'Kami\'s Korean Food': '🇰🇷',
         'Cucina Zapata': '🌮'
     };
     
@@ -102,30 +99,6 @@ function clearFilters() {
     document.querySelector('.price-inputs input[placeholder="Min $"]').value = '';
     document.querySelector('.price-inputs input[placeholder="Max $"]').value = '';
     
-    // Show all food trucks
-    showAllFoodTrucks();
-}
-
-function showAllFoodTrucks() {
-    // Reset to show all food trucks by fetching with no filters
-    fetch('/api/filter-food-trucks', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            filters: [],
-            minPrice: null,
-            maxPrice: null
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        updateFoodTruckGrid(data.foodTrucks);
-    })
-    .catch(error => console.error('Error loading food trucks:', error));
-}
-
-function loadAllFoodTrucks() {
-    showAllFoodTrucks();
+    // Reload the page to restore original cards with emojis only
+    location.reload();
 }

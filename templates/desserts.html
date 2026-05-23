@@ -74,15 +74,6 @@
             </div>
             <hr>
             
-            <!-- food events - free food is a big deal for students -->
-            <div class="dessert-filter-section">
-                <h4>Food Events</h4>
-                <label class="dessert-filter-label">
-                    <input type="checkbox"> Free Food Events
-                </label>
-            </div>
-            <hr>
-            
             <!-- price range - fixed width so they don't break the sidebar layout -->
             <div class="dessert-filter-section">
                 <h4>Price Range</h4>
@@ -376,7 +367,7 @@
             const grid = document.querySelector('.dessert-grid');
             
             if (desserts.length === 0) {
-                grid.innerHTML = '<p class="no-results">No dessert locations match your filters.</p>';
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 20px;">No dessert locations match your filters.</p>';
                 return;
             }
             
@@ -389,33 +380,13 @@
                 const rating = parts[parts.length - 1];
                 
                 return `
-                    <div class="dessert-card" onclick="openModal('${name.replace(/'/g, "\\'")}')">
+                    <div class="dessert-card" onclick="openModal('${name}')">
                         <h3>${name}</h3>
-                        <p class="price">$${price}</p>
-                        <p class="rating">★ ${rating}</p>
+                        <p style="font-size: 0.9em; color: #666;">$${price}</p>
+                        <p style="font-size: 0.9em; color: #ffc107;">★ ${rating}</p>
                     </div>
                 `;
             }).join('');
-        }
-
-        // Load all desserts on page load
-        function loadAllDesserts() {
-            fetch('/api/filter-desserts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    filters: [],
-                    minPrice: null,
-                    maxPrice: null
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                displayFilteredDesserts(data.desserts);
-            })
-            .catch(error => console.error('Error loading desserts:', error));
         }
 
         // if you click outside the modal, it closes
@@ -440,13 +411,16 @@
             minPriceInput.value = '';
             maxPriceInput.value = '';
             
-            // Load and show all desserts
-            loadAllDesserts();
+            // Show all dessert cards
+            const cards = document.querySelectorAll('.dessert-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+            location.reload();
         }
 
         // Initialize clear button event listener
         document.addEventListener('DOMContentLoaded', function() {
-            loadAllDesserts();
             document.querySelector('.dessert-filter-clear').addEventListener('click', clearAllFilters);
         });
     </script>
@@ -457,4 +431,3 @@
     <script src="{{ url_for('static', filename='reviews.js') }}"></script>
 </body>
 </html>
-

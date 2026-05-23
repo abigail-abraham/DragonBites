@@ -70,15 +70,6 @@
             </div>
             <hr>
             
-            <!-- food events - free food is a big deal for students -->
-            <div class="restaurant-filter-section">
-                <h4>Food Events</h4>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Free Food Events
-                </label>
-            </div>
-            <hr>
-            
             <!-- price range - fixed width so they don't break the sidebar layout -->
             <!-- learned: flex:1 made them overflow, so switched to fixed width -->
             <div class="restaurant-filter-section">
@@ -181,9 +172,6 @@
 
         // Initialize filter event listeners
         function initializeFilters() {
-            // Load all restaurants on page load
-            loadAllRestaurants();
-            
             // Get all checkboxes
             const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
@@ -285,52 +273,23 @@
                 if (restaurantData.hasOwnProperty(restaurantName)) {
                     card.style.display = 'block';
                     // Add or update price and rating display
-                    let priceElem = card.querySelector('.price');
-                    let ratingElem = card.querySelector('.rating');
-                    
-                    if (!priceElem) {
-                        priceElem = document.createElement('p');
-                        priceElem.className = 'price';
-                        card.appendChild(priceElem);
+                    let priceRatingDiv = card.querySelector('.price-rating');
+                    if (!priceRatingDiv) {
+                        priceRatingDiv = document.createElement('div');
+                        priceRatingDiv.className = 'price-rating';
+                        card.appendChild(priceRatingDiv);
                     }
-                    if (!ratingElem) {
-                        ratingElem = document.createElement('p');
-                        ratingElem.className = 'rating';
-                        card.appendChild(ratingElem);
-                    }
-                    
                     const data = restaurantData[restaurantName];
-                    priceElem.textContent = `$${data.price}`;
-                    ratingElem.textContent = `★ ${data.rating}`;
+                    priceRatingDiv.innerHTML = `<p style="font-size: 0.9em; color: #666;">$${data.price}</p><p style="font-size: 0.9em; color: #ffc107;">★ ${data.rating}</p>`;
                 } else {
                     card.style.display = 'none';
-                    // Remove price and rating elements if exists
-                    const priceElem = card.querySelector('.price');
-                    const ratingElem = card.querySelector('.rating');
-                    if (priceElem) priceElem.remove();
-                    if (ratingElem) ratingElem.remove();
+                    // Remove price-rating div if exists
+                    const priceRatingDiv = card.querySelector('.price-rating');
+                    if (priceRatingDiv) {
+                        priceRatingDiv.remove();
+                    }
                 }
             });
-        }
-
-        // Load all restaurants on page load
-        function loadAllRestaurants() {
-            fetch('/api/filter-restaurants', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    filters: [],
-                    minPrice: null,
-                    maxPrice: null
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                updateRestaurantDisplay(data.restaurants);
-            })
-            .catch(error => console.error('Error loading restaurants:', error));
         }
 
         // Clear all filters
@@ -352,8 +311,12 @@
             filterState.minPrice = null;
             filterState.maxPrice = null;
             
-            // Load and show all restaurants
-            loadAllRestaurants();
+            // Show all restaurant cards
+            const cards = document.querySelectorAll('.restaurant-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+            location.reload();
         }
 
         // Initialize filters when page loads
