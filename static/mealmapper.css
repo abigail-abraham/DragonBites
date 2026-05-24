@@ -368,6 +368,71 @@ body::after {
     margin-top: 25px;
     margin-bottom: 0;
 }
+.categories-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+
+.category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.restaurant-pill {
+    background-color: #e6f4fe;
+    color: #1d4ed8;
+}
+
+.dessert-pill {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+.truck-pill {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.pin-thumb-inline {
+    object-fit: contain;
+    vertical-align: middle;
+}
+.pin-thumb-inline.blue-dragon,
+.pin-thumb-inline.yellow-dragon,
+.pin-thumb-inline.red-dragon {
+    width: 55px !important;
+    height: 55px !important;
+    margin: -15px -10px; 
+}
+
+
+.pin-thumb-inline.red-dragon {
+    width: 26px !important;
+    height: 26px !important;
+    margin: 0;
+}
+
+.categories-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 12px;
+}
 @media screen and (max-width: 768px) {
 
     html {
@@ -579,12 +644,28 @@ body::after {
         grid-template-columns: 1fr !important;
         padding: 12px 20px !important;
     }
-
-    .cursor {
-        display: none !important;
+.categories-horizontal {
+        display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; /* Allows your new rows to stack perfectly if space gets tight */
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      margin-top: auto; 
+      padding: 8px 4px;
     }
-
-    body {
-        cursor: auto !important;
+    
+    .category-pill {
+        justify-content: flex-start;
+        padding: 12px;
     }
+}
+
+.cursor {
+    display: none !important;
+}
+
+body {
+    cursor: auto !important;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -10,7 +11,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 <body>
-    <!-- BANNER -->
     <header>
         <div class="header-container">
             <div class="header-logo">
@@ -19,7 +19,6 @@
         </div>
     </header>
     
-    <!-- NAVIGATION BAR -->
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -46,26 +45,26 @@
                 <p class="card-text">Find your next meal. Filter easily by price, rating, and specific dietary needs.</p>
             </div>
 
-            <div class="action-card">
-                <div class="icon-wrapper">🍽️🍰🚚</div>
-                <h3 class="card-title">Explore Spots</h3>
-                <p class="card-text card-desc">Click any map marker to see reviews, photos, and details by category:</p>
-                <div class="categories-inline">
-                    <div class="category-item">
-                        <img src="static/images/dragonpinblue.png" alt="Restaurant Icon" class="pin-thumb" sizes="( max-width: 600px) 50px, 30px"> 
-                        <span class="badge restaurant">🍽️ Restaurants</span>
-                    </div>
-                    <div class="category-item">
-                        <img src="static/images/dragonpinyellow.png" alt="Dessert Icon" class="pin-thumb" sizes="(max-width: 600px) 50px, 30px"> 
-                        <span class="badge dessert">🧁 Desserts</span>
-                    </div>
-                    <div class="category-item">
-                        <img src="static/images/Halal.png" alt="Food Truck Icon" class="pin-thumb"> 
-                        <span class="badge food-truck">🚚 Food Trucks</span>
-                    </div>
-                </div>
-            </div>
-
+          <div class="action-card explore-spots-card">
+    <div class="icon-wrapper">🍽️ 🍰 🚚</div>
+    <h3 class="card-title">Explore Spots</h3>
+    <p class="card-text card-desc">Click any map marker to see reviews, photos, and details by category:</p>
+    
+    <div class="categories-horizontal">
+        <div class="category-pill restaurant-pill">
+            <img src="static/images/dragonpinblue.png" alt="Restaurant Icon" class="pin-thumb-inline blue-dragon"> 
+            <span class="pill-text">Restaurants</span>
+        </div>
+        <div class="category-pill dessert-pill">
+            <img src="static/images/dragonpinyellow.png" alt="Dessert Icon" class="pin-thumb-inline yellow-dragon"> 
+            <span class="pill-text">Desserts</span>
+        </div>
+        <div class="category-pill truck-pill">
+        <img src="/static/images/Veg.png" alt="Food Truck Icon" class="pin-thumb-inline red-dragon"> 
+        <span class="pill-text">Food Trucks</span>
+        </div>
+    </div>
+</div>
             <div class="action-card">
                 <div class="icon-wrapper">🏷️</div>
                 <h3 class="card-title">Display Names</h3>
@@ -137,6 +136,8 @@
         <p class="footer-text">Happy Eating!</p>
     </div>
         
+</body>
+</html>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="{{ url_for('static', filename='filters.js') }}"></script>
