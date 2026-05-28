@@ -662,10 +662,6 @@ body::after {
     }
 }
 
-.cursor {
-    display: none !important;
-}
-
 body {
     cursor: auto !important;
 }
