@@ -29,6 +29,10 @@ try {
         iconSize: [95, 95]
     });
 
+    const redIcon = L.icon({
+        iconUrl: 'static/images/FoodTruck.png',
+        iconSize: [55,55]
+    });
     // Build graph from OSRM route nodes (only connect adjacent waypoints)
     function buildGraph(coords) {
         const graph = {};
@@ -241,6 +245,42 @@ try {
     insomniaMarker.bindPopup("This is Insomnia Cookies.");
     insomniaMarker.on('click', function() {
         showOSRMRoute([userLocation.lat, userLocation.lng], [39.957366, -75.191708]);
+    });
+
+    const happysunshine = L.marker([39.957597, -75.189485], { icon: redIcon }).addTo(map);
+    happysunshine.bindPopup("This is Happy Sunshine.");
+    happysunshine.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.957597, -75.189485]);
+    });
+
+    const KC = L.marker([39.956946, -75.189365], { icon: redIcon }).addTo(map);
+    KC.bindPopup("This is KC\'s Fresh Fruit Smoothies.");
+    KC.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.956946, -75.189365]);
+    });
+
+    const zapata = L.marker([39.954326, -75.185816], { icon: redIcon }).addTo(map);
+    zapata.bindPopup("This is Zapata Food Truck.");
+    zapata.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.954326, -75.185816]);
+    });
+
+    const nanu = L.marker([39.956134, -75.189492], { icon: redIcon }).addTo(map);
+    nanu.bindPopup("This is Nanu\'s Food Truck.");
+    nanu.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.956134, -75.189492]);
+    });
+
+    const megaM = L.marker([39.956016, -75.189523], { icon: redIcon }).addTo(map);
+    megaM.bindPopup("This is Mega Food Truck.");
+    megaM.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.956016, -75.189523]);
+    });
+
+    const kami = L.marker([39.955254, -75.189680], { icon: redIcon }).addTo(map);
+    kami.bindPopup("This is Kami\'s Korean Food Truck.");
+    kami.on('click', function() {
+        showOSRMRoute([userLocation.lat, userLocation.lng], [39.955254, -75.189680]);
     });
 
 
