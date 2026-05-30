@@ -1,153 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Author: Riya Bansal - Meal Mapper page for DragonBites -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Dragon Bites - Meal Mapper</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='mealmapper.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <!-- Author: Riya Bansal - Meal Mapper page for DragonBites -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Dragon Bites - Meal Mapper</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='mealmapper.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="header-logo">
-                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
-            </div>
-        </div>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/meal-mapper">Meal Mapper</a></li>
-            <li><a href="/listing">Restaurants</a></li>
-            <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/food-trucks">Food Trucks</a></li>
-        </ul>
-    </nav>
-    
-    <div id="banner">
-        <div id="map" style="width: 100%; height: 500px; z-index: 1;"></div>
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
+      </div>
     </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/meal-mapper">Meal Mapper</a></li>
+      <li><a href="/listing">Restaurants</a></li>
+      <li><a href="/desserts">Desserts</a></li>
+      <li><a href="/food-trucks">Food Trucks</a></li>
+    </ul>
+  </nav>
+  
+  <div id="banner">
+    <div id="map" style="width: 100%; height: 500px; z-index: 1;"></div>
+  </div>
 
-    <div class="how-to-use-container">
-        <h2 class="section-title">How to Use the Map</h2>
-        <p class="section-subtitle">Find the best local eats in just a few clicks.</p>
+  <div class="how-to-use-container">
+    <h2 class="section-title">How to Use the Map</h2>
+    <p class="section-subtitle">Find the best local eats in just a few clicks.</p>
 
-        <div class="actions-grid">
-            <div class="action-card">
-                <div class="icon-wrapper">🔍</div>
-                <h3 class="card-title">Search & Filter</h3>
-                <p class="card-text">Find your next meal. Filter easily by price, rating, and specific dietary needs.</p>
-            </div>
+    <div class="actions-grid">
+      <div class="action-card">
+        <div class="icon-wrapper">🔍</div>
+        <h3 class="card-title">Search & Filter</h3>
+        <p class="card-text">Find your next meal. Filter easily by price, rating, and specific dietary needs.</p>
+      </div>
 
-          <div class="action-card explore-spots-card">
-    <div class="icon-wrapper">🍽️ 🍰 🚚</div>
-    <h3 class="card-title">Explore Spots</h3>
-    <p class="card-text card-desc">Click any map marker to see reviews, photos, and details by category:</p>
-    
-    <div class="categories-horizontal">
-        <div class="category-pill restaurant-pill">
-            <img src="static/images/dragonpinblue.png" alt="Restaurant Icon" class="pin-thumb-inline blue-dragon"> 
-            <span class="pill-text">Restaurants</span>
-        </div>
-        <div class="category-pill dessert-pill">
-            <img src="static/images/dragonpinyellow.png" alt="Dessert Icon" class="pin-thumb-inline yellow-dragon"> 
-            <span class="pill-text">Desserts</span>
-        </div>
-        <div class="category-pill truck-pill">
-        <img src="/static/images/Veg.png" alt="Food Truck Icon" class="pin-thumb-inline red-dragon"> 
-        <span class="pill-text">Food Trucks</span>
-        </div>
+     <div class="action-card explore-spots-card">
+  <div class="icon-wrapper">🍽️ 🍰 🚚</div>
+  <h3 class="card-title">Explore Spots</h3>
+  <p class="card-text card-desc">Click any map marker to see reviews, photos, and details by category:</p>
+  
+  <div class="categories-horizontal">
+    <div class="category-pill restaurant-pill">
+      <img src="static/images/dragonpinblue.png" alt="Restaurant Icon" class="pin-thumb-inline blue-dragon"> 
+      <span class="pill-text">Restaurants</span>
     </div>
+    <div class="category-pill dessert-pill">
+      <img src="static/images/dragonpinyellow.png" alt="Dessert Icon" class="pin-thumb-inline yellow-dragon"> 
+      <span class="pill-text">Desserts</span>
+    </div>
+    <div class="category-pill truck-pill">
+    <img src="/static/images/Veg.png" alt="Food Truck Icon" class="pin-thumb-inline red-dragon"> 
+    <span class="pill-text">Food Trucks</span>
+    </div>
+  </div>
 </div>
-            <div class="action-card">
-                <div class="icon-wrapper">🏷️</div>
-                <h3 class="card-title">Display Names</h3>
-                <p class="card-text">Toggle the label view on the map to instantly see the names of all spots at a glance.</p>
-            </div>
+      <div class="action-card">
+        <div class="icon-wrapper">🏷️</div>
+        <h3 class="card-title">Display Names</h3>
+        <p class="card-text">Toggle the label view on the map to instantly see the names of all spots at a glance.</p>
+      </div>
 
-            <div class="action-card">
-                <div class="icon-wrapper">🎯</div>
-                <h3 class="card-title">Locate Me</h3>
-                <p class="card-text">Allow the GPS button to instantly center the map right on your current location.</p>
-            </div>
-        </div>
-
-        <div class="directory-section">
-            <h3 class="directory-title">📁 Browse Spots by Name</h3>
-            
-            <div class="directory-accordions">
-                <details class="directory-card">
-                    <summary class="directory-header restaurant-header">
-                        <span>🍽️ Restaurants</span>
-                        <span class="count-badge blue-badge">View All</span>
-                    </summary>
-                    <ul class="name-list">
-                        <li>Landmark Americana 🍔</li>
-                        <li>Wild Blue Sushi 🍣</li>
-                        <li>Chick-fil-A 🍗</li>
-                        <li>Urban Eatery 🥗</li>
-                        <li>Chipotle 🌯</li>
-                        <li>Han Dynasty 🍜</li>
-                        <li>Sabrina's Cafe ☕</li>
-                        <li>Tataki Ramen 🍜</li>
-                        <li>CM Chicken Philadelphia 🍗</li>
-                        <li>Shake Shack 🍔</li>
-                        <li>Schmear Bagel Parlor 🥯</li>
-                        <li>Amma's Kitchen🍛</li>
-                    </ul>
-                </details>
-
-                <details class="directory-card">
-                    <summary class="directory-header dessert-header">
-                        <span>🍰 Desserts</span>
-                        <span class="count-badge pink-badge">View All</span>
-                    </summary>
-                    <ul class="name-list">
-                        <li>Mango Mango🥭</li>
-                        <li>Surreal Creamery🍨</li>
-                        <li>Carvel🍦</li>
-                        <li>Kiwi Yogurt🥝</li>
-                        <li>Coco Creamery🍪</li>
-                        <li>Maison Sweet🍰</li>
-                        <li>Insomnia Cookies🍪</li>
-                        <li>Paris Baguette🥐</li>
-                    </ul>
-                </details>
-
-                <details class="directory-card">
-                    <summary class="directory-header food-truck-header">
-                        <span>🚚 Food Trucks</span>
-                        <span class="count-badge amber-badge">View All</span>
-                    </summary>
-                    <ul class="name-list">
-                        <li>Happy Sunshine☀️</li>
-                        <li>KC's Fresh Fruit Smoothie🍓</li>
-                        <li>Nanu's Hot Chicken🍗</li>
-                        <li>Mega Food Truck</li>
-                        <li>Kami's Korean Food 🇰🇷</li>
-                        <li>Cucina Zapata 🌮</li>
-
-                    </ul>
-                </details>
-            </div>
-        </div> 
-
-        <p class="footer-text">Happy Eating!</p>
+      <div class="action-card">
+        <div class="icon-wrapper">🎯</div>
+        <h3 class="card-title">Locate Me</h3>
+        <p class="card-text">Allow the GPS button to instantly center the map right on your current location.</p>
+      </div>
     </div>
-    
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="{{ url_for('static', filename='filters.js') }}"></script>
-    <script src="{{ url_for('static', filename='map.js') }}"></script>
-    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
-    
-    <div class="cursor"></div>
+
+    <div class="directory-section">
+      <h3 class="directory-title">📁 Browse Spots by Name</h3>
+      
+      <div class="directory-accordions">
+        <details class="directory-card">
+          <summary class="directory-header restaurant-header">
+            <span>🍽️ Restaurants</span>
+            <span class="count-badge blue-badge">View All</span>
+          </summary>
+          <ul class="name-list">
+            <li>Landmark Americana 🍔</li>
+            <li>Wild Blue Sushi 🍣</li>
+            <li>Chick-fil-A 🍗</li>
+            <li>Urban Eatery 🥗</li>
+            <li>Chipotle 🌯</li>
+            <li>Han Dynasty 🍜</li>
+            <li>Sabrina's Cafe ☕</li>
+            <li>Tataki Ramen 🍜</li>
+            <li>CM Chicken Philadelphia 🍗</li>
+            <li>Shake Shack 🍔</li>
+            <li>Schmear Bagel Parlor 🥯</li>
+            <li>Amma's Kitchen🍛</li>
+          </ul>
+        </details>
+
+        <details class="directory-card">
+          <summary class="directory-header dessert-header">
+            <span>🍰 Desserts</span>
+            <span class="count-badge pink-badge">View All</span>
+          </summary>
+          <ul class="name-list">
+            <li>Mango Mango🥭</li>
+            <li>Surreal Creamery🍨</li>
+            <li>Carvel🍦</li>
+            <li>Kiwi Yogurt🥝</li>
+            <li>Coco Creamery🍪</li>
+            <li>Maison Sweet🍰</li>
+            <li>Insomnia Cookies🍪</li>
+            <li>Paris Baguette🥐</li>
+          </ul>
+        </details>
+
+        <details class="directory-card">
+          <summary class="directory-header food-truck-header">
+            <span>🚚 Food Trucks</span>
+            <span class="count-badge amber-badge">View All</span>
+          </summary>
+          <ul class="name-list">
+            <li>Happy Sunshine☀️</li>
+            <li>KC's Fresh Fruit Smoothie🍓</li>
+            <li>Nanu's Hot Chicken🍗</li>
+            <li>Mega Food Truck</li>
+            <li>Kami's Korean Food 🇰🇷</li>
+            <li>Cucina Zapata 🌮</li>
+
+          </ul>
+        </details>
+      </div>
+    </div> 
+
+    <p class="footer-text">Happy Eating!</p>
+  </div>
+  
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="{{ url_for('static', filename='filters.js') }}"></script>
+  <script src="{{ url_for('static', filename='map.js') }}"></script>
+  <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+  
+  <div class="cursor"></div>
 </body>
 </html>

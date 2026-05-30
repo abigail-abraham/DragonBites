@@ -1,434 +1,434 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Author: Abigail Abraham - Desserts page for DragonBites -->    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Dragon Bites - Desserts</title>
-    <!-- made by Abigail Abraham - dessert page for Dragon Bites -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='desserts.css') }}">
+  <!-- Author: Abigail Abraham - Desserts page for DragonBites -->  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Dragon Bites - Desserts</title>
+  <!-- made by Abigail Abraham - dessert page for Dragon Bites -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='desserts.css') }}">
 </head>
 <body>
-    <!-- header with two logos: dessert logo on left, main dragon logo centered -->
-    <header>
-        <div class="header-container">
-            <div class="dessert-logo-left">
-                <img src="static/images/DragonDessertLogo.png" alt="Dessert Logo">
-            </div>
-            <div class="header-logo">
-                <img src="static/images/dragonlogo.png" alt="Dragon Bites Logo">
-            </div>
-            <div class="empty-space"></div>
+  <!-- header with two logos: dessert logo on left, main dragon logo centered -->
+  <header>
+    <div class="header-container">
+      <div class="dessert-logo-left">
+        <img src="static/images/DragonDessertLogo.png" alt="Dessert Logo">
+      </div>
+      <div class="header-logo">
+        <img src="static/images/dragonlogo.png" alt="Dragon Bites Logo">
+      </div>
+      <div class="empty-space"></div>
+    </div>
+  </header>
+  
+  <!-- navigation bar - same order across all pages -->
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/meal-mapper">Meal Mapper</a></li>
+      <li><a href="/listing">Restaurants</a></li>
+      <li><a href="/desserts">Desserts</a></li>
+      <li><a href="/food-trucks">Food Trucks</a></li>
+    </ul>
+  </nav>
+  
+  <h3 align="center">Sweet treats and desserts near Drexel campus</h3>
+  
+  <div class="main-wrapper">
+    <!-- filter sidebar - helps users narrow down by payment, diet, price -->
+    <aside class="dessert-filter-sidebar">
+      <div class="dessert-filter-header">
+        <h3 class="dessert-filter-title">FILTERS</h3>
+        <button class="dessert-filter-clear">Clear All</button>
+      </div>
+      <hr>
+      
+      <!-- payment methods - what Drexel students actually use -->
+      <div class="dessert-filter-section">
+        <h4>Payment Methods</h4>
+        <label class="dessert-filter-label">
+          <input type="checkbox" value="dragonDollars" class="filter-checkbox"> Dragon Dollars
+        </label>
+        <label class="dessert-filter-label">
+          <input type="checkbox" value="diningDollars" class="filter-checkbox"> Dining Dollars
+        </label>
+        <label class="dessert-filter-label">
+          <input type="checkbox" value="card" class="filter-checkbox"> Card
+        </label>
+        <label class="dessert-filter-label">
+          <input type="checkbox" value="cash" class="filter-checkbox"> Cash
+        </label>
+      </div>
+      <hr>
+      
+      <!-- dietary options - important for students with restrictions -->
+      <div class="dessert-filter-section">
+        <h4>Dietary Options</h4>
+        <label class="dessert-filter-label">
+          <input type="checkbox"> Vegetarian 🟢
+        </label>
+        <label class="dessert-filter-label">
+          <input type="checkbox"> Halal 🟠
+        </label>
+      </div>
+      <hr>
+      
+      <!-- price range - fixed width so they don't break the sidebar layout -->
+      <div class="dessert-filter-section">
+        <h4>Price Range</h4>
+        <div class="price-inputs">
+          <input type="number" id="minPrice" placeholder="Min $" min="0">
+          <span>-</span>
+          <input type="number" id="maxPrice" placeholder="Max $" min="0">
         </div>
-    </header>
+      </div>
+      <hr>
+      
+      <button class="dessert-filter-apply" onclick="applyFilters()">Apply Filters</button>
+      
+      <!-- little dragon logo at the bottom of the filter bar -->
+      <div class="filter-dragon-container">
+        <img src="static/images/FilterDragonImage.png" alt="Dragon Logo">
+      </div>
+    </aside>
     
-    <!-- navigation bar - same order across all pages -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/meal-mapper">Meal Mapper</a></li>
-            <li><a href="/listing">Restaurants</a></li>
-            <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/food-trucks">Food Trucks</a></li>
-        </ul>
-    </nav>
-    
-    <h3 align="center">Sweet treats and desserts near Drexel campus</h3>
-    
-    <div class="main-wrapper">
-        <!-- filter sidebar - helps users narrow down by payment, diet, price -->
-        <aside class="dessert-filter-sidebar">
-            <div class="dessert-filter-header">
-                <h3 class="dessert-filter-title">FILTERS</h3>
-                <button class="dessert-filter-clear">Clear All</button>
+    <div class="content-area">
+      <h2>Dessert listing</h2>
+      
+      <!-- 8 dessert spots - researched and added by Alisha -->
+      <!-- each card has an emoji that matches the vibe of the place -->
+      <div class="dessert-grid">
+        <div class="dessert-card" onclick="openModal('Mango Mango')">
+          <h3>🥭 Mango Mango</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Carvel')">
+          <h3>🍦 Carvel</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Kiwi Yogurt')">
+          <h3>🥝 Kiwi Yogurt</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Surreal Creamery')">
+          <h3>🍨 Surreal Creamery</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Coco\'s Creamery')">
+          <h3>🍪 Coco's Creamery</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Maison Sweet')">
+          <h3>🍰 Maison Sweet</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Insomnia Cookies')">
+          <h3>🍪 Insomnia Cookies</h3>
+        </div>
+        <div class="dessert-card" onclick="openModal('Paris Baguette')">
+          <h3>🥐 Paris Baguette</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop-up modal that appears when you click a dessert card -->
+  <!-- learned: had to make it scrollable with max-height: 85vh so it doesn't overflow -->
+  <div id="dessertModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-image"></div>
+      <h2 id="modal-name">Dessert Name</h2>
+      <div id="modal-rating">★★★★☆</div>
+      <p id="modal-description">Description will go here</p>
+      
+      <!-- Visit Website button - opens in new tab -->
+      <a href="#" id="modal-link" target="_blank">Visit Website</a>
+      
+      <!-- reviews section - added from research on surveys and internet -->
+      <div class="reviews-section">
+        <div class="reviews-header">
+          <h4>Notable Reviews:</h4>
+          <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'dessert')">+ Write a Review</button>
+        </div>
+        <div id="reviews-list" class="reviews-list">
+          <!-- reviews load dynamically from Js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // maps dessert names to their actual image filenames
+    // learned: had to use encodeURIComponent because some filenames have spaces
+    function getImageName(dessertName) {
+      const imageMap = {
+        'Mango Mango': 'images/MangoMango.png',
+        'Carvel': 'images/Carvel.png',
+        'Kiwi Yogurt': 'images/Kiwi Yogurt.png',
+        'Surreal Creamery': 'images/Surreal Creamery.png',
+        'Coco\'s Creamery': 'images/Coco\'s Creamery.png',
+        'Maison Sweet': 'images/Maison Sweet.png',
+        'Insomnia Cookies': 'images/Insomnia Cookies.png',
+        'Paris Baguette': 'images/ParisBaguette.png'
+      };
+      return imageMap[dessertName] || 'images/dessert-placeholder.jpg';
+    }
+
+    // all dessert data - gathered from research and student surveys
+    const dessertData = {
+      'Mango Mango': {
+        rating: '4.9 ★★★★★',
+        description: 'Mango Mango is a dessert spot specializing in mango-centric desserts. Fresh mango is churned into smooth ice creams, blended into tangy smoothies, layered into delicate crepe cakes, and paired with soft and chewy sago pearls. The shop was opened by a Drexel alumnus who wanted to share a piece of his culture with the community. It is the perfect side quest between classes or a well-earned late-night study break.',
+        website: 'https://www.mangomangodessert.com'
+      },
+      'Carvel': {
+        rating: '4.5 ★★★★☆',
+        description: 'Carvel is famous for soft-serve ice cream, cakes with crunchies, and novelty ice cream sandwiches. There are multiple Carvel locations near Philadelphia, including a spot at 1625 Chestnut Street and another at 54 S. 69th Street, a short distance from the University City area.',
+        website: 'https://locations.carvel.com/pa/philadelphia/3400-lancaster-ave'
+      },
+      'Kiwi Yogurt': {
+        rating: '4.1 ★★★★☆',
+        description: 'Kiwi Yogurt is a self-serve frozen yogurt and ice cream shop offering vegan options. Located at 3606 Chestnut St, this spot is known for its wide selection of flavors and toppings. The chocolate, tart, and raspberry yogurts are especially popular.',
+        website: 'https://kiwifrozenyogurt.com/location/university-city/'
+      },
+      'Surreal Creamery': {
+        rating: '4.0 ★★★★☆',
+        description: 'Surreal Creamery is a trendy spot at 3818 Chestnut St that specializes in towering soft-serve creations and innovative Floteas, a fusion of bubble tea and ice cream. Signature offerings include Earl Grey soft serve and customizable mason jar sundaes packed with over-the-top toppings.',
+        website: 'https://www.surrealcreamery.com'
+      },
+      'Coco\'s Creamery': {
+        rating: '3.0 ★★★☆☆',
+        description: 'Coco\'s Creamery is a casual venue for soft-serve ice cream, sundaes, shakes, water ices, and cookies. Located at 3632 Powelton Ave, this shop is known for generous portions, creamy ice cream, and quick service.',
+        website: 'https://cocoscookiesandcreamery.com'
+      },
+      'Maison Sweet': {
+        rating: '3.5 ★★★☆☆',
+        description: 'Maison Sweet is a cozy, trendy Asian patisserie featuring cakes, pastries, tea, and coffee beverages. Located at 2930 Chestnut St, this cafe offers a wide range of sweet treats in a comfortable atmosphere.',
+        website: 'https://maisonsweet.us'
+      },
+      'Insomnia Cookies': {
+        rating: '4.0 ★★★★☆',
+        description: 'Insomnia Cookies is famous for warm, delicious cookies delivered late night. Located at 3400 Lancaster Ave, they also offer ice cream and cookie sandwiches. Popular flavors include Snickerdoodle, Chocolate Chunk, and seasonal offerings like red velvet and lemon white chocolate chip.',
+        website: 'https://insomniacookies.com'
+      },
+      'Paris Baguette': {
+        rating: '4.3 ★★★★☆',
+        description: 'Paris Baguette is a bakery café serving delicious pastries, fresh-baked breads, stunning cakes, expertly brewed coffees and teas, and grab-n-go salads and sandwiches. Located at 3816 Chestnut St, this spot offers outdoor seating, free WiFi, and plenty of indoor seating. Popular items include the Croissant Donut, Strawberry Cream Cheese Croissant, and Mochi Donuts. It is a great spot for students to study with a cup of coffee or meet up with friends.',
+        website: 'https://parisbaguette.com/locations/pa/philadelphia/3816-chestnut-street/'
+      }
+    };
+
+    // dessert reviews - researched from online and surveys 
+    // had to read through real customer feedback to find authentic comments
+    const dessertReviews = {
+      'Mango Mango': [
+        { name: 'Delaney Rybicki', rating: 5, comment: 'Very friendly staff, great environment, diverse menu.', date: 'Apr 2026' },
+        { name: 'Truman Sharp', rating: 5, comment: 'Great place', date: 'Apr 2026' },
+        { name: 'Anuva Chowdhury', rating: 5, comment: 'so good!!!', date: 'Apr 2026' },
+        { name: 'Grace Zhang', rating: 5, comment: 'Amazing', date: 'Apr 2026' },
+        { name: 'Sanskruti Chavanke', rating: 4, comment: 'Very late service, but good taste', date: 'Apr 2026' }
+      ],
+      'Carvel': [
+        { name: 'Michael N.', rating: 5, comment: 'Five stars for the crunchies and Fudgie the Whale. Still the best ice cream cakes.', date: 'Dec 2025' },
+        { name: 'Lisa E.', rating: 2, comment: 'Barely any ice cream in my sundae. Just crunchies and syrup. Waste of money.', date: 'Jan 2026' },
+        { name: 'Phil C.', rating: 5, comment: 'The worlds best ice cream! Fresh soft serve is heavenly. Locally owned and focused on quality.', date: 'Mar 2024' },
+        { name: 'Michael G.', rating: 5, comment: 'Reminded me of my childhood birthdays. Made fresh right in store. Kids loved it.', date: 'Apr 2026' },
+        { name: 'J M.', rating: 5, comment: 'Amazing! Fresh cakes made in store. Friendliest staff. Best ice cream around.', date: 'Nov 2025' }
+      ],
+      'Kiwi Yogurt': [
+        { name: 'Daniel C.', rating: 5, comment: 'Open late, right across from Sang Kee. Perfect after-dinner snack. Love the fresh fruit toppings.', date: 'Mar 2026' },
+        { name: 'Rob R.', rating: 4, comment: 'For less than $5 you get good portions. Free strawberry water is a nice touch.', date: 'Jul 2025' },
+        { name: 'Connie L.', rating: 4, comment: 'Variety of flavors. Summer watermelon flavor is delicious. Staff is always friendly.', date: 'Aug 2025' },
+        { name: 'Sylvia M.', rating: 4, comment: 'Tons of sweet treat toppings! Convenient location near Drexel. Filling and delicious.', date: 'May 2025' },
+        { name: 'Jamie D.', rating: 5, comment: 'My favorite self-serve froyo place. Peanut butter and cake batter mix is amazing.', date: 'Oct 2025' }
+      ],
+      'Surreal Creamery': [
+        { name: 'Nishat Tasnin', rating: 5, comment: 'Earl Grey bubble tea with Vietnamese iced coffee ice cream is perfectly balanced.', date: 'Oct 2025' },
+        { name: 'Waratchaya Nuangjamnong', rating: 5, comment: 'Taro soft serve is perfectly smooth and creamy. Matcha and taro swirl was a standout.', date: 'Apr 2026' },
+        { name: 'Lyn Smith', rating: 5, comment: 'Floteas are awesome! Creations look too good to eat. Schools Out celebration was perfect.', date: 'Jun 2025' },
+        { name: 'Augustine Colella', rating: 5, comment: 'Awesome selection of ice cream and cake combos. Love that you get to keep the mason jar.', date: 'Aug 2025' },
+        { name: 'Kevin Mesquita', rating: 4, comment: 'Solid spot for ice cream. Cozy vibe. Flavors were on point. Portions were legit.', date: 'Apr 2026' }
+      ],
+      'Coco\'s Creamery': [
+        { name: 'Luna B.', rating: 5, comment: 'Portions are huge and delicious. Quality of ice cream and water ice is excellent.', date: 'Mar 2026' },
+        { name: 'Philly C.', rating: 2, comment: 'Cookies and cream ice cream had no cookies! Just vanilla. Huge disappointment.', date: 'Aug 2025' },
+        { name: 'Vichet O.', rating: 5, comment: 'Best soft serve I ever had. Extra creamy, almost tastes buttery. Small is huge!', date: 'Jul 2025' },
+        { name: 'Catherine B.', rating: 4, comment: 'Local ice cream place. Soft serve is really good. Water ice and gelati are worth it.', date: 'Aug 2021' },
+        { name: 'Taylor Y.', rating: 5, comment: 'My go-to ice cream place. CoCo crush with two toppings is amazing. Great for late night.', date: 'Oct 2025' }
+      ],
+      'Maison Sweet': [
+        { name: 'Susan A.', rating: 5, comment: 'Butter pecan tart with ice cream is to die for! Cookie crumble has amazing crunch.', date: 'Apr 2025' },
+        { name: 'Miranda L.', rating: 4, comment: 'Yuzu mousse was light and fluffy. Paired well with sorbet. Very well balanced.', date: 'Jan 2026' },
+        { name: 'Sarah A.', rating: 2, comment: 'Beautiful space but food fell short. Drinks had no flavor. Overpriced for what you get.', date: 'Jul 2025' },
+        { name: 'Jennifer G.', rating: 4, comment: 'Afternoon tea set was fun. Yuzu mousse cake was really good. Sesame cream puff was tasty.', date: 'Dec 2024' },
+        { name: 'Tara T.', rating: 3, comment: 'Desserts looked pretty but flavors were lacking. Chocolate cream puff was my favorite.', date: 'Sep 2023' }
+      ],
+      'Insomnia Cookies': [
+        { name: 'Jessica Y.', rating: 5, comment: 'No greater motivation for a study session. Love seasonal offerings like red velvet.', date: 'May 2025' },
+        { name: 'Anna S.', rating: 5, comment: 'Perfect midnight snack. Smores deluxe cookie with butter pecan ice cream is a must try.', date: 'Aug 2025' },
+        { name: 'Sherese R.', rating: 5, comment: 'Cookiewich was ammmmazing! Warm cookies slowly melting the ice cream. So good!', date: 'Mar 2025' },
+        { name: 'Andrea R.', rating: 3, comment: 'Not ground breaking, not super memorable, but no regrets. Cookie was fine.', date: 'May 2025' },
+        { name: 'Caroline T.', rating: 4, comment: 'Smores cookie was delicious! Hot, gooey, chocolatey. Perfect for a winter day.', date: 'Apr 2026' }
+      ],
+      'Paris Baguette': [
+        { name: 'Vonna L.', rating: 4, comment: 'Iced caramel macchiato and Strawberry Cream Cheese Croissant were pretty good. 7/10.', date: 'Aug 2025' },
+        { name: 'Linda L.', rating: 5, comment: 'Finally found cakes I like! Light and fluffy, not heavy buttercream. I am in heaven.', date: 'Mar 2026' },
+        { name: 'Kenneth M.', rating: 3, comment: 'Lots of pastry options. Cake slice was good but seating was packed with laptops.', date: 'Nov 2025' },
+        { name: 'Paula R.', rating: 5, comment: 'Everything was super fresh. Coffee was good. Glad to have fresh baked goods nearby.', date: 'Apr 2024' },
+        { name: 'Anna S.', rating: 5, comment: 'Perfect after meal dessert. Croissants are smooth, soft, and not too sugary.', date: 'Aug 2023' }
+      ]
+    };
+
+    // converts number rating (1-5) into star symbols
+    // learned: repeat() creates the stars, then fill the rest with empty stars
+    function displayStars(rating) {
+      return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    }
+
+    // this runs when you click on a dessert card
+    // loads the dessert info, image, and reviews into the modal
+    function openModal(dessertName) {
+      // get the dessert data or use default values
+      const data = dessertData[dessertName] || {
+        rating: '★★★★☆',
+        description: 'Description coming soon.',
+        website: '#'
+      };
+      
+      // update modal with dessert info
+      document.getElementById('modal-name').textContent = dessertName;
+      document.getElementById('modal-rating').textContent = data.rating;
+      document.getElementById('modal-description').textContent = data.description;
+      document.getElementById('modal-link').href = data.website;
+      
+      // load the image - encodeURIComponent handles spaces in filenames
+      const imageName = getImageName(dessertName);
+      const imagePath = 'static/' + encodeURIComponent(imageName);
+      document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + dessertName + '" style="width:100%; height:100%; object-fit:cover;">';
+      
+      // load the hardcoded reviews for this dessert
+      const hardcodedReviews = dessertReviews[dessertName] || [];
+      const reviewsList = document.getElementById('reviews-list');
+      
+      if (hardcodedReviews.length === 0) {
+        reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
+      } else {
+        reviewsList.innerHTML = hardcodedReviews.map(review => `
+          <div class="review-item">
+            <div class="review-header">
+              <strong class="reviewer-name">${review.name}</strong>
+              <span class="review-stars">${displayStars(review.rating)}</span>
+              <span class="review-date">${review.date}</span>
             </div>
-            <hr>
-            
-            <!-- payment methods - what Drexel students actually use -->
-            <div class="dessert-filter-section">
-                <h4>Payment Methods</h4>
-                <label class="dessert-filter-label">
-                    <input type="checkbox" value="dragonDollars" class="filter-checkbox"> Dragon Dollars
-                </label>
-                <label class="dessert-filter-label">
-                    <input type="checkbox" value="diningDollars" class="filter-checkbox"> Dining Dollars
-                </label>
-                <label class="dessert-filter-label">
-                    <input type="checkbox" value="card" class="filter-checkbox"> Card
-                </label>
-                <label class="dessert-filter-label">
-                    <input type="checkbox" value="cash" class="filter-checkbox"> Cash
-                </label>
-            </div>
-            <hr>
-            
-            <!-- dietary options - important for students with restrictions -->
-            <div class="dessert-filter-section">
-                <h4>Dietary Options</h4>
-                <label class="dessert-filter-label">
-                    <input type="checkbox"> Vegetarian 🟢
-                </label>
-                <label class="dessert-filter-label">
-                    <input type="checkbox"> Halal 🟠
-                </label>
-            </div>
-            <hr>
-            
-            <!-- price range - fixed width so they don't break the sidebar layout -->
-            <div class="dessert-filter-section">
-                <h4>Price Range</h4>
-                <div class="price-inputs">
-                    <input type="number" id="minPrice" placeholder="Min $" min="0">
-                    <span>-</span>
-                    <input type="number" id="maxPrice" placeholder="Max $" min="0">
-                </div>
-            </div>
-            <hr>
-            
-            <button class="dessert-filter-apply" onclick="applyFilters()">Apply Filters</button>
-            
-            <!-- little dragon logo at the bottom of the filter bar -->
-            <div class="filter-dragon-container">
-                <img src="static/images/FilterDragonImage.png" alt="Dragon Logo">
-            </div>
-        </aside>
+            <p class="review-comment">${review.comment}</p>
+          </div>
+        `).join('');
+      }
+      
+      // Then load database reviews (they will be added after hardcoded ones)
+      loadReviews(dessertName, 'dessert');
+      
+      // show the modal
+      document.getElementById('dessertModal').style.display = 'block';
+    }
+
+    // closes the pop-up modal
+    function closeModal() {
+      document.getElementById('dessertModal').style.display = 'none';
+    }
+
+    // collects filter values and sends them to backend
+    function applyFilters() {
+      // Get selected payment methods
+      const checkboxes = document.querySelectorAll('.filter-checkbox:checked');
+      const filters = Array.from(checkboxes).map(cb => cb.value);
+      
+      // Get price range
+      const minPrice = document.getElementById('minPrice').value;
+      const maxPrice = document.getElementById('maxPrice').value;
+      
+      // Send filters to backend
+      fetch('/api/filter-desserts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          filters: filters,
+          minPrice: minPrice ? parseFloat(minPrice) : null,
+          maxPrice: maxPrice ? parseFloat(maxPrice) : null
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        displayFilteredDesserts(data.desserts);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    // displays filtered dessert results in the grid
+    function displayFilteredDesserts(desserts) {
+      const grid = document.querySelector('.dessert-grid');
+      
+      if (desserts.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 20px;">No dessert locations match your filters.</p>';
+        return;
+      }
+      
+      // Parse dessert data and create cards
+      grid.innerHTML = desserts.map(dessert => {
+        // dessert format: "PlaceName Price Rating"
+        const parts = dessert[0].split(' ');
+        const name = parts.slice(0, -2).join(' ');
+        const price = parts[parts.length - 2];
+        const rating = parts[parts.length - 1];
         
-        <div class="content-area">
-            <h2>Dessert listing</h2>
-            
-            <!-- 8 dessert spots - researched and added by Alisha -->
-            <!-- each card has an emoji that matches the vibe of the place -->
-            <div class="dessert-grid">
-                <div class="dessert-card" onclick="openModal('Mango Mango')">
-                    <h3>🥭 Mango Mango</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Carvel')">
-                    <h3>🍦 Carvel</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Kiwi Yogurt')">
-                    <h3>🥝 Kiwi Yogurt</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Surreal Creamery')">
-                    <h3>🍨 Surreal Creamery</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Coco\'s Creamery')">
-                    <h3>🍪 Coco's Creamery</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Maison Sweet')">
-                    <h3>🍰 Maison Sweet</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Insomnia Cookies')">
-                    <h3>🍪 Insomnia Cookies</h3>
-                </div>
-                <div class="dessert-card" onclick="openModal('Paris Baguette')">
-                    <h3>🥐 Paris Baguette</h3>
-                </div>
-            </div>
-        </div>
-    </div>
+        return `
+          <div class="dessert-card" onclick="openModal('${name}')">
+            <h3>${name}</h3>
+            <p style="font-size: 0.9em; color: #666;">$${price}</p>
+            <p style="font-size: 0.9em; color: #ffc107;">★ ${rating}</p>
+          </div>
+        `;
+      }).join('');
+    }
 
-    <!-- pop-up modal that appears when you click a dessert card -->
-    <!-- learned: had to make it scrollable with max-height: 85vh so it doesn't overflow -->
-    <div id="dessertModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modal-image"></div>
-            <h2 id="modal-name">Dessert Name</h2>
-            <div id="modal-rating">★★★★☆</div>
-            <p id="modal-description">Description will go here</p>
-            
-            <!-- Visit Website button - opens in new tab -->
-            <a href="#" id="modal-link" target="_blank">Visit Website</a>
-            
-            <!-- reviews section - added from research on surveys and internet -->
-            <div class="reviews-section">
-                <div class="reviews-header">
-                    <h4>Notable Reviews:</h4>
-                    <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'dessert')">+ Write a Review</button>
-                </div>
-                <div id="reviews-list" class="reviews-list">
-                    <!-- reviews load dynamically from Js -->
-                </div>
-            </div>
-        </div>
-    </div>
+    // if you click outside the modal, it closes
+    window.onclick = function(event) {
+      const modal = document.getElementById('dessertModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
 
-    <script>
-        // maps dessert names to their actual image filenames
-        // learned: had to use encodeURIComponent because some filenames have spaces
-        function getImageName(dessertName) {
-            const imageMap = {
-                'Mango Mango': 'images/MangoMango.png',
-                'Carvel': 'images/Carvel.png',
-                'Kiwi Yogurt': 'images/Kiwi Yogurt.png',
-                'Surreal Creamery': 'images/Surreal Creamery.png',
-                'Coco\'s Creamery': 'images/Coco\'s Creamery.png',
-                'Maison Sweet': 'images/Maison Sweet.png',
-                'Insomnia Cookies': 'images/Insomnia Cookies.png',
-                'Paris Baguette': 'images/ParisBaguette.png'
-            };
-            return imageMap[dessertName] || 'images/dessert-placeholder.jpg';
-        }
+    // Clear all filters
+    function clearAllFilters() {
+      // Uncheck all checkboxes
+      const checkboxes = document.querySelectorAll('.filter-checkbox');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Clear price inputs
+      const minPriceInput = document.getElementById('minPrice');
+      const maxPriceInput = document.getElementById('maxPrice');
+      minPriceInput.value = '';
+      maxPriceInput.value = '';
+      
+      // Show all dessert cards
+      const cards = document.querySelectorAll('.dessert-card');
+      cards.forEach(card => {
+        card.style.display = 'block';
+      });
+      location.reload();
+    }
 
-        // all dessert data - gathered from research and student surveys
-        const dessertData = {
-            'Mango Mango': {
-                rating: '4.9 ★★★★★',
-                description: 'Mango Mango is a dessert spot specializing in mango-centric desserts. Fresh mango is churned into smooth ice creams, blended into tangy smoothies, layered into delicate crepe cakes, and paired with soft and chewy sago pearls. The shop was opened by a Drexel alumnus who wanted to share a piece of his culture with the community. It is the perfect side quest between classes or a well-earned late-night study break.',
-                website: 'https://www.mangomangodessert.com'
-            },
-            'Carvel': {
-                rating: '4.5 ★★★★☆',
-                description: 'Carvel is famous for soft-serve ice cream, cakes with crunchies, and novelty ice cream sandwiches. There are multiple Carvel locations near Philadelphia, including a spot at 1625 Chestnut Street and another at 54 S. 69th Street, a short distance from the University City area.',
-                website: 'https://locations.carvel.com/pa/philadelphia/3400-lancaster-ave'
-            },
-            'Kiwi Yogurt': {
-                rating: '4.1 ★★★★☆',
-                description: 'Kiwi Yogurt is a self-serve frozen yogurt and ice cream shop offering vegan options. Located at 3606 Chestnut St, this spot is known for its wide selection of flavors and toppings. The chocolate, tart, and raspberry yogurts are especially popular.',
-                website: 'https://kiwifrozenyogurt.com/location/university-city/'
-            },
-            'Surreal Creamery': {
-                rating: '4.0 ★★★★☆',
-                description: 'Surreal Creamery is a trendy spot at 3818 Chestnut St that specializes in towering soft-serve creations and innovative Floteas, a fusion of bubble tea and ice cream. Signature offerings include Earl Grey soft serve and customizable mason jar sundaes packed with over-the-top toppings.',
-                website: 'https://www.surrealcreamery.com'
-            },
-            'Coco\'s Creamery': {
-                rating: '3.0 ★★★☆☆',
-                description: 'Coco\'s Creamery is a casual venue for soft-serve ice cream, sundaes, shakes, water ices, and cookies. Located at 3632 Powelton Ave, this shop is known for generous portions, creamy ice cream, and quick service.',
-                website: 'https://cocoscookiesandcreamery.com'
-            },
-            'Maison Sweet': {
-                rating: '3.5 ★★★☆☆',
-                description: 'Maison Sweet is a cozy, trendy Asian patisserie featuring cakes, pastries, tea, and coffee beverages. Located at 2930 Chestnut St, this cafe offers a wide range of sweet treats in a comfortable atmosphere.',
-                website: 'https://maisonsweet.us'
-            },
-            'Insomnia Cookies': {
-                rating: '4.0 ★★★★☆',
-                description: 'Insomnia Cookies is famous for warm, delicious cookies delivered late night. Located at 3400 Lancaster Ave, they also offer ice cream and cookie sandwiches. Popular flavors include Snickerdoodle, Chocolate Chunk, and seasonal offerings like red velvet and lemon white chocolate chip.',
-                website: 'https://insomniacookies.com'
-            },
-            'Paris Baguette': {
-                rating: '4.3 ★★★★☆',
-                description: 'Paris Baguette is a bakery café serving delicious pastries, fresh-baked breads, stunning cakes, expertly brewed coffees and teas, and grab-n-go salads and sandwiches. Located at 3816 Chestnut St, this spot offers outdoor seating, free WiFi, and plenty of indoor seating. Popular items include the Croissant Donut, Strawberry Cream Cheese Croissant, and Mochi Donuts. It is a great spot for students to study with a cup of coffee or meet up with friends.',
-                website: 'https://parisbaguette.com/locations/pa/philadelphia/3816-chestnut-street/'
-            }
-        };
-
-        // dessert reviews - researched from online and surveys 
-        // had to read through real customer feedback to find authentic comments
-        const dessertReviews = {
-            'Mango Mango': [
-                { name: 'Delaney Rybicki', rating: 5, comment: 'Very friendly staff, great environment, diverse menu.', date: 'Apr 2026' },
-                { name: 'Truman Sharp', rating: 5, comment: 'Great place', date: 'Apr 2026' },
-                { name: 'Anuva Chowdhury', rating: 5, comment: 'so good!!!', date: 'Apr 2026' },
-                { name: 'Grace Zhang', rating: 5, comment: 'Amazing', date: 'Apr 2026' },
-                { name: 'Sanskruti Chavanke', rating: 4, comment: 'Very late service, but good taste', date: 'Apr 2026' }
-            ],
-            'Carvel': [
-                { name: 'Michael N.', rating: 5, comment: 'Five stars for the crunchies and Fudgie the Whale. Still the best ice cream cakes.', date: 'Dec 2025' },
-                { name: 'Lisa E.', rating: 2, comment: 'Barely any ice cream in my sundae. Just crunchies and syrup. Waste of money.', date: 'Jan 2026' },
-                { name: 'Phil C.', rating: 5, comment: 'The worlds best ice cream! Fresh soft serve is heavenly. Locally owned and focused on quality.', date: 'Mar 2024' },
-                { name: 'Michael G.', rating: 5, comment: 'Reminded me of my childhood birthdays. Made fresh right in store. Kids loved it.', date: 'Apr 2026' },
-                { name: 'J M.', rating: 5, comment: 'Amazing! Fresh cakes made in store. Friendliest staff. Best ice cream around.', date: 'Nov 2025' }
-            ],
-            'Kiwi Yogurt': [
-                { name: 'Daniel C.', rating: 5, comment: 'Open late, right across from Sang Kee. Perfect after-dinner snack. Love the fresh fruit toppings.', date: 'Mar 2026' },
-                { name: 'Rob R.', rating: 4, comment: 'For less than $5 you get good portions. Free strawberry water is a nice touch.', date: 'Jul 2025' },
-                { name: 'Connie L.', rating: 4, comment: 'Variety of flavors. Summer watermelon flavor is delicious. Staff is always friendly.', date: 'Aug 2025' },
-                { name: 'Sylvia M.', rating: 4, comment: 'Tons of sweet treat toppings! Convenient location near Drexel. Filling and delicious.', date: 'May 2025' },
-                { name: 'Jamie D.', rating: 5, comment: 'My favorite self-serve froyo place. Peanut butter and cake batter mix is amazing.', date: 'Oct 2025' }
-            ],
-            'Surreal Creamery': [
-                { name: 'Nishat Tasnin', rating: 5, comment: 'Earl Grey bubble tea with Vietnamese iced coffee ice cream is perfectly balanced.', date: 'Oct 2025' },
-                { name: 'Waratchaya Nuangjamnong', rating: 5, comment: 'Taro soft serve is perfectly smooth and creamy. Matcha and taro swirl was a standout.', date: 'Apr 2026' },
-                { name: 'Lyn Smith', rating: 5, comment: 'Floteas are awesome! Creations look too good to eat. Schools Out celebration was perfect.', date: 'Jun 2025' },
-                { name: 'Augustine Colella', rating: 5, comment: 'Awesome selection of ice cream and cake combos. Love that you get to keep the mason jar.', date: 'Aug 2025' },
-                { name: 'Kevin Mesquita', rating: 4, comment: 'Solid spot for ice cream. Cozy vibe. Flavors were on point. Portions were legit.', date: 'Apr 2026' }
-            ],
-            'Coco\'s Creamery': [
-                { name: 'Luna B.', rating: 5, comment: 'Portions are huge and delicious. Quality of ice cream and water ice is excellent.', date: 'Mar 2026' },
-                { name: 'Philly C.', rating: 2, comment: 'Cookies and cream ice cream had no cookies! Just vanilla. Huge disappointment.', date: 'Aug 2025' },
-                { name: 'Vichet O.', rating: 5, comment: 'Best soft serve I ever had. Extra creamy, almost tastes buttery. Small is huge!', date: 'Jul 2025' },
-                { name: 'Catherine B.', rating: 4, comment: 'Local ice cream place. Soft serve is really good. Water ice and gelati are worth it.', date: 'Aug 2021' },
-                { name: 'Taylor Y.', rating: 5, comment: 'My go-to ice cream place. CoCo crush with two toppings is amazing. Great for late night.', date: 'Oct 2025' }
-            ],
-            'Maison Sweet': [
-                { name: 'Susan A.', rating: 5, comment: 'Butter pecan tart with ice cream is to die for! Cookie crumble has amazing crunch.', date: 'Apr 2025' },
-                { name: 'Miranda L.', rating: 4, comment: 'Yuzu mousse was light and fluffy. Paired well with sorbet. Very well balanced.', date: 'Jan 2026' },
-                { name: 'Sarah A.', rating: 2, comment: 'Beautiful space but food fell short. Drinks had no flavor. Overpriced for what you get.', date: 'Jul 2025' },
-                { name: 'Jennifer G.', rating: 4, comment: 'Afternoon tea set was fun. Yuzu mousse cake was really good. Sesame cream puff was tasty.', date: 'Dec 2024' },
-                { name: 'Tara T.', rating: 3, comment: 'Desserts looked pretty but flavors were lacking. Chocolate cream puff was my favorite.', date: 'Sep 2023' }
-            ],
-            'Insomnia Cookies': [
-                { name: 'Jessica Y.', rating: 5, comment: 'No greater motivation for a study session. Love seasonal offerings like red velvet.', date: 'May 2025' },
-                { name: 'Anna S.', rating: 5, comment: 'Perfect midnight snack. Smores deluxe cookie with butter pecan ice cream is a must try.', date: 'Aug 2025' },
-                { name: 'Sherese R.', rating: 5, comment: 'Cookiewich was ammmmazing! Warm cookies slowly melting the ice cream. So good!', date: 'Mar 2025' },
-                { name: 'Andrea R.', rating: 3, comment: 'Not ground breaking, not super memorable, but no regrets. Cookie was fine.', date: 'May 2025' },
-                { name: 'Caroline T.', rating: 4, comment: 'Smores cookie was delicious! Hot, gooey, chocolatey. Perfect for a winter day.', date: 'Apr 2026' }
-            ],
-            'Paris Baguette': [
-                { name: 'Vonna L.', rating: 4, comment: 'Iced caramel macchiato and Strawberry Cream Cheese Croissant were pretty good. 7/10.', date: 'Aug 2025' },
-                { name: 'Linda L.', rating: 5, comment: 'Finally found cakes I like! Light and fluffy, not heavy buttercream. I am in heaven.', date: 'Mar 2026' },
-                { name: 'Kenneth M.', rating: 3, comment: 'Lots of pastry options. Cake slice was good but seating was packed with laptops.', date: 'Nov 2025' },
-                { name: 'Paula R.', rating: 5, comment: 'Everything was super fresh. Coffee was good. Glad to have fresh baked goods nearby.', date: 'Apr 2024' },
-                { name: 'Anna S.', rating: 5, comment: 'Perfect after meal dessert. Croissants are smooth, soft, and not too sugary.', date: 'Aug 2023' }
-            ]
-        };
-
-        // converts number rating (1-5) into star symbols
-        // learned: repeat() creates the stars, then fill the rest with empty stars
-        function displayStars(rating) {
-            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
-        }
-
-        // this runs when you click on a dessert card
-        // loads the dessert info, image, and reviews into the modal
-        function openModal(dessertName) {
-            // get the dessert data or use default values
-            const data = dessertData[dessertName] || {
-                rating: '★★★★☆',
-                description: 'Description coming soon.',
-                website: '#'
-            };
-            
-            // update modal with dessert info
-            document.getElementById('modal-name').textContent = dessertName;
-            document.getElementById('modal-rating').textContent = data.rating;
-            document.getElementById('modal-description').textContent = data.description;
-            document.getElementById('modal-link').href = data.website;
-            
-            // load the image - encodeURIComponent handles spaces in filenames
-            const imageName = getImageName(dessertName);
-            const imagePath = 'static/' + encodeURIComponent(imageName);
-            document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + dessertName + '" style="width:100%; height:100%; object-fit:cover;">';
-            
-            // load the hardcoded reviews for this dessert
-            const hardcodedReviews = dessertReviews[dessertName] || [];
-            const reviewsList = document.getElementById('reviews-list');
-            
-            if (hardcodedReviews.length === 0) {
-                reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
-            } else {
-                reviewsList.innerHTML = hardcodedReviews.map(review => `
-                    <div class="review-item">
-                        <div class="review-header">
-                            <strong class="reviewer-name">${review.name}</strong>
-                            <span class="review-stars">${displayStars(review.rating)}</span>
-                            <span class="review-date">${review.date}</span>
-                        </div>
-                        <p class="review-comment">${review.comment}</p>
-                    </div>
-                `).join('');
-            }
-            
-            // Then load database reviews (they will be added after hardcoded ones)
-            loadReviews(dessertName, 'dessert');
-            
-            // show the modal
-            document.getElementById('dessertModal').style.display = 'block';
-        }
-
-        // closes the pop-up modal
-        function closeModal() {
-            document.getElementById('dessertModal').style.display = 'none';
-        }
-
-        // collects filter values and sends them to backend
-        function applyFilters() {
-            // Get selected payment methods
-            const checkboxes = document.querySelectorAll('.filter-checkbox:checked');
-            const filters = Array.from(checkboxes).map(cb => cb.value);
-            
-            // Get price range
-            const minPrice = document.getElementById('minPrice').value;
-            const maxPrice = document.getElementById('maxPrice').value;
-            
-            // Send filters to backend
-            fetch('/api/filter-desserts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    filters: filters,
-                    minPrice: minPrice ? parseFloat(minPrice) : null,
-                    maxPrice: maxPrice ? parseFloat(maxPrice) : null
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                displayFilteredDesserts(data.desserts);
-            })
-            .catch(error => console.error('Error:', error));
-        }
-
-        // displays filtered dessert results in the grid
-        function displayFilteredDesserts(desserts) {
-            const grid = document.querySelector('.dessert-grid');
-            
-            if (desserts.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 20px;">No dessert locations match your filters.</p>';
-                return;
-            }
-            
-            // Parse dessert data and create cards
-            grid.innerHTML = desserts.map(dessert => {
-                // dessert format: "PlaceName Price Rating"
-                const parts = dessert[0].split(' ');
-                const name = parts.slice(0, -2).join(' ');
-                const price = parts[parts.length - 2];
-                const rating = parts[parts.length - 1];
-                
-                return `
-                    <div class="dessert-card" onclick="openModal('${name}')">
-                        <h3>${name}</h3>
-                        <p style="font-size: 0.9em; color: #666;">$${price}</p>
-                        <p style="font-size: 0.9em; color: #ffc107;">★ ${rating}</p>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // if you click outside the modal, it closes
-        window.onclick = function(event) {
-            const modal = document.getElementById('dessertModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Clear all filters
-        function clearAllFilters() {
-            // Uncheck all checkboxes
-            const checkboxes = document.querySelectorAll('.filter-checkbox');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            
-            // Clear price inputs
-            const minPriceInput = document.getElementById('minPrice');
-            const maxPriceInput = document.getElementById('maxPrice');
-            minPriceInput.value = '';
-            maxPriceInput.value = '';
-            
-            // Show all dessert cards
-            const cards = document.querySelectorAll('.dessert-card');
-            cards.forEach(card => {
-                card.style.display = 'block';
-            });
-            location.reload();
-        }
-
-        // Initialize clear button event listener
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.dessert-filter-clear').addEventListener('click', clearAllFilters);
-        });
-    </script>
-    
-    <!-- custom dragon cursor element -->
-    <div class="cursor"></div>
-    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
-    <script src="{{ url_for('static', filename='reviews.js') }}"></script>
+    // Initialize clear button event listener
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.dessert-filter-clear').addEventListener('click', clearAllFilters);
+    });
+  </script>
+  
+  <!-- custom dragon cursor element -->
+  <div class="cursor"></div>
+  <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+  <script src="{{ url_for('static', filename='reviews.js') }}"></script>
 </body>
 </html>

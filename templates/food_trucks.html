@@ -1,311 +1,311 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Author: Abigail Abraham - Food Trucks page for DragonBites -->    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Dragon Bites - Food Trucks</title>
-    <!-- made by Abigail Abraham - food trucks page for Dragon Bites -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='food_trucks.css') }}">
+  <!-- Author: Abigail Abraham - Food Trucks page for DragonBites -->  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Dragon Bites - Food Trucks</title>
+  <!-- made by Abigail Abraham - food trucks page for Dragon Bites -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='food_trucks.css') }}">
 </head>
 <body>
-    <!-- header with the main dragon logo centered -->
-    <header>
-        <div class="header-container">
-            <div class="header-logo">
-                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
-            </div>
-        </div>
-    </header>
-    
-    <!-- navigation bar - Home, About, Meal Mapper, Restaurants, Desserts, Food Trucks -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/meal-mapper">Meal Mapper</a></li>
-            <li><a href="/listing">Restaurants</a></li>
-            <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/food-trucks">Food Trucks</a></li>
-        </ul>
-    </nav>
-    
-    <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
-    
-    <div class="main-wrapper">
-        <!-- filter sidebar -->
-        <aside class="foodtruck-filter-sidebar">
-            <div class="foodtruck-filter-header">
-                <h3 class="foodtruck-filter-title">FILTERS</h3>
-                <button class="foodtruck-filter-clear">Clear All</button>
-            </div>
-            <hr>
-            
-            <div class="foodtruck-filter-section">
-                <h4>Payment Methods</h4>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox" data-value="cash"> Cash
-                </label>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox" data-value="card"> Card
-                </label>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox" data-value="mobilePayment"> Mobile Payment
-                </label>
-            </div>
-            <hr>
-            
-            <div class="foodtruck-filter-section">
-                <h4>Dietary Options</h4>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox" data-value="vegetarian"> Vegetarian 🟢
-                </label>
-                <label class="foodtruck-filter-label">
-                    <input type="checkbox" data-value="halal"> Halal 🟠
-                </label>
-            </div>
-            <hr>
-            
-            <div class="foodtruck-filter-section">
-                <h4>Price Range</h4>
-                <div class="price-inputs">
-                    <input type="number" placeholder="Min $" min="0">
-                    <span>-</span>
-                    <input type="number" placeholder="Max $" min="0">
-                </div>
-            </div>
-            <hr>
-            
-            <button class="foodtruck-filter-apply">Apply Filters</button>
-            
-            <div class="filter-dragon-container">
-                <img src="{{ url_for('static', filename='images/FilterDragonImage.png') }}" alt="Dragon Logo">
-            </div>
-        </aside>
-        
-        <div class="content-area">
-            <h2>Food Trucks Near Campus</h2>
-            
-            <div class="foodtruck-grid">
-                <div class="foodtruck-card" onclick="openModal('Happy Sunshine')">
-                    <h3>☀️ Happy Sunshine</h3>
-                </div>
-                <div class="foodtruck-card" onclick="openModal('KC\'s Fresh Fruit Smoothie')">
-                    <h3>🍓 KC's Fresh Fruit Smoothie</h3>
-                </div>
-                <div class="foodtruck-card" onclick="openModal('Nanu\'s Hot Chicken')">
-                    <h3>🍗 Nanu's Hot Chicken</h3>
-                </div>
-                <div class="foodtruck-card" onclick="openModal('Mega Food Truck')">
-                    <h3>🚚 Mega Food Truck</h3>
-                </div>
-                <div class="foodtruck-card" onclick="openModal('Kami\'s Korean Food')">
-                    <h3>🇰🇷 Kami's Korean Food</h3>
-                </div>
-                <div class="foodtruck-card" onclick="openModal('Cucina Zapata')">
-                    <h3>🌮 Cucina Zapata</h3>
-                </div>
-            </div>
-        </div>
+  <!-- header with the main dragon logo centered -->
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
+      </div>
     </div>
-
-    <!-- pop-up modal -->
-    <div id="foodtruckModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modal-image"></div>
-            <h2 id="modal-name">Food Truck Name</h2>
-            <div id="modal-rating">★★★★☆</div>
-            <p id="modal-description"></p>
-            
-            <a href="#" id="modal-link" target="_blank">Visit Website</a>
-            
-            <div class="reviews-section">
-                <div class="reviews-header">
-                    <h4>Student Reviews:</h4>
-                    <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'foodtruck')">+ Write a Review</button>
-                </div>
-                <div id="reviews-list" class="reviews-list">
-                    <p class="no-reviews">Loading reviews...</p>
-                </div>
-            </div>
+  </header>
+  
+  <!-- navigation bar - Home, About, Meal Mapper, Restaurants, Desserts, Food Trucks -->
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/meal-mapper">Meal Mapper</a></li>
+      <li><a href="/listing">Restaurants</a></li>
+      <li><a href="/desserts">Desserts</a></li>
+      <li><a href="/food-trucks">Food Trucks</a></li>
+    </ul>
+  </nav>
+  
+  <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
+  
+  <div class="main-wrapper">
+    <!-- filter sidebar -->
+    <aside class="foodtruck-filter-sidebar">
+      <div class="foodtruck-filter-header">
+        <h3 class="foodtruck-filter-title">FILTERS</h3>
+        <button class="foodtruck-filter-clear">Clear All</button>
+      </div>
+      <hr>
+      
+      <div class="foodtruck-filter-section">
+        <h4>Payment Methods</h4>
+        <label class="foodtruck-filter-label">
+          <input type="checkbox" data-value="cash"> Cash
+        </label>
+        <label class="foodtruck-filter-label">
+          <input type="checkbox" data-value="card"> Card
+        </label>
+        <label class="foodtruck-filter-label">
+          <input type="checkbox" data-value="mobilePayment"> Mobile Payment
+        </label>
+      </div>
+      <hr>
+      
+      <div class="foodtruck-filter-section">
+        <h4>Dietary Options</h4>
+        <label class="foodtruck-filter-label">
+          <input type="checkbox" data-value="vegetarian"> Vegetarian 🟢
+        </label>
+        <label class="foodtruck-filter-label">
+          <input type="checkbox" data-value="halal"> Halal 🟠
+        </label>
+      </div>
+      <hr>
+      
+      <div class="foodtruck-filter-section">
+        <h4>Price Range</h4>
+        <div class="price-inputs">
+          <input type="number" placeholder="Min $" min="0">
+          <span>-</span>
+          <input type="number" placeholder="Max $" min="0">
         </div>
-    </div>
-
-    <script>
-        // maps food truck names to their actual image filenames
-        function getImageName(truckName) {
-            const imageMap = {
-                'Happy Sunshine': 'images/HappySunshine.png',
-                'KC\'s Fresh Fruit Smoothie': 'images/KCTruck.png',
-                'Nanu\'s Hot Chicken': 'images/NanusHotChicken.png',
-                'Mega Food Truck': 'images/MEGAfoodtruck.png',
-                'Kami\'s Korean Food': 'images/KamisKoreanFoodTruck.png',
-                'Cucina Zapata': 'images/CucinaZapataFT.png'
-            };
-            return imageMap[truckName] || 'images/placeholder.png';
-        }
-
-        // all food truck data
-        const foodTruckData = {
-            'Happy Sunshine': {
-                rating: '4.8 ★★★★☆',
-                description: 'Family-owned breakfast and lunch truck famous for bacon egg and cheese sandwiches, mushroom chicken cheesesteaks, and iced coffee. Cash only. Open 6:30 AM - 2:30 PM. Located at 33rd and Arch St. Known for friendly owners who remember regular customers orders.',
-                website: 'https://www.instagram.com/happysunshinedrexel/'
-            },
-            'KC\'s Fresh Fruit Smoothie': {
-                rating: '4.8 ★★★★☆',
-                description: 'Popular smoothie truck near Drexel campus. Known for fresh fruit smoothies and being a student favorite. The owner is well-loved by the Drexel community. Located around Drexel campus area.',
-                website: 'https://www.instagram.com/reels/DOq0d0BidoV/'
-            },
-            'Nanu\'s Hot Chicken': {
-                rating: '4.5 ★★★★☆',
-                description: 'Nashville-style hot chicken and tenders in sandwiches and platters. Located at 3301 Market St. Known for loaded chicken fries and spicy chicken sandwiches. Open until 3 AM. Offers multiple spice levels from mild to extra hot.',
-                website: 'https://nanushotchicken.co/experience-nanus-hot-chicken-at-3301-market-street-drexel-university-🍗🥤/'
-            },
-            'Mega Food Truck': {
-                rating: '2.8 ★★★☆☆',
-                description: 'Food truck located at Daskalakis Athletic Center, 3301 Market St. Serves chicken over rice, lamb over rice, falafel, gyros, and combo platters. Known for generous portions and green chutney sauce.',
-                website: 'https://www.grubhub.com/restaurant/mega-food-truck-drexel-3301-market-street-philadelphia/14279336'
-            },
-            'Kami\'s Korean Food': {
-                rating: '4.0 ★★★★☆',
-                description: 'Korean food truck at 33rd & Market St in front of Hagerty Library. Serves bibimbap, kimchi fried rice, bulgogi cheesesteaks, and Korean tacos. Cash preferred, accepts Venmo. Open Mon-Fri 11:30 AM - 6:30 PM. Student favorite for affordable Korean comfort food.',
-                website: 'https://www.instagram.com/kamiphilly/'
-            },
-            'Cucina Zapata': {
-                rating: '4.9 ★★★★★',
-                description: 'Mexican food truck at 3101 Ludlow St. Known for Chicken Katsu tacos, tilapia platters, burritos, and salmon tacos. Rated one of the best food trucks at Drexel. Friendly service and generous portions.',
-                website: 'https://www.instagram.com/vivacucinazapata/?hl=en'
-            }
-        };
-
-        // hardcoded reviews for all food trucks
-        const foodTruckReviews = {
-            'Happy Sunshine': [
-                { name: 'Robyn S.', rating: 5, comment: 'Best Breakfast Food Truck!!! Cash only, always so nice, iced coffee is so yummy! Sausage egg hash brown and cheese on a roll is chefs kiss.', date: 'Jan 2026' },
-                { name: 'J K.', rating: 5, comment: 'Great cheap affordable breakfast or lunch food and iced coffee. Customer service is always friendly. Consistent and clean.', date: 'Oct 2025' },
-                { name: 'Alec G.', rating: 5, comment: 'Hashbrown, Bacon, Egg, and Cheese on a roll with Salt, Pepper, and Ketchup is delicious every time.', date: 'May 2025' },
-                { name: 'Ryan S.', rating: 5, comment: 'Been coming here for 10 years! When friends come we roll over and get so many bacon egg cheese and hashbrowns.', date: 'Mar 2025' },
-                { name: 'Merlin S.', rating: 5, comment: 'Mushroom chicken cheesesteak with everything on it is amazing. Chicken is seasoned, mushrooms and onions sauteed to perfection.', date: 'Sep 2021' }
-            ],
-            'KC\'s Fresh Fruit Smoothie': [
-                { name: 'jajana_xoxo', rating: 5, comment: 'Miss these! Best smoothies on campus.', date: 'May 2026' },
-                { name: 'lindantran', rating: 5, comment: 'I would drive from MD for these smoothies.', date: 'May 2026' },
-                { name: 'phiaajimenez', rating: 5, comment: 'I LOVE THIS SPOT THE BEST', date: 'May 2026' },
-                { name: 'estherphamm', rating: 5, comment: 'An icon!!', date: 'May 2026' },
-                { name: 'janee.lim', rating: 5, comment: 'Best smoothies ever!!!', date: 'May 2026' }
-            ],
-            'Nanu\'s Hot Chicken': [
-                { name: 'ahmed hml', rating: 2, comment: 'I had a very bad experience. Ordered loaded chicken fries without spicy sauce but got hot sauce. Second order also had issues.', date: 'Mar 2026' },
-                { name: 'Terrell Woodard', rating: 3, comment: 'Been going here since they opened. Last few times have been lacking. Used to include sauce, now extra charge. Fries are dry now.', date: 'Dec 2025' },
-                { name: 'V Wang', rating: 5, comment: 'Finally got to try it! Worth the price. Good discount on DoorDash too.', date: 'Jan 2026' },
-                { name: 'Sebastian Echeverria', rating: 3, comment: 'Loaded fries plate was 1/4 empty with no pickles. Less fries than before.', date: 'Oct 2025' },
-                { name: 'Joshua Abraham', rating: 4, comment: 'Sandwich and fries were pretty good. One of the better spots at Drexel.', date: 'Dec 2025' }
-            ],
-            'Mega Food Truck': [
-                { name: 'Jill', rating: 5, comment: 'Great chicken over rice. Love the green chutney with red and white sauce. Great quantity for the price.', date: 'Dec 2025' },
-                { name: 'CHASE CBR', rating: 5, comment: 'Lamb and chicken over rice was very good with great portion. The guy working was nice.', date: 'Jan 2026' },
-                { name: 'Lillian Nguyen', rating: 5, comment: 'Great price, great food, and nice man. What more could you need?', date: 'Oct 2025' },
-                { name: 'Mahmuda Akter', rating: 1, comment: 'Worst food truck ever! Nothing I asked from menu was available. $6 for french fries worth $2.', date: 'Apr 2026' },
-                { name: 'Waleed Alsaeed', rating: 4, comment: 'Good food truck option near campus. Decent portions.', date: 'Dec 2025' }
-            ],
-            'Kami\'s Korean Food': [
-                { name: 'Linda L.', rating: 5, comment: 'Kimchi fried rice with chicken is spicy and delicious. Runny egg cuts the spiciness perfectly.', date: 'Apr 2025' },
-                { name: 'Kevin L.', rating: 4, comment: 'Nice Korean food truck on 33rd St. Bibimbap has tons of vegetables. Cash preferred but accepts Venmo.', date: 'Nov 2021' },
-                { name: 'Kelly N.', rating: 5, comment: 'Go-to for quick lunch. Kimchi fried rice with beef is a great deal at $7. Very spicy but so good.', date: 'Nov 2019' },
-                { name: 'Delvia W.', rating: 3, comment: 'Bulgogi was tender but lacked robust flavor. Rice was bland. Dumplings were good though.', date: 'Feb 2021' },
-                { name: 'Jonathan C.', rating: 3, comment: 'Took 20-25 minutes which is too long for a food truck. Little expensive for what you get.', date: 'Nov 2022' }
-            ],
-            'Cucina Zapata': [
-                { name: 'Shanna Fields', rating: 5, comment: 'Best food truck in the area. Diverse menu with high-quality tacos, fish, shrimp, tilapia, and salmon. Staff is polite and efficient.', date: 'Mar 2026' },
-                { name: 'Robin Banerji', rating: 5, comment: 'Simply epic. They don\'t even try to close the burrito, that\'s how much deliciousness is inside. Worth the $11 price tag.', date: 'Aug 2025' },
-                { name: 'Joycelin Wong', rating: 5, comment: 'Ate here once a week as a Drexel student. Cap\'n Crunch tilapia is a favorite. Chicken katsu platter is amazing.', date: 'May 2025' },
-                { name: 'Natalie', rating: 5, comment: 'Easily the best food truck at Drexel and in all of Philly. Service is amazing, owners are so sweet.', date: 'Oct 2025' },
-                { name: 'Alyse Robayo', rating: 5, comment: 'Excellent food and attentive service. Chicken Katsu platter was crisp, juicy, and tasty.', date: 'Feb 2024' }
-            ]
-        };
-
-        // converts number rating (1-5) into star symbols
-        function displayStars(rating) {
-            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
-        }
-
-        // opens modal when you click a food truck card
-        function openModal(truckName) { 
-            const data = foodTruckData[truckName];
-            
-            document.getElementById('modal-name').textContent = truckName;
-            document.getElementById('modal-rating').textContent = data.rating;
-            document.getElementById('modal-description').textContent = data.description;
-            document.getElementById('modal-link').href = data.website;
-            
-            // load the image
-            const imageName = getImageName(truckName);
-            const imagePath = 'static/' + encodeURIComponent(imageName);
-            document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + truckName + '" style="width:100%; height:100%; object-fit:cover;">';
-            
-            // load hardcoded reviews
-            const hardcodedReviews = foodTruckReviews[truckName] || [];
-            const reviewsList = document.getElementById('reviews-list');
-            
-            if (hardcodedReviews.length === 0) {
-                reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
-            } else {
-                reviewsList.innerHTML = hardcodedReviews.map(review => `
-                    <div class="review-item">
-                        <div class="review-header">
-                            <strong class="reviewer-name">${review.name}</strong>
-                            <span class="review-stars">${displayStars(review.rating)}</span>
-                            <span class="review-date">${review.date}</span>
-                        </div>
-                        <p class="review-comment">${review.comment}</p>
-                    </div>
-                `).join('');
-            }
-            
-            // load database reviews
-            loadReviews(truckName, 'foodtruck');
-            
-            document.getElementById('foodtruckModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('foodtruckModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('foodtruckModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        function clearAllFilters() {
-            const checkboxes = document.querySelectorAll('.foodtruck-filter-label input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            
-            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
-            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
-            minPriceInput.value = '';
-            maxPriceInput.value = '';
-            
-            const cards = document.querySelectorAll('.foodtruck-card');
-            cards.forEach(card => {
-                card.style.display = 'block';
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.foodtruck-filter-clear').addEventListener('click', clearAllFilters);
-        });
-    </script>
+      </div>
+      <hr>
+      
+      <button class="foodtruck-filter-apply">Apply Filters</button>
+      
+      <div class="filter-dragon-container">
+        <img src="{{ url_for('static', filename='images/FilterDragonImage.png') }}" alt="Dragon Logo">
+      </div>
+    </aside>
     
-    <div class="cursor"></div>
-    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
-    <script src="{{ url_for('static', filename='foodtruck-filters.js') }}"></script>
-    <script src="{{ url_for('static', filename='reviews.js') }}"></script>
+    <div class="content-area">
+      <h2>Food Trucks Near Campus</h2>
+      
+      <div class="foodtruck-grid">
+        <div class="foodtruck-card" onclick="openModal('Happy Sunshine')">
+          <h3>☀️ Happy Sunshine</h3>
+        </div>
+        <div class="foodtruck-card" onclick="openModal('KC\'s Fresh Fruit Smoothie')">
+          <h3>🍓 KC's Fresh Fruit Smoothie</h3>
+        </div>
+        <div class="foodtruck-card" onclick="openModal('Nanu\'s Hot Chicken')">
+          <h3>🍗 Nanu's Hot Chicken</h3>
+        </div>
+        <div class="foodtruck-card" onclick="openModal('Mega Food Truck')">
+          <h3>🚚 Mega Food Truck</h3>
+        </div>
+        <div class="foodtruck-card" onclick="openModal('Kami\'s Korean Food')">
+          <h3>🇰🇷 Kami's Korean Food</h3>
+        </div>
+        <div class="foodtruck-card" onclick="openModal('Cucina Zapata')">
+          <h3>🌮 Cucina Zapata</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop-up modal -->
+  <div id="foodtruckModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-image"></div>
+      <h2 id="modal-name">Food Truck Name</h2>
+      <div id="modal-rating">★★★★☆</div>
+      <p id="modal-description"></p>
+      
+      <a href="#" id="modal-link" target="_blank">Visit Website</a>
+      
+      <div class="reviews-section">
+        <div class="reviews-header">
+          <h4>Student Reviews:</h4>
+          <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'foodtruck')">+ Write a Review</button>
+        </div>
+        <div id="reviews-list" class="reviews-list">
+          <p class="no-reviews">Loading reviews...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // maps food truck names to their actual image filenames
+    function getImageName(truckName) {
+      const imageMap = {
+        'Happy Sunshine': 'images/HappySunshine.png',
+        'KC\'s Fresh Fruit Smoothie': 'images/KCTruck.png',
+        'Nanu\'s Hot Chicken': 'images/NanusHotChicken.png',
+        'Mega Food Truck': 'images/MEGAfoodtruck.png',
+        'Kami\'s Korean Food': 'images/KamisKoreanFoodTruck.png',
+        'Cucina Zapata': 'images/CucinaZapataFT.png'
+      };
+      return imageMap[truckName] || 'images/placeholder.png';
+    }
+
+    // all food truck data
+    const foodTruckData = {
+      'Happy Sunshine': {
+        rating: '4.8 ★★★★☆',
+        description: 'Family-owned breakfast and lunch truck famous for bacon egg and cheese sandwiches, mushroom chicken cheesesteaks, and iced coffee. Cash only. Open 6:30 AM - 2:30 PM. Located at 33rd and Arch St. Known for friendly owners who remember regular customers orders.',
+        website: 'https://www.instagram.com/happysunshinedrexel/'
+      },
+      'KC\'s Fresh Fruit Smoothie': {
+        rating: '4.8 ★★★★☆',
+        description: 'Popular smoothie truck near Drexel campus. Known for fresh fruit smoothies and being a student favorite. The owner is well-loved by the Drexel community. Located around Drexel campus area.',
+        website: 'https://www.instagram.com/reels/DOq0d0BidoV/'
+      },
+      'Nanu\'s Hot Chicken': {
+        rating: '4.5 ★★★★☆',
+        description: 'Nashville-style hot chicken and tenders in sandwiches and platters. Located at 3301 Market St. Known for loaded chicken fries and spicy chicken sandwiches. Open until 3 AM. Offers multiple spice levels from mild to extra hot.',
+        website: 'https://nanushotchicken.co/experience-nanus-hot-chicken-at-3301-market-street-drexel-university-🍗🥤/'
+      },
+      'Mega Food Truck': {
+        rating: '2.8 ★★★☆☆',
+        description: 'Food truck located at Daskalakis Athletic Center, 3301 Market St. Serves chicken over rice, lamb over rice, falafel, gyros, and combo platters. Known for generous portions and green chutney sauce.',
+        website: 'https://www.grubhub.com/restaurant/mega-food-truck-drexel-3301-market-street-philadelphia/14279336'
+      },
+      'Kami\'s Korean Food': {
+        rating: '4.0 ★★★★☆',
+        description: 'Korean food truck at 33rd & Market St in front of Hagerty Library. Serves bibimbap, kimchi fried rice, bulgogi cheesesteaks, and Korean tacos. Cash preferred, accepts Venmo. Open Mon-Fri 11:30 AM - 6:30 PM. Student favorite for affordable Korean comfort food.',
+        website: 'https://www.instagram.com/kamiphilly/'
+      },
+      'Cucina Zapata': {
+        rating: '4.9 ★★★★★',
+        description: 'Mexican food truck at 3101 Ludlow St. Known for Chicken Katsu tacos, tilapia platters, burritos, and salmon tacos. Rated one of the best food trucks at Drexel. Friendly service and generous portions.',
+        website: 'https://www.instagram.com/vivacucinazapata/?hl=en'
+      }
+    };
+
+    // hardcoded reviews for all food trucks
+    const foodTruckReviews = {
+      'Happy Sunshine': [
+        { name: 'Robyn S.', rating: 5, comment: 'Best Breakfast Food Truck!!! Cash only, always so nice, iced coffee is so yummy! Sausage egg hash brown and cheese on a roll is chefs kiss.', date: 'Jan 2026' },
+        { name: 'J K.', rating: 5, comment: 'Great cheap affordable breakfast or lunch food and iced coffee. Customer service is always friendly. Consistent and clean.', date: 'Oct 2025' },
+        { name: 'Alec G.', rating: 5, comment: 'Hashbrown, Bacon, Egg, and Cheese on a roll with Salt, Pepper, and Ketchup is delicious every time.', date: 'May 2025' },
+        { name: 'Ryan S.', rating: 5, comment: 'Been coming here for 10 years! When friends come we roll over and get so many bacon egg cheese and hashbrowns.', date: 'Mar 2025' },
+        { name: 'Merlin S.', rating: 5, comment: 'Mushroom chicken cheesesteak with everything on it is amazing. Chicken is seasoned, mushrooms and onions sauteed to perfection.', date: 'Sep 2021' }
+      ],
+      'KC\'s Fresh Fruit Smoothie': [
+        { name: 'jajana_xoxo', rating: 5, comment: 'Miss these! Best smoothies on campus.', date: 'May 2026' },
+        { name: 'lindantran', rating: 5, comment: 'I would drive from MD for these smoothies.', date: 'May 2026' },
+        { name: 'phiaajimenez', rating: 5, comment: 'I LOVE THIS SPOT THE BEST', date: 'May 2026' },
+        { name: 'estherphamm', rating: 5, comment: 'An icon!!', date: 'May 2026' },
+        { name: 'janee.lim', rating: 5, comment: 'Best smoothies ever!!!', date: 'May 2026' }
+      ],
+      'Nanu\'s Hot Chicken': [
+        { name: 'ahmed hml', rating: 2, comment: 'I had a very bad experience. Ordered loaded chicken fries without spicy sauce but got hot sauce. Second order also had issues.', date: 'Mar 2026' },
+        { name: 'Terrell Woodard', rating: 3, comment: 'Been going here since they opened. Last few times have been lacking. Used to include sauce, now extra charge. Fries are dry now.', date: 'Dec 2025' },
+        { name: 'V Wang', rating: 5, comment: 'Finally got to try it! Worth the price. Good discount on DoorDash too.', date: 'Jan 2026' },
+        { name: 'Sebastian Echeverria', rating: 3, comment: 'Loaded fries plate was 1/4 empty with no pickles. Less fries than before.', date: 'Oct 2025' },
+        { name: 'Joshua Abraham', rating: 4, comment: 'Sandwich and fries were pretty good. One of the better spots at Drexel.', date: 'Dec 2025' }
+      ],
+      'Mega Food Truck': [
+        { name: 'Jill', rating: 5, comment: 'Great chicken over rice. Love the green chutney with red and white sauce. Great quantity for the price.', date: 'Dec 2025' },
+        { name: 'CHASE CBR', rating: 5, comment: 'Lamb and chicken over rice was very good with great portion. The guy working was nice.', date: 'Jan 2026' },
+        { name: 'Lillian Nguyen', rating: 5, comment: 'Great price, great food, and nice man. What more could you need?', date: 'Oct 2025' },
+        { name: 'Mahmuda Akter', rating: 1, comment: 'Worst food truck ever! Nothing I asked from menu was available. $6 for french fries worth $2.', date: 'Apr 2026' },
+        { name: 'Waleed Alsaeed', rating: 4, comment: 'Good food truck option near campus. Decent portions.', date: 'Dec 2025' }
+      ],
+      'Kami\'s Korean Food': [
+        { name: 'Linda L.', rating: 5, comment: 'Kimchi fried rice with chicken is spicy and delicious. Runny egg cuts the spiciness perfectly.', date: 'Apr 2025' },
+        { name: 'Kevin L.', rating: 4, comment: 'Nice Korean food truck on 33rd St. Bibimbap has tons of vegetables. Cash preferred but accepts Venmo.', date: 'Nov 2021' },
+        { name: 'Kelly N.', rating: 5, comment: 'Go-to for quick lunch. Kimchi fried rice with beef is a great deal at $7. Very spicy but so good.', date: 'Nov 2019' },
+        { name: 'Delvia W.', rating: 3, comment: 'Bulgogi was tender but lacked robust flavor. Rice was bland. Dumplings were good though.', date: 'Feb 2021' },
+        { name: 'Jonathan C.', rating: 3, comment: 'Took 20-25 minutes which is too long for a food truck. Little expensive for what you get.', date: 'Nov 2022' }
+      ],
+      'Cucina Zapata': [
+        { name: 'Shanna Fields', rating: 5, comment: 'Best food truck in the area. Diverse menu with high-quality tacos, fish, shrimp, tilapia, and salmon. Staff is polite and efficient.', date: 'Mar 2026' },
+        { name: 'Robin Banerji', rating: 5, comment: 'Simply epic. They don\'t even try to close the burrito, that\'s how much deliciousness is inside. Worth the $11 price tag.', date: 'Aug 2025' },
+        { name: 'Joycelin Wong', rating: 5, comment: 'Ate here once a week as a Drexel student. Cap\'n Crunch tilapia is a favorite. Chicken katsu platter is amazing.', date: 'May 2025' },
+        { name: 'Natalie', rating: 5, comment: 'Easily the best food truck at Drexel and in all of Philly. Service is amazing, owners are so sweet.', date: 'Oct 2025' },
+        { name: 'Alyse Robayo', rating: 5, comment: 'Excellent food and attentive service. Chicken Katsu platter was crisp, juicy, and tasty.', date: 'Feb 2024' }
+      ]
+    };
+
+    // converts number rating (1-5) into star symbols
+    function displayStars(rating) {
+      return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    }
+
+    // opens modal when you click a food truck card
+    function openModal(truckName) { 
+      const data = foodTruckData[truckName];
+      
+      document.getElementById('modal-name').textContent = truckName;
+      document.getElementById('modal-rating').textContent = data.rating;
+      document.getElementById('modal-description').textContent = data.description;
+      document.getElementById('modal-link').href = data.website;
+      
+      // load the image
+      const imageName = getImageName(truckName);
+      const imagePath = 'static/' + encodeURIComponent(imageName);
+      document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + truckName + '" style="width:100%; height:100%; object-fit:cover;">';
+      
+      // load hardcoded reviews
+      const hardcodedReviews = foodTruckReviews[truckName] || [];
+      const reviewsList = document.getElementById('reviews-list');
+      
+      if (hardcodedReviews.length === 0) {
+        reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
+      } else {
+        reviewsList.innerHTML = hardcodedReviews.map(review => `
+          <div class="review-item">
+            <div class="review-header">
+              <strong class="reviewer-name">${review.name}</strong>
+              <span class="review-stars">${displayStars(review.rating)}</span>
+              <span class="review-date">${review.date}</span>
+            </div>
+            <p class="review-comment">${review.comment}</p>
+          </div>
+        `).join('');
+      }
+      
+      // load database reviews
+      loadReviews(truckName, 'foodtruck');
+      
+      document.getElementById('foodtruckModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('foodtruckModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('foodtruckModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    function clearAllFilters() {
+      const checkboxes = document.querySelectorAll('.foodtruck-filter-label input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+      const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+      minPriceInput.value = '';
+      maxPriceInput.value = '';
+      
+      const cards = document.querySelectorAll('.foodtruck-card');
+      cards.forEach(card => {
+        card.style.display = 'block';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.foodtruck-filter-clear').addEventListener('click', clearAllFilters);
+    });
+  </script>
+  
+  <div class="cursor"></div>
+  <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+  <script src="{{ url_for('static', filename='foodtruck-filters.js') }}"></script>
+  <script src="{{ url_for('static', filename='reviews.js') }}"></script>
 </body>
 </html>

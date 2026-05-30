@@ -1,938 +1,938 @@
 /* restaurant_Abigail.css - Abigail Abraham */
 
 body {
-    font-family: Georgia, serif;
-    background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
-    color: #FFCF40;
-    margin: 0;
-    cursor: none; /* hides default cursor so our dragon cursor shows up */
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 50%, #1a2a45 100%);
+  color: #FFCF40;
+  margin: 0;
+  cursor: none; /* hides default cursor so our dragon cursor shows up */
 }
 
 /* header banner - Drexel background image, fixed height */
 header {
-    background-image: url("drexel.png");
-    background-size: cover;
-    height: 200px;
-    width: 100%;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+  background-image: url("drexel.png");
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* container for logos - keeps things centered */
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    max-width: 1200px;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
 }
 
 /* main dragon logo - centered and scaled properly */
 .header-logo {
-    text-align: center;
+  text-align: center;
 }
 
 .header-logo img {
-    max-width: 60%;        
-    height: auto;
-    display: block;
-    margin: 0 auto;
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* navigation bar - uses the same gradient as dessert page for consistency */
 nav {
-    position: relative;
-    z-index: 9999;
-    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
-    margin-top: -5px;
-    border-top: none;
+  position: relative;
+  z-index: 9999;
+  background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
+  margin-top: -5px;
+  border-top: none;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    z-index: 9999;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #CD950C 0%, #DAA520 50%, #FFCF40 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  z-index: 9999;
 }
 
 nav li {
-    padding: 10px;
-    position: relative;
-    z-index: 9999;
+  padding: 10px;
+  position: relative;
+  z-index: 9999;
 }
 
 nav li a {
-    color: #192841;
-    text-decoration: none;
-    padding: 10px;
-    position: relative;
-    z-index: 9999;
-    display: inline-block;
-    font-weight: normal; /* not bold - matches dessert page style */
-    font-size: 16px;
+  color: #192841;
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+  z-index: 9999;
+  display: inline-block;
+  font-weight: normal; /* not bold - matches dessert page style */
+  font-size: 16px;
 }
 
 nav li a:hover {
-    background-color: #555;
-    color: #FF9933;
-    border-radius: 0;
+  background-color: #555;
+  color: #FF9933;
+  border-radius: 0;
 }
 
 /* main layout - filter sidebar on left, restaurant cards on right */
 .main-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 /* filter sidebar - warm cream gradient with rounded corners */
 /* learned: sticky keeps it visible when scrolling */
 .restaurant-filter-sidebar {
-    width: 280px;
-    border: 2px solid #192841;
-    flex: 0 0 260px;
-    padding: 20px;
-    background: linear-gradient(145deg, #FFF5E1 0%, #FFE8C7 100%);
-    color: #192841;
-    position: sticky;
-    top: 20px;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    z-index: 2;
-    border-radius: 16px;
+  width: 280px;
+  border: 2px solid #192841;
+  flex: 0 0 260px;
+  padding: 20px;
+  background: linear-gradient(145deg, #FFF5E1 0%, #FFE8C7 100%);
+  color: #192841;
+  position: sticky;
+  top: 20px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  z-index: 2;
+  border-radius: 16px;
 }
 
 .restaurant-filter-sidebar hr {
-    border-top: 1px solid #192841;
-    margin: 10px 0;
+  border-top: 1px solid #192841;
+  margin: 10px 0;
 }
 
 .restaurant-filter-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
 .restaurant-filter-title {
-    font-size: 22px;
-    color: #192841;
-    font-weight: bold;
-    margin: 0;
+  font-size: 22px;
+  color: #192841;
+  font-weight: bold;
+  margin: 0;
 }
 
 .restaurant-filter-clear {
-    background: #192841;
-    border: 1px solid #192841;
-    padding: 4px 10px;
-    cursor: pointer;
-    font-size: 12px;
-    color: #FFCF40;
-    font-weight: bold;
-    border-radius: 8px;
+  background: #192841;
+  border: 1px solid #192841;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #FFCF40;
+  font-weight: bold;
+  border-radius: 8px;
 }
 
 .restaurant-filter-clear:hover {
-    background-color: #555;
-    color: #FF9933;
+  background-color: #555;
+  color: #FF9933;
 }
 
 .restaurant-filter-section {
-    margin: 8px 0;
+  margin: 8px 0;
 }
 
 .restaurant-filter-section h4 {
-    font-size: 16px;
-    color: #192841;
-    margin: 5px 0 8px 0;
-    font-weight: bold;
-    border-bottom: 2px solid #FFCF40;
-    padding-bottom: 4px;
+  font-size: 16px;
+  color: #192841;
+  margin: 5px 0 8px 0;
+  font-weight: bold;
+  border-bottom: 2px solid #FFCF40;
+  padding-bottom: 4px;
 }
 
 .restaurant-filter-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-    font-size: 14px;
-    color: #192841;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #192841;
+  cursor: pointer;
 }
 
 .restaurant-filter-label input {
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 /* price inputs - fixed width so they don't overflow the sidebar */
 /* learned: flex:1 made them overflow, so switched to fixed width */
 .price-inputs {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 10px 0;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .price-inputs input {
-    width: 100px;                
-    padding: 6px;
-    border: 2px solid #192841;
-    font-size: 14px;
-    border-radius: 8px;
+  width: 100px;
+  padding: 6px;
+  border: 2px solid #192841;
+  font-size: 14px;
+  border-radius: 8px;
 }
 
 .price-inputs span {
-    color: #192841;
-    font-weight: bold;
-    font-size: 14px;
-}    
+  color: #192841;
+  font-weight: bold;
+  font-size: 14px;
+}
 
 .restaurant-filter-apply {
-    border: 2px solid #192841;
-    background: #192841;
-    padding: 8px;
-    margin: 10px 0;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    font-size: 14px;
-    color: #FFCF40;
-    border-radius: 8px;
+  border: 2px solid #192841;
+  background: #192841;
+  padding: 8px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  font-size: 14px;
+  color: #FFCF40;
+  border-radius: 8px;
 }
 
 .restaurant-filter-apply:hover {
-    background-color: #555;
-    color: #FF9933;
-    border-color: #555;
+  background-color: #555;
+  color: #FF9933;
+  border-color: #555;
 }
 
 /* dragon logo at bottom of filter sidebar */
 .filter-dragon-container {
-    margin-top: 10px;
-    text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .filter-dragon-container img {
-    max-width: 100%;
-    max-height: 70px;
-    width: auto;
-    height: auto;
+  max-width: 100%;
+  max-height: 70px;
+  width: auto;
+  height: auto;
 }
 
 .content-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* restaurant cards grid - 2 columns for desktop */
 .restaurant-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin: 20px 0;
 }
 
 /* restaurant card styling - dark blue gradient, gold text */
 /* made them pop with shadow and hover effects */
 .restaurant-card {
-    border: 2px solid #FFCF40;
-    padding: 30px 15px;
-    background: linear-gradient(145deg, #1E3A5F 0%, #0F2A45 100%);
-    color: #FFCF40;
-    transition: all 0.3s;
-    cursor: pointer;
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
+  border: 2px solid #FFCF40;
+  padding: 30px 15px;
+  background: linear-gradient(145deg, #1E3A5F 0%, #0F2A45 100%);
+  color: #FFCF40;
+  transition: all 0.3s;
+  cursor: pointer;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 /* fork and knife emoji before each card - learned about pseudo-elements for this */
 .restaurant-card::before {
-    content: "🍽️";
-    font-size: 40px;
-    margin-bottom: 10px;
-    opacity: 0.8;
-    transition: all 0.3s;
+  content: "🍽️";
+  font-size: 40px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  transition: all 0.3s;
 }
 
 .restaurant-card:hover::before {
-    transform: scale(1.1);
-    opacity: 1;
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* shine effect on hover - learned radial-gradient for this one */
 .restaurant-card::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
-    opacity: 0;
-    transition: opacity 0.5s;
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .restaurant-card:hover::after {
-    opacity: 1;
+  opacity: 1;
 }
 
 .restaurant-card:hover {
-    border-color: #FFCF40;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(145deg, #2A4A70 0%, #1A3A55 100%);
+  border-color: #FFCF40;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(145deg, #2A4A70 0%, #1A3A55 100%);
 }
 
 .restaurant-card h3 {
-    color: #FFCF40;
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+  color: #FFCF40;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .restaurant-card .price {
-    color: #DAA520;
-    margin: 5px 0 0 0;
-    font-size: 14px;
-    font-weight: bold;
+  color: #DAA520;
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .restaurant-card .rating {
-    color: #FFD700;
-    margin: 3px 0 0 0;
-    font-size: 14px;
+  color: #FFD700;
+  margin: 3px 0 0 0;
+  font-size: 14px;
 }
 
 .no-results {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 40px;
-    color: #FFCF40;
-    font-size: 18px;
-    background: linear-gradient(145deg, #1E3A5F 0%, #0F2A45 100%);
-    border: 2px solid #FFCF40;
-    border-radius: 20px;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #FFCF40;
+  font-size: 18px;
+  background: linear-gradient(145deg, #1E3A5F 0%, #0F2A45 100%);
+  border: 2px solid #FFCF40;
+  border-radius: 20px;
 }
 
 /* modal pop-up - hidden by default, shows when card is clicked */
 /* made it scrollable so it works on all screen sizes */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    cursor: none; /* keeps dragon cursor visible */
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  cursor: none; /* keeps dragon cursor visible */
 }
 
 .modal-content {
-    background: linear-gradient(145deg, #FFF8F0 0%, #FFEFD6 100%);
-    margin: 3% auto;
-    padding: 25px;
-    border: 3px solid #192841;
-    width: 480px;
-    max-width: 90%;
-    position: relative;
-    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
-    z-index: 10001;
-    border-radius: 20px;
-    cursor: none;
-    max-height: 85vh;
-    overflow-y: auto; /* allows scrolling if content is too tall */
+  background: linear-gradient(145deg, #FFF8F0 0%, #FFEFD6 100%);
+  margin: 3% auto;
+  padding: 25px;
+  border: 3px solid #192841;
+  width: 480px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+  z-index: 10001;
+  border-radius: 20px;
+  cursor: none;
+  max-height: 85vh;
+  overflow-y: auto; /* allows scrolling if content is too tall */
 }
 
 /* custom scrollbar for the modal */
 .modal-content::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .modal-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
+  background: #f1f1f1;
+  border-radius: 4px;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-    background: #192841;
-    border-radius: 4px;
+  background: #192841;
+  border-radius: 4px;
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
-    background: #FFCF40;
+  background: #FFCF40;
 }
 
 .close-btn {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #192841;
-    cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #192841;
+  cursor: pointer;
 }
 
 .close-btn:hover {
-    color: #FF9933;
+  color: #FF9933;
 }
 
 #modal-image {
-    width: 100%;
-    height: 180px;
-    border: 2px solid #192841;
-    margin-bottom: 15px;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    border-radius: 12px;
-    cursor: none;
+  width: 100%;
+  height: 180px;
+  border: 2px solid #192841;
+  margin-bottom: 15px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  cursor: none;
 }
 
 #modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #modal-name {
-    color: #192841;
-    font-size: 22px;
-    margin: 8px 0;
-    border-bottom: 2px solid #FFCF40;
-    padding-bottom: 8px;
-    cursor: none;
+  color: #192841;
+  font-size: 22px;
+  margin: 8px 0;
+  border-bottom: 2px solid #FFCF40;
+  padding-bottom: 8px;
+  cursor: none;
 }
 
 #modal-rating {
-    color: #FFCF40;
-    font-size: 18px;
-    margin: 8px 0;
-    cursor: none;
+  color: #FFCF40;
+  font-size: 18px;
+  margin: 8px 0;
+  cursor: none;
 }
 
 #modal-description {
-    color: #333;
-    margin: 10px 0;
-    line-height: 1.4;
-    font-size: 14px;
-    cursor: none;
+  color: #333;
+  margin: 10px 0;
+  line-height: 1.4;
+  font-size: 14px;
+  cursor: none;
 }
 
 /* Visit Website button - placed above reviews for easy access */
 #modal-link {
-    display: inline-block;
-    background-color: #192841;
-    color: #FFCF40;
-    padding: 8px 16px;
-    text-decoration: none;
-    border: 2px solid #192841;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
+  display: inline-block;
+  background-color: #192841;
+  color: #FFCF40;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 2px solid #192841;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
 }
 
 #modal-link:hover {
-    background-color: #FFCF40;
-    color: #192841;
+  background-color: #FFCF40;
+  color: #192841;
 }
 
 /* reviews section - added after researching from online reviews and from the feedback from the surveys sent */
 .reviews-section {
-    margin-top: 5px;
-    padding-top: 10px;
+  margin-top: 5px;
+  padding-top: 10px;
 }
 
 .reviews-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .reviews-section h4 {
-    color: #192841;
-    font-size: 16px;
-    margin: 0;
-    font-weight: bold;
+  color: #192841;
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
 }
 
 /* Not a dummy anymore (back end was added now actual comments can be submitted) */
 .write-review-btn {
-    background: #192841;
-    color: #FFCF40;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    transition: all 0.2s;
+  background: #192841;
+  color: #FFCF40;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.2s;
 }
 
 .write-review-btn:hover {
-    background: #FFCF40;
-    color: #192841;
+  background: #FFCF40;
+  color: #192841;
 }
 
 .reviews-list {
-    max-height: 250px;
-    overflow-y: auto;
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 /* each review card - styled with gold left border */
 .review-item {
-    background: rgba(25, 40, 65, 0.05);
-    padding: 10px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    border-left: 3px solid #FFCF40;
+  background: rgba(25, 40, 65, 0.05);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 3px solid #FFCF40;
 }
 
 .review-header {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 5px;
 }
 
 .reviewer-name {
-    color: #192841;
-    font-weight: bold;
-    font-size: 13px;
+  color: #192841;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .review-stars {
-    color: #FFCF40;
-    font-size: 12px;
-    letter-spacing: 1px;
+  color: #FFCF40;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
 .review-date {
-    color: #888;
-    font-size: 10px;
+  color: #888;
+  font-size: 10px;
 }
 
 .review-comment {
-    color: #333;
-    font-size: 12px;
-    line-height: 1.3;
-    margin: 0;
+  color: #333;
+  font-size: 12px;
+  line-height: 1.3;
+  margin: 0;
 }
 
 .no-reviews {
-    color: #666;
-    font-style: italic;
-    text-align: center;
-    padding: 20px;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
 }
 
 /* custom scrollbar for reviews list */
 .reviews-list::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 .reviews-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 3px;
+  background: #f1f1f1;
+  border-radius: 3px;
 }
 
 .reviews-list::-webkit-scrollbar-thumb {
-    background: #FFCF40;
-    border-radius: 3px;
+  background: #FFCF40;
+  border-radius: 3px;
 }
 
 /* custom dragon cursor - learned: pointer-events: none so it doesn't block clicks */
 .cursor {
-    width: 70px;
-    height: 70px;
-    background-image: url('/static/images/Updated1.png');
-    position: fixed;
-    pointer-events: none;
-    z-index: 10002;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    transition: transform 0.2s ease;
+  width: 70px;
+  height: 70px;
+  background-image: url('/static/images/Updated1.png');
+  position: fixed;
+  pointer-events: none;
+  z-index: 10002;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  transition: transform 0.2s ease;
 }
 
 /* fire animation when cursor is clicked - learned keyframes for this */
 @keyframes fire-animation {
-    0%   { background-image: url('/static/images/Updated4.png'); }
-    33%  { background-image: url('/static/images/Updated3.png'); }
-    66%  { background-image: url('/static/images/Updated2.png'); }
-    100% { background-image: url('/static/images/Updated2.png'); }
+  0%  { background-image: url('/static/images/Updated4.png'); }
+  33% { background-image: url('/static/images/Updated3.png'); }
+  66% { background-image: url('/static/images/Updated2.png'); }
+  100% { background-image: url('/static/images/Updated2.png'); }
 }
 
 .cursor.is-clicked {
-    transform: rotate(360deg) scale(1.2);
-    animation: fire-animation 5s infinite;
+  transform: rotate(360deg) scale(1.2);
+  animation: fire-animation 5s infinite;
 }
 
 /* preloads fire animation images so they don't flicker when first clicked */
 body::after {
-    position: absolute; 
-    width: 0; 
-    height: 0; 
-    overflow: hidden; 
-    z-index: -1;
-    content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url('/static/images/Updated2.png') url('/static/images/Updated3.png') url('/static/images/Updated4.png');
 }
-/*  Review form modal structures - for the write a review popup with backend integration */
+/* Review form modal structures - for the write a review popup with backend integration */
 .review-form-content {
-    max-width: 500px;
-    width: 90%;
-    margin: 5% auto;
-    border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  margin: 5% auto;
+  border-radius: 20px;
 }
 
 .review-form-content h3 {
-    color: #192841;
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+  color: #192841;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block;
-    color: #192841;
-    font-weight: bold;
-    margin-bottom: 8px;
+  display: block;
+  color: #192841;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .form-group input[type="text"],
 .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-family: Georgia, serif;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: Georgia, serif;
+  box-sizing: border-box;
 }
 
 .star-rating {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-    justify-content: center;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  justify-content: center;
 }
 
 .star-rating span {
-    font-size: 35px;
-    color: #ccc;
-    cursor: pointer;
-    transition: all 0.2s;
+  font-size: 35px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .star-rating span:hover {
-    color: #FFD700;
-    transform: scale(1.1);
+  color: #FFD700;
+  transform: scale(1.1);
 }
 
 .submit-review-btn {
-    background: #192841;
-    color: #FFCF40;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s;
-    margin-top: 10px;
+  background: #192841;
+  color: #FFCF40;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+  margin-top: 10px;
 }
 
 .submit-review-btn:hover {
-    background: #FFCF40;
-    color: #192841;
-    transform: scale(1.02);
+  background: #FFCF40;
+  color: #192841;
+  transform: scale(1.02);
 }
 
 .delete-review-btn {
-    background: rgba(255, 100, 100, 0.1);
-    border: 1px solid #ff6b6b;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: auto;
-    opacity: 0.7;
-    transition: all 0.2s;
-    padding: 5px 10px;
-    color: #ff6b6b;
+  background: rgba(255, 100, 100, 0.1);
+  border: 1px solid #ff6b6b;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: auto;
+  opacity: 0.7;
+  transition: all 0.2s;
+  padding: 5px 10px;
+  color: #ff6b6b;
 }
 
 .delete-review-btn:hover {
-    opacity: 1;
-    transform: scale(1.05);
-    background: rgba(255, 100, 100, 0.2);
+  opacity: 1;
+  transform: scale(1.05);
+  background: rgba(255, 100, 100, 0.2);
 }
 @media (max-width: 768px) {
-    /* Header smaller on mobile only */
-    header {
-        height: 100px;
-    }
-    
-    .header-logo img {
-        max-width: 50%;
-    }
-    
-    /* Navigation - horizontal scroll on mobile only */
-    nav {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    nav::-webkit-scrollbar {
-        display: none;
-    }
-    
-    nav ul {
-        display: inline-flex;
-        gap: 5px;
-        padding: 8px 10px;
-    }
-    
-    nav li {
-        display: inline-block;
-        padding: 0;
-    }
-    
-    nav li a {
-        font-size: 11px;
-        padding: 6px 12px;
-        border-radius: 30px;
-    }
-    
-    /* Tagline on mobile */
-    h3[align="center"] {
-        font-size: 12px;
-        padding: 0 15px;
-    }
-    
-    /* MAIN LAYOUT - STACK VERTICALLY ON MOBILE ONLY */
-    .main-wrapper {
-        flex-direction: column;
-        padding: 0;
-        gap: 0;
-    }
-    
-    /* FILTERS - FULL WIDTH AT TOP ON MOBILE ONLY */
-    .restaurant-filter-sidebar {
-        width: 100%;
-        position: relative;
-        top: 0;
-        flex: none;
-        margin: 0;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        padding: 12px 15px;
-        box-sizing: border-box;
-    }
-    
-    /* Make filters compact on mobile */
-    .restaurant-filter-title {
-        font-size: 16px;
-    }
-    
-    .restaurant-filter-section h4 {
-        font-size: 13px;
-    }
-    
-    .restaurant-filter-label {
-        font-size: 12px;
-    }
-    
-    .price-inputs input {
-        width: 80px;
-        font-size: 12px;
-    }
-    
-    .restaurant-filter-apply {
-        font-size: 12px;
-        padding: 6px;
-    }
-    
-    .filter-dragon-container img {
-        max-height: 45px;
-    }
-    
-    /* CONTENT AREA - CARDS BELOW FILTERS ON MOBILE */
-    .content-area {
-        padding: 15px;
-    }
-    
-    .content-area h2 {
-        font-size: 22px;
-        margin-top: 0;
-    }
-    
-    /* RESTAURANT CARDS - 1 COLUMN ON MOBILE ONLY */
-    .restaurant-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .restaurant-card {
-        display: flex;
-        flex-direction: row;
-        padding: 15px;
-        min-height: auto;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 15px;
-        text-align: left;
-    }
-    
-    .restaurant-card::before {
-        font-size: 32px;
-        margin-bottom: 0;
-    }
-    
-    .restaurant-card h3 {
-        font-size: 16px;
-        margin: 0;
-    }
-    
-    /* MODAL ON MOBILE */
-    .modal-content {
-        width: 95%;
-        margin: 15% auto;
-        padding: 15px;
-    }
-    
-    #modal-image {
-        height: 130px;
-    }
-    
-    #modal-name {
-        font-size: 18px;
-    }
-    
-    .reviews-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-    
-    .write-review-btn {
-        text-align: center;
-    }
-    
-    .review-form-content {
-        width: 95%;
-    }
-    
-    .star-rating span {
-        font-size: 30px;
-    }
+  /* Header smaller on mobile only */
+  header {
+    height: 100px;
+  }
+
+  .header-logo img {
+    max-width: 50%;
+  }
+
+  /* Navigation - horizontal scroll on mobile only */
+  nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav ul {
+    display: inline-flex;
+    gap: 5px;
+    padding: 8px 10px;
+  }
+
+  nav li {
+    display: inline-block;
+    padding: 0;
+  }
+
+  nav li a {
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 30px;
+  }
+
+  /* Tagline on mobile */
+  h3[align="center"] {
+    font-size: 12px;
+    padding: 0 15px;
+  }
+
+  /* MAIN LAYOUT - STACK VERTICALLY ON MOBILE ONLY */
+  .main-wrapper {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+
+  /* FILTERS - FULL WIDTH AT TOP ON MOBILE ONLY */
+  .restaurant-filter-sidebar {
+    width: 100%;
+    position: relative;
+    top: 0;
+    flex: none;
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 12px 15px;
+    box-sizing: border-box;
+  }
+
+  /* Make filters compact on mobile */
+  .restaurant-filter-title {
+    font-size: 16px;
+  }
+
+  .restaurant-filter-section h4 {
+    font-size: 13px;
+  }
+
+  .restaurant-filter-label {
+    font-size: 12px;
+  }
+
+  .price-inputs input {
+    width: 80px;
+    font-size: 12px;
+  }
+
+  .restaurant-filter-apply {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .filter-dragon-container img {
+    max-height: 45px;
+  }
+
+  /* CONTENT AREA - CARDS BELOW FILTERS ON MOBILE */
+  .content-area {
+    padding: 15px;
+  }
+
+  .content-area h2 {
+    font-size: 22px;
+    margin-top: 0;
+  }
+
+  /* RESTAURANT CARDS - 1 COLUMN ON MOBILE ONLY */
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .restaurant-card {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    min-height: auto;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    text-align: left;
+  }
+
+  .restaurant-card::before {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  .restaurant-card h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  /* MODAL ON MOBILE */
+  .modal-content {
+    width: 95%;
+    margin: 15% auto;
+    padding: 15px;
+  }
+
+  #modal-image {
+    height: 130px;
+  }
+
+  #modal-name {
+    font-size: 18px;
+  }
+
+  .reviews-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .write-review-btn {
+    text-align: center;
+  }
+
+  .review-form-content {
+    width: 95%;
+  }
+
+  .star-rating span {
+    font-size: 30px;
+  }
 }
 
 /* SMALL PHONES ONLY */
 @media (max-width: 480px) {
-    header {
-        height: 80px;
-    }
-    
-    nav li a {
-        font-size: 10px;
-        padding: 4px 8px;
-    }
-    
-    h3[align="center"] {
-        font-size: 11px;
-    }
-    
-    .restaurant-filter-sidebar {
-        padding: 10px 12px;
-    }
-    
-    .restaurant-filter-title {
-        font-size: 14px;
-    }
-    
-    .restaurant-filter-section h4 {
-        font-size: 12px;
-    }
-    
-    .restaurant-filter-label {
-        font-size: 11px;
-    }
-    
-    .price-inputs input {
-        width: 65px;
-        font-size: 11px;
-    }
-    
-    .content-area h2 {
-        font-size: 18px;
-    }
-    
-    .restaurant-card {
-        padding: 12px;
-    }
-    
-    .restaurant-card::before {
-        font-size: 28px;
-    }
-    
-    .restaurant-card h3 {
-        font-size: 14px;
-    }
-    
-    #modal-image {
-        height: 100px;
-    }
-    
-    .star-rating span {
-        font-size: 24px;
-    }
-    
-    .cursor {
-        width: 50px;
-        height: 50px;
-    }
+  header {
+    height: 80px;
+  }
+
+  nav li a {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  h3[align="center"] {
+    font-size: 11px;
+  }
+
+  .restaurant-filter-sidebar {
+    padding: 10px 12px;
+  }
+
+  .restaurant-filter-title {
+    font-size: 14px;
+  }
+
+  .restaurant-filter-section h4 {
+    font-size: 12px;
+  }
+
+  .restaurant-filter-label {
+    font-size: 11px;
+  }
+
+  .price-inputs input {
+    width: 65px;
+    font-size: 11px;
+  }
+
+  .content-area h2 {
+    font-size: 18px;
+  }
+
+  .restaurant-card {
+    padding: 12px;
+  }
+
+  .restaurant-card::before {
+    font-size: 28px;
+  }
+
+  .restaurant-card h3 {
+    font-size: 14px;
+  }
+
+  #modal-image {
+    height: 100px;
+  }
+
+  .star-rating span {
+    font-size: 24px;
+  }
+
+  .cursor {
+    width: 50px;
+    height: 50px;
+  }
 }
 /* HEADER STYLES */
 /* NAVIGATION BAR */

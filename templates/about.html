@@ -1,158 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Author: Riya Bansal - About page for DragonBites -->    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Group">
-    <title>Dragon Bites - About</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+  <!-- Author: Riya Bansal - About page for DragonBites -->  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Group">
+  <title>Dragon Bites - About</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
 </head>
 <body>
-    <!-- header with dragon logo banner -->
-    <header>
-        <div class="header-container">
-            <div class="header-logo">
-                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
-            </div>
+  <!-- header with dragon logo banner -->
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
+      </div>
+    </div>
+  </header>
+  
+  <!-- navigation bar -->
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/meal-mapper">Meal Mapper</a></li>
+      <li><a href="/listing">Restaurants</a></li>
+      <li><a href="/desserts">Desserts</a></li>
+      <li><a href="/food-trucks">Food Trucks</a></li>
+    </ul>
+  </nav>
+  
+  <div class="about-hero">
+    <img src="static/images/DessertDragonImage.png" alt="Dragon" class="hero-dragon">
+    <h1>The Dragon Developers</h1>
+    <p>Meet the Dragons behind DragonBites</p>
+    <div class="hero-line"></div>
+  </div>
+  
+  <div class="team-container">
+    <!-- Abigail Abraham -->
+    <div class="team-member">
+      <div class="member-bg"></div>
+      <div class="member-image">
+        <img src="static/images/abigailabout.png.jpeg" alt="Abigail">
+        <div class="member-overlay"></div>
+      </div>
+      <div class="member-content">
+        <h3>Abigail Abraham</h3>
+        <div class="member-title">Product Owner + Front-end Developer</div>
+        <div class="member-details">
+          <div class="detail-item">
+            <span>Software Engineering</span>
+          </div>
+          <div class="detail-item">
+            <span>📧</span>
+            <a href="mailto:aa4985@drexel.edu">aa4985@drexel.edu</a>
+          </div>
+          <div class="detail-item">
+            <span>Singer with music on all platforms</span>
+          </div>
         </div>
-    </header>
-    
-    <!-- navigation bar -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/meal-mapper">Meal Mapper</a></li>
-            <li><a href="/listing">Restaurants</a></li>
-            <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/food-trucks">Food Trucks</a></li>
-        </ul>
-    </nav>
-    
-    <div class="about-hero">
-        <img src="static/images/DessertDragonImage.png" alt="Dragon" class="hero-dragon">
-        <h1>The Dragon Developers</h1>
-        <p>Meet the Dragons behind DragonBites</p>
-        <div class="hero-line"></div>
+        <div class="member-fact">
+          <span>✨</span> Fun fact: We all live in Bentley Hall
+        </div>
+      </div>
     </div>
     
-    <div class="team-container">
-        <!-- Abigail Abraham -->
-        <div class="team-member">
-            <div class="member-bg"></div>
-            <div class="member-image">
-                <img src="static/images/abigailabout.png.jpeg" alt="Abigail">
-                <div class="member-overlay"></div>
-            </div>
-            <div class="member-content">
-                <h3>Abigail Abraham</h3>
-                <div class="member-title">Product Owner + Front-end Developer</div>
-                <div class="member-details">
-                    <div class="detail-item">
-                        <span>Software Engineering</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>📧</span>
-                        <a href="mailto:aa4985@drexel.edu">aa4985@drexel.edu</a>
-                    </div>
-                    <div class="detail-item">
-                        <span>Singer with music on all platforms</span>
-                    </div>
-                </div>
-                <div class="member-fact">
-                    <span>✨</span> Fun fact: We all live in Bentley Hall
-                </div>
-            </div>
+    <!-- Alisha Khapre -->
+    <div class="team-member">
+      <div class="member-bg"></div>
+      <div class="member-image">
+        <img src="static/images/alishaabout.jpeg" alt="Alisha">
+        <div class="member-overlay"></div>
+      </div>
+      <div class="member-content">
+        <h3>Alisha Khapre</h3>
+        <div class="member-title">Researcher + Back-end Developer</div>
+        <div class="member-details">
+          <div class="detail-item">
+            <span>Computer Science</span>
+          </div>
+          <div class="detail-item">
+            <span>📧</span>
+            <a href="mailto:apk67@drexel.edu">apk67@drexel.edu</a>
+          </div>
+          <div class="detail-item">
+            <span>Learning guitar, posts music videos</span>
+          </div>
         </div>
-        
-        <!-- Alisha Khapre -->
-        <div class="team-member">
-            <div class="member-bg"></div>
-            <div class="member-image">
-                <img src="static/images/alishaabout.jpeg" alt="Alisha">
-                <div class="member-overlay"></div>
-            </div>
-            <div class="member-content">
-                <h3>Alisha Khapre</h3>
-                <div class="member-title">Researcher + Back-end Developer</div>
-                <div class="member-details">
-                    <div class="detail-item">
-                        <span>Computer Science</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>📧</span>
-                        <a href="mailto:apk67@drexel.edu">apk67@drexel.edu</a>
-                    </div>
-                    <div class="detail-item">
-                        <span>Learning guitar, posts music videos</span>
-                    </div>
-                </div>
-                <div class="member-fact">
-                    <span>✨</span> Fun fact: We all live in Bentley Hall
-                </div>
-            </div>
+        <div class="member-fact">
+          <span>✨</span> Fun fact: We all live in Bentley Hall
         </div>
+      </div>
+    </div>
 
-        <!-- Kyler La -->
-        <div class="team-member">
-            <div class="member-bg"></div>
-            <div class="member-image">
-                <img src="static/images/kylerabout.png" alt="Kyler">
-                <div class="member-overlay"></div>
-            </div>
-            <div class="member-content">
-                <h3>Kyler La</h3>
-                <div class="member-title">Full-Stack Developer</div>
-                <div class="member-details">
-                    <div class="detail-item">
-                        <span>Computer Science</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>📧</span>
-                        <a href="mailto:ktl62@drexel.edu">ktl62@drexel.edu</a>
-                    </div>
-                    <div class="detail-item">
-                        <span>Loves Tricking & Parkour</span>
-                    </div>
-                </div>
-                <div class="member-fact">
-                    <span>✨</span> Fun fact: We all live in Bentley Hall
-                </div>
-            </div>
+    <!-- Kyler La -->
+    <div class="team-member">
+      <div class="member-bg"></div>
+      <div class="member-image">
+        <img src="static/images/kylerabout.png" alt="Kyler">
+        <div class="member-overlay"></div>
+      </div>
+      <div class="member-content">
+        <h3>Kyler La</h3>
+        <div class="member-title">Full-Stack Developer</div>
+        <div class="member-details">
+          <div class="detail-item">
+            <span>Computer Science</span>
+          </div>
+          <div class="detail-item">
+            <span>📧</span>
+            <a href="mailto:ktl62@drexel.edu">ktl62@drexel.edu</a>
+          </div>
+          <div class="detail-item">
+            <span>Loves Tricking & Parkour</span>
+          </div>
         </div>
-        
-        <!-- Riya Bansal -->
-        <div class="team-member">
-            <div class="member-bg"></div>
-            <div class="member-image">
-                <img src="static/images/riyabaout.jpeg" alt="Riya">
-                <div class="member-overlay"></div>
-            </div>
-            <div class="member-content">
-                <h3>Riya Bansal</h3>
-                <div class="member-title">Front-end Developer</div>
-                <div class="member-details">
-                    <div class="detail-item">
-                        <span>Computer Science</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>📧</span>
-                        <a href="mailto:rab449@drexel.edu">rab449@drexel.edu</a>
-                    </div>
-                    <div class="detail-item">
-                        <span>Obsessed with Cricket, Tennis & F1</span>
-                    </div>
-                </div>
-                <div class="member-fact">
-                    <span>✨</span> Fun fact: We all live in Bentley Hall
-                </div>
-            </div>
+        <div class="member-fact">
+          <span>✨</span> Fun fact: We all live in Bentley Hall
         </div>
+      </div>
     </div>
     
-    <!-- custom dragon cursor -->
-    <div class="cursor"></div>
-    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+    <!-- Riya Bansal -->
+    <div class="team-member">
+      <div class="member-bg"></div>
+      <div class="member-image">
+        <img src="static/images/riyabaout.jpeg" alt="Riya">
+        <div class="member-overlay"></div>
+      </div>
+      <div class="member-content">
+        <h3>Riya Bansal</h3>
+        <div class="member-title">Front-end Developer</div>
+        <div class="member-details">
+          <div class="detail-item">
+            <span>Computer Science</span>
+          </div>
+          <div class="detail-item">
+            <span>📧</span>
+            <a href="mailto:rab449@drexel.edu">rab449@drexel.edu</a>
+          </div>
+          <div class="detail-item">
+            <span>Obsessed with Cricket, Tennis & F1</span>
+          </div>
+        </div>
+        <div class="member-fact">
+          <span>✨</span> Fun fact: We all live in Bentley Hall
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- custom dragon cursor -->
+  <div class="cursor"></div>
+  <script src="{{ url_for('static', filename='cursor.js') }}"></script>
 </body>
 </html>

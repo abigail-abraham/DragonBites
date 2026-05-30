@@ -1,572 +1,571 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Author: Abigail Abraham - Restaurants page for DragonBites -->    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Dragon Bites - Restaurants</title>
-    <!-- made by Abigail Abraham - restaurant page for Dragon Bites -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='restaurant_Abigail.css') }}">
+  <!-- Author: Abigail Abraham - Restaurants page for DragonBites -->  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/DessertDragonImage.png') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Dragon Bites - Restaurants</title>
+  <!-- made by Abigail Abraham - restaurant page for Dragon Bites -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='restaurant_Abigail.css') }}">
 </head>
 <body>
-    <!-- header with the main dragon logo centered -->
-    <header>
-        <div class="header-container">
-            <div class="header-logo">
-                <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
-            </div>
+  <!-- header with the main dragon logo centered -->
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="{{ url_for('static', filename='images/dragonlogo.png') }}" alt="Dragon Bites Logo">
+      </div>
+    </div>
+  </header>
+  
+  <!-- navigation bar - Home, About, Meal Mapper, Restaurants, Desserts, Food Trucks -->
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/meal-mapper">Meal Mapper</a></li>
+      <li><a href="/listing">Restaurants</a></li>
+      <li><a href="/desserts">Desserts</a></li>
+      <li><a href="/food-trucks">Food Trucks</a></li>
+    </ul>
+  </nav>
+  
+  <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
+  
+  <div class="main-wrapper">
+    <!-- filter sidebar - lets users narrow down by payment, diet, price -->
+    <aside class="restaurant-filter-sidebar">
+      <div class="restaurant-filter-header">
+        <h3 class="restaurant-filter-title">FILTERS</h3>
+        <button class="restaurant-filter-clear">Clear All</button>
+      </div>
+      <hr>
+      
+      <!-- payment methods - what Drexel students actually use -->
+      <div class="restaurant-filter-section">
+        <h4>Payment Methods</h4>
+        <label class="restaurant-filter-label">
+          <input type="checkbox"> Dragon Dollars
+        </label>
+        <label class="restaurant-filter-label">
+          <input type="checkbox"> Dining Dollars
+        </label>
+        <label class="restaurant-filter-label">
+          <input type="checkbox"> Card
+        </label>
+        <label class="restaurant-filter-label">
+          <input type="checkbox"> Cash
+        </label>
+      </div>
+      <hr>
+      
+      <!-- dietary options - important for students with restrictions -->
+      <div class="restaurant-filter-section">
+        <h4>Dietary Options</h4>
+        <label class="restaurant-filter-label">
+          <input type="checkbox"> Vegetarian 🟢
+        </label>
+        <label class="restaurant-filter-label">
+          <input type="checkbox"> Halal 🟠
+        </label>
+      </div>
+      <hr>
+      
+      <!-- price range - fixed width so they don't break the sidebar layout -->
+      <!-- learned: flex:1 made them overflow, so switched to fixed width -->
+      <div class="restaurant-filter-section">
+        <h4>Price Range</h4>
+        <div class="price-inputs">
+          <input type="number" placeholder="Min $" min="0">
+          <span>-</span>
+          <input type="number" placeholder="Max $" min="0">
         </div>
-    </header>
+      </div>
+      <hr>
+      
+      <button class="restaurant-filter-apply">Apply Filters</button>
+      
+      <!-- little dragon logo at the bottom of the filter bar -->
+      <div class="filter-dragon-container">
+        <img src="{{ url_for('static', filename='images/FilterDragonImage.png') }}" alt="Dragon Logo">
+      </div>
+    </aside>
     
-    <!-- navigation bar - Home, About, Meal Mapper, Restaurants, Desserts, Food Trucks -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/meal-mapper">Meal Mapper</a></li>
-            <li><a href="/listing">Restaurants</a></li>
-            <li><a href="/desserts">Desserts</a></li>
-            <li><a href="/food-trucks">Food Trucks</a></li>
-        </ul>
-    </nav>
-    
-    <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
-    
-    <div class="main-wrapper">
-        <!-- filter sidebar - lets users narrow down by payment, diet, price -->
-        <aside class="restaurant-filter-sidebar">
-            <div class="restaurant-filter-header">
-                <h3 class="restaurant-filter-title">FILTERS</h3>
-                <button class="restaurant-filter-clear">Clear All</button>
-            </div>
-            <hr>
-            
-            <!-- payment methods - what Drexel students actually use -->
-            <div class="restaurant-filter-section">
-                <h4>Payment Methods</h4>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Dragon Dollars
-                </label>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Dining Dollars
-                </label>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Card
-                </label>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Cash
-                </label>
-            </div>
-            <hr>
-            
-            <!-- dietary options - important for students with restrictions -->
-            <div class="restaurant-filter-section">
-                <h4>Dietary Options</h4>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Vegetarian 🟢
-                </label>
-                <label class="restaurant-filter-label">
-                    <input type="checkbox"> Halal 🟠
-                </label>
-            </div>
-            <hr>
-            
-            <!-- price range - fixed width so they don't break the sidebar layout -->
-            <!-- learned: flex:1 made them overflow, so switched to fixed width -->
-            <div class="restaurant-filter-section">
-                <h4>Price Range</h4>
-                <div class="price-inputs">
-                    <input type="number" placeholder="Min $" min="0">
-                    <span>-</span>
-                    <input type="number" placeholder="Max $" min="0">
-                </div>
-            </div>
-            <hr>
-            
-            <button class="restaurant-filter-apply">Apply Filters</button>
-            
-            <!-- little dragon logo at the bottom of the filter bar -->
-            <div class="filter-dragon-container">
-                <img src="{{ url_for('static', filename='images/FilterDragonImage.png') }}" alt="Dragon Logo">
-            </div>
-        </aside>
+    <div class="content-area">
+      <h2>Food listing</h2>
+      
+      <!-- 12 restaurant cards with emojis - researched and added by Alisha -->
+      <!-- each emoji matches the vibe of the restaurant -->
+      <div class="restaurant-grid">
+        <div class="restaurant-card" onclick="openModal('Landmark Americana')">
+          <h3>🍔 Landmark Americana</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Wild Blue Sushi')">
+          <h3>🍣 Wild Blue Sushi</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Chick-fil-A')">
+          <h3>🐔 Chick-fil-A</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Urban Eatery')">
+          <h3>🥗 Urban Eatery</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Chipotle')">
+          <h3>🌯 Chipotle</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Han Dynasty')">
+          <h3>🥢 Han Dynasty</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Sabrina\'s Cafe')">
+          <h3>☕ Sabrina's Cafe</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Tataki Ramen')">
+          <h3>🍜 Tataki Ramen</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('CM Chicken Philadelphia')">
+          <h3>🍗 CM Chicken</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Shake Shack')">
+          <h3>🍔 Shake Shack</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Schmear Bagel Parlor')">
+          <h3>🥯 Schmear Bagel</h3>
+        </div>
+        <div class="restaurant-card" onclick="openModal('Amma\'s Kitchen')">
+          <h3>🍛 Amma's Kitchen</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop-up modal that appears when you click a restaurant card -->
+  <!-- learned: made it scrollable with max-height: 85vh so it doesn't overflow -->
+  <div id="restaurantModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-image"></div>
+      <h2 id="modal-name">Restaurant Name</h2>
+      <div id="modal-rating">★★★★☆</div>
+      <p id="modal-description">Description will go here</p>
+      
+      <!-- Visit Website button - opens in new tab -->
+      <a href="#" id="modal-link" target="_blank">Visit Website</a>
+      
+      <!-- reviews section - added from research on online and feedback from the surveys -->
+      <div class="reviews-section">
+        <div class="reviews-header">
+          <h4>Notable Reviews:</h4>
+          <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'restaurant')">+ Write a Review</button>
+        </div>
+        <div id="reviews-list" class="reviews-list">
+          <!-- reviews load dynamically from Js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Filter data tracking
+    const filterState = {
+      filters: [],
+      minPrice: null,
+      maxPrice: null
+    };
+
+    // Initialize filter event listeners
+    function initializeFilters() {
+      // Get all checkboxes
+      const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', handleFilterChange);
+      });
+      
+      // Get price input fields
+      const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+      const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+      
+      minPriceInput.addEventListener('change', handleFilterChange);
+      maxPriceInput.addEventListener('change', handleFilterChange);
+      
+      // Apply filters button
+      document.querySelector('.restaurant-filter-apply').addEventListener('click', applyFilters);
+      
+      // Clear all button
+      document.querySelector('.restaurant-filter-clear').addEventListener('click', clearAllFilters);
+    }
+
+    // Handle individual filter changes
+    function handleFilterChange() {
+      // Update filter state based on current inputs
+      const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
+      const filterMap = {
+        'Dragon Dollars': 'dragonDollars',
+        'Dining Dollars': 'diningDollars',
+        'Card': 'card',
+        'Cash': 'cash'
+      };
+      
+      filterState.filters = [];
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          const label = checkbox.parentElement.textContent.trim();
+          for (let [key, value] of Object.entries(filterMap)) {
+            if (label.includes(key)) {
+              filterState.filters.push(value);
+              break;
+            }
+          }
+        }
+      });
+      
+      // Update price inputs
+      const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+      const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+      
+      filterState.minPrice = minPriceInput.value ? parseFloat(minPriceInput.value) : null;
+      filterState.maxPrice = maxPriceInput.value ? parseFloat(maxPriceInput.value) : null;
+    }
+
+    // Apply filters and update restaurant display
+    function applyFilters() {
+      handleFilterChange(); // Update filter state
+      
+      // Send filter request to backend
+      fetch('/api/filter-restaurants', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          filters: filterState.filters,
+          minPrice: filterState.minPrice,
+          maxPrice: filterState.maxPrice
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        updateRestaurantDisplay(data.restaurants);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    // Update restaurant cards display based on filtered results
+    function updateRestaurantDisplay(filteredResults) {
+      // Create a map of restaurant names to their prices and ratings
+      const restaurantData = {};
+      
+      filteredResults.forEach(result => {
+        // Result format: ["Restaurant Name price rating"]
+        const parts = result[0].split(' ');
+        // Everything except the last two parts (price and rating) is the restaurant name
+        const restaurantName = parts.slice(0, -2).join(' ').toLowerCase();
+        const price = parts[parts.length - 2];
+        const rating = parts[parts.length - 1];
+        restaurantData[restaurantName] = { price, rating };
+      });
+      
+      // Hide/show restaurant cards and update price/rating
+      const cards = document.querySelectorAll('.restaurant-card');
+      cards.forEach(card => {
+        const cardTitle = card.querySelector('h3').textContent;
+        // Extract restaurant name from card (remove emoji and trim)
+        // We keep hyphens (-) so names like 'Chick-fil-A' don't get squashed
+        const restaurantName = cardTitle.replace(/[^\w\s'-]/g, '').trim().toLowerCase();
         
-        <div class="content-area">
-            <h2>Food listing</h2>
-            
-            <!-- 12 restaurant cards with emojis - researched and added by Alisha -->
-            <!-- each emoji matches the vibe of the restaurant -->
-            <div class="restaurant-grid">
-                <div class="restaurant-card" onclick="openModal('Landmark Americana')">
-                    <h3>🍔 Landmark Americana</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Wild Blue Sushi')">
-                    <h3>🍣 Wild Blue Sushi</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Chick-fil-A')">
-                    <h3>🐔 Chick-fil-A</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Urban Eatery')">
-                    <h3>🥗 Urban Eatery</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Chipotle')">
-                    <h3>🌯 Chipotle</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Han Dynasty')">
-                    <h3>🥢 Han Dynasty</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Sabrina\'s Cafe')">
-                    <h3>☕ Sabrina's Cafe</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Tataki Ramen')">
-                    <h3>🍜 Tataki Ramen</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('CM Chicken Philadelphia')">
-                    <h3>🍗 CM Chicken</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Shake Shack')">
-                    <h3>🍔 Shake Shack</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Schmear Bagel Parlor')">
-                    <h3>🥯 Schmear Bagel</h3>
-                </div>
-                <div class="restaurant-card" onclick="openModal('Amma\'s Kitchen')">
-                    <h3>🍛 Amma's Kitchen</h3>
-                </div>
+        if (restaurantData.hasOwnProperty(restaurantName)) {
+          card.style.display = 'block';
+          // Add or update price and rating display
+          let priceRatingDiv = card.querySelector('.price-rating');
+          if (!priceRatingDiv) {
+            priceRatingDiv = document.createElement('div');
+            priceRatingDiv.className = 'price-rating';
+            card.appendChild(priceRatingDiv);
+          }
+          const data = restaurantData[restaurantName];
+          priceRatingDiv.innerHTML = `<p style="font-size: 0.9em; color: #666;">$${data.price}</p><p style="font-size: 0.9em; color: #ffc107;">★ ${data.rating}</p>`;
+        } else {
+          card.style.display = 'none';
+          // Remove price-rating div if exists
+          const priceRatingDiv = card.querySelector('.price-rating');
+          if (priceRatingDiv) {
+            priceRatingDiv.remove();
+          }
+        }
+      });
+    }
+
+    // Clear all filters
+    function clearAllFilters() {
+      // Uncheck all checkboxes
+      const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Clear price inputs
+      const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
+      const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
+      minPriceInput.value = '';
+      maxPriceInput.value = '';
+      
+      // Reset filter state
+      filterState.filters = [];
+      filterState.minPrice = null;
+      filterState.maxPrice = null;
+      
+      // Show all restaurant cards
+      const cards = document.querySelectorAll('.restaurant-card');
+      cards.forEach(card => {
+        card.style.display = 'block';
+      });
+      location.reload();
+    }
+
+    // Initialize filters when page loads
+    document.addEventListener('DOMContentLoaded', initializeFilters);
+
+    // maps restaurant names to their actual image filenames
+    // learned: filenames must match exactly or images won't load
+    function getImageName(restaurantName) {
+      const imageMap = {
+        'Landmark Americana': 'images/LandMark.jpeg',
+        'Wild Blue Sushi': 'images/Wild_Blue.jpeg',
+        'Chick-fil-A': 'images/Chick-Fil-A.jpeg',
+        'Urban Eatery': 'images/Urban_Eatery.jpg',
+        'Chipotle': 'images/Chipotle.jpeg',
+        'Han Dynasty': 'images/Han_Dynasty.jpeg',
+        'Sabrina\'s Cafe': 'images/Sabrina_s_Cafe.avif',
+        'Tataki Ramen': 'images/Tataki_Ramen.jpg',
+        'CM Chicken Philadelphia': 'images/CMChicken.png',
+        'Shake Shack': 'images/ShakeShack.png',
+        'Schmear Bagel Parlor': 'images/SchmearIt.png',
+        'Amma\'s Kitchen': 'images/AmmasKitchen.png'
+      };
+      return imageMap[restaurantName];
+    }
+
+    // all restaurant data - gathered from research and feedback from surveys
+    const restaurantData = {
+      'Landmark Americana': {
+        rating: '3.7 ★★★☆☆',
+        description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports.',
+        website: 'https://www.landmarkamericana.com'
+      },
+      'Wild Blue Sushi': {
+        rating: '3.5 ★★★☆☆',
+        description: 'Popular sushi vendor located within the Northside Dining Terrace (NDT). Offers fresh, made-to-order sushi, poke bowls, and specialized rolls. Accepts dining dollars, Dragon Dollars, and credit cards.',
+        website: 'https://drexel.mydininghub.com/en/location/wild-blue-sushi'
+      },
+      'Chick-fil-A': {
+        rating: '4.9 ★★★★★',
+        description: 'Fast-food chain serving chicken sandwiches, nuggets, salads, and sides. Located in Northside Dining Terrace. Offers outdoor seating, vegetarian options, and Wi-Fi.',
+        website: 'https://www.chick-fil-a.com/locations/pa/drexel-university'
+      },
+      'Urban Eatery': {
+        rating: '2.4 ★★☆☆☆',
+        description: 'Cafeteria-style dining located at 3400 Lancaster Ave. A convenient on-campus option for a quick meal.',
+        website: 'https://drexel.mydininghub.com/en/location/urban-eatery'
+      },
+      'Chipotle': {
+        rating: '3.0 ★★★☆☆',
+        description: 'Casual Mexican restaurant offering design-your-own burritos, tacos, and bowls. Located in The Summit at University City. Offers vegetarian options.',
+        website: 'https://locations.chipotle.com/pa/philadelphia/3400-lancaster-ave'
+      },
+      'Han Dynasty': {
+        rating: '4.7 ★★★★★',
+        description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails.',
+        website: 'https://www.handynasty.net/location/han-dynasty-university-city/'
+      },
+      'Sabrina\'s Cafe': {
+        rating: '4.3 ★★★★☆',
+        description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients.',
+        website: 'https://www.sabrinascafe.com/location/sabrinas-cafe-university-city/'
+      },
+      'Tataki Ramen': {
+        rating: '4.6 ★★★★★',
+        description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials.',
+        website: 'https://www.universitycity.org/diningdays/tataki/'
+      },
+      'CM Chicken Philadelphia': {
+        rating: '4.7 ★★★★★',
+        description: 'Crispy Korean fried chicken spot serving wings, burgers, and tenders with Asian-inspired spices. Known for super crispy and juicy chicken with flavorful sauces.',
+        website: 'https://www.cm-chicken.com/index.html'
+      },
+      'Shake Shack': {
+        rating: '4.2 ★★★★☆',
+        description: 'Hip counter-serve chain for gourmet takes on fast-food classics like burgers, frozen custard, and shakes. Offers outdoor seating.',
+        website: 'https://shakeshack.com/location/university-city-pa'
+      },
+      'Schmear Bagel Parlor': {
+        rating: '4.5 ★★★★☆',
+        description: 'Bagel shop with extensive list of cream cheese add-ins mixed to order, plus breakfast egg dishes. Fresh, chewy bagels at reasonable prices.',
+        website: 'https://schmearit.com'
+      },
+      'Amma\'s Kitchen': {
+        rating: '4.4 ★★★★☆',
+        description: 'Authentic South Indian cuisine including dosas, idli, uttapam, and flavorful curries. The masala dosa is huge and served with three dips and sambar soup.',
+        website: 'https://ammasrestaurants.com/university-city'
+      }
+    };
+
+    // restaurant reviews - researched from online reviews and from feedback gotten from the surveys
+    // had to read through real customer feedback to find authentic comments
+    const restaurantReviews = {
+      'Landmark Americana': [
+        { name: 'PhillyNEFL', rating: 4, comment: 'Great location, atmosphere is always lively. Service on point.', date: 'Jan 2026' },
+        { name: 'Cassidy J. Tower', rating: 5, comment: 'Food is excellent, definitely recommend the wings.', date: 'Mar 2026' },
+        { name: 'Jasmine Samone', rating: 5, comment: 'Fruit Punch Paloma frozen drink was incredible!', date: 'Jul 2025' },
+        { name: 'Jazmin Bravo', rating: 5, comment: 'Garlic Parmesan wings were the best I ever tasted.', date: 'Apr 2025' },
+        { name: 'Natalie Marrero', rating: 4, comment: 'Good Food, lowkey and chill spot.', date: 'Oct 2025' }
+      ],
+      'Wild Blue Sushi': [
+        { name: 'Joseph Higgins', rating: 4, comment: 'Staff was incredibly kind and helpful.', date: 'May 2025' },
+        { name: 'Sh alshamsi', rating: 3, comment: 'Chicken place is fast and easy. Sushi wasn\'t that fresh.', date: 'Mar 2019' },
+        { name: 'Mikayah Williams', rating: 1, comment: 'Sushi wasn\'t fresh. Chicken was hard and cold.', date: 'Feb 2024' },
+        { name: 'Noah Richardson', rating: 4, comment: 'Pretty quick service with decent food.', date: 'Aug 2019' },
+        { name: 'Luis Angel Santiago Sr', rating: 5, comment: 'Great service and atmosphere.', date: 'Jan 2024' }
+      ],
+      'Chick-fil-A': [
+        { name: 'Gwynlee Wms', rating: 5, comment: 'French fries were hot, fresh & crispy.', date: 'Jun 2019' },
+        { name: 'Jacqueline Williams', rating: 4, comment: 'Nuggets and fries were fresh.', date: 'Feb 2023' },
+        { name: 'Michelle Renee', rating: 5, comment: 'Food is always good.', date: 'Jan 2023' },
+        { name: 'Harshavardhan Agarwal', rating: 4, comment: 'Good place, has a market with basics.', date: 'Nov 2018' },
+        { name: 'Amanda Dozier', rating: 5, comment: 'Chic Fila is the bomb', date: 'Apr 2019' }
+      ],
+      'Urban Eatery': [
+        { name: 'Prabha Shankar', rating: 3, comment: '$14.99 all you can eat. Walkable and approachable.', date: 'Jul 2025' },
+        { name: 'United 130', rating: 1, comment: 'Food is inedible. Service is terrible.', date: 'Mar 2025' },
+        { name: 'Isabel Dukes', rating: 1, comment: 'Food is barely edible. Have seen rats.', date: 'Jul 2025' },
+        { name: 'Laila', rating: 1, comment: 'Workers have attitude and food might give you food poisoning.', date: 'Mar 2025' },
+        { name: 'Celeste Rybski', rating: 3, comment: 'Food is fairly consistent. Don\'t eat the scrambled eggs.', date: 'Mar 2025' }
+      ],
+      'Chipotle': [
+        { name: 'Rae S', rating: 1, comment: 'Worst Chipotle location. Employees were rude.', date: 'Feb 2026' },
+        { name: 'A', rating: 1, comment: 'Waited 40 minutes for cold food made incorrectly.', date: 'Apr 2025' },
+        { name: 'Bianca Bee', rating: 5, comment: 'Destiny was very nice & professional.', date: 'Mar 2026' },
+        { name: 'Bianca Perez', rating: 5, comment: 'People work very fast and are very kind.', date: 'Apr 2025' },
+        { name: 'Rosie D', rating: 5, comment: 'Best bowl I ever had. Made my worst day better.', date: 'May 2025' }
+      ],
+      'Han Dynasty': [
+        { name: 'Noel Abejo', rating: 5, comment: 'Great place for lunch. Spring rolls and dumplings were great.', date: 'Mar 2026' },
+        { name: 'Elaine Chen', rating: 3, comment: 'Disappointed. Won\'t come back for price or portion.', date: 'Dec 2025' },
+        { name: 'jova Gra', rating: 5, comment: 'Manager is amazing. Made up for missing sauce.', date: 'Mar 2026' },
+        { name: 'Preston Smith', rating: 4, comment: 'Solid spicy Szechuan food.', date: 'Apr 2025' },
+        { name: 'Yan', rating: 4, comment: 'Dry hot chicken is 11/10!', date: 'Nov 2025' }
+      ],
+      'Sabrina\'s Cafe': [
+        { name: 'Hans Gurban', rating: 5, comment: 'Absolutely delicious food and outstanding service.', date: 'Jan 2026' },
+        { name: 'Michael Clancy', rating: 5, comment: 'Stuffed French toast was incredible.', date: 'Feb 2026' },
+        { name: 'Mia', rating: 5, comment: 'Wonderful staff every time.', date: 'Feb 2026' },
+        { name: 'Cole Yacono', rating: 5, comment: 'Staff was so accommodating for our group of 12.', date: 'Nov 2025' },
+        { name: 'Sabrina\'s Cafe', rating: 5, comment: 'Thank you for the incredible review!', date: 'Jan 2026' }
+      ],
+      'Tataki Ramen': [
+        { name: 'Raphael Fischer', rating: 5, comment: 'My favorite restaurant in the whole world.', date: 'Mar 2026' },
+        { name: 'Stefani Dee', rating: 4, comment: 'Yummy ramen for a snowy day.', date: 'Feb 2026' },
+        { name: 'Z', rating: 5, comment: 'Fresh ingredients and amazing portions.', date: 'Jan 2026' },
+        { name: 'Kj S', rating: 4, comment: 'Karaage chicken was so delicious.', date: 'Oct 2025' },
+        { name: 'Zainab Ahmed', rating: 5, comment: 'Go-to sushi/ramen place in University City.', date: 'Nov 2025' }
+      ],
+      'CM Chicken Philadelphia': [
+        { name: 'Elif Boyacı', rating: 4, comment: 'Spicy wings were big and filling.', date: 'Dec 2025' },
+        { name: 'Sarah Khan', rating: 5, comment: 'Spicy garlic soy chicken is my favorite. Chicken is halal!', date: 'Sep 2025' },
+        { name: 'Liam S.', rating: 3, comment: 'Spicy was too hot for me. Staff were really nice.', date: 'Sep 2025' },
+        { name: 'Emily Chu', rating: 5, comment: 'Cashier let me charge my phone. Food came out hot and fresh.', date: 'Feb 2026' },
+        { name: 'John Haddad', rating: 3, comment: 'Good if you\'re in a rush.', date: 'Jun 2025' }
+      ],
+      'Shake Shack': [
+        { name: 'Brandon F.', rating: 4, comment: 'Plenty of seating upstairs.', date: 'Feb 2026' },
+        { name: 'Olga K.', rating: 4, comment: 'Nice view from the dining room window.', date: 'Oct 2025' },
+        { name: 'Casey P.', rating: 4, comment: 'Shake was decadent.', date: 'Nov 2024' },
+        { name: 'Amy P.', rating: 5, comment: 'Love their burgers.', date: 'Mar 2023' },
+        { name: 'Shaun T.', rating: 4, comment: 'Order kiosk makes ordering quick.', date: 'Nov 2023' }
+      ],
+      'Schmear Bagel Parlor': [
+        { name: 'Brandon F.', rating: 3, comment: 'Bagel was delicious but needed more ingredients.', date: 'Feb 2026' },
+        { name: 'Elaine T.', rating: 5, comment: 'Loxsmith was $7-8! Would cost $16 in NYC.', date: 'Sep 2025' },
+        { name: 'Sophie S.', rating: 3, comment: 'Bagel needed to be toasted.', date: 'Aug 2025' },
+        { name: 'Garrett L.', rating: 5, comment: 'Great bagel shop! Great prices.', date: 'Nov 2025' },
+        { name: 'Michelle F.', rating: 5, comment: 'Great service. Delicious bagels.', date: 'Nov 2023' }
+      ],
+      'Amma\'s Kitchen': [
+        { name: 'Sarah A.', rating: 5, comment: 'Amma\'s service is welcoming. Spices were delicious.', date: 'Mar 2026' },
+        { name: 'Francis S.', rating: 5, comment: 'Amazing South Indian food. Non-veg mix platter was perfect.', date: 'Mar 2026' },
+        { name: 'Lauren D.', rating: 5, comment: 'Food was delicious. Inside is gorgeous.', date: 'Dec 2025' },
+        { name: 'Dawn O.', rating: 4, comment: 'Great food and service. Prices have become high though.', date: 'Mar 2026' },
+        { name: 'Aaron G.', rating: 5, comment: 'Butter Masala was amazing.', date: 'Oct 2025' }
+      ]
+    };
+
+    // converts number rating (1-5) into star symbols
+    // learned: repeat() creates the stars, then fill the rest with empty stars
+    function displayStars(rating) {
+      return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    }
+
+    // this runs when you click on a restaurant card
+    // loads the restaurant info, image, and reviews into the modal
+    function openModal(restaurantName) {
+      // get the restaurant data or use default values
+      const data = restaurantData[restaurantName] || {
+        rating: '★★★★☆',
+        description: 'Description coming soon.',
+        website: '#'
+      };
+      
+      // update modal with restaurant info
+      document.getElementById('modal-name').textContent = restaurantName;
+      document.getElementById('modal-rating').textContent = data.rating;
+      document.getElementById('modal-description').textContent = data.description;
+      document.getElementById('modal-link').href = data.website;
+      
+      // load the image
+      const imageName = getImageName(restaurantName);
+      const imagePath = "{{ url_for('static', filename='') }}" + imageName;
+      document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
+      
+      // load the hardcoded reviews for this restaurant FIRST
+      const hardcodedReviews = restaurantReviews[restaurantName] || [];
+      const reviewsList = document.getElementById('reviews-list');
+      
+      if (hardcodedReviews.length === 0) {
+        reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
+      } else {
+        reviewsList.innerHTML = hardcodedReviews.map(review => `
+          <div class="review-item">
+            <div class="review-header">
+              <strong class="reviewer-name">${review.name}</strong>
+              <span class="review-stars">${displayStars(review.rating)}</span>
+              <span class="review-date">${review.date}</span>
             </div>
-        </div>
-    </div>
+            <p class="review-comment">${review.comment}</p>
+          </div>
+        `).join('');
+      }
+      
+      // Then load database reviews (they will be added after hardcoded front end ones)
+      loadReviews(restaurantName, 'restaurant');
+      
+      // show the modal
+      document.getElementById('restaurantModal').style.display = 'block';
+    }
 
-    <!-- pop-up modal that appears when you click a restaurant card -->
-    <!-- learned: made it scrollable with max-height: 85vh so it doesn't overflow -->
-    <div id="restaurantModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modal-image"></div>
-            <h2 id="modal-name">Restaurant Name</h2>
-            <div id="modal-rating">★★★★☆</div>
-            <p id="modal-description">Description will go here</p>
-            
-            <!-- Visit Website button - opens in new tab -->
-            <a href="#" id="modal-link" target="_blank">Visit Website</a>
-            
-            <!-- reviews section - added from research on online and feedback from the surveys -->
-            <div class="reviews-section">
-                <div class="reviews-header">
-                    <h4>Notable Reviews:</h4>
-                    <button class="write-review-btn" onclick="openReviewForm(document.getElementById('modal-name').textContent, 'restaurant')">+ Write a Review</button>
-                </div>
-                <div id="reviews-list" class="reviews-list">
-                    <!-- reviews load dynamically from Js -->
-                </div>
-            </div>
-        </div>
-    </div>
+    // closes the pop-up modal
+    function closeModal() {
+      document.getElementById('restaurantModal').style.display = 'none';
+    }
 
-    <script>
-        // Filter data tracking
-        const filterState = {
-            filters: [],
-            minPrice: null,
-            maxPrice: null
-        };
-
-        // Initialize filter event listeners
-        function initializeFilters() {
-            // Get all checkboxes
-            const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', handleFilterChange);
-            });
-            
-            // Get price input fields
-            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
-            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
-            
-            minPriceInput.addEventListener('change', handleFilterChange);
-            maxPriceInput.addEventListener('change', handleFilterChange);
-            
-            // Apply filters button
-            document.querySelector('.restaurant-filter-apply').addEventListener('click', applyFilters);
-            
-            // Clear all button
-            document.querySelector('.restaurant-filter-clear').addEventListener('click', clearAllFilters);
-        }
-
-        // Handle individual filter changes
-        function handleFilterChange() {
-            // Update filter state based on current inputs
-            const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
-            const filterMap = {
-                'Dragon Dollars': 'dragonDollars',
-                'Dining Dollars': 'diningDollars',
-                'Card': 'card',
-                'Cash': 'cash'
-            };
-            
-            filterState.filters = [];
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    const label = checkbox.parentElement.textContent.trim();
-                    for (let [key, value] of Object.entries(filterMap)) {
-                        if (label.includes(key)) {
-                            filterState.filters.push(value);
-                            break;
-                        }
-                    }
-                }
-            });
-            
-            // Update price inputs
-            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
-            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
-            
-            filterState.minPrice = minPriceInput.value ? parseFloat(minPriceInput.value) : null;
-            filterState.maxPrice = maxPriceInput.value ? parseFloat(maxPriceInput.value) : null;
-        }
-
-        // Apply filters and update restaurant display
-        function applyFilters() {
-            handleFilterChange(); // Update filter state
-            
-            // Send filter request to backend
-            fetch('/api/filter-restaurants', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    filters: filterState.filters,
-                    minPrice: filterState.minPrice,
-                    maxPrice: filterState.maxPrice
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                updateRestaurantDisplay(data.restaurants);
-            })
-            .catch(error => console.error('Error:', error));
-        }
-
-        // Update restaurant cards display based on filtered results
-        function updateRestaurantDisplay(filteredResults) {
-            // Create a map of restaurant names to their prices and ratings
-            const restaurantData = {};
-            
-            filteredResults.forEach(result => {
-                // Result format: ["Restaurant Name price rating"]
-                const parts = result[0].split(' ');
-                // Everything except the last two parts (price and rating) is the restaurant name
-                const restaurantName = parts.slice(0, -2).join(' ').toLowerCase();
-                const price = parts[parts.length - 2];
-                const rating = parts[parts.length - 1];
-                restaurantData[restaurantName] = { price, rating };
-            });
-            
-            // Hide/show restaurant cards and update price/rating
-            const cards = document.querySelectorAll('.restaurant-card');
-            cards.forEach(card => {
-                const cardTitle = card.querySelector('h3').textContent;
-                // Extract restaurant name from card (remove emoji and trim)
-                // We keep hyphens (-) so names like 'Chick-fil-A' don't get squashed
-                const restaurantName = cardTitle.replace(/[^\w\s'-]/g, '').trim().toLowerCase();
-                
-                if (restaurantData.hasOwnProperty(restaurantName)) {
-                    card.style.display = 'block';
-                    // Add or update price and rating display
-                    let priceRatingDiv = card.querySelector('.price-rating');
-                    if (!priceRatingDiv) {
-                        priceRatingDiv = document.createElement('div');
-                        priceRatingDiv.className = 'price-rating';
-                        card.appendChild(priceRatingDiv);
-                    }
-                    const data = restaurantData[restaurantName];
-                    priceRatingDiv.innerHTML = `<p style="font-size: 0.9em; color: #666;">$${data.price}</p><p style="font-size: 0.9em; color: #ffc107;">★ ${data.rating}</p>`;
-                } else {
-                    card.style.display = 'none';
-                    // Remove price-rating div if exists
-                    const priceRatingDiv = card.querySelector('.price-rating');
-                    if (priceRatingDiv) {
-                        priceRatingDiv.remove();
-                    }
-                }
-            });
-        }
-
-        // Clear all filters
-        function clearAllFilters() {
-            // Uncheck all checkboxes
-            const checkboxes = document.querySelectorAll('.restaurant-filter-label input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            
-            // Clear price inputs
-            const minPriceInput = document.querySelector('.price-inputs input[placeholder="Min $"]');
-            const maxPriceInput = document.querySelector('.price-inputs input[placeholder="Max $"]');
-            minPriceInput.value = '';
-            maxPriceInput.value = '';
-            
-            // Reset filter state
-            filterState.filters = [];
-            filterState.minPrice = null;
-            filterState.maxPrice = null;
-            
-            // Show all restaurant cards
-            const cards = document.querySelectorAll('.restaurant-card');
-            cards.forEach(card => {
-                card.style.display = 'block';
-            });
-            location.reload();
-        }
-
-        // Initialize filters when page loads
-        document.addEventListener('DOMContentLoaded', initializeFilters);
-
-        // maps restaurant names to their actual image filenames
-        // learned: filenames must match exactly or images won't load
-        function getImageName(restaurantName) {
-            const imageMap = {
-                'Landmark Americana': 'images/LandMark.jpeg',
-                'Wild Blue Sushi': 'images/Wild_Blue.jpeg',
-                'Chick-fil-A': 'images/Chick-Fil-A.jpeg',
-                'Urban Eatery': 'images/Urban_Eatery.jpg',
-                'Chipotle': 'images/Chipotle.jpeg',
-                'Han Dynasty': 'images/Han_Dynasty.jpeg',
-                'Sabrina\'s Cafe': 'images/Sabrina_s_Cafe.avif',
-                'Tataki Ramen': 'images/Tataki_Ramen.jpg',
-                'CM Chicken Philadelphia': 'images/CMChicken.png',
-                'Shake Shack': 'images/ShakeShack.png',
-                'Schmear Bagel Parlor': 'images/SchmearIt.png',
-                'Amma\'s Kitchen': 'images/AmmasKitchen.png'
-            };
-            return imageMap[restaurantName];
-        }
-
-        // all restaurant data - gathered from research and feedback from surveys
-        const restaurantData = {
-            'Landmark Americana': {
-                rating: '3.7 ★★★☆☆',
-                description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports.',
-                website: 'https://www.landmarkamericana.com'
-            },
-            'Wild Blue Sushi': {
-                rating: '3.5 ★★★☆☆',
-                description: 'Popular sushi vendor located within the Northside Dining Terrace (NDT). Offers fresh, made-to-order sushi, poke bowls, and specialized rolls. Accepts dining dollars, Dragon Dollars, and credit cards.',
-                website: 'https://drexel.mydininghub.com/en/location/wild-blue-sushi'
-            },
-            'Chick-fil-A': {
-                rating: '4.9 ★★★★★',
-                description: 'Fast-food chain serving chicken sandwiches, nuggets, salads, and sides. Located in Northside Dining Terrace. Offers outdoor seating, vegetarian options, and Wi-Fi.',
-                website: 'https://www.chick-fil-a.com/locations/pa/drexel-university'
-            },
-            'Urban Eatery': {
-                rating: '2.4 ★★☆☆☆',
-                description: 'Cafeteria-style dining located at 3400 Lancaster Ave. A convenient on-campus option for a quick meal.',
-                website: 'https://drexel.mydininghub.com/en/location/urban-eatery'
-            },
-            'Chipotle': {
-                rating: '3.0 ★★★☆☆',
-                description: 'Casual Mexican restaurant offering design-your-own burritos, tacos, and bowls. Located in The Summit at University City. Offers vegetarian options.',
-                website: 'https://locations.chipotle.com/pa/philadelphia/3400-lancaster-ave'
-            },
-            'Han Dynasty': {
-                rating: '4.7 ★★★★★',
-                description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails.',
-                website: 'https://www.handynasty.net/location/han-dynasty-university-city/'
-            },
-            'Sabrina\'s Cafe': {
-                rating: '4.3 ★★★★☆',
-                description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients.',
-                website: 'https://www.sabrinascafe.com/location/sabrinas-cafe-university-city/'
-            },
-            'Tataki Ramen': {
-                rating: '4.6 ★★★★★',
-                description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials.',
-                website: 'https://www.universitycity.org/diningdays/tataki/'
-            },
-            'CM Chicken Philadelphia': {
-                rating: '4.7 ★★★★★',
-                description: 'Crispy Korean fried chicken spot serving wings, burgers, and tenders with Asian-inspired spices. Known for super crispy and juicy chicken with flavorful sauces.',
-                website: 'https://www.cm-chicken.com/index.html'
-            },
-            'Shake Shack': {
-                rating: '4.2 ★★★★☆',
-                description: 'Hip counter-serve chain for gourmet takes on fast-food classics like burgers, frozen custard, and shakes. Offers outdoor seating.',
-                website: 'https://shakeshack.com/location/university-city-pa'
-            },
-            'Schmear Bagel Parlor': {
-                rating: '4.5 ★★★★☆',
-                description: 'Bagel shop with extensive list of cream cheese add-ins mixed to order, plus breakfast egg dishes. Fresh, chewy bagels at reasonable prices.',
-                website: 'https://schmearit.com'
-            },
-            'Amma\'s Kitchen': {
-                rating: '4.4 ★★★★☆',
-                description: 'Authentic South Indian cuisine including dosas, idli, uttapam, and flavorful curries. The masala dosa is huge and served with three dips and sambar soup.',
-                website: 'https://ammasrestaurants.com/university-city'
-            }
-        };
-
-        // restaurant reviews - researched from online reviews and from feedback gotten from the surveys
-        // had to read through real customer feedback to find authentic comments
-        const restaurantReviews = {
-            'Landmark Americana': [
-                { name: 'PhillyNEFL', rating: 4, comment: 'Great location, atmosphere is always lively. Service on point.', date: 'Jan 2026' },
-                { name: 'Cassidy J. Tower', rating: 5, comment: 'Food is excellent, definitely recommend the wings.', date: 'Mar 2026' },
-                { name: 'Jasmine Samone', rating: 5, comment: 'Fruit Punch Paloma frozen drink was incredible!', date: 'Jul 2025' },
-                { name: 'Jazmin Bravo', rating: 5, comment: 'Garlic Parmesan wings were the best I ever tasted.', date: 'Apr 2025' },
-                { name: 'Natalie Marrero', rating: 4, comment: 'Good Food, lowkey and chill spot.', date: 'Oct 2025' }
-            ],
-            'Wild Blue Sushi': [
-                { name: 'Joseph Higgins', rating: 4, comment: 'Staff was incredibly kind and helpful.', date: 'May 2025' },
-                { name: 'Sh alshamsi', rating: 3, comment: 'Chicken place is fast and easy. Sushi wasn\'t that fresh.', date: 'Mar 2019' },
-                { name: 'Mikayah Williams', rating: 1, comment: 'Sushi wasn\'t fresh. Chicken was hard and cold.', date: 'Feb 2024' },
-                { name: 'Noah Richardson', rating: 4, comment: 'Pretty quick service with decent food.', date: 'Aug 2019' },
-                { name: 'Luis Angel Santiago Sr', rating: 5, comment: 'Great service and atmosphere.', date: 'Jan 2024' }
-            ],
-            'Chick-fil-A': [
-                { name: 'Gwynlee Wms', rating: 5, comment: 'French fries were hot, fresh & crispy.', date: 'Jun 2019' },
-                { name: 'Jacqueline Williams', rating: 4, comment: 'Nuggets and fries were fresh.', date: 'Feb 2023' },
-                { name: 'Michelle Renee', rating: 5, comment: 'Food is always good.', date: 'Jan 2023' },
-                { name: 'Harshavardhan Agarwal', rating: 4, comment: 'Good place, has a market with basics.', date: 'Nov 2018' },
-                { name: 'Amanda Dozier', rating: 5, comment: 'Chic Fila is the bomb', date: 'Apr 2019' }
-            ],
-            'Urban Eatery': [
-                { name: 'Prabha Shankar', rating: 3, comment: '$14.99 all you can eat. Walkable and approachable.', date: 'Jul 2025' },
-                { name: 'United 130', rating: 1, comment: 'Food is inedible. Service is terrible.', date: 'Mar 2025' },
-                { name: 'Isabel Dukes', rating: 1, comment: 'Food is barely edible. Have seen rats.', date: 'Jul 2025' },
-                { name: 'Laila', rating: 1, comment: 'Workers have attitude and food might give you food poisoning.', date: 'Mar 2025' },
-                { name: 'Celeste Rybski', rating: 3, comment: 'Food is fairly consistent. Don\'t eat the scrambled eggs.', date: 'Mar 2025' }
-            ],
-            'Chipotle': [
-                { name: 'Rae S', rating: 1, comment: 'Worst Chipotle location. Employees were rude.', date: 'Feb 2026' },
-                { name: 'A', rating: 1, comment: 'Waited 40 minutes for cold food made incorrectly.', date: 'Apr 2025' },
-                { name: 'Bianca Bee', rating: 5, comment: 'Destiny was very nice & professional.', date: 'Mar 2026' },
-                { name: 'Bianca Perez', rating: 5, comment: 'People work very fast and are very kind.', date: 'Apr 2025' },
-                { name: 'Rosie D', rating: 5, comment: 'Best bowl I ever had. Made my worst day better.', date: 'May 2025' }
-            ],
-            'Han Dynasty': [
-                { name: 'Noel Abejo', rating: 5, comment: 'Great place for lunch. Spring rolls and dumplings were great.', date: 'Mar 2026' },
-                { name: 'Elaine Chen', rating: 3, comment: 'Disappointed. Won\'t come back for price or portion.', date: 'Dec 2025' },
-                { name: 'jova Gra', rating: 5, comment: 'Manager is amazing. Made up for missing sauce.', date: 'Mar 2026' },
-                { name: 'Preston Smith', rating: 4, comment: 'Solid spicy Szechuan food.', date: 'Apr 2025' },
-                { name: 'Yan', rating: 4, comment: 'Dry hot chicken is 11/10!', date: 'Nov 2025' }
-            ],
-            'Sabrina\'s Cafe': [
-                { name: 'Hans Gurban', rating: 5, comment: 'Absolutely delicious food and outstanding service.', date: 'Jan 2026' },
-                { name: 'Michael Clancy', rating: 5, comment: 'Stuffed French toast was incredible.', date: 'Feb 2026' },
-                { name: 'Mia', rating: 5, comment: 'Wonderful staff every time.', date: 'Feb 2026' },
-                { name: 'Cole Yacono', rating: 5, comment: 'Staff was so accommodating for our group of 12.', date: 'Nov 2025' },
-                { name: 'Sabrina\'s Cafe', rating: 5, comment: 'Thank you for the incredible review!', date: 'Jan 2026' }
-            ],
-            'Tataki Ramen': [
-                { name: 'Raphael Fischer', rating: 5, comment: 'My favorite restaurant in the whole world.', date: 'Mar 2026' },
-                { name: 'Stefani Dee', rating: 4, comment: 'Yummy ramen for a snowy day.', date: 'Feb 2026' },
-                { name: 'Z', rating: 5, comment: 'Fresh ingredients and amazing portions.', date: 'Jan 2026' },
-                { name: 'Kj S', rating: 4, comment: 'Karaage chicken was so delicious.', date: 'Oct 2025' },
-                { name: 'Zainab Ahmed', rating: 5, comment: 'Go-to sushi/ramen place in University City.', date: 'Nov 2025' }
-            ],
-            'CM Chicken Philadelphia': [
-                { name: 'Elif Boyacı', rating: 4, comment: 'Spicy wings were big and filling.', date: 'Dec 2025' },
-                { name: 'Sarah Khan', rating: 5, comment: 'Spicy garlic soy chicken is my favorite. Chicken is halal!', date: 'Sep 2025' },
-                { name: 'Liam S.', rating: 3, comment: 'Spicy was too hot for me. Staff were really nice.', date: 'Sep 2025' },
-                { name: 'Emily Chu', rating: 5, comment: 'Cashier let me charge my phone. Food came out hot and fresh.', date: 'Feb 2026' },
-                { name: 'John Haddad', rating: 3, comment: 'Good if you\'re in a rush.', date: 'Jun 2025' }
-            ],
-            'Shake Shack': [
-                { name: 'Brandon F.', rating: 4, comment: 'Plenty of seating upstairs.', date: 'Feb 2026' },
-                { name: 'Olga K.', rating: 4, comment: 'Nice view from the dining room window.', date: 'Oct 2025' },
-                { name: 'Casey P.', rating: 4, comment: 'Shake was decadent.', date: 'Nov 2024' },
-                { name: 'Amy P.', rating: 5, comment: 'Love their burgers.', date: 'Mar 2023' },
-                { name: 'Shaun T.', rating: 4, comment: 'Order kiosk makes ordering quick.', date: 'Nov 2023' }
-            ],
-            'Schmear Bagel Parlor': [
-                { name: 'Brandon F.', rating: 3, comment: 'Bagel was delicious but needed more ingredients.', date: 'Feb 2026' },
-                { name: 'Elaine T.', rating: 5, comment: 'Loxsmith was $7-8! Would cost $16 in NYC.', date: 'Sep 2025' },
-                { name: 'Sophie S.', rating: 3, comment: 'Bagel needed to be toasted.', date: 'Aug 2025' },
-                { name: 'Garrett L.', rating: 5, comment: 'Great bagel shop! Great prices.', date: 'Nov 2025' },
-                { name: 'Michelle F.', rating: 5, comment: 'Great service. Delicious bagels.', date: 'Nov 2023' }
-            ],
-            'Amma\'s Kitchen': [
-                { name: 'Sarah A.', rating: 5, comment: 'Amma\'s service is welcoming. Spices were delicious.', date: 'Mar 2026' },
-                { name: 'Francis S.', rating: 5, comment: 'Amazing South Indian food. Non-veg mix platter was perfect.', date: 'Mar 2026' },
-                { name: 'Lauren D.', rating: 5, comment: 'Food was delicious. Inside is gorgeous.', date: 'Dec 2025' },
-                { name: 'Dawn O.', rating: 4, comment: 'Great food and service. Prices have become high though.', date: 'Mar 2026' },
-                { name: 'Aaron G.', rating: 5, comment: 'Butter Masala was amazing.', date: 'Oct 2025' }
-            ]
-        };
-
-        // converts number rating (1-5) into star symbols
-        // learned: repeat() creates the stars, then fill the rest with empty stars
-        function displayStars(rating) {
-            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
-        }
-
-        // this runs when you click on a restaurant card
-        // loads the restaurant info, image, and reviews into the modal
-        function openModal(restaurantName) {
-            // get the restaurant data or use default values
-            const data = restaurantData[restaurantName] || {
-                rating: '★★★★☆',
-                description: 'Description coming soon.',
-                website: '#'
-            };
-            
-            // update modal with restaurant info
-            document.getElementById('modal-name').textContent = restaurantName;
-            document.getElementById('modal-rating').textContent = data.rating;
-            document.getElementById('modal-description').textContent = data.description;
-            document.getElementById('modal-link').href = data.website;
-            
-            // load the image
-            const imageName = getImageName(restaurantName);
-            const imagePath = "{{ url_for('static', filename='') }}" + imageName;
-            document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
-            
-            // load the hardcoded reviews for this restaurant FIRST
-            const hardcodedReviews = restaurantReviews[restaurantName] || [];
-            const reviewsList = document.getElementById('reviews-list');
-            
-            if (hardcodedReviews.length === 0) {
-                reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to leave one!</p>';
-            } else {
-                reviewsList.innerHTML = hardcodedReviews.map(review => `
-                    <div class="review-item">
-                        <div class="review-header">
-                            <strong class="reviewer-name">${review.name}</strong>
-                            <span class="review-stars">${displayStars(review.rating)}</span>
-                            <span class="review-date">${review.date}</span>
-                        </div>
-                        <p class="review-comment">${review.comment}</p>
-                    </div>
-                `).join('');
-            }
-            
-            // Then load database reviews (they will be added after hardcoded front end ones)
-            loadReviews(restaurantName, 'restaurant');
-            
-            // show the modal
-            document.getElementById('restaurantModal').style.display = 'block';
-        }
-
-        // closes the pop-up modal
-        function closeModal() {
-            document.getElementById('restaurantModal').style.display = 'none';
-        }
-
-        // if you click outside the modal, it closes
-        window.onclick = function(event) {
-            const modal = document.getElementById('restaurantModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
-    
-    <!-- custom dragon cursor element -->
-    <div class="cursor"></div>
-    <script src="{{ url_for('static', filename='cursor.js') }}"></script>
-    <script src="{{ url_for('static', filename='reviews.js') }}"></script>
+    // if you click outside the modal, it closes
+    window.onclick = function(event) {
+      const modal = document.getElementById('restaurantModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+  
+  <!-- custom dragon cursor element -->
+  <div class="cursor"></div>
+  <script src="{{ url_for('static', filename='cursor.js') }}"></script>
+  <script src="{{ url_for('static', filename='reviews.js') }}"></script>
 </body>
 </html>
-

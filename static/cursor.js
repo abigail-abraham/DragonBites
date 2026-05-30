@@ -1,27 +1,26 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    const cursor = document.querySelector(".cursor");
+  const cursor = document.querySelector(".cursor");
 
-    if (!cursor) {
-        console.error("Error: Could not find the .cursor div!");
-        return;
-    }
+  if (!cursor) {
+    console.error("Error: Could not find the .cursor div!");
+    return;
+  }
 
-    console.log("Cursor script loaded successfully!");
 
-    document.addEventListener("mousemove", (e) => {
-        const width = 70; 
-        const height = 70;
-        
-        cursor.style.left = `${e.clientX - width / 2}px`;
-        cursor.style.top = `${e.clientY - height / 2}px`;
-    });
+  document.addEventListener("mousemove", (e) => {
+    const width = 70;
+    const height = 70;
 
-   document.addEventListener('mousedown', () => {
-        cursor.classList.add('is-clicked');
-    });
+    cursor.style.left = `${e.clientX - width / 2}px`;
+    cursor.style.top = `${e.clientY - height / 2}px`;
+  });
 
-    document.addEventListener('mouseup', () => {
-        cursor.classList.remove('is-clicked');
-    });
+  document.addEventListener('mousedown', () => {
+    cursor.classList.add('is-clicked');
+  });
+
+  document.addEventListener('mouseup', () => {
+    cursor.classList.remove('is-clicked');
+  });
 });
