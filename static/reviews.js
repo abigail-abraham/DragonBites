@@ -1,3 +1,5 @@
+// Reviews System - loads, adds, and deletes user reviews from database
+
 // Reviews System/Section - Which lets users add, view, and delete reviews
 
 // Turns a number (1-5) into star symbols
